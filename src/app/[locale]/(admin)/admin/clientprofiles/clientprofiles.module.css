@@ -1,0 +1,372 @@
+/*
+DOC NAME: clientprofiles.module.css
+LOCATION: /src/app/[locale]/(admin)/admin/clientprofiles/clientprofiles.module.css
+SCOPE: Admin Client Profiles — layout/structure/interaction ONLY.
+STATUS: LOCKED
+AUDITED:
+- Scope compliance: Layout/structure/interaction only (no typography, colors, or identity rules added).
+- Motion: Hover/transition behaviors are paired with prefers-reduced-motion fallbacks.
+- Responsiveness: Uses container queries for row stacking and filter/search layout at narrow widths.
+- Global primitives: Defers visuals to globals (.button*, .form-control, .form-label, hero roles).
+- Removed: redundant/overriding blocks (duplicate selectors) and a global arrow override that may affect other anchors.
+NOTES:
+- No translation keys were changed (CSS only).
+- No functional changes were required for this audit.
+*/
+
+.page {
+	width: 100%;
+	min-height: 100dvh;
+}
+
+.main {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+
+	--shellPad: var(--section-shell, clamp(1rem, 2.4vw, 1.75rem));
+	padding: var(--shellPad);
+	padding-bottom: clamp(2.75rem, 6vw, 5.25rem);
+}
+
+.mainInner {
+	width: min(92vw, var(--content-max-width));
+	margin: 0 auto;
+
+	container-type: inline-size;
+	container-name: adminClientsMain;
+
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-4);
+}
+
+/* FILTER BAR — layout only (surface + visuals come from globals if you wrap with .surface-soft) */
+.filterBar {
+	width: 100%;
+	padding: var(--space-4);
+	border-radius: var(--radius-xl);
+}
+
+.filterRow {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: var(--space-3);
+	flex-wrap: wrap;
+}
+
+.filterChips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-2);
+	align-items: center;
+}
+
+.chip {
+	/* Layout-only tweaks for button sizing consistency in chip cluster */
+	padding-inline: var(--space-4);
+}
+
+/* Search form layout */
+.searchForm {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-2);
+}
+
+/* Field wrapper so clear button can sit inside the input */
+.searchField {
+	position: relative;
+	display: block;
+}
+
+/* Input needs padding-right so text doesn't run under the clear button */
+.searchInput {
+	width: min(52cqw, 360px);
+	min-width: 240px;
+
+	/* room for clear button inside */
+	padding-right: calc(32px + var(--space-2));
+}
+
+/* Search button sits OUTSIDE the input now (no absolute positioning) */
+
+.searchButton {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	white-space: nowrap;
+}
+
+.searchIcon {
+	width: 18px;
+	height: 18px;
+	display: block; /* prevents baseline/line-height offsets */
+}
+
+/* Make the clear button perfectly circular and kill hover/active transforms */
+.clearIconButton {
+	position: absolute;
+	right: var(--space-2);
+	top: 50%;
+	transform: translateY(-50%);
+
+	/* hard square */
+	width: 32px;
+	height: 32px;
+	aspect-ratio: 1 / 1;
+
+	/* defeat global .button sizing */
+	min-width: 32px;
+	min-height: 32px;
+	padding: 0 !important;
+	line-height: 1;
+
+	box-sizing: border-box;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	border-radius: 999px;
+
+	transition: none !important;
+
+}
+
+/* Remove hover/active/focus visual motion and transforms */
+.clearIconButton:hover,
+.clearIconButton:active,
+.clearIconButton:focus,
+.clearIconButton:focus-visible {
+	transform: translateY(-50%); /* keep it centered, no movement */
+}
+
+/* In case globals add transitions/transforms on .button, override locally */
+.clearIconButton,
+.clearIconButton:hover,
+.clearIconButton:active,
+.clearIconButton:focus,
+.clearIconButton:focus-visible {
+	transition: none !important;
+	transform: translateY(-50%) !important;
+}
+
+/* Also stop any inner icon animation */
+.clearIconButton span {
+	font-size: 1.25rem;
+	line-height: 1;
+	transition: none !important;
+	transform: none !important;
+}
+
+
+/* Panel wrapper (list section) */
+.panel {
+	overflow: hidden;
+	border-radius: var(--radius-xl);
+}
+
+.panelHeader {
+	padding: var(--space-4);
+}
+
+.panelHeaderText {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+}
+
+.panelActions {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: flex-end;
+
+	/* more breathing room between sort block + search */
+	gap: var(--space-3);
+
+	width: auto;
+	margin-left: auto;
+}
+
+.panelSort {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+	min-width: min(520px, 100%);
+}
+
+/* List + rows */
+.list {
+	container-type: inline-size;
+	container-name: adminClientsList;
+	display: flex;
+	flex-direction: column;
+}
+
+.rowLink {
+	display: block;
+	text-decoration: none;
+	color: inherit;
+}
+
+.rowLink + .rowLink {
+	border-top: 1px solid var(--panel-border);
+}
+
+.rowInner {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: var(--space-4);
+	padding: var(--space-4);
+}
+
+.rowMain {
+	min-width: 0;
+}
+
+.rowName {
+	margin: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.rowInner {
+	transition: transform 140ms ease;
+	will-change: transform;
+}
+
+.rowLink:hover .rowInner {
+	transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.rowInner {
+		transition: none !important;
+	}
+	.rowLink:hover .rowInner {
+		transform: none !important;
+	}
+}
+
+.metaGrid {
+	margin: var(--space-3) 0 0;
+	padding: 0;
+
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: var(--space-3) var(--space-4);
+}
+
+.metaItem {
+	margin: 0;
+	min-width: 0;
+}
+
+.metaLabel,
+.metaValue {
+	margin: 0;
+	min-width: 0;
+}
+
+.intentLine {
+	margin: var(--space-3) 0 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-1);
+}
+
+.intentLabel,
+.intentValue {
+	min-width: 0;
+}
+
+.rowSide {
+	display: inline-flex;
+	align-items: flex-start;
+	justify-content: flex-end;
+}
+
+.rowCTA {
+	/* Now a .button button-ghost; keep only alignment/layout */
+	white-space: nowrap;
+}
+
+.arrow {
+	display: inline-block;
+	transform: translateX(0);
+	transition: transform 120ms ease;
+}
+
+.rowLink:hover .arrow {
+	transform: translateX(2px);
+}
+
+.emptyState {
+	padding: var(--space-5);
+	text-align: center;
+}
+
+.srOnly {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	clip: rect(0, 0, 0, 0) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
+}
+
+/* Container query: stack row on narrow widths */
+@container adminClientsList (max-width: 760px) {
+	.rowInner {
+		grid-template-columns: 1fr;
+	}
+
+	.rowSide {
+		justify-content: flex-start;
+	}
+
+	.rowCTA {
+		width: 100%;
+		justify-content: center;
+	}
+
+	.metaGrid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@container adminClientsMain (max-width: 760px) {
+	.searchForm {
+		width: 100%;
+	}
+
+	.searchInput {
+		width: 100%;
+		min-width: 0;
+		flex: 1 1 auto;
+	}
+
+	.panelActions {
+		width: 100%;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.arrow {
+		transition: none !important;
+	}
+	.rowLink:hover .arrow {
+		transform: none !important;
+	}
+}
+
+.rowInner {
+	border-radius: var(--radius-lg);
+}

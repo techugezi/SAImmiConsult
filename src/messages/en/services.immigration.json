@@ -1,0 +1,45 @@
+{
+  "ServicesImmigration": {
+    "header": {
+      "title": "Immigration",
+      "subtitle": "Immigration to South Africa",
+      "description": "Clear, personalised guidance for individuals and families who want to relocate to South Africa or explore opportunities in BRICS countries.",
+      "primaryCta": "Speak to a consultant",
+      "secondaryCta": "View FAQ"
+    },
+
+    "toSa": {
+      "title": "Moving to South Africa",
+      "body": "We support clients who wish to relocate to South Africa for work, business, study, retirement or family reasons.",
+      "points": {
+        "0": "Work and critical skills visas",
+        "1": "Study and student visas",
+        "2": "Business and investment visas",
+        "3": "Retirement and financially independent visas",
+        "4": "Family, spousal and dependent visas"
+      }
+    },
+
+    "whySa": {
+      "title": "Why people immigrate to South Africa",
+      "body": "South Africa offers a strong combination of climate, lifestyle, education and opportunity. Many clients choose South Africa for:",
+      "points": {
+        "0": "Comfortable lifestyle and warm climate",
+        "1": "Internationally recognised education at accessible costs",
+        "2": "Business and investment opportunities, especially within BRICS",
+        "3": "More space, nature and family-friendly living environments"
+      }
+    },
+
+    "brics": {
+      "title": "BRICS opportunities",
+      "body": "As a BRICS member, South Africa provides unique access to trade, education and work opportunities across partner countries.",
+      "pills": {
+        "0": "Growing economies",
+        "1": "Cross-border collaboration",
+        "2": "Business expansion",
+        "3": "Education partnerships"
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+	"ClientNav": {
+		"dashboard": "Личный кабинет",
+		"profile": "Профиль",
+		"applications": "Заявления",
+		"documents": "Документы",
+		"logout": "Выйти"
+	}
+}

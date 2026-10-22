@@ -1,0 +1,21 @@
+{
+  "AdminStatusStepWizard": {
+    "eyebrow": "Step {current} of {total}",
+    "stepLabel": "Step {number}: {label}",
+    "stepsNavSuffix": "steps",
+    "completedMark": "Completed",
+    "terminal": {
+      "closed": "Closed",
+      "finished": "Finished",
+      "cancelled": "Cancelled"
+    },
+    "adminSteps": {
+      "documents": {
+        "awaiting": "Awaiting client documents",
+        "review": "Review and validate client documents"
+      },
+      "visaJourney": "Update Visa Journey",
+      "outcome": "Record Visa outcome"
+    }
+  }
+}

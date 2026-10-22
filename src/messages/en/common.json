@@ -1,0 +1,48 @@
+{
+  "common": {
+    "cta": {
+      "contact": "Contact us",
+      "consultation": "Get a free consultation",
+      "learnMore": "Learn more",
+      "readMore": "Read more",
+      "speakToConsultant": "Speak to a consultant",
+      "submit": "Submit",
+      "send": "Send",
+      "whatsapp": "WhatsApp us",
+      "viewAll": "View all",
+      "getStarted": "Get started"
+    },
+
+    "form": {
+      "name": "Full name",
+      "email": "Email address",
+      "phone": "Phone number",
+      "country": "Country",
+      "city": "City",
+      "message": "Message",
+      "optional": "Optional",
+      "select": "Select an option",
+      "enter": "Enter value"
+    },
+
+    "status": {
+      "loading": "Loading...",
+      "success": "Your request has been successfully submitted.",
+      "error": "Something went wrong. Please try again.",
+      "required": "This field is required."
+    },
+
+    "meta": {
+      "siteName": "SA Immi Consult",
+      "languageSwitch": "Change language",
+      "allRightsReserved": "All rights reserved",
+      "poweredBy": "Powered by SA Immi Consult"
+    },
+
+    "tags": {
+      "featured": "Featured",
+      "new": "New",
+      "updated": "Updated"
+    }
+  }
+}

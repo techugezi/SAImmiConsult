@@ -1,0 +1,87 @@
+{
+  "Navbar": {
+    "home": "Home",
+    "about": "About us",
+    "services": "Services",
+    "news": "News",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "login": "Access your portal",
+
+    "sections": {
+      "publicSite": "Public Site",
+      "profile": "Profile"
+    },
+
+    "aria": {
+        "toggleMenu": "Toggle Menu",
+		"mobileMenuTitle": "Mobile navigation menu",
+		"backToMenu": "Back to main menu",
+		"back": "Back",
+		"brand": "SA Immi Consult",
+		"profileMenu": "Profile menu"
+    },
+
+    "profile": {
+      "admin": {
+        "dashboard": "My Portal",
+		"cases": "Client Cases",
+        "applications": "Client Applications",
+        "documents": "Documents",
+        "clients": "Client Profiles",
+		"content": "News & FAQ Content",
+		"account": "My Account"
+      },
+      "client": {
+        "dashboard": "My Portal",
+        "myAccount": "My Account",
+        "myCases": "My Cases",
+        "startNewCase": "Start New Case",
+        "myApplications": "My Applications"
+      }
+    },
+
+    "hrefs": {
+      "public": {
+        "home": "/",
+        "about": "/about",
+        "services": "/services",
+        "news": "/news",
+        "faq": "/faq",
+        "contact": "/contact"
+      },
+
+      "servicesMenu": {
+        "immigration": "/services/immigration",
+        "emigration": "/services/emigration",
+        "visaTypes": "/services/visa-types",
+        "additionalSupport": "/services/additional-support"
+      },
+
+      "profile": {
+        "admin": {
+          "dashboard": "/admin",
+          "applications": "/admin/applications",
+          "documents": "/admin/documents",
+          "clientProfiles": "/admin/clientprofiles"
+        },
+        "client": {
+          "dashboard": "/client",
+          "profile": "/client/profile",
+          "applications": "/client/applications"
+        }
+      }
+    },
+
+    "servicesMenu": {
+      "immigration": "Immigration to South Africa",
+      "immigrationDesc": "Support with South African visas and long-term relocation.",
+      "emigration": "Emigration & working abroad",
+      "emigrationDesc": "Guidance for leaving South Africa and working or studying overseas.",
+      "visaTypes": "Types of visas",
+      "visaTypesDesc": "Overview of work, study, business, family and visitor visas.",
+      "additionalSupport": "Additional support services",
+      "additionalSupportDesc": "Help with education, housing, banking and everyday questions."
+    }
+  }
+}

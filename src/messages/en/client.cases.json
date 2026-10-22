@@ -1,0 +1,110 @@
+{
+  "ClientCases": {
+    "hero": {
+      "title": "Your visa case",
+      "subtitle": "Follow your case progress and see what happens next."
+    },
+    "header": {
+      "title": "Your case progress",
+      "client": "Client",
+      "case": "Case",
+      "application": "Your visa application",
+      "noApplicationYet": "Your visa application has not been activated by your consultant yet.",
+      "activationHint": "Once your consultant activates the visa application, you’ll be able to open it here and review your visa journey.",
+      "docsSummary": "{uploaded}/{required} uploaded · {approved} approved",
+      "actions": {
+        "openApplication": "Open application"
+      },
+      "clickToContactLabel": "Contact your consultant",
+      "applicationBadgeLabels": {
+        "applicationStatus": "Status",
+        "documentStatus": "Document status"
+      }
+    },
+    "Buttons": {
+      "createNewCase": "Create new case"
+    },
+    "filters": {
+      "all": "All",
+      "statusLabel": "Status"
+    },
+    "list": {
+      "title": "Your cases",
+      "subtitle": "Filter and open your cases below.",
+      "empty": "No cases found."
+    },
+    "Confirm": {
+      "newCaseTitle": "Start a new case?",
+      "newCaseActiveBody": "You already have an active case. Starting a new case may duplicate your intake. Do you want to continue?"
+    },
+    "intake": {
+      "title": "Review your case summary",
+      "subtitle": "Review the information you shared with us. You can continue to step 2.",
+      "keyFacts": "Information provided by you",
+      "draftRecommendation": "Draft recommendation",
+      "fields": {
+        "destination": "Destination",
+        "visaType": "Visa type",
+        "timeframe": "Timeframe",
+        "extraNotes": "Notes"
+      },
+      "draft": {
+        "fields": {
+          "confidence": "Confidence",
+          "suggestedType": "Suggested route",
+          "rationale": "Reasoning",
+          "generatedAt": "Generated"
+        }
+      }
+    },
+    "consultation": {
+      "title": "Prepare for a consultation",
+      "subtitle": "See your consultation details and any notes from your consultant.",
+      "sections": {
+        "scheduleTitle": "Schedule",
+        "notesHelp": "Notes from your consultant."
+      },
+      "fields": {
+        "channel": "Channel",
+        "scheduledFor": "Scheduled for",
+        "link": "Meeting link"
+      },
+      "channels": {
+        "zoom": "Zoom",
+        "googleMeet": "Google Meet",
+        "google_meet": "Google Meet",
+        "phone": "Phone",
+        "whatsapp": "WhatsApp",
+        "telegram": "Telegram",
+        "email": "Email"
+      },
+      "currentValue": "Current: {value}",
+      "clickToContact": {
+        "action": "Open in {method}",
+        "methods": {
+          "whatsapp": "WhatsApp",
+          "telegram": "Telegram"
+        }
+      }
+    },
+    "plan": {
+      "fields": {
+        "consultantNote": "Notes from the consultant"
+      }
+    },
+    "activation": {
+      "subtitle": "Your consultant is gathering your information to skillfully prepare your visa journey.",
+      "title": "Your visa journey is about to begin",
+      "activeApplicationBody": "Your visa journey has started. Please open your application and upload the documents listed there. Your consultant will review them and let you know if anything else is needed."
+    },
+    "preview": {
+      "subtitle": "Your next steps, at a glance.",
+      "nextStepTitle": "Your next step"
+    },
+    "timeline": {
+      "title": "Timeline",
+      "subtitle": "Your case activity log.",
+      "appEvent": "Application event: {type}"
+    }
+  }
+}

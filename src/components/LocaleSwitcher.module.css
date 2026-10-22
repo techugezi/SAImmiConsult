@@ -1,0 +1,164 @@
+/*
+DOC NAME: LocaleSwitcher.module.css
+LOCATION: /src/components/LocaleSwitcher.module.css
+SCOPE: Visual styling only for locale toggle. No tokens/identity overrides.
+STATUS: UNLOCKED
+*/
+/* LocaleSwitcher.module.css */
+
+.container {
+	display: inline-flex;
+	align-items: center;
+	gap: clamp(0.32rem, 0.85vw, 0.52rem);
+	user-select: none;
+}
+
+.containerHeader {
+	/* compact in top nav */
+}
+
+.containerDrawer {
+	/* larger spacing in drawer for touch */
+	gap: clamp(0.45rem, 1.15vw, 0.68rem);
+}
+
+.langLabel {
+	font-size: var(--text-xs);
+	font-weight: 800;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	line-height: 1;
+	transition: color 160ms ease, opacity 160ms ease, transform 160ms ease;
+}
+
+/* Screenshot look: active = teal, inactive = soft grey */
+.langActive {
+	color: var(--protea-pink);
+	opacity: 1;
+}
+
+.langInactive {
+	color: rgba(100, 116, 139, 0.72);
+	opacity: 1;
+}
+
+.toggle {
+	appearance: none;
+	border: 0;
+	padding: 0;
+	background: transparent;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+}
+
+.toggle:focus-visible {
+	outline: 2px solid rgba(42, 161, 152, 0.45);
+	outline-offset: 4px;
+	border-radius: 999px;
+}
+
+.track {
+	position: relative;
+	display: inline-block;
+
+	/* Slightly smaller than before */
+	width: clamp(3.05rem, 6.2vw, 3.75rem);
+	height: clamp(1.42rem, 3.05vw, 1.8rem);
+
+	border-radius: 999px;
+	overflow: hidden;
+
+	/* Editorial glassmorphism */
+	border: 1px solid rgba(148, 163, 184, 0.35);
+	background: rgba(255, 255, 255, 0.18);
+
+	box-shadow:
+		0 14px 34px rgba(2, 6, 23, 0.14),
+		0 2px 10px rgba(2, 6, 23, 0.08),
+		inset 0 1px 0 rgba(255, 255, 255, 0.55),
+		inset 0 -1px 0 rgba(2, 6, 23, 0.06);
+
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+
+	transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background 160ms ease;
+
+	transform: translateZ(0);
+}
+
+.toggle:hover .track {
+	border-color: rgba(148, 163, 184, 0.55);
+	background: rgba(255, 255, 255, 0.24);
+	box-shadow:
+		0 18px 44px rgba(2, 6, 23, 0.16),
+		0 3px 12px rgba(2, 6, 23, 0.09),
+		inset 0 1px 0 rgba(255, 255, 255, 0.62),
+		inset 0 -1px 0 rgba(2, 6, 23, 0.07);
+}
+
+.toggle:active .track {
+	transform: translateY(1px) translateZ(0);
+}
+
+/* Flag stays “full” under the glass */
+.flag {
+	object-fit: cover;
+	object-position: center;
+	filter: saturate(1.04) contrast(1.02);
+}
+
+/* White circular knob with depth */
+.track::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+
+	/* knob size derived from track height for perfect circle */
+	width: calc(clamp(1.42rem, 3.05vw, 1.8rem) - 0.46rem);
+	height: calc(clamp(1.42rem, 3.05vw, 1.8rem) - 0.46rem);
+
+	border-radius: 999px;
+
+	/* Slightly translucent “porcelain” with inner highlight */
+	background:
+		radial-gradient(120% 120% at 30% 25%, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.9) 55%, rgba(255, 255, 255, 0.86) 100%);
+
+	border: 1px solid rgba(148, 163, 184, 0.35);
+
+	box-shadow:
+		0 10px 22px rgba(2, 6, 23, 0.18),
+		0 2px 6px rgba(2, 6, 23, 0.12),
+		inset 0 1px 0 rgba(255, 255, 255, 0.75),
+		inset 0 -1px 0 rgba(2, 6, 23, 0.08);
+
+	pointer-events: none;
+}
+
+/* knob position */
+.trackEn::after {
+	left: 0.23rem;
+}
+
+.trackRu::after {
+	left: calc(100% - (clamp(1.42rem, 3.05vw, 1.8rem) - 0.46rem) - 0.23rem);
+}
+
+.toggle:hover .track::after {
+	box-shadow:
+		0 12px 26px rgba(2, 6, 23, 0.2),
+		0 3px 7px rgba(2, 6, 23, 0.13),
+		inset 0 1px 0 rgba(255, 255, 255, 0.78),
+		inset 0 -1px 0 rgba(2, 6, 23, 0.09);
+}
+
+.toggle:active .track::after {
+	transform: translateY(calc(-50% + 1px));
+}
+
+/* Drawer sizing: still bigger than header, but slightly reduced */
+.containerDrawer .track {
+	width: clamp(3.35rem, 8.6vw, 4.15rem);
+	height: clamp(1.55rem, 3.85vw, 1.95rem);
+}

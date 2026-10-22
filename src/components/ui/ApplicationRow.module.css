@@ -1,0 +1,118 @@
+/*
+DOC NAME: ApplicationRow.module.css
+LOCATION: /src/components/ui/ApplicationRow.module.css
+SCOPE: ApplicationRow — layout & interaction ONLY. No typography roles. No badge/button styling. No global token edits.
+STATUS: LOCKED
+AUDITED:
+- Scope: Layout/interaction only; no typography roles, colors, or identity styles introduced.
+- Globals: Uses existing tokens only (e.g., --space-1) and does not modify global primitives.
+- Safety: Badge truncation is non-visual-identity (overflow/ellipsis only) and prevents layout breakage with long labels.
+- Interaction: Arrow hover motion is scoped to .row and :global(a:hover/:focus-visible); no global selector that could restyle unrelated components.
+- Responsiveness: Small-screen stacking is isolated to this module (<=420px) to prevent badge/CTA squeeze without affecting other rows.
+APPLIES TO: /src/components/ui/ApplicationRow.tsx
+NOTES:
+- Mirrors CaseRow interaction: rounded hover highlight via ::before + inset divider via ::after
+CONTENT:
+*/
+
+
+.row {
+	width: 100%;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Badge: truncate safely (no identity changes)                               */
+/* -------------------------------------------------------------------------- */
+
+.badge {
+	display: inline-flex;
+	align-items: center;
+	min-width: 0;
+	max-width: clamp(9rem, 20cqw, 16rem);
+}
+
+.badgeText {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Text blocks — NO typography, NO color                                      */
+/* -------------------------------------------------------------------------- */
+
+.name,
+.subtitle,
+.dates,
+.meta {
+	margin: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.metaStack {
+	display: grid;
+	gap: var(--space-1);
+	min-width: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+/* CTA                                                                        */
+/* -------------------------------------------------------------------------- */
+
+.cta {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-1);
+	line-height: 1;
+	white-space: nowrap;
+	flex-shrink: 0;
+}
+.arrow {
+	display: inline-block;
+	transform: translateX(0);
+	transition: transform 120ms ease;
+}
+
+.row:hover .arrow {
+	transform: translateX(2px);
+}
+
+:global(a:hover) .arrow,
+:global(a:focus-visible) .arrow {
+	transform: translateX(2px);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Narrow screens: stack badge above CTA (prevents “badge + button” squeeze)  */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 970px) {
+	.row {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	/* side becomes "top bar" */
+	.row > :global(div) {
+		width: 100%;
+	}
+
+	/* RowItem side div is second child; push it above main visually */
+	.row > :global(div):last-child {
+		order: -1;
+		justify-content: flex-start;
+		align-items: flex-start;
+	}
+
+	.cta {
+		display: none;
+	}
+
+	.badge {
+		max-width: min(100%, 22rem);
+	}
+}
+

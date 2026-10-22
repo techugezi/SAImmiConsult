@@ -1,0 +1,347 @@
+/*
+DOC NAME: details.module.css
+LOCATION: /src/app/[locale]/(admin)/admin/cases/[id]/details.module.css
+SCOPE: Page layout + interaction ONLY (NO typography/colors/identity).
+STATUS: LOCKED
+AUDIT:
+- Removed duplicated/conflicting blocks: .arrow (2x), @media (prefers-reduced-motion) (2x), .formActions (2x).
+- Normalized arrow affordance to ONE rule-set using global .button hover + focus-visible (covers all CTAs consistently).
+- Kept existing overflow wrapping safeguards for .twoCol/.kvGrid (prod-safe for unbroken strings).
+- Added overflow hardening for common panel blocks (.cardBlock/.panelStack/.timeline*/.check*) to prevent horizontal scroll from long tokens/IDs/URLs.
+- Kept all declarations layout/interaction only; no color/typography/identity introduced.
+NOTES:
+- Visual identity uses global primitives: Panel/DisclosurePanel + .surface-soft + .badge + .button + .form-control.
+*/
+
+.headerActions {
+	display: flex;
+	gap: var(--space-3);
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	width: 100%;
+}
+
+/* Arrow affordance (interaction only) */
+.arrow {
+	display: inline-block;
+	transform: translateX(0);
+	transition: transform 140ms ease;
+}
+
+:global(.button):hover .arrow,
+:global(.button):focus-visible .arrow {
+	transform: translateX(2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.arrow {
+		transition: none;
+	}
+	:global(.button):hover .arrow,
+	:global(.button):focus-visible .arrow {
+		transform: none;
+	}
+}
+
+/* Two-column blocks */
+.twoCol {
+	display: grid;
+	gap: var(--space-4);
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+
+	/* overflow hardening */
+	min-width: 0;
+}
+
+@media (max-width: 900px) {
+	.twoCol {
+		grid-template-columns: 1fr;
+	}
+}
+
+.cardBlock {
+	padding: var(--space-4);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-3);
+
+	/* overflow hardening */
+	min-width: 0;
+}
+
+.kvGrid {
+	display: grid;
+	gap: var(--space-3);
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+
+	/* overflow hardening */
+	min-width: 0;
+}
+
+@media (max-width: 720px) {
+	.kvGrid {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* ==========================================================================
+   Intake summary (Key Facts) — prevent user text overflow
+   - Ensures long unbroken strings wrap INSIDE the panel
+   ========================================================================== */
+
+.twoCol > * {
+	min-width: 0; /* allow grid children to shrink instead of overflowing */
+}
+
+.kvGrid > * {
+	min-width: 0; /* allow each key-fact cell to shrink */
+}
+
+/* Any text inside kv cells must be allowed to break long unbroken strings */
+.kvGrid p {
+	min-width: 0;
+	max-width: 100%;
+	overflow-wrap: anywhere; /* modern: breaks long strings safely */
+	word-break: break-word; /* fallback for older engines */
+}
+
+/* Forms */
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-4);
+
+	/* overflow hardening */
+	min-width: 0;
+}
+
+.formGrid {
+	display: grid;
+	gap: var(--space-4);
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+
+	/* overflow hardening */
+	min-width: 0;
+}
+
+@media (max-width: 820px) {
+	.formGrid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.formLocked {
+	opacity: 0.72;
+	filter: saturate(0.85);
+}
+
+.formLockNotice {
+	padding: var(--space-4);
+	display: grid;
+	gap: var(--space-2);
+	margin-top: var(--space-3);
+
+	/* overflow hardening */
+	min-width: 0;
+}
+
+.formLockActions {
+	margin-top: var(--space-2);
+	display: flex;
+	justify-content: flex-end;
+
+	/* overflow hardening */
+	min-width: 0;
+}
+
+.field,
+.fieldFull {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+
+	/* overflow hardening */
+	min-width: 0;
+}
+
+.fieldFull {
+	grid-column: 1 / -1;
+}
+
+.formActions {
+	display: flex;
+	justify-content: flex-end;
+	gap: var(--space-3);
+	flex-wrap: wrap;
+
+	/* Creates breathing room above the Save button row */
+	margin-top: var(--space-4);
+
+	/* overflow hardening */
+	min-width: 0;
+}
+
+.formInline {
+	display: flex;
+	justify-content: flex-start;
+	gap: var(--space-3);
+	flex-wrap: wrap;
+	align-items: center;
+
+	/* adds breathing room above/below without squishing */
+	margin-top: var(--space-3);
+
+	/* overflow hardening */
+	min-width: 0;
+}
+
+.panelStack {
+	display: grid;
+	gap: var(--space-3);
+
+	/* overflow hardening */
+	min-width: 0;
+}
+
+/* Checklist */
+.checklist {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+
+	/* overflow hardening */
+	min-width: 0;
+}
+
+.checkRow {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--space-3);
+	padding: var(--space-3) var(--space-4);
+
+	/* overflow hardening */
+	min-width: 0;
+}
+
+.checkbox {
+	width: 18px;
+	height: 18px;
+	margin-top: 0.2rem;
+}
+
+.checkText {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+	min-width: 0;
+
+	/* ensure long tokens wrap instead of overflow */
+	overflow-wrap: anywhere;
+	word-break: break-word;
+}
+
+/* Preconditions */
+.preconditions {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+
+	/* overflow hardening */
+	min-width: 0;
+}
+
+.preconditions li {
+	min-width: 0;
+	overflow-wrap: anywhere;
+	word-break: break-word;
+}
+
+/* Preview CTAs */
+.previewActions {
+	display: flex;
+	justify-content: flex-end;
+	gap: var(--space-3);
+	flex-wrap: wrap;
+	margin-top: var(--space-3);
+
+	/* overflow hardening */
+	min-width: 0;
+}
+
+/* ==========================================================================
+	Consultation — layout & interaction ONLY
+	========================================================================== */
+
+.consultationStageRow {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-2);
+	margin-top: var(--space-3);
+	margin-bottom: var(--space-4);
+
+	/* overflow hardening */
+	min-width: 0;
+}
+
+.consultationSections {
+	display: grid;
+	gap: var(--space-3);
+
+	/* overflow hardening */
+	min-width: 0;
+}
+
+.consultationSectionHeader {
+	display: grid;
+	gap: var(--space-1);
+	margin-bottom: var(--space-3);
+
+	/* overflow hardening */
+	min-width: 0;
+}
+
+.consultationSectionGrid {
+	display: grid;
+	gap: var(--space-3);
+	grid-template-columns: repeat(auto-fit, minmax(min(22rem, 100%), 1fr));
+
+	/* overflow hardening */
+	min-width: 0;
+}
+
+.guardrails {
+	margin-top: var(--space-3);
+	display: grid;
+	gap: var(--space-2);
+
+	/* overflow hardening */
+	min-width: 0;
+}
+
+.guardrailsList {
+	margin: 0;
+	padding-left: 1.1em;
+	display: grid;
+	gap: var(--space-1);
+
+	/* overflow hardening */
+	min-width: 0;
+}
+
+.guardrailsList li {
+	min-width: 0;
+	overflow-wrap: anywhere;
+	word-break: break-word;
+}
+
+.noteTextarea {
+	min-height: clamp(10rem, 16cqw, 16rem);
+	resize: vertical;
+
+	/* overflow hardening */
+	max-width: 100%;
+}

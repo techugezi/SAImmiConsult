@@ -1,0 +1,48 @@
+{
+  "common": {
+    "cta": {
+      "contact": "Связаться с нами",
+      "consultation": "Получить консультацию",
+      "learnMore": "Узнать больше",
+      "readMore": "Подробнее",
+      "speakToConsultant": "Связаться с консультантом",
+      "submit": "Отправить",
+      "send": "Отправить",
+      "whatsapp": "Написать в WhatsApp",
+      "viewAll": "Показать всё",
+      "getStarted": "Начать"
+    },
+
+    "form": {
+      "name": "Полное имя",
+      "email": "Эл. почта",
+      "phone": "Телефон",
+      "country": "Страна",
+      "city": "Город",
+      "message": "Сообщение",
+      "optional": "Необязательно",
+      "select": "Выберите вариант",
+      "enter": "Введите значение"
+    },
+
+    "status": {
+      "loading": "Загрузка...",
+      "success": "Ваш запрос успешно отправлен.",
+      "error": "Произошла ошибка. Попробуйте ещё раз.",
+      "required": "Это поле обязательно для заполнения."
+    },
+
+    "meta": {
+      "siteName": "SA Immi Consult",
+      "languageSwitch": "Сменить язык",
+      "allRightsReserved": "Все права защищены",
+      "poweredBy": "Разработано SA Immi Consult"
+    },
+
+    "tags": {
+      "featured": "Важное",
+      "new": "Новое",
+      "updated": "Обновлено"
+    }
+  }
+}

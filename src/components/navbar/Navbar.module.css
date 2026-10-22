@@ -1,0 +1,846 @@
+/* src/components/Navbar.module.css */
+
+/* ==========================================================================
+   MAIN NAVBAR CONTAINER
+   ========================================================================== */
+   
+.responsivePending .navLinks,
+.responsivePending .rightControlsDesktop {
+	visibility: hidden;
+}
+   
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+
+	z-index: 1001;
+	transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+	--dropdown-open-y: 0px;
+	--dropdown-closed-y: 10px;
+	--dropdown-pad-top: 24px;
+}
+
+.navbarHidden {
+	transform: translateY(-100%);
+}
+
+.navContainer {
+	max-width: min(94svw, calc(var(--content-max-width) + 80px));
+	margin: 0 auto;
+	padding: clamp(0.85rem, 1.8svw, 1.15rem) clamp(1rem, 2.2svw, 1.5rem);
+
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	align-items: center;
+	gap: var(--space-3);
+
+	position: relative;
+	z-index: 1010;
+}
+
+/* ==========================================================================
+   BRAND / LOGO
+   ========================================================================== */
+.brandLink {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+
+	flex: 0 0 auto;
+	min-width: 0;
+
+	position: relative;
+	z-index: 3;
+}
+
+.brandLogo {
+	height: clamp(30px, 4.6svw, 52px);
+	width: auto;
+	max-width: min(260px, 55svw);
+	object-fit: contain;
+	display: block;
+}
+
+/* ==========================================================================
+   MOBILE TOP RIGHT
+   ========================================================================== */
+.mobileTopRight {
+	display: none;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 0.5rem;
+
+	margin-left: auto;
+	flex: 0 0 auto;
+
+	position: relative;
+	z-index: 3;
+}
+
+/* ==========================================================================
+   DESKTOP RIGHT CONTROLS
+   ========================================================================== */
+.rightControlsDesktop {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+
+	margin-left: auto;
+	flex: 0 0 auto;
+
+	position: relative;
+	z-index: 3;
+}
+
+/* ==========================================================================
+   SCRIM
+   ========================================================================== */
+.scrim {
+	position: fixed;
+	inset: 0;
+	background-color: rgba(15, 23, 42, 0.18);
+	z-index: 998;
+
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease;
+
+	backdrop-filter: blur(15px);
+	-webkit-backdrop-filter: blur(5px);
+}
+
+.scrimVisible {
+	opacity: 1;
+	visibility: visible;
+}
+/* ==========================================================================
+   HAMBURGER TOGGLE (premium dot → pill → rounded X)
+   ========================================================================== */
+.mobileToggle {
+	background: transparent;
+	border: none;
+	cursor: pointer;
+
+	width: 44px;
+	height: 44px;
+	padding: 0;
+
+	position: relative;
+	z-index: 1105;
+
+	display: grid;
+	place-items: center;
+	border-radius: 999px;
+}
+
+.mobileToggle:focus-visible {
+	outline: none;
+	box-shadow: 0 0 0 4px rgba(229, 115, 115, 0.16);
+	border: 1px solid rgba(229, 115, 115, 0.28);
+}
+
+/* Container for 3-dot icon */
+.hamburger {
+	/* Tune these to taste */
+	--dot: 4px;     /* dot diameter */
+	--gap: 8px;     /* distance between dots */
+	--barW: 22px;   /* X stroke length */
+	--midW: 12px;   /* intermediate "pill" width */
+	--stroke: 4px;  /* X thickness (match --dot) */
+	--radius: 999px;
+
+	position: relative;
+	width: 24px;
+	height: 24px;
+
+	z-index: 1106;
+
+	display: grid;
+	place-items: center;
+
+	transform: translateZ(0);
+}
+
+/* Base: dots */
+.hamburger span {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+
+	width: var(--dot);
+	height: var(--dot);
+	border-radius: var(--radius);
+	background-color: rgba(51, 65, 85, 0.95);
+
+	transform-origin: center;
+	transform: translateX(-50%) translateY(-50%);
+
+	will-change: transform, opacity, width, height;
+
+	/* Premium feel: width expands first, then transform rotates */
+	transition:
+		width 260ms cubic-bezier(0.16, 1, 0.3, 1),
+		height 260ms cubic-bezier(0.16, 1, 0.3, 1),
+		transform 420ms cubic-bezier(0.16, 1, 0.3, 1) 90ms,
+		opacity 180ms ease;
+}
+
+.hamburger span:nth-child(1) {
+	transform: translate(-50%, -50%) translateY(calc(-1 * var(--gap, 0px)));
+}
+
+.hamburger span:nth-child(2) {
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.hamburger span:nth-child(3) {
+	transform: translateX(-50%) translateY(-50%) translateY(var(--gap, 0px));
+}
+
+/* ==========================
+   OPEN: dot → short pill stage
+   (applies immediately when active)
+   ========================== */
+.hamburgerActive span:nth-child(1),
+.hamburgerActive span:nth-child(2),
+.hamburgerActive span:nth-child(3) {
+	width: var(--midW);
+	height: var(--stroke);
+	border-radius: var(--radius);
+}
+
+/* ==========================
+   OPEN: rotate into X stage
+   - We "promote" only the outer bars to full width for the X
+   - The delayed transform makes the pill stretch happen first
+   ========================== */
+.hamburgerActive span:nth-child(1),
+.hamburgerActive span:nth-child(3) {
+	width: var(--barW);
+}
+
+.hamburgerActive span:nth-child(1) {
+	transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.hamburgerActive span:nth-child(2) {
+	opacity: 0;
+	transform: translate(-50%, -50%) scale(0.85);
+}
+
+.hamburgerActive span:nth-child(3) {
+	transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Optional: subtle "pressed" feel when open */
+.hamburgerActive {
+	transform: scale(1.02) translateZ(0);
+	transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.hamburger span,
+	.hamburgerActive {
+		transition: none !important;
+	}
+}
+
+/* ==========================================================================
+   NAV LINKS (DESKTOP DEFAULT)
+   ========================================================================== */
+.navLinks {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	gap: clamp(0.35rem, 1.2vw, 0.75rem);
+
+	position: static;
+	width: auto;
+	height: auto;
+
+	background: transparent;
+	transform: none;
+	visibility: visible;
+}
+
+.navItem {
+	width: auto;
+	position: relative;
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+
+.link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	padding: 0.55rem 0.9rem;
+	border-radius: 999px;
+	text-decoration: none;
+}
+
+.linkActive{
+	/* full pill edge highlight */
+	box-shadow:
+		0 0 0 2px color-mix(in srgb, var(--protea-pink) 85%, transparent),
+		0 14px 34px rgba(15, 23, 42, 0.10);
+	border-color: color-mix(in srgb, var(--protea-pink) 70%, rgba(15, 23, 42, 0.10));
+}
+
+/* ==========================================================================
+   SERVICES (DESKTOP) (LOCKED)
+   ========================================================================== */
+.servicesRow {
+	display: flex;
+	align-items: center;
+	gap: 0.25rem;
+}
+
+.chevronToggle {
+	background: none;
+	border: none;
+	padding: 0.5rem 0.5rem;
+	cursor: pointer;
+	border-radius: 999px;
+}
+
+.chevron {
+	display: inline-block;
+	font-size: 0.7rem;
+	transition: transform 0.25s ease;
+	color: rgba(100, 116, 139, 0.95);
+}
+
+.chevronRotate {
+	transform: rotate(180deg);
+}
+
+.servicesDropdown {
+	position: absolute;
+	top: 100%;
+	left: 50%;
+
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+
+	transition: opacity 160ms ease, transform 160ms ease, visibility 160ms ease;
+	z-index: 50;
+	padding-top: 24px;
+	will-change: transform, opacity;
+	
+	padding-top: var(--dropdown-pad-top);
+	transform: translateX(-50%) translateY(var(--dropdown-closed-y));
+}
+
+.servicesDropdownOpen {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+	transform: translateX(-50%) translateY(6px);
+}
+
+.servicesDropdownInner {
+	padding: 0.75rem;
+	min-width: min(760px, 86vw);
+}
+
+.servicesGrid {
+	display: grid;
+	gap: var(--space-2);
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* ==========================================================================
+   DESKTOP PROFILE DROPDOWN
+   ========================================================================== */
+   
+   
+.desktopProfileWrap {
+	position: relative;
+	display: flex;
+	height: 100%;
+	align-items: center;
+}
+
+.desktopProfileDropdown {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	padding-top: 24px;
+	width: 300px;
+
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 160ms ease, transform 160ms ease, visibility 160ms ease;
+	
+	padding-top: var(--dropdown-pad-top);
+	transform: translateY(var(--dropdown-closed-y));
+
+	z-index: 100;
+}
+
+.desktopProfileWrap:hover .desktopProfileDropdown {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(var(--dropdown-open-y));
+}
+
+.desktopProfileDropdownInner {
+	padding: 0.75rem;
+}
+
+.desktopProfileList {
+	display: grid;
+	gap: 0.35rem;
+}
+
+.desktopProfileLink {
+	justify-content: flex-start;
+}
+
+/* Add breathing room + section separation for Logout */
+.desktopLogout {
+	margin-top: 0.6rem;
+	padding-top: 0.6rem;
+
+	/* subtle divider like mobile */
+	border-top: 1px solid rgba(15, 23, 42, 0.10);
+}
+
+/* ==========================================================================
+   UTILS
+   ========================================================================== */
+.srOnly {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
+
+
+@media (max-width: 970px) {
+	.navContainer {
+		position: relative; /* already is, but keep explicit */
+	}
+	
+	.navbarHidden {
+		transform: translate3d(0, -100%, 0);
+	}
+	
+	.rightControlsDesktop {
+		display: none !important;
+	}
+
+	.mobileTopRight {
+		/* remove layout participation */
+		position: absolute;
+		right: clamp(1rem, 2.2vw, 1.5rem); /* match container padding-x */
+		top: 50%;
+		transform: translateY(-50%);
+	
+		margin-left: 0; /* important */
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		z-index: 3;
+	}
+
+	.scrim {
+		z-index: 1400;
+		overflow: hidden;
+		overscroll-behavior: none;
+		-webkit-overflow-scrolling: auto;
+	}
+
+	.mobileToggle {
+		z-index: 9100;
+	}
+
+	.hamburger {
+		z-index: 9101;
+	}
+/* =========================================================
+   MOBILE: define ONE shared "surface" + "blur" for nav + drawer
+   ========================================================= */
+.navbar {
+	--nav-surface: rgba(255, 255, 255, 0.55);
+	--nav-blur: 15px;
+
+	z-index: 2000;
+	position: fixed;
+	isolation: isolate;
+
+	/* IMPORTANT:
+	   Do NOT set transform here, it overrides .navbarHidden on mobile. */
+	will-change: transform;
+}
+
+/* ---------------------------
+   MOBILE DROP-DOWN PANEL
+   "CURTAIN / UNCOVER" REVEAL (OPEN + CLOSE)
+   --------------------------- */
+.mobilePanel {
+	/* match navbar exactly */
+	--drawer-surface: var(--nav-surface);
+	--drawer-blur: var(--nav-blur);
+	--drawer-ledge: 34px;
+
+	/* timing */
+	--curtain-ms: 520ms;
+	--curtain-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+	position: absolute;
+	top: calc(100%);
+	left: 0;
+	right: 0;
+
+	max-height: calc(100dvh - var(--nav-height, 84px));
+
+	border-bottom-left-radius: var(--radius-xl);
+	border-bottom-right-radius: var(--radius-xl);
+
+	box-shadow: 0 22px 60px rgba(15, 23, 42, 0.18);
+
+	overflow: hidden;
+	z-index: 1500;
+
+	background-color: var(--drawer-surface);
+	backdrop-filter: blur(var(--drawer-blur));
+	-webkit-backdrop-filter: blur(var(--drawer-blur));
+
+	/* ===== CLOSED STATE ===== */
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+
+	clip-path: inset(0 0 100% 0 round 0 0 var(--radius-xl) var(--radius-xl));
+	-webkit-clip-path: inset(0 0 100% 0 round 0 0 var(--radius-xl) var(--radius-xl));
+
+	transition:
+		-webkit-clip-path var(--curtain-ms) var(--curtain-ease),
+		clip-path var(--curtain-ms) var(--curtain-ease),
+		opacity 140ms ease,
+		visibility 0ms linear var(--curtain-ms);
+
+	transform: translateZ(0);
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	will-change: clip-path, opacity;
+}
+
+.mobilePanelOpen {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+
+	clip-path: inset(0 0 0 0 round 0 0 var(--radius-xl) var(--radius-xl));
+	-webkit-clip-path: inset(0 0 0 0 round 0 0 var(--radius-xl) var(--radius-xl));
+
+	transition:
+		-webkit-clip-path var(--curtain-ms) var(--curtain-ease),
+		clip-path var(--curtain-ms) var(--curtain-ease),
+		opacity 140ms ease,
+		visibility 0ms;
+}
+
+/* =========================================================
+   Invisible "ledge" mask lives on the WRAPPER,
+   so ALL content (including PROFILE/nav-panel) clips.
+   ========================================================= */
+.mobilePanelBody {
+	height: 100%;
+	max-height: inherit;
+
+	overflow: hidden;
+
+	border-bottom-left-radius: var(--radius-xl);
+	border-bottom-right-radius: var(--radius-xl);
+
+	position: relative;
+	isolation: isolate;
+
+	/* ✅ mask the whole content stack (NOT the scroller) */
+	-webkit-mask-image: linear-gradient(
+		to bottom,
+		#000 0%,
+		#000 calc(100% - (var(--drawer-ledge) + env(safe-area-inset-bottom, 0px)) - 10px),
+		transparent calc(100% - (var(--drawer-ledge) + env(safe-area-inset-bottom, 0px))),
+		transparent 100%
+	);
+	mask-image: linear-gradient(
+		to bottom,
+		#000 0%,
+		#000 calc(100% - (var(--drawer-ledge) + env(safe-area-inset-bottom, 0px)) - 10px),
+		transparent calc(100% - (var(--drawer-ledge) + env(safe-area-inset-bottom, 0px))),
+		transparent 100%
+	);
+
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+
+	transform: translateZ(0);
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+/* =========================================================
+   INNER SCROLLER (scrolling happens here)
+   NO MASK HERE anymore.
+   ========================================================= */
+.mobileScroller {
+	height: 100%;
+	max-height: inherit;
+
+	overflow-y: auto;
+	overflow-x: hidden;
+
+	position: relative;
+
+	-webkit-overflow-scrolling: touch;
+	overscroll-behavior: contain;
+
+	/* ✅ real "ledge": extra scrollable space so content can slide under */
+	padding-bottom: calc(
+		var(--drawer-ledge) + env(safe-area-inset-bottom, 0px) + var(--space-6)
+	);
+	box-sizing: border-box;
+
+	scroll-padding-bottom: calc(
+		var(--drawer-ledge) + env(safe-area-inset-bottom, 0px)
+	);
+
+	transform: translateZ(0);
+}
+
+
+	/* Sub-view slide (main <-> services) */
+	.mobileViewport {
+		display: flex;
+		width: 200%;
+
+		backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+
+		transform: translate3d(0, 0, 0);
+		transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+		will-change: transform;
+
+		position: relative;
+		z-index: 1;
+	}
+
+	.mobileViewport[data-view="services"] {
+		transform: translate3d(-50%, 0, 0);
+	}
+
+	.mobileView {
+		flex: 0 0 50%;
+		min-width: 50%;
+		overflow: hidden;
+	}
+	
+	.mobileLocaleSpacer {
+		min-height: clamp(56px, 10svh, 84px);
+		padding: 0 var(--space-4);
+	
+		display: flex;
+		align-items: center;
+	}
+	
+
+	.mobileSectionTitle {
+  width: 100%;
+  padding: var(--space-6) var(--space-4) var(--space-2);
+  padding-top: 0;
+	}
+
+	.drawerSectionLabel {
+		display: inline-block;
+		font-size: var(--text-xs);
+		font-weight: var(--weight-semibold);
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: rgba(15, 23, 42, 0.62);
+	}
+
+	.mobileServicesHeaderRow {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: var(--space-2);
+	}
+
+	.mobileBackPill {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+
+		border: 1px solid rgba(15, 23, 42, 0.14);
+		background: rgba(255, 255, 255, 0.6);
+		border-radius: 999px;
+
+		padding: 0.55rem 0.85rem;
+		cursor: pointer;
+
+		color: rgba(15, 23, 42, 0.82);
+		font-weight: var(--weight-semibold);
+	}
+
+	.mobileBackPill:focus-visible {
+		outline: none;
+		box-shadow: 0 0 0 4px rgba(229, 115, 115, 0.16);
+		border-color: rgba(229, 115, 115, 0.28);
+	}
+
+	/* Lists / items */
+	.mobileList {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2);
+	}
+
+	.mobileListItem {
+		padding: 0 var(--space-4);
+	}
+
+	.mobileRowButton {
+		width: 100%;
+		justify-content: flex-start;
+		padding: 0.95rem 1.05rem;
+		background: rgba(255, 255, 255, 0.55);
+		border: 1px solid rgba(15, 23, 42, 0.10);
+		border-radius: 999px;
+		cursor: pointer;
+		text-align: left;
+		display: inline-flex;
+		align-items: center;
+		gap: var(--space-2);
+	}
+
+	.mobileRowLabel {
+		flex: 1 1 auto;
+	}
+
+	.mobileRowChevron {
+		flex: 0 0 auto;
+		opacity: 0.75;
+		font-size: 18px;
+		line-height: 1;
+	}
+
+	.mobileRowButton:focus-visible {
+		outline: none;
+		box-shadow:
+			0 0 0 4px rgba(229, 115, 115, 0.16),
+			0 14px 34px rgba(15, 23, 42, 0.10);
+		border-color: rgba(229, 115, 115, 0.28);
+	}
+
+	/* Nav pills inside mobile panel */
+	.link {
+		width: 100%;
+		justify-content: flex-start;
+		padding: 0.95rem 1.05rem;
+	}
+
+	/* Profile card wrapper (used by TSX) */
+	.mobilePanelCard {
+		margin: 0 var(--space-4);
+	}
+
+	.mobilePanelInner {
+		padding: var(--space-3);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2);
+	}
+
+	.logoutWrapper {
+		width: 100%;
+		padding: 0;
+	}
+
+	.mobileFooter {
+		padding: var(--space-4);
+		margin-top: var(--space-4);
+		display: grid;
+		gap: var(--space-3);
+	}
+
+	.authSection {
+		display: flex;
+		justify-content: flex-start;
+	}
+
+	.servicesSubPill {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.15rem;
+	}
+
+	.servicesSubTitle {
+		font-weight: var(--weight-semibold);
+	}
+
+	.servicesSubDesc {
+		font-size: var(--text-xs);
+		line-height: 1.45;
+		opacity: 0.72;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.mobilePanel,
+		.mobileViewport,
+		.hamburger span {
+			transition: none !important;
+		}
+	}
+}
+
+
+/* ==========================================================================
+   DESKTOP (≥ 971px)
+   ========================================================================== */
+@media (min-width: 971px) {
+	.mobileToggle,
+	.scrim {
+		display: none !important;
+	}
+
+	.mobileTopRight {
+		display: none;
+	}
+
+	.rightControlsDesktop {
+		display: flex;
+	}
+	
+	/* Push the center pills slightly toward the true page center (desktop only) */
+	.navLinks {
+		margin-left: clamp(5rem, 10vw, 12rem);
+	}
+}

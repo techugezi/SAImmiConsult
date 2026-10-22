@@ -1,0 +1,37 @@
+{
+  "ServicesOverview": {
+    "header": {
+      "title": "Services",
+      "subtitle": "How we can help you",
+      "description": "From immigration to South Africa to emigration, visa planning and everyday support, we structure our services to guide you step by step.",
+      "primaryCta": "Speak to a consultant",
+      "secondaryCta": "View FAQ"
+    },
+    "grid": {
+      "title": "Explore our main service areas",
+      "subtitle": "Choose the direction that best matches your current goals. If you are not sure where to start, our consultants can help you choose the right route."
+    },
+    "cards": {
+      "immigration": {
+        "title": "Immigration to South Africa",
+        "body": "End-to-end support with South African visa routes, temporary and permanent residence, and planning your relocation.",
+        "cta": "View immigration services"
+      },
+      "emigration": {
+        "title": "Emigration & working abroad",
+        "body": "Guidance for those leaving South Africa to live, work or study in other countries, including tourist, training and work options.",
+        "cta": "View emigration services"
+      },
+      "visaTypes": {
+        "title": "Types of visas",
+        "body": "An overview of work, study, business, family and long-term visitor visas and who can qualify for each.",
+        "cta": "View visa categories"
+      },
+      "additionalSupport": {
+        "title": "Additional support services",
+        "body": "Education guidance, housing and neighbourhood orientation, banking and everyday questions to help you settle calmly.",
+        "cta": "View additional services"
+      }
+    }
+  }
+}

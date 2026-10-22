@@ -1,0 +1,156 @@
+{
+  "AdminClientProfiles": {
+    "header": {
+      "eyebrow": "Админ",
+      "title": "Клиенты",
+      "subtitle": "Просмотр ключевой информации клиентов, необходимой для обработки виз. Нажмите на клиента, чтобы открыть полный профиль."
+    },
+
+    "eyebrow": "Админ",
+    "title": "Клиенты",
+    "subtitle": "Найдите и откройте профиль клиента для просмотра визовой информации.",
+
+    "filters": {
+      "label": "Фильтры",
+      "sortLabel": "Сортировка",
+      "lastAsc": "Фамилия (А–Я)",
+      "lastDesc": "Фамилия (Я–А)",
+      "searchLabel": "Поиск",
+      "searchPlaceholder": "Поиск по имени или фамилии…",
+      "searchButton": "Найти"
+    },
+
+    "panel": {
+      "title": "Все клиенты",
+      "subtitle": "Нажмите на клиента, чтобы открыть профиль.",
+      "subtitleWithQuery": "Показаны результаты поиска."
+    },
+
+    "empty": "Нет клиентов, соответствующих выбранным фильтрам.",
+
+    "list": {
+      "title": "Все клиенты",
+      "subtitle": "Отсортировано по дате последнего обновления.",
+      "empty": "Профили клиентов пока отсутствуют.",
+      "unnamed": "Клиент без имени",
+      "factsAria": "Данные клиента"
+    },
+
+    "hero": {
+      "eyebrow": "Профиль клиента",
+      "title": "Профиль клиента",
+      "description": "Просмотр ключевой информации, необходимой для обработки визы клиента.",
+      "unknownName": "Клиент без имени"
+    },
+
+    "export": {
+      "title": "Профиль клиента — {name}"
+    },
+
+    "actions": {
+      "view": "Открыть",
+      "backToClients": "Назад к клиентам",
+      "exportProfile": "Экспорт профиля",
+      "exportPdf": "PDF",
+      "exportWord": "Word",
+      "exporting": "Экспорт…",
+      "quickActions": "Быстрые действия",
+      "openDriveFolder": "Открыть папку Drive",
+      "contactMethod": "Связаться через {method}"
+    },
+
+    "aria": {
+      "exportToggle": "Показать параметры экспорта",
+      "exportMenu": "Параметры экспорта"
+    },
+
+    "sections": {
+      "keyInfo": {
+        "title": "Основная информация",
+        "subtitle": "Ключевые персональные и визовые данные."
+      },
+      "contact": {
+        "title": "Контакты",
+        "subtitle": "Контактные данные, предоставленные клиентом."
+      },
+      "intent": {
+        "title": "Цели и намерения",
+        "subtitle": "Цель визита и долгосрочные иммиграционные планы."
+      },
+      "background": {
+        "title": "История",
+        "subtitle": "История поездок и виз, важная для оценки."
+      },
+      "household": {
+        "title": "Семья и доход",
+        "subtitle": "Состав семьи и финансовая информация."
+      }
+    },
+
+    "fields": {
+      "na": "—",
+
+      "citizenship": "Гражданство",
+
+      "dob": "Дата рождения",
+      "dateOfBirth": "Дата рождения",
+
+      "location": "Текущее местоположение",
+      "currentLocation": "Текущее местоположение",
+
+      "visaStatus": "Визовый статус",
+      "currentVisaStatus": "Визовый статус",
+
+      "passportExpiry": "Срок действия паспорта",
+
+      "phone": "Телефон",
+      "whatsapp": "WhatsApp",
+      "telegramUsername": "Telegram",
+      "contactEmail": "Email",
+
+      "preferredContactMethod": "Предпочтительный способ связи",
+      "preferredContactTime": "Предпочтительное время для связи",
+
+      "intent": "Намерения",
+
+      "visitPurpose": "Цель визита",
+      "immigrationGoal": "Иммиграционная цель",
+
+      "maritalStatus": "Семейное положение",
+
+      "beenToSA": "Был(а) в Южной Африке",
+      "firstEntrySA": "Первый въезд в ЮАР",
+      "visaRefusals": "Отказы в визе",
+      "visaRefusalsDetails": "Детали отказов",
+
+      "englishLevel": "Уровень английского",
+      "needLanguageSchool": "Нужна языковая школа",
+
+      "incomeOver2000": "Доход свыше 2000",
+      "incomeSource": "Источник дохода",
+      "familyComposition": "Состав семьи",
+
+      "driveParentFolderId": "ID папки Drive",
+
+      "userId": "ID пользователя",
+      "firstName": "Имя",
+      "middleName": "Второе имя",
+      "lastName": "Фамилия"
+    },
+
+    "contactMethods": {
+      "email": "Email",
+      "whatsapp": "WhatsApp",
+      "telegram": "Telegram"
+    },
+
+    "errors": {
+      "title": "Не удалось загрузить профиль клиента",
+      "subtitle": "Произошла ошибка",
+      "description": "Мы не смогли загрузить профиль этого клиента. Попробуйте ещё раз или вернитесь к списку клиентов.",
+      "notFoundTitle": "Клиент не найден",
+      "notFoundBody": "Этот профиль клиента не существует или у вас нет к нему доступа.",
+      "detailsLabel": "Подробности"
+    }
+  }
+}

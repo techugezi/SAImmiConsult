@@ -1,0 +1,489 @@
+/*
+DOC NAME: auth.module.css
+LOCATION: /src/styles/auth.module.css
+SCOPE: Auth-only styling (login/signup). Allowed to own auth-specific visual identity.
+STATUS: LOCKED
+AUDIT:
+- Kept authForm/authCard structure (auth-only; no new global primitive).
+- Removed duplicate/conflicting utility blocks (formInline + modifiers consolidated).
+- Added overflow hardening for long emails/strings in alerts + card content (min-width:0, overflow-wrap).
+- Kept interactions accessible (focus-visible) and respected prefers-reduced-motion.
+NOTES:
+- This file is intentionally AUTH-ONLY. Do not reuse for non-auth pages.
+*/
+
+.authPage {
+	width: 100%;
+	min-height: 100dvh;
+	overflow-x: hidden;
+
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+
+	/* STANDARD: vertical rhythm only */
+	padding-inline: 0;
+	padding-top: calc(var(--nav-height, 84px) + clamp(2.25rem, 5vw, 4.5rem));
+	padding-bottom: clamp(2.5rem, 6vw, 6rem);
+}
+
+/* Main card */
+.authCard {
+	width: min(92vw, 980px);
+	margin: 0 auto;
+
+	container-type: inline-size;
+	container-name: auth;
+
+	background: rgba(255, 255, 255, 0.75);
+	border: 1px solid rgba(15, 23, 42, 0.08);
+	border-radius: 2rem;
+
+	padding: clamp(1.5rem, 4cqw, 3rem);
+
+	box-shadow: 0 18px 44px rgba(15, 23, 42, 0.06);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+
+	/* overflow hardening */
+	min-width: 0;
+	max-width: 100%;
+	overflow-wrap: anywhere;
+}
+
+/* Form */
+.authForm {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: clamp(1rem, 2.2cqw, 1.5rem);
+
+	/* overflow hardening */
+	min-width: 0;
+}
+
+/* Used when a page already has hero-shell above it (login/signup with hero) */
+.authFormShell {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: clamp(1rem, 2.2cqw, 1.5rem);
+
+	/* STANDARD: no local vertical padding here */
+	padding-top: 0;
+	padding-bottom: 0;
+
+	min-width: 0;
+}
+
+/* Make the GLOBAL alert fill the MainColumn width (auth layout only) */
+.authFormShell :global(.alert) {
+	width: 100%;
+}
+
+/* Reset fieldset (used to disable everything during submit) */
+.fieldsetReset {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	min-width: 0;
+}
+
+/* Alerts */
+.authAlert {
+	width: 100%;
+
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: clamp(1rem, 2.2cqw, 1.5rem);
+
+	align-items: start;
+
+	padding: 0.95rem 1rem;
+	border-radius: 1.5rem;
+
+	background: rgba(255, 255, 255, 0.72);
+	border: 1px solid rgba(15, 23, 42, 0.1);
+	box-shadow: 0 16px 34px rgba(15, 23, 42, 0.05);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+
+	animation: authFadeIn 180ms ease-out;
+
+	margin-block: clamp(1.5rem, 3cqw, 1.75rem);
+
+	/* overflow hardening */
+	min-width: 0;
+}
+
+@keyframes authFadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(4px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.alertIcon {
+	width: 2.15rem;
+	height: 2.15rem;
+	border-radius: 999px;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	font-weight: 900;
+	letter-spacing: 0.02em;
+	user-select: none;
+
+	flex: 0 0 auto;
+}
+
+.alertBody {
+	min-width: 0;
+	overflow-wrap: anywhere;
+}
+
+.alertTitle {
+	margin: 0;
+	font-weight: 900;
+	letter-spacing: -0.02em;
+	color: rgba(15, 23, 42, 0.92);
+	line-height: 1.2;
+
+	overflow-wrap: anywhere;
+	word-break: break-word;
+}
+
+.alertText {
+	margin: 0.3rem 0 0;
+	color: rgba(15, 23, 42, 0.72);
+	line-height: 1.6;
+	font-weight: 700;
+
+	overflow-wrap: anywhere;
+	word-break: break-word;
+}
+
+/* Variants */
+.authAlertError {
+	border-color: rgba(225, 29, 72, 0.22);
+	background: rgba(225, 29, 72, 0.06);
+}
+
+.authAlertError .alertIcon {
+	background: rgba(225, 29, 72, 0.12);
+	border: 1px solid rgba(225, 29, 72, 0.22);
+	color: rgba(225, 29, 72, 0.95);
+}
+
+.authAlertSuccess {
+	border-color: rgba(16, 185, 129, 0.22);
+	background: rgba(16, 185, 129, 0.06);
+}
+
+.authAlertSuccess .alertIcon {
+	background: rgba(16, 185, 129, 0.12);
+	border: 1px solid rgba(16, 185, 129, 0.22);
+	color: rgba(16, 185, 129, 0.95);
+}
+
+/* Status container near CTA */
+.authActionStatus {
+	width: 100%;
+	display: grid;
+	gap: 0.6rem;
+	justify-items: center;
+
+	margin-bottom: clamp(0.75rem, 1.4cqw, 1rem);
+
+	min-width: 0;
+}
+
+/* Sections */
+.formSection {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(0.9rem, 2cqw, 1.25rem);
+
+	padding: clamp(1rem, 2.4cqw, 1.5rem);
+	border-radius: 1.5rem;
+
+	background: rgba(255, 255, 255, 0.75);
+	border: 1px solid rgba(15, 23, 42, 0.08);
+	box-shadow: 0 14px 32px rgba(15, 23, 42, 0.05);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+
+	min-width: 0;
+}
+
+/* Grid spacing */
+.formGrid {
+	display: grid;
+	gap: clamp(0.85rem, 1.6cqw, 1.15rem);
+	min-width: 0;
+}
+
+/* Full-width fields should span both columns */
+.formFieldFull {
+	grid-column: 1 / -1;
+}
+
+.formRow {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: clamp(0.85rem, 2cqw, 1.25rem);
+
+	min-width: 0;
+}
+
+.formField {
+	display: flex;
+	flex-direction: column;
+	gap: 0.45rem;
+
+	min-width: 0;
+}
+
+.fieldLabel {
+	font-size: 0.95rem;
+	font-weight: 800;
+	letter-spacing: -0.01em;
+	color: var(--text-main);
+	opacity: 0.92;
+}
+
+.fieldInput,
+.fieldTextarea,
+.fieldSelect {
+	width: 100%;
+	border-radius: 999rem;
+	border: 1px solid rgba(15, 23, 42, 0.1);
+	background: rgba(255, 255, 255, 0.65);
+
+	padding: 0.9rem 1rem;
+	font-size: 1rem;
+	color: var(--text-main);
+
+	outline: none;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+
+	/* overflow hardening */
+	min-width: 0;
+	max-width: 100%;
+	overflow-wrap: anywhere;
+	word-break: break-word;
+}
+
+.fieldInput::placeholder,
+.fieldTextarea::placeholder {
+	color: rgba(15, 23, 42, 0.45);
+}
+
+.fieldInput:focus,
+.fieldTextarea:focus,
+.fieldSelect:focus {
+	border-color: rgba(229, 115, 115, 0.35);
+	box-shadow: 0 0 0 4px rgba(229, 115, 115, 0.14);
+	background: rgba(255, 255, 255, 0.8);
+}
+
+/* Disabled inputs */
+.fieldInput:disabled,
+.fieldTextarea:disabled,
+.fieldSelect:disabled {
+	cursor: not-allowed;
+	background: rgba(15, 23, 42, 0.04);
+	color: rgba(15, 23, 42, 0.75);
+}
+
+/* Actions (layout only) */
+.authActions {
+	display: flex;
+	flex-direction: column;
+	gap: 0.9rem;
+	align-items: center;
+	margin-top: var(--space-6);
+
+	min-width: 0;
+}
+
+/* Only constrain button width INSIDE auth; do not touch visuals */
+.authActions :global(.button) {
+	width: min(100%, 520px);
+	justify-content: center;
+}
+
+/* Button inner layout (spinner + label) */
+.buttonInner {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.6rem;
+}
+
+.buttonLabel {
+	line-height: 1;
+}
+
+/* Spinner */
+.spinner {
+	width: 0.9em;
+	height: 0.9em;
+	border-radius: 999px;
+	border: 2px solid rgba(255, 255, 255, 0.35);
+	border-top-color: rgba(255, 255, 255, 0.95);
+	animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* Footer text + link (local only) */
+.authSecondaryText {
+	margin: 0;
+	text-align: center;
+
+	color: var(--text-muted);
+	line-height: 1.7;
+	font-size: clamp(0.95rem, 1.1cqw, 1rem);
+	margin-top: var(--space-4);
+
+	overflow-wrap: anywhere;
+	word-break: break-word;
+}
+
+.authLink {
+	color: var(--text-main);
+	font-weight: 900;
+	text-decoration: none;
+
+	border-bottom: 2px solid rgba(229, 115, 115, 0.25);
+	padding-bottom: 0.15rem;
+
+	transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.authLink:hover {
+	color: var(--protea-pink);
+	border-bottom-color: rgba(229, 115, 115, 0.45);
+}
+
+/* ==========================================================================
+   Password reveal (shared, lightweight)
+   ========================================================================== */
+
+.passwordField {
+	position: relative;
+	display: flex;
+	align-items: center;
+	min-width: 0;
+}
+
+/* Give the input room for the toggle button */
+.passwordField .fieldInput {
+	padding-right: 3.25rem;
+}
+
+.passwordToggle {
+	position: absolute;
+	right: 0.6rem;
+	top: 50%;
+	transform: translateY(-50%);
+
+	width: 2.25rem;
+	height: 2.25rem;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	border-radius: 999px;
+	border: 1px solid rgba(15, 23, 42, 0.14);
+	background: rgba(255, 255, 255, 0.62);
+	color: rgba(15, 23, 42, 0.8);
+
+	box-shadow: 0 10px 22px rgba(15, 23, 42, 0.05);
+
+	cursor: pointer;
+	user-select: none;
+
+	transition:
+		transform 0.25s ease,
+		border-color 0.25s ease,
+		background 0.25s ease,
+		color 0.25s ease;
+}
+
+.passwordToggle:hover {
+	transform: translateY(-50%) translateY(-1px);
+	border-color: rgba(229, 115, 115, 0.35);
+	color: var(--protea-pink);
+	background: rgba(229, 115, 115, 0.08);
+}
+
+.passwordToggle:focus-visible {
+	outline: 3px solid rgba(229, 115, 115, 0.35);
+	outline-offset: 4px;
+}
+
+.passwordToggle:disabled {
+	cursor: not-allowed;
+	opacity: 0.7;
+	transform: translateY(-50%);
+}
+
+/* Inline action rows (auth-only) */
+.formInline {
+	display: flex;
+	gap: var(--space-3);
+	min-width: 0;
+}
+
+.formInlineEnd {
+	justify-content: flex-end;
+}
+
+.formInlineStart {
+	justify-content: flex-start;
+}
+
+/* Container tweaks */
+@container auth (max-width: 520px) {
+	.authCard {
+		padding: clamp(1.25rem, 5cqw, 1.75rem);
+		border-radius: 1.6rem;
+	}
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.spinner {
+		animation: none;
+	}
+
+	.fieldInput,
+	.fieldTextarea,
+	.fieldSelect,
+	.authLink,
+	.passwordToggle {
+		transition: none !important;
+	}
+
+	.passwordToggle:hover {
+		transform: translateY(-50%) !important;
+	}
+
+	.authAlert {
+		animation: none;
+	}
+}

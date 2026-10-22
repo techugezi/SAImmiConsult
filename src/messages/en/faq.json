@@ -1,0 +1,48 @@
+{
+  "FAQ": {
+	"header": {
+      "title": "FAQ",
+      "subtitle": "Frequently asked questions",
+      "description": "Here are some of the most common questions clients ask when they start exploring South Africa, visas or relocation."
+	},
+	"panel": {
+		"title": "FAQs",
+		"subtitle": "Browse or search for all frequently asked questions"
+	},
+	"search": {
+		"label": "Search",
+		"clear": "Clear",
+		"submit": "Submit",
+		"placeholder": "Enter your question here",
+		"subtitleWithQuery": "Your question: “{q}”",
+			"noResults": {
+			"title": "No results found",
+			"desc": "We couldn’t find the question “{q}”. Try a different search or contact us.",
+			"clearCta": "Clear search"
+			}
+	},
+    "cta": "Didn’t find your question? Contact us.",
+    "items": {
+      "0": {
+        "question": "Where do I start if I want to move to South Africa?",
+        "answer": "We usually begin with a short consultation and a basic eligibility check. We look at your goals, profession, family situation and timelines, and then suggest realistic visa options that match your profile."
+      },
+      "1": {
+        "question": "Do I need to speak perfect English to apply for a visa?",
+        "answer": "Not always. Some visa categories have minimum language requirements, but many do not. Good English will make work and everyday life easier, but during consultation we explain which programmes require language certificates and which do not."
+      },
+      "2": {
+        "question": "Can you help if I am already living in South Africa?",
+        "answer": "Yes. We work with clients who are only planning a move and with those who are already in South Africa and need to extend, change or correct their current visa status."
+      },
+      "3": {
+        "question": "How long does the immigration or visa process usually take?",
+        "answer": "Timing depends on the visa category, the quality of the documents and the workload of the authorities at the time of submission. During your consultation we can give you an estimated timeline based on your chosen route and recent processing experience."
+      },
+      "4": {
+        "question": "Do you also assist with education, housing and adaptation?",
+        "answer": "Yes. In addition to visa strategy and documentation, we can help with choosing schools or universities, exploring housing options and answering practical questions about everyday life in South Africa so that your move feels calmer and more predictable."
+      }
+    }
+  }
+}

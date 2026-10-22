@@ -1,0 +1,189 @@
+/*
+DOC NAME: profile.module.css
+LOCATION: /src/styles/profile.module.css
+SCOPE: Shared profile/account page layout + interaction only (no typography/colors).
+STATUS: UNLOCKED
+*/
+
+.page {
+	width: 100%;
+}
+
+/* Hero spacing is structural only */
+.hero {
+	padding-top: var(--nav-height, 84px);
+}
+
+.heroInner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: var(--space-2);
+	padding-block: var(--space-6);
+}
+
+/* Form stack */
+.form {
+	padding-top: var(--space-4);
+	padding-bottom: var(--space-7);
+	--stack-gap: var(--space-4);
+}
+
+/* Section layout */
+.section {
+	padding: var(--space-5);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-4);
+}
+
+/* Grids */
+.grid2 {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: var(--space-4);
+}
+
+.full {
+	grid-column: 1 / -1;
+}
+
+/* Structural divider only (visuals via global primitive) */
+.divider {
+	height: 1px;
+	margin: var(--space-2) 0;
+}
+
+/* Actions / footer layout */
+.actions {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--space-4);
+	padding-top: var(--space-5);
+}
+
+.messageSlot {
+	width: min(100%, 520px);
+}
+
+/* Message blocks — layout only, visuals handled by global alert classes */
+.errorText,
+.successText {
+	margin: 0;
+	padding: var(--space-3) var(--space-4);
+}
+
+/* Footer layout */
+.footer {
+	margin: var(--space-3) 0 0;
+	text-align: center;
+}
+
+.footerLink {
+	text-decoration: none;
+	padding-bottom: 0.15rem;
+}
+
+/* Inline helpers */
+.checkRow {
+	display: flex;
+	align-items: center;
+	gap: var(--space-2);
+}
+
+.saveButton {
+	width: min(100%, 520px);
+}
+
+/* Responsive */
+@media (max-width: 740px) {
+	.grid2 {
+		grid-template-columns: 1fr;
+	}
+}
+
+.topActions {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-3);
+}
+
+/* Client intake wizard */
+.readiness {
+	max-width: 760px;
+	width: 100%;
+	margin-inline: auto;
+}
+
+.readinessList {
+	margin: 0;
+	padding-left: 1.25rem;
+	display: grid;
+	gap: var(--space-2);
+}
+
+.progressHeader {
+	display: grid;
+	gap: var(--space-3);
+	padding: var(--space-4) 0;
+}
+
+.progressText {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: var(--space-3);
+	flex-wrap: wrap;
+}
+
+.progressText span {
+	color: var(--color-text-muted, #666);
+	font-size: 0.875rem;
+}
+
+.progressText strong {
+	font-weight: 600;
+}
+
+.progressTrack {
+	height: 8px;
+	overflow: hidden;
+	border-radius: 999px;
+	background: var(--color-border, #e5e7eb);
+}
+
+.progressTrack span {
+	display: block;
+	height: 100%;
+	border-radius: inherit;
+	background: var(--color-primary, #2457a7);
+	transition: width 180ms ease;
+}
+
+.wizardActions {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-3);
+	width: 100%;
+}
+
+@media (max-width: 560px) {
+	.wizardActions {
+		flex-direction: column-reverse;
+		align-items: stretch;
+	}
+
+	.wizardActions > button {
+		width: 100%;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.progressTrack span {
+		transition: none;
+	}
+}

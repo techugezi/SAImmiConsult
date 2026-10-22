@@ -1,0 +1,62 @@
+{
+  "ClientDashboard": {
+    "welcome": {
+      "eyebrow": "Welcome",
+      "title": "{name}",
+      "subtitle": "Here’s where you are in your journey."
+    },
+    "status": {
+      "title": "Current status"
+    },
+    "states": {
+      "profileIncomplete": {
+        "badge": "Profile incomplete",
+        "body": "Please complete your profile form so we can guide you to the next step.",
+        "cta": "Complete profile"
+      },
+      "noCase": {
+        "badge": "No active case",
+        "body": "Start a new case so we can schedule your consultation and prepare your plan.",
+        "cta": "Start case"
+      },
+      "caseInProgress": {
+        "cta": "See case details"
+      },
+      "cta": {
+        "manageDocuments": "Manage documents",
+        "viewApplication": "View application"
+      }
+    },
+	"common": {
+		"clientFallback": "We are reviewing your case"
+	},
+    "quickActions": {
+      "title": "Quick actions",
+      "whatsapp": "WhatsApp us",
+	  "telegram": "Telegram us",
+      "bookCall": "Book a call"
+    },
+    "caseStatuses": {
+      "draft_intake": "Draft intake",
+      "intake_submitted": "Intake submitted",
+      "consultation_requested": "Consultation requested",
+      "consultation_booked": "Consultation booked",
+      "consultation_completed": "Consultation completed",
+      "plan_proposed": "Plan proposed",
+      "plan_accepted": "Plan accepted",
+      "application_activated": "Application activated",
+      "closed": "Closed"
+    },
+    "caseStatusBodies": {
+      "draft_intake_desc": "Continue your intake so we can prepare for your consultation.",
+      "intake_submitted_desc": "We’ve received your intake. We’ll contact you to arrange the consultation.",
+      "consultation_requested_desc": "Your consultation request has been received. We’ll be in touch shortly.",
+      "consultation_booked_desc": "Your consultation has been booked. We’ll send you the details and link.",
+      "consultation_completed_desc": "Consultation completed. We’re preparing your recommended plan.",
+      "plan_proposed_desc": "A draft plan has been proposed. We’ll confirm it with you.",
+      "plan_accepted_desc": "Your plan has been accepted. We’ll activate your application when ready.",
+      "application_activated_desc": "Your application has been activated. You can now proceed with the next steps.",
+      "closed_desc": "This case has been closed."
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "AdminAccount": {
+    "heading": "My account",
+    "subheading": "Manage your admin access",
+    "description": "Review the email linked to your account and update your password when needed.",
+
+    "actions": {
+      "backToDashboard": "Back to dashboard",
+      "changePassword": "Change password"
+    },
+
+    "fields": {
+      "email": {
+        "label": "Email",
+        "hint": "This is the email you use to sign in. If you need to change it, please contact support."
+      }
+    }
+  }
+}

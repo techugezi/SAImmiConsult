@@ -1,0 +1,150 @@
+/* DOC NAME: Timeline.module.css
+   LOCATION: /src/components/ui/timeline/Timeline.module.css
+   SCOPE: Timeline layout/interaction only (NO typography/colors/identity). Graphic rail + grouped nodes.
+   STATUS: UNLOCKED (lock after approved)
+*/
+
+.root {
+	display: grid;
+	gap: var(--space-3);
+}
+
+/* Whole timeline list with ONE continuous rail */
+.list {
+	position: relative;
+	display: grid;
+
+	/* MORE space between separate times (groups) */
+	gap: var(--space-5);
+
+	/*
+		Fluid gutter — reduced so cards don't get pushed right.
+	*/
+	--timeline-gutter: clamp(2.2rem, 4.6vw, 3.6rem);
+
+	/*
+		Rail position within gutter (from the left edge of the list)
+	*/
+	--timeline-rail-x: calc(var(--timeline-gutter) - 14px);
+
+	/* Dot center alignment */
+	--timeline-dot-center-x: var(--timeline-rail-x);
+
+	padding-left: var(--timeline-gutter);
+}
+
+/* Continuous vertical line for the whole list (identity in globals.css) */
+.list::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: var(--timeline-rail-x);
+}
+
+/* One group per (minute-bucket) */
+.group {
+	position: relative;
+	display: grid;
+	grid-template-columns: var(--timeline-gutter) 1fr;
+
+	/* keep rail + card close */
+	column-gap: var(--space-2);
+
+	align-items: start;
+}
+
+/* Rail cell for the group's dot */
+.groupRail {
+	position: relative;
+	display: block;
+	height: 0;
+}
+
+/* Dot centered on rail */
+.dot {
+	position: relative;
+	left: var(--timeline-dot-center-x);
+	transform: translateX(-50%);
+
+	width: 12px;
+	height: 12px;
+	border-radius: 999px;
+}
+
+/* Group body */
+.groupBody {
+	display: grid;
+
+	/* CLOSE the gap between date and items underneath */
+	gap: var(--space-1);
+}
+
+/* Date/time label */
+.timeLabel {
+	padding-top: 0;
+}
+
+/* Items under a group */
+.items {
+	display: grid;
+	gap: var(--space-2);
+
+	/* CLOSE the gap between the date pill and first item */
+	padding-top: 0;
+}
+
+/* Extra safety: if globals adds margin-top to .timelineItems, neutralize it here.
+   Must be scoped under a local class to satisfy CSS Modules purity. */
+.root :global(.timelineItems) {
+	margin-top: 0 !important;
+}
+
+/* Each item */
+.item {
+	display: grid;
+	gap: 0.35rem;
+	padding-left: 0;
+}
+
+.itemMilestone {
+	padding-left: var(--space-1);
+}
+
+.groupMilestone .groupBody {
+	gap: var(--space-1);
+}
+
+/* Optional “entry” animation */
+@media (prefers-reduced-motion: no-preference) {
+	.group {
+		animation: timelineFadeIn 220ms ease both;
+	}
+
+	.item {
+		animation: timelineSlideIn 260ms ease both;
+	}
+
+	.group:nth-child(1) { animation-delay: 0ms; }
+	.group:nth-child(2) { animation-delay: 20ms; }
+	.group:nth-child(3) { animation-delay: 40ms; }
+	.group:nth-child(4) { animation-delay: 60ms; }
+	.group:nth-child(5) { animation-delay: 80ms; }
+	.group:nth-child(6) { animation-delay: 100ms; }
+	.group:nth-child(7) { animation-delay: 120ms; }
+	.group:nth-child(8) { animation-delay: 140ms; }
+}
+
+@keyframes timelineFadeIn {
+	from { opacity: 0; transform: translateY(2px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes timelineSlideIn {
+	from { opacity: 0; transform: translateY(3px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+/* Title + description hooks (identity in globals.css) */
+.itemTitle { }
+.itemDesc { }

@@ -1,0 +1,50 @@
+{
+  "ServicesAdditional": {
+    "header": {
+      "title": "Additional services",
+      "subtitle": "Additional support services",
+      "description": "Beyond visa advice, we help you with education, housing, banking and everyday questions so that your move feels calm and organised.",
+      "primaryCta": "Speak to a consultant",
+      "secondaryCta": "View FAQ"
+    },
+
+    "education": {
+      "title": "Education support",
+      "body": "We help families and students choose the right schools, universities or training programmes in South Africa.",
+      "points": {
+        "0": "Guidance on schools, language courses and universities",
+        "1": "Recommendations based on your goals, language and budget",
+        "2": "Support with applications and required documents"
+      }
+    },
+
+    "realEstate": {
+      "title": "Real estate & relocation",
+      "body": "We assist with understanding neighbourhoods, housing options and practical aspects of settling in.",
+      "points": {
+        "0": "High-level insights into areas and lifestyle differences",
+        "1": "Support in exploring rental or purchase options via trusted partners"
+      }
+    },
+
+    "banking": {
+      "title": "Banking & everyday administration",
+      "body": "We help you navigate basic administrative tasks so you can focus on your new life, not just paperwork.",
+      "points": {
+        "0": "Guidance on opening local bank accounts and using online banking",
+        "1": "Information support for administrative questions and local procedures"
+      }
+    },
+
+    "summary": {
+      "title": "How we support your move",
+      "body": "Our role is not only to help you get a visa, but to make sure you understand what life in South Africa can look like and feel supported while you adapt.",
+      "pills": {
+        "0": "Education & schools",
+        "1": "Housing & neighbourhoods",
+        "2": "Banking & basic admin",
+        "3": "Practical adaptation support"
+      }
+    }
+  }
+}

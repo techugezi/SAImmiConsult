@@ -1,0 +1,10 @@
+{
+	"ClientNav": {
+		"dashboard": "Dashboard",
+		"profile": "Profile",
+		"applications": "Applications",
+		"documents": "Documents",
+		"logout": "Logout"
+	}
+}
+

@@ -1,0 +1,100 @@
+/*
+DOC NAME: DocumentReviewTable.module.css
+LOCATION: /src/components/admin/DocumentReviewTable.module.css
+SCOPE: Layout + interaction only for DocumentReviewTable (NO typography/colors/identity).
+STATUS: UNLOCKED (lock after verified)
+*/
+
+.wrap {
+	display: grid;
+	gap: var(--space-3);
+}
+
+.header {
+	display: grid;
+	gap: var(--space-1);
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-3);
+}
+
+.row {
+	padding: var(--space-4);
+	display: grid;
+	gap: var(--space-3);
+}
+
+.rowTop {
+	display: grid;
+	gap: var(--space-3);
+	grid-template-columns: auto 1fr;
+	align-items: start;
+}
+
+@media (min-width: 900px) {
+	.rowTop {
+		grid-template-columns: auto 1fr minmax(18rem, 22rem);
+	}
+}
+
+.selectCol {
+	display: flex;
+	align-items: flex-start;
+	padding-top: 0.25rem;
+}
+
+.mainCol {
+	min-width: 0;
+	display: grid;
+	gap: var(--space-1);
+}
+
+.metaLine {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-2);
+}
+
+.controlsCol {
+	display: grid;
+	gap: var(--space-3);
+	align-content: start;
+}
+
+.badgeRow {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-2);
+	justify-content: flex-start;
+}
+
+.field {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+}
+
+.fileRow {
+	display: grid;
+	gap: var(--space-1);
+}
+
+.notesRow {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+}
+
+.notesTextarea {
+	resize: vertical;
+	min-height: clamp(8rem, 14cqw, 12rem);
+}
+
+.inlineAlert {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-2);
+}

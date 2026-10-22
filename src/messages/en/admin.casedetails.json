@@ -1,0 +1,247 @@
+{
+  "AdminCaseDetails": {
+    "hero": {
+      "title": "Case",
+      "subtitle": "Manage your clients case here"
+    },
+    "dates": {
+      "na": "—"
+    },
+    "closeCase": {
+      "confirmBody": "This will close the case and disable further progress actions. You can still view the timeline and notes. Are you sure you want to continue?"
+    },
+    "header": {
+      "title": "Case identity",
+      "subtitle": "Fast context, status, and safe navigation.",
+      "unknownClient": "Client",
+      "client": "Client",
+      "phone": "Phone",
+      "phoneNA": "Phone: —",
+      "whatsapp": "WhatsApp",
+      "whatsappNA": "WhatsApp: —",
+      "case": "Case",
+      "application": "Application",
+      "noApplicationYet": "No application linked yet.",
+      "activationHint": "Activate the application once the plan is accepted and requirements are set.",
+      "createdAt": "Created",
+      "updatedAt": "Updated",
+      "docsSummary": "{uploaded}/{required} uploaded · {approved} approved",
+      "actions": {
+        "openProfile": "Open client profile",
+        "openApplication": "Open application"
+      },
+      "clickToContactLabel": "Click to contact"
+    },
+    "close": {
+      "confirmMessage": "Confirm you want to close this case."
+    },
+    "caseStatuses": {
+      "draft_intake": "Draft intake",
+      "intake_submitted": "Intake submitted",
+      "consultation_requested": "Consultation requested",
+      "consultation_booked": "Consultation booked",
+      "consultation_completed": "Consultation completed",
+      "plan_created": "Plan created successfully",
+      "application_activated": "Application activated successfully",
+      "closed": "Case has been closed"
+    },
+    "applicationStatuses": {
+      "waiting_documents": "Waiting documents",
+      "documents_under_review": "Documents under review",
+      "documents_not_approved": "Documents not approved",
+      "documents_approved": "Documents approved",
+      "visa_journey_started": "Visa journey started",
+      "visa_issue_action_needed": "Action needed",
+      "visa_approved": "Visa approved",
+      "finished": "Finished",
+      "cancelled": "Cancelled"
+    },
+    "documentStatuses": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "resubmit": "Needs resubmission",
+      "rejected": "Rejected"
+    },
+    "intake": {
+      "title": "Intake summary",
+      "subtitle": "Read-only facts for consultation prep.",
+      "keyFacts": "Key facts",
+      "draftRecommendation": "Draft recommendation",
+      "rawIntakeJson": "Raw intake JSON",
+      "fields": {
+        "destination": "Destination",
+        "visaType": "Visa type",
+        "timeframe": "Timeframe",
+        "extraNotes": "Notes"
+      }
+    },
+    "consultation": {
+      "title": "Consultation",
+      "subtitle": "Schedule, link, and progress the consultation stage.",
+      "sections": {
+        "progressTitle": "Progress",
+        "progressHelp": "Move the case through the consultation statuses.",
+        "scheduleTitle": "Schedule",
+        "scheduleHelp": "Provide a channel and date/time when booking.",
+        "notesTitle": "Notes",
+        "notesHelp": "Consultant notes for client view (visible to the client)."
+      },
+      "guardrails": {
+        "title": "Help & Guidance",
+        "requestedTitle": "When status is set to 'Consultation requested'",
+        "requestedBody": "This is to notify the client that you are requesting a consultation. You can proceed without a scheduled channel and date, but the client should be contacted to book.",
+        "bookedTitle": "When status is set to 'Consultation booked'",
+        "bookedItemChannel": "This is to notify that the consultation details have been finalised with the client.",
+        "bookedItemDatetime": "Consultation channel & date/time must be set, link is optional",
+        "completedTitle": "When status is set to 'Consultation completed'",
+        "completedBody": "Consultation is finished. Next step is to prepare the case plan and requirements."
+      },
+      "fields": {
+        "channel": "Channel",
+        "scheduledFor": "Scheduled for",
+        "link": "Meeting link",
+        "note": "Client-facing note (optional)",
+        "transition": "Status transition"
+      },
+      "placeholders": {
+        "channel": "e.g., WhatsApp / Zoom / Phone",
+        "link": "Paste meeting link",
+        "note": "Short internal update...",
+        "noteExample": "Example: Client confirmed availability; request client to reach out via WhatsApp or Telegram."
+      },
+      "transitions": {
+        "none": "No status change",
+        "selectStatus": "Select consultation status"
+      },
+      "currentValue": "Current: {value}",
+      "noneScheduled": "No date scheduled yet.",
+      "channels": {
+        "zoom": "Zoom",
+        "googleMeet": "Google Meet",
+        "google_meet": "Google Meet",
+        "phone": "Phone",
+        "whatsapp": "WhatsApp",
+        "telegram": "Telegram",
+        "email": "Email"
+      },
+      "locked": {
+        "title": "Locked",
+        "body": "This section is locked because the application is already active."
+      },
+      "confirmStatusUpdate": "Update consultation status?",
+      "confirmScheduleUpdate": "Update consultation schedule?",
+      "clickToContact": {
+        "title": "Click to contact",
+        "providedByClient": "These channels were provided by the client and are unverified.",
+        "unavailable": "No preferred contact details available.",
+        "action": "Open in {method}",
+        "methods": {
+          "email": "Email",
+          "whatsapp": "WhatsApp",
+          "telegram": "Telegram"
+        }
+      }
+    },
+    "plan": {
+      "title": "Plan",
+      "subtitle": "Set the route, document it, and mark proposed/accepted.",
+      "fields": {
+        "finalApplicationType": "Final application type",
+        "planNotes": "Personal plan notes (not visible to client)",
+        "consultantNote": "Client-facing note (optional)",
+        "transition": "Status transition",
+        "finalApplicationTypeNone": "Select an option",
+        "finalApplicationTypeHint": "Choose the final application type to enable activation."
+      },
+      "placeholders": {
+        "finalApplicationType": "Must match DB enum value",
+        "planNotes": "Rationale, steps, dependencies...",
+        "consultantNote": "Short update the client can later see..."
+      },
+      "hints": {
+        "enumMustMatch": "Value must match the database enum for application_type."
+      },
+      "locked": {
+        "title": "Locked",
+        "body": "This section is locked because the application is already active."
+      },
+      "confirmFinalApplicationTypeChange": "Change final application type?"
+    },
+    "requirements": {
+      "title": "Requirements",
+      "subtitlePre": "Define required documents before activation (stored on the case plan).",
+      "subtitlePost": "Edit required documents after activation (updates application requirements).",
+      "locked": {
+        "title": "Locked",
+        "body": "This section is locked because the application is already active."
+      },
+      "confirmChange": "Update requirements?"
+    },
+    "activation": {
+      "title": "Application activation",
+      "subtitle": "Creates the application pipeline from this case.",
+      "notActiveTitle": "Application not created yet",
+      "alreadyActiveTitle": "Application is active",
+      "alreadyActiveBody": "This case is already linked to an application.",
+      "openApplication": "Open application",
+      "activate": "Activate application",
+      "activateDevBypass": "Activate (DEV bypass)",
+      "confirmBody": "Are you sure you want to activate this case? This will finalise the case and create an application based on the case details.",
+      "preconditions": {
+        "planAccepted": "Case status is plan_accepted",
+        "finalType": "Final application type is set",
+        "requirements": "Requirements are selected",
+        "consultationCompleted": "Consultation is completed",
+        "caseCreated": "Plan is prepared",
+        "planCreated": "Plan is prepared",
+        "requirementsSelected": "Requirements are selected",
+        "caseClosed": "Case is closed"
+      }
+    },
+    "preview": {
+      "title": "Client-facing preview",
+      "subtitle": "What the client is expected to do next.",
+      "nextStepTitle": "Next step",
+      "case": {
+        "default": "We are preparing your consultation and plan.",
+        "intakeSubmitted": "We’ve received your intake. Next: schedule a consultation.",
+        "consultationRequested": "Consultation requested. Awaiting booking details.",
+        "consultationBooked": "Consultation booked. Please attend at the scheduled time.",
+        "planProposed": "Plan proposed. Next: accept the plan.",
+        "planAccepted": "Plan accepted. Next: application activation.",
+        "consultationCompleted": "Consultation completed. Next: we prepare your plan.",
+        "closed": "This case is closed."
+      },
+      "app": {
+        "default": "Your application is in progress.",
+        "waitingDocuments": "Next: upload the required documents.",
+        "underReview": "We are reviewing your documents.",
+        "notApproved": "Action required: re-upload documents where requested.",
+        "approved": "Documents approved. Your visa journey will continue."
+      }
+    },
+    "timeline": {
+      "title": "Timeline",
+      "subtitle": "Minimum viable audit view (expanded later).",
+      "created": "Case created",
+      "updated": "Case updated",
+      "consultationRequested": "Consultation requested",
+      "consultationScheduled": "Consultation scheduled",
+      "consultantNoteUpdated": "Consultant note updated",
+      "appEvent": "Application event: {type}"
+    },
+    "actions": {
+      "saveConsultation": "Save consultation",
+      "savePlan": "Save plan",
+      "saveRequirements": "Save requirements",
+      "unlock": "Unlock",
+      "closeCase": "Close the case"
+    },
+    "confirm": {
+      "title": "You are editing an active case",
+      "activeCaseEdit": "This case is already linked to an application. Changing it may impact the live application. Do you want to continue?",
+      "cancel": "Cancel",
+      "continue": "Continue"
+    }
+  }
+}

@@ -1,0 +1,174 @@
+/*
+DOC NAME: profile.module.css
+LOCATION: /src/app/[locale]/(client)/client/account/profile.module.css
+SCOPE: Client account/intake layout only. Mirrors the New Case wizard layout primitives.
+*/
+
+.page {
+  width: 100%;
+}
+
+.form {
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-7);
+  --stack-gap: var(--space-4);
+}
+
+/* Main wizard card: same composition and spacing as client/cases/new/wizard.module.css */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-6);
+}
+
+.card > .section {
+  padding: 0;
+}
+
+.stepper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.stepperHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.stepperProgress {
+  width: 100%;
+}
+
+/* Profile sections use the same field/grid rhythm as the New Case wizard. */
+.section {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* Readiness state */
+.readiness {
+  width: 100%;
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.readinessList {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: var(--space-2);
+}
+
+/* Actions match the New Case wizard's left/right button alignment. */
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  padding-top: var(--space-2);
+}
+
+.wizardActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.actionsLeft,
+.actionsRight {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.saveButton {
+  width: min(100%, 520px);
+}
+
+/* Existing account navigation/footer layout */
+.topActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.footer {
+  margin: var(--space-3) 0 0;
+  text-align: center;
+}
+
+.footerLink {
+  text-decoration: none;
+  padding-bottom: 0.15rem;
+}
+
+.checkRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.divider {
+  height: 1px;
+  margin: var(--space-2) 0;
+}
+
+.messageSlot {
+  width: min(100%, 520px);
+}
+
+.errorText,
+.successText {
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+}
+
+@media (max-width: 740px) {
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .wizardActions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .wizardActions > div,
+  .wizardActions > div > button {
+    width: 100%;
+  }
+
+  .card {
+    padding: var(--space-4);
+  }
+}

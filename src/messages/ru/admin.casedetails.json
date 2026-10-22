@@ -1,0 +1,247 @@
+{
+  "AdminCaseDetails": {
+    "hero": {
+      "title": "Дело",
+      "subtitle": "Управляйте делом вашего клиента здесь"
+    },
+    "dates": {
+      "na": "—"
+    },
+    "closeCase": {
+      "confirmBody": "Дело будет закрыто, и дальнейшие действия по нему станут недоступны. Вы по-прежнему сможете просматривать хронологию и примечания. Продолжить?"
+    },
+    "header": {
+      "title": "Идентификация дела",
+      "subtitle": "Быстрый контекст, статус и безопасная навигация.",
+      "unknownClient": "Клиент",
+      "client": "Клиент",
+      "phone": "Телефон",
+      "phoneNA": "Телефон: —",
+      "whatsapp": "WhatsApp",
+      "whatsappNA": "WhatsApp: —",
+      "case": "Дело",
+      "application": "Заявка",
+      "noApplicationYet": "Заявка ещё не привязана.",
+      "activationHint": "Активируйте заявку после того, как план принят и требования заданы.",
+      "createdAt": "Создано",
+      "updatedAt": "Обновлено",
+      "docsSummary": "{uploaded}/{required} загружено · {approved} одобрено",
+      "actions": {
+        "openProfile": "Открыть профиль клиента",
+        "openApplication": "Открыть заявку"
+      },
+      "clickToContactLabel": "Связаться"
+    },
+    "close": {
+      "confirmMessage": "Подтвердите, что хотите закрыть это дело."
+    },
+    "caseStatuses": {
+      "draft_intake": "Черновик заявки",
+      "intake_submitted": "Заявка отправлена",
+      "consultation_requested": "Запрошена консультация",
+      "consultation_booked": "Консультация назначена",
+      "consultation_completed": "Консультация проведена",
+      "plan_created": "План успешно создан",
+      "application_activated": "Заявка успешно активирована",
+      "closed": "Дело закрыто"
+    },
+    "applicationStatuses": {
+      "waiting_documents": "Ожидание документов",
+      "documents_under_review": "Документы на проверке",
+      "documents_not_approved": "Документы не одобрены",
+      "documents_approved": "Документы одобрены",
+      "visa_journey_started": "Визовый процесс начат",
+      "visa_issue_action_needed": "Требуется решение",
+      "visa_approved": "Виза одобрена",
+      "finished": "Завершено",
+      "cancelled": "Отменено"
+    },
+    "documentStatuses": {
+      "pending": "Ожидает",
+      "approved": "Одобрено",
+      "resubmit": "Нужно загрузить повторно",
+      "rejected": "Отклонено"
+    },
+    "intake": {
+      "title": "Сводка заявки",
+      "subtitle": "Факты только для чтения для подготовки к консультации.",
+      "keyFacts": "Ключевые факты",
+      "draftRecommendation": "Черновик рекомендации",
+      "rawIntakeJson": "Исходный JSON заявки",
+      "fields": {
+        "destination": "Направление",
+        "visaType": "Тип визы",
+        "timeframe": "Сроки",
+        "extraNotes": "Примечания"
+      }
+    },
+    "consultation": {
+      "title": "Консультация",
+      "subtitle": "Назначьте, добавьте ссылку и продвиньте этап консультации.",
+      "sections": {
+        "progressTitle": "Прогресс",
+        "progressHelp": "Проведите дело по статусам консультации.",
+        "scheduleTitle": "Расписание",
+        "scheduleHelp": "Укажите канал и дату/время при бронировании.",
+        "notesTitle": "Примечания",
+        "notesHelp": "Примечания консультанта, видимые клиенту."
+      },
+      "guardrails": {
+        "title": "Подсказки",
+        "requestedTitle": "Когда статус установлен в «Запрошена консультация»",
+        "requestedBody": "Так клиент узнаёт, что вы запрашиваете консультацию. Можно продолжить без указания канала и даты, но с клиентом нужно связаться для бронирования.",
+        "bookedTitle": "Когда статус установлен в «Консультация назначена»",
+        "bookedItemChannel": "Так клиент узнаёт, что детали консультации окончательно согласованы.",
+        "bookedItemDatetime": "Канал и дата/время консультации должны быть указаны, ссылка необязательна",
+        "completedTitle": "Когда статус установлен в «Консультация проведена»",
+        "completedBody": "Консультация завершена. Следующий шаг: подготовить план дела и требования."
+      },
+      "fields": {
+        "channel": "Канал",
+        "scheduledFor": "Назначено на",
+        "link": "Ссылка на встречу",
+        "note": "Примечание для клиента (необязательно)",
+        "transition": "Смена статуса"
+      },
+      "placeholders": {
+        "channel": "например, WhatsApp / Zoom / Телефон",
+        "link": "Вставьте ссылку на встречу",
+        "note": "Краткое внутреннее обновление...",
+        "noteExample": "Пример: клиент подтвердил доступность; попросите клиента связаться через WhatsApp или Telegram."
+      },
+      "transitions": {
+        "none": "Без смены статуса",
+        "selectStatus": "Выберите статус консультации"
+      },
+      "currentValue": "Текущее: {value}",
+      "noneScheduled": "Дата пока не назначена.",
+      "channels": {
+        "zoom": "Zoom",
+        "googleMeet": "Google Meet",
+        "google_meet": "Google Meet",
+        "phone": "Телефон",
+        "whatsapp": "WhatsApp",
+        "telegram": "Telegram",
+        "email": "Email"
+      },
+      "locked": {
+        "title": "Заблокировано",
+        "body": "Этот раздел заблокирован, так как заявка уже активна."
+      },
+      "confirmStatusUpdate": "Обновить статус консультации?",
+      "confirmScheduleUpdate": "Обновить расписание консультации?",
+      "clickToContact": {
+        "title": "Связаться",
+        "providedByClient": "Эти каналы предоставлены клиентом и не проверены.",
+        "unavailable": "Предпочтительные контактные данные недоступны.",
+        "action": "Открыть в {method}",
+        "methods": {
+          "email": "Email",
+          "whatsapp": "WhatsApp",
+          "telegram": "Telegram"
+        }
+      }
+    },
+    "plan": {
+      "title": "План",
+      "subtitle": "Задайте маршрут, задокументируйте его и отметьте предложенный/принятый.",
+      "fields": {
+        "finalApplicationType": "Итоговый тип заявки",
+        "planNotes": "Личные примечания к плану (не видны клиенту)",
+        "consultantNote": "Примечание для клиента (необязательно)",
+        "transition": "Смена статуса",
+        "finalApplicationTypeNone": "Выберите вариант",
+        "finalApplicationTypeHint": "Выберите итоговый тип заявки, чтобы активировать её."
+      },
+      "placeholders": {
+        "finalApplicationType": "Должно соответствовать значению enum в БД",
+        "planNotes": "Обоснование, шаги, зависимости...",
+        "consultantNote": "Краткое обновление, которое клиент увидит позже..."
+      },
+      "hints": {
+        "enumMustMatch": "Значение должно соответствовать enum базы данных для application_type."
+      },
+      "locked": {
+        "title": "Заблокировано",
+        "body": "Этот раздел заблокирован, так как заявка уже активна."
+      },
+      "confirmFinalApplicationTypeChange": "Изменить итоговый тип заявки?"
+    },
+    "requirements": {
+      "title": "Требования",
+      "subtitlePre": "Определите необходимые документы до активации (хранятся в плане дела).",
+      "subtitlePost": "Редактируйте необходимые документы после активации (обновляет требования заявки).",
+      "locked": {
+        "title": "Заблокировано",
+        "body": "Этот раздел заблокирован, так как заявка уже активна."
+      },
+      "confirmChange": "Обновить требования?"
+    },
+    "activation": {
+      "title": "Активация заявки",
+      "subtitle": "Создаёт процесс заявки на основе этого дела.",
+      "notActiveTitle": "Заявка ещё не создана",
+      "alreadyActiveTitle": "Заявка активна",
+      "alreadyActiveBody": "Это дело уже связано с заявкой.",
+      "openApplication": "Открыть заявку",
+      "activate": "Активировать заявку",
+      "activateDevBypass": "Активировать (обход для разработки)",
+      "confirmBody": "Вы уверены, что хотите активировать это дело? Это завершит дело и создаст заявку на основе деталей дела.",
+      "preconditions": {
+        "planAccepted": "Статус дела — plan_accepted",
+        "finalType": "Итоговый тип заявки указан",
+        "requirements": "Требования выбраны",
+        "consultationCompleted": "Консультация проведена",
+        "caseCreated": "План подготовлен",
+        "planCreated": "План подготовлен",
+        "requirementsSelected": "Требования выбраны",
+        "caseClosed": "Дело закрыто"
+      }
+    },
+    "preview": {
+      "title": "Предпросмотр для клиента",
+      "subtitle": "Что клиент должен сделать далее.",
+      "nextStepTitle": "Следующий шаг",
+      "case": {
+        "default": "Мы готовим вашу консультацию и план.",
+        "intakeSubmitted": "Мы получили вашу заявку. Далее: назначьте консультацию.",
+        "consultationRequested": "Консультация запрошена. Ожидаем детали бронирования.",
+        "consultationBooked": "Консультация назначена. Пожалуйста, приходите в назначенное время.",
+        "planProposed": "План предложен. Далее: примите план.",
+        "planAccepted": "План принят. Далее: активация заявки.",
+        "consultationCompleted": "Консультация проведена. Далее: мы готовим ваш план.",
+        "closed": "Это дело закрыто."
+      },
+      "app": {
+        "default": "Ваша заявка в работе.",
+        "waitingDocuments": "Далее: загрузите необходимые документы.",
+        "underReview": "Мы проверяем ваши документы.",
+        "notApproved": "Требуется действие: загрузите документы повторно там, где это указано.",
+        "approved": "Документы одобрены. Визовый процесс будет продолжен."
+      }
+    },
+    "timeline": {
+      "title": "Хронология",
+      "subtitle": "Минимальный аудит-просмотр (будет расширен позже).",
+      "created": "Дело создано",
+      "updated": "Дело обновлено",
+      "consultationRequested": "Консультация запрошена",
+      "consultationScheduled": "Консультация назначена",
+      "consultantNoteUpdated": "Примечание консультанта обновлено",
+      "appEvent": "Событие заявки: {type}"
+    },
+    "actions": {
+      "saveConsultation": "Сохранить консультацию",
+      "savePlan": "Сохранить план",
+      "saveRequirements": "Сохранить требования",
+      "unlock": "Разблокировать",
+      "closeCase": "Закрыть дело"
+    },
+    "confirm": {
+      "title": "Вы редактируете активное дело",
+      "activeCaseEdit": "Это дело уже связано с заявкой. Изменение может повлиять на активную заявку. Продолжить?",
+      "cancel": "Отмена",
+      "continue": "Продолжить"
+    }
+  }
+}

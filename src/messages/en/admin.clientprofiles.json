@@ -1,0 +1,156 @@
+{
+  "AdminClientProfiles": {
+    "header": {
+      "eyebrow": "Admin",
+      "title": "Clients",
+      "subtitle": "View key client details needed to process visas. Click a client to open the full profile."
+    },
+
+    "eyebrow": "Admin",
+    "title": "Clients",
+    "subtitle": "Search and open a client profile to review visa-relevant details.",
+
+    "filters": {
+      "label": "Filters",
+      "sortLabel": "Sort",
+      "lastAsc": "Last name (A–Z)",
+      "lastDesc": "Last name (Z–A)",
+      "searchLabel": "Search",
+      "searchPlaceholder": "Search first or last name…",
+      "searchButton": "Search"
+    },
+
+    "panel": {
+      "title": "All Clients",
+      "subtitle": "Click a client to open their profile.",
+      "subtitleWithQuery": "Showing results for your search."
+    },
+
+    "empty": "No clients match your filters.",
+
+    "list": {
+      "title": "All Clients",
+      "subtitle": "Sorted by most recently updated.",
+      "empty": "No client profiles found yet.",
+      "unnamed": "Unnamed Client",
+      "factsAria": "Client facts"
+    },
+
+    "hero": {
+      "eyebrow": "Client Profile",
+      "title": "Client profile",
+      "description": "Review key information required to process this client’s visa.",
+      "unknownName": "Unnamed client"
+    },
+
+    "export": {
+      "title": "Client Profile — {name}"
+    },
+
+    "actions": {
+      "view": "View",
+      "backToClients": "Back to Clients",
+      "exportProfile": "Export profile",
+      "exportPdf": "PDF",
+      "exportWord": "Word",
+      "exporting": "Exporting…",
+      "quickActions": "Quick actions",
+      "openDriveFolder": "Open Drive folder",
+      "contactMethod": "Contact via {method}"
+    },
+
+    "aria": {
+      "exportToggle": "Toggle export options",
+      "exportMenu": "Export options"
+    },
+
+    "sections": {
+      "keyInfo": {
+        "title": "Key information",
+        "subtitle": "Core personal and visa-related details."
+      },
+      "contact": {
+        "title": "Contact",
+        "subtitle": "Primary contact details provided by the client."
+      },
+      "intent": {
+        "title": "Intent & goals",
+        "subtitle": "Purpose of visit and long-term immigration goals."
+      },
+      "background": {
+        "title": "Background",
+        "subtitle": "Travel and visa history relevant to assessment."
+      },
+      "household": {
+        "title": "Household & income",
+        "subtitle": "Family composition and financial context."
+      }
+    },
+
+    "fields": {
+      "na": "N/A",
+
+      "citizenship": "Citizenship",
+
+      "dob": "Date of birth",
+      "dateOfBirth": "Date of birth",
+
+      "location": "Current location",
+      "currentLocation": "Current location",
+
+      "visaStatus": "Visa status",
+      "currentVisaStatus": "Visa status",
+
+      "passportExpiry": "Passport expiry",
+
+      "phone": "Phone",
+      "whatsapp": "WhatsApp",
+      "telegramUsername": "Telegram",
+      "contactEmail": "Email",
+
+      "preferredContactMethod": "Preferred contact method",
+      "preferredContactTime": "Preferred contact time",
+
+      "intent": "Intent",
+
+      "visitPurpose": "Visit purpose",
+      "immigrationGoal": "Immigration goal",
+
+      "maritalStatus": "Marital status",
+
+      "beenToSA": "Been to South Africa",
+      "firstEntrySA": "First entry to SA",
+      "visaRefusals": "Visa refusals",
+      "visaRefusalsDetails": "Refusal details",
+
+      "englishLevel": "English level",
+      "needLanguageSchool": "Need language school",
+
+      "incomeOver2000": "Income over 2000",
+      "incomeSource": "Income source",
+      "familyComposition": "Family composition",
+
+      "driveParentFolderId": "Drive folder ID",
+
+      "userId": "User ID",
+      "firstName": "First name",
+      "middleName": "Middle name",
+      "lastName": "Last name"
+    },
+
+    "contactMethods": {
+      "email": "Email",
+      "whatsapp": "WhatsApp",
+      "telegram": "Telegram"
+    },
+
+    "errors": {
+      "title": "Unable to load client profile",
+      "subtitle": "Something went wrong",
+      "description": "We couldn’t load this client’s profile. Please try again or return to the clients list.",
+      "notFoundTitle": "Client not found",
+      "notFoundBody": "This client profile does not exist or you don’t have access to it.",
+      "detailsLabel": "Details"
+    }
+  }
+}

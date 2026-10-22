@@ -1,0 +1,628 @@
+{
+  "GlobalForm": {
+    "labels": {
+      "en": "EN",
+      "ru": "RU",
+      "switchToRu": "RU",
+      "switchToEn": "EN"
+    },
+    "actions": {
+      "logout": "Выход",
+      "openInDrive": "Открыть Google Диск"
+    },
+    "consultation_channel": {
+      "channelCta": "Открыть в {value}",
+      "channels": {
+        "zoom": "Zoom",
+        "google_meet": "Google Meet",
+        "phone": "Телефон",
+        "whatsapp": "WhatsApp",
+        "telegram": "Telegram",
+        "email": "Email"
+      }
+    },
+    "Common": {
+      "dates": {
+        "na": "—"
+      },
+      "na": "—",
+      "toast": {
+        "regionLabel": "Уведомления"
+      },
+      "actions": {
+        "close": "Закрыть",
+        "saving": "Сохранение…",
+        "open": "Открыть"
+      },
+      "symbols": {
+        "arrowRight": "→",
+        "arrowLeft": "←",
+        "chevronDown": "▼",
+        "chevronUp": "▲",
+        "dot": "•"
+      },
+      "required": "Обязательно"
+    },
+    "Enums": {
+      "yesNo": {
+        "yes": "Да",
+        "no": "Нет",
+        "unspecified": "Предпочитаю не указывать"
+      },
+      "englishLevel": {
+        "basic": "Базовый",
+        "intermediate": "Средний",
+        "fluent": "Свободный"
+      },
+      "maritalStatus": {
+        "single": "Не в браке",
+        "married": "В браке",
+        "divorced": "В разводе",
+        "widowed": "Вдовец / Вдова",
+        "other": "Другое"
+      },
+      "preferredContactMethod": {
+        "none": "Без предпочтений",
+        "email": "Email",
+        "whatsapp": "WhatsApp",
+        "telegram": "Telegram"
+      }
+    },
+    "header": {
+      "client": "Клиент",
+      "case": "Дело",
+      "application": "Заявка",
+      "unknownClient": "Клиент не указан",
+      "createdAt": "Создано",
+      "updatedAt": "Обновлено",
+      "visaApplicationStatus": "Статус визовой заявки",
+      "documentsStatus": "Статус документов",
+      "phoneValue": "Телефон: {value}",
+      "phoneNA": "Телефон: —",
+      "whatsappValue": "WhatsApp: {value}",
+      "whatsappNA": "WhatsApp: —",
+      "clickToContact": {
+        "label": "Связаться",
+        "methods": {
+          "email": "Email",
+          "whatsapp": "WhatsApp",
+          "telegram": "Telegram"
+        }
+      },
+      "actions": {
+        "backToCases": "Назад к делам",
+        "backToApplications": "Назад к заявкам",
+        "backToDashboard": "Назад в личный кабинет",
+        "backToAccount": "Назад в аккаунт",
+        "backToNews": "Назад к новостям",
+        "backToLogin": "Назад ко входу",
+        "backToProfiles": "Назад к профилям",
+        "createNewAccount": "Создать новый аккаунт",
+        "openProfile": "Открыть профиль клиента",
+        "openApplication": "Открыть заявку",
+        "openCase": "Открыть дело",
+        "changePassword": "Изменить пароль"
+      }
+    },
+    "CaseRow": {
+      "created": "Создано",
+      "updated": "Обновлено",
+      "caseId": "Номер дела"
+    },
+    "Statuses": {
+      "filter": "Фильтр по статусу:",
+      "cases": {
+        "draft_intake": "Черновик заявки",
+        "intake_submitted": "Новое дело",
+        "consultation_requested": "Запрошена консультация",
+        "consultation_booked": "Консультация назначена",
+        "consultation_completed": "Консультация проведена",
+        "plan_created": "План успешно обновлён",
+        "requirements_added": "Требования добавлены",
+        "application_activated": "Заявка активна",
+        "finished": "Визовая заявка завершена",
+        "closed": "Закрыто"
+      },
+      "applications": {
+        "all": "Все",
+        "waiting_documents": "Ожидание документов от клиента",
+        "documents_under_review": "Документы на проверке",
+        "documents_not_approved": "Документы не одобрены консультантом",
+        "documents_approved": "Документы одобрены консультантом",
+        "visa_journey_started": "Визовый процесс начат в ведомстве",
+        "visa_issue_action_needed": "Требуется решение ведомства по визовому вопросу",
+        "visa_approved": "Виза одобрена ведомством",
+        "finished": "Визовая заявка завершена",
+        "cancelled": "Визовая заявка отменена"
+      },
+      "documents": {
+        "pending": "Ожидает проверки консультантом",
+        "reviewing": "Консультант проверяет",
+        "approved": "Документы одобрены",
+        "rejected": "Отклонено",
+        "resubmit": "Клиенту нужно загрузить документ повторно",
+        "uploaded": "Загружено",
+        "missing": "Отсутствует"
+      },
+      "casesDescriptions": {
+        "draft_intake_desc": "Дело создано, но ещё не отправлено.",
+        "intake_submitted_desc": "Заявка по делу отправлена. Далее: назначьте консультацию.",
+        "consultation_requested_desc": "Консультация запрошена. Ожидаем детали бронирования.",
+        "consultation_booked_desc": "Консультация назначена. Пожалуйста, приходите в назначенное время.",
+        "consultation_completed_desc": "Консультация проведена. Далее: мы готовим план визового процесса.",
+        "plan_created_desc": "Ваш план создан. Ознакомьтесь с ним.",
+        "requirements_added_desc": "Требования добавлены. Далее: ожидаем активации заявки консультантом.",
+        "application_activated_desc": "Ваша заявка активна. Продолжите в рабочей области заявки.",
+        "finished_desc": "Визовый процесс завершён.",
+        "closed_desc": "Это дело закрыто."
+      },
+      "applicationsDescriptions": {
+        "not_started_desc": "Ваша заявка ещё не начата.",
+        "waiting_documents_desc": "Ваша заявка активна. Далее: загрузите необходимые документы.",
+        "documents_under_review_desc": "Ваши документы на проверке.",
+        "documents_not_approved_desc": "Требуется действие: загрузите документы повторно там, где это указано.",
+        "documents_approved_desc": "Документы одобрены. Визовый процесс будет продолжен.",
+        "visa_journey_started_desc": "Визовый процесс начат в ведомстве.",
+        "visa_issue_action_needed_desc": "Требуется решение ведомства в ходе визового процесса.",
+        "visa_approved_desc": "Ваша виза одобрена ведомством.",
+        "finished_desc": "Ваша визовая заявка завершена.",
+        "cancelled_desc": "Ваша визовая заявка отменена."
+      }
+    },
+    "ApplicationRow": {
+      "created": "Создано",
+      "updated": "Обновлено",
+      "applicationId": "Номер заявки",
+      "docsSummary": "{uploaded}/{required} загружено · {approved} одобрено"
+    },
+    "Buttons": {
+      "open": "Открыть",
+      "save": "Сохранить",
+      "update": "Обновить",
+      "activate": "Активировать",
+      "saving": "Сохранение..."
+    },
+    "Tags": {
+      "activated": "Активна",
+      "notActivated": "Не активирована"
+    },
+    "Sections": {
+      "caseDetails": "1. Детали дела:",
+      "profileDetails": "2. Профиль клиента:"
+    },
+    "Export": {
+      "Actions": {
+        "downloadFactsheet": "Скачать справку",
+        "exporting": "Экспорт…",
+        "exportFormat": "Формат экспорта",
+        "pdf": "PDF",
+        "docx": "Word"
+      },
+      "Case": {
+        "id": "Номер дела",
+        "userId": "ID пользователя",
+        "status": "Статус",
+        "createdAt": "Создано",
+        "updatedAt": "Обновлено"
+      },
+      "Intake": {
+        "destination": "Направление",
+        "visaType": "Тип визы",
+        "timeframe": "Сроки",
+        "extraNotes": "Дополнительные примечания"
+      },
+      "Consultation": {
+        "channel": "Канал консультации",
+        "requestedAt": "Запрошено",
+        "scheduledFor": "Назначено на",
+        "link": "Ссылка на консультацию"
+      },
+      "Plan": {
+        "finalApplicationType": "Итоговый тип заявки",
+        "planNotes": "Примечания к плану",
+        "consultantNote": "Примечание консультанта"
+      },
+      "Profile": {
+        "userId": "ID пользователя",
+        "firstName": "Имя",
+        "middleName": "Отчество",
+        "lastName": "Фамилия",
+        "dateOfBirth": "Дата рождения",
+        "citizenshipCountry": "Страна гражданства",
+        "cityCountry": "Город / Страна",
+        "maritalStatus": "Семейное положение",
+        "phoneCountryCode": "Код страны телефона",
+        "phoneNumber": "Номер телефона",
+        "whatsappCountryCode": "Код страны WhatsApp",
+        "whatsappNumber": "Номер WhatsApp",
+        "preferredContactMethod": "Предпочтительный способ связи",
+        "preferredContactTime": "Удобное время для связи",
+        "familyComposition": "Состав семьи",
+        "incomeOver2000": "Доход свыше 2000",
+        "incomeSource": "Источник дохода",
+        "beenToSa": "Посещали ЮАР",
+        "firstEntrySa": "Первый въезд в ЮАР",
+        "currentLocation": "Текущее местоположение",
+        "currentVisaStatus": "Текущий визовый статус",
+        "visaRefusals": "Отказы в визе",
+        "visaRefusalsDetails": "Детали отказов в визе",
+        "passportExpiry": "Срок действия паспорта",
+        "visitPurpose": "Цель визита",
+        "immigrationGoal": "Иммиграционная цель",
+        "englishLevel": "Уровень английского",
+        "needLanguageSchool": "Нужна языковая школа"
+      }
+    },
+    "Confirm": {
+      "title": "Подтверждение",
+      "activeCaseEdit": "Это дело уже связано с заявкой. Изменение может повлиять на активную заявку. Продолжить?",
+      "cancel": "Отмена",
+      "continue": "Продолжить"
+    },
+    "preview": {
+      "case": {
+        "default": "Мы готовим ваш визовый процесс.",
+        "intakeSubmitted": "Заявка по делу отправлена. Далее: назначьте консультацию.",
+        "consultationRequested": "Консультация запрошена. Ожидаем детали бронирования.",
+        "consultationBooked": "Консультация назначена. Пожалуйста, приходите в назначенное время.",
+        "consultationCompleted": "Консультация проведена. Далее: мы готовим ваш план.",
+        "planProposed": "План предложен. Далее: примите план.",
+        "planAccepted": "План принят. Далее: активация заявки.",
+        "planCreated": "План создан. Далее: необходимые документы.",
+        "finished": "Визовый процесс завершён.",
+        "closed": "Это дело закрыто."
+      },
+      "app": {
+        "default": "Ваша заявка в работе.",
+        "waitingDocuments": "Далее: загрузите необходимые документы.",
+        "underReview": "Мы проверяем ваши документы.",
+        "notApproved": "Требуется действие: загрузите документы повторно там, где это указано.",
+        "approved": "Документы одобрены. Визовый процесс будет продолжен.",
+        "finished": "Заявка по этому делу завершена."
+      }
+    },
+    "destinations": {
+      "na": "—",
+      "south_africa": "ЮАР",
+      "russia": "Россия",
+      "usa": "Соединённые Штаты",
+      "uk": "Соединённое Королевство",
+      "europe": "Европа",
+      "europe_schengen": "Европа (Шенген)",
+      "greece": "Европа (Шенген) для владельцев греческого паспорта",
+      "canada": "Канада"
+    },
+    "visaTypes": {
+      "unknown": "Неизвестно",
+      "temporary_residence": "Временное проживание",
+      "permanent_residence": "Постоянное проживание",
+      "permanent_residency": "Постоянное проживание",
+      "permanent_resident": "Постоянный житель",
+      "work_visa": "Рабочая виза",
+      "general_work": "Общая рабочая виза",
+      "general_work_visa": "Общая рабочая виза",
+      "critical_skills": "Виза критических навыков",
+      "critical_skills_visa": "Виза критических навыков",
+      "intra_company_transfer": "Виза внутрикорпоративного перевода",
+      "intra_company_transfer_visa": "Виза внутрикорпоративного перевода",
+      "business": "Бизнес-виза",
+      "business_visa": "Бизнес-виза",
+      "study": "Студенческая виза",
+      "study_visa": "Студенческая виза",
+      "visitor": "Гостевая виза",
+      "visitor_visa": "Гостевая виза",
+      "tourism_visa": "Туристическая виза",
+      "relative": "Виза для родственников",
+      "relatives": "Виза для родственников",
+      "relative_visa": "Виза для родственников",
+      "retired": "Виза пенсионера",
+      "retired_person_visa": "Виза пенсионера",
+      "medical_treatment": "Виза на медицинское лечение",
+      "transit": "Транзитная виза",
+      "treaty": "Договорная виза",
+      "crew": "Виза для экипажа",
+      "exchange": "Виза по обмену",
+      "training_visa": "Виза для обучения",
+      "asylum_seeker_permit": "Разрешение для лиц, ищущих убежище",
+      "other_entry_permit": "Иное разрешение на въезд",
+      "eu_visa_free_90_days": "Безвизовый режим ЕС (90 дней)",
+      "corporate": "Корпоративная виза"
+    },
+    "Toast": {
+      "titles": {
+        "success": "Успешно",
+        "error": "Что-то пошло не так",
+        "warning": "Обратите внимание",
+        "info": "Информация"
+      },
+      "saved": {
+        "default": "Сохранено.",
+        "consultation": "Консультация обновлена.",
+        "plan": "План обновлён.",
+        "requirements": "Требования обновлены.",
+        "activation": "Заявка активирована.",
+        "intake": "Заявка обновлена.",
+        "profile": "Профиль обновлён.",
+        "documents": "Документы обновлены.",
+        "status": "Статус обновлён.",
+        "timeline": "Хронология обновлена.",
+        "unknown": "Сохранено."
+      },
+      "errors": {
+        "unknown": "Произошла непредвиденная ошибка. Попробуйте ещё раз.",
+        "consultation_booking_requires_channel_and_date": "Выберите канал консультации и дату, чтобы забронировать консультацию.",
+        "case_closed": "Это дело закрыто и не может быть изменено.",
+        "invalid_payload": "Некорректный запрос. Обновите страницу и попробуйте ещё раз.",
+        "permission_denied": "У вас нет прав на выполнение этого действия.",
+        "not_found": "Не удалось найти запрошенные данные.",
+        "validation": "Проверьте выделенные поля и попробуйте ещё раз.",
+        "activation_preconditions_not_met": "Условия для активации не выполнены."
+      },
+      "warnings": {
+        "unknown": "Проверьте данные и попробуйте ещё раз.",
+        "already_activated": "Это дело уже связано с заявкой.",
+        "requirements_empty": "Выберите хотя бы одно требование.",
+        "plan_missing_final_type": "Выберите итоговый тип заявки, прежде чем продолжить."
+      },
+      "info": {
+        "unknown": "Обновлено.",
+        "export_started": "Готовим ваш экспорт…",
+        "export_ready": "Ваш экспорт готов.",
+        "no_changes": "Нет изменений для сохранения."
+      },
+      "codes": {
+        "default": "default",
+        "unknown": "unknown",
+        "consultation": "consultation",
+        "plan": "plan",
+        "requirements": "requirements",
+        "activation": "activation",
+        "intake": "intake",
+        "profile": "profile",
+        "documents": "documents",
+        "status": "status",
+        "timeline": "timeline",
+        "consultation_booking_requires_channel_and_date": "consultation_booking_requires_channel_and_date",
+        "case_closed": "case_closed",
+        "invalid_payload": "invalid_payload",
+        "permission_denied": "permission_denied",
+        "not_found": "not_found",
+        "validation": "validation",
+        "already_activated": "already_activated",
+        "requirements_empty": "requirements_empty",
+        "plan_missing_final_type": "plan_missing_final_type",
+        "export_started": "export_started",
+        "export_ready": "export_ready",
+        "no_changes": "no_changes"
+      },
+      "status": {
+        "unknown": "Статус обновлён."
+      }
+    },
+    "Timeline": {
+      "ariaLabel": "Хронология",
+      "title": "Хронология",
+      "subtitle": "Хронологическая запись ключевых событий.",
+      "empty": "Событий пока нет.",
+      "case": {
+        "created": {
+          "title": "Дело создано"
+        },
+        "statusChanged": {
+          "title": "Статус дела обновлён",
+          "desc": "Статус дела был обновлён."
+        },
+        "intakeSaved": {
+          "title": "Заявка сохранена"
+        },
+        "intakeSubmitted": {
+          "title": "Заявка отправлена"
+        },
+        "consultationRequested": {
+          "title": "Консультация запрошена"
+        },
+        "consultationScheduled": {
+          "title": "Консультация назначена"
+        },
+        "consultationChannelSet": {
+          "title": "Канал консультации указан"
+        },
+        "consultationLinkSet": {
+          "title": "Ссылка на консультацию указана"
+        },
+        "planNotesUpdated": {
+          "title": "План обновлён"
+        },
+        "consultantNoteUpdated": {
+          "title": "Примечание консультанта обновлено"
+        },
+        "activated": {
+          "title": "Дело активировано",
+          "desc": "Дело было активировано."
+        }
+      },
+      "application": {
+        "created": {
+          "title": "Заявка создана"
+        },
+        "caseLinked": {
+          "title": "Заявка связана"
+        },
+        "statusChanged": {
+          "title": "Статус заявки обновлён",
+          "desc": "Статус заявки был обновлён."
+        },
+        "cancelled": {
+          "title": "Заявка отменена"
+        },
+        "finished": {
+          "title": "Заявка завершена"
+        },
+        "documentUploaded": {
+          "title": "Документ загружен"
+        },
+        "documentVersionUploaded": {
+          "title": "Новая версия документа загружена"
+        },
+        "documentStatusChanged": {
+          "title": "Статус документа обновлён"
+        },
+        "documentsBulkUpdated": {
+          "title": "Документы обновлены"
+        },
+        "consultantNoteUpdated": {
+          "title": "Примечание консультанта обновлено"
+        },
+        "driveProvisioned": {
+          "title": "Папки на Диске созданы"
+        }
+      }
+    },
+    "DocumentTypes": {
+      "application_form": {
+        "label": "Анкета заявления",
+        "desc": "Заполненная анкета для вашей визовой заявки."
+      },
+      "bbbee_certificate": {
+        "label": "Сертификат B-BBEE",
+        "desc": "Сертификат B-BBEE для соответствующей организации (при необходимости)."
+      },
+      "birth_certificate": {
+        "label": "Свидетельство о рождении",
+        "desc": "Заверенная копия свидетельства о рождении (при необходимости)."
+      },
+      "business_plan": {
+        "label": "Бизнес-план",
+        "desc": "Бизнес-план с описанием предполагаемой деятельности и прогнозов."
+      },
+      "capital_proof": {
+        "label": "Подтверждение капитала",
+        "desc": "Доказательство наличия капитала или инвестиционных средств (при необходимости)."
+      },
+      "company_registration": {
+        "label": "Регистрация компании",
+        "desc": "Документы о регистрации компании (например, сертификаты CIPC), если применимо."
+      },
+      "curriculum_vitae": {
+        "label": "Резюме (CV)",
+        "desc": "Актуальное резюме с указанием квалификации и опыта работы."
+      },
+      "dti_recommendation": {
+        "label": "Рекомендация DTI",
+        "desc": "Рекомендательное письмо от Департамента торговли, промышленности и конкуренции (при необходимости)."
+      },
+      "employer_undertaking": {
+        "label": "Обязательство работодателя",
+        "desc": "Подписанное обязательство работодателя (при необходимости)."
+      },
+      "employment_contract": {
+        "label": "Трудовой договор",
+        "desc": "Подписанный трудовой договор (если применимо)."
+      },
+      "experience_letters": {
+        "label": "Письма об опыте работы",
+        "desc": "Письма, подтверждающие соответствующий опыт работы (при необходимости)."
+      },
+      "fee_receipt": {
+        "label": "Квитанция об оплате",
+        "desc": "Подтверждение оплаты / квитанция по требуемым сборам."
+      },
+      "labour_certificate": {
+        "label": "Сертификат Министерства труда",
+        "desc": "Сертификат Департамента труда (при необходимости)."
+      },
+      "marriage_certificate": {
+        "label": "Свидетельство о браке",
+        "desc": "Заверенная копия свидетельства о браке (если применимо)."
+      },
+      "medical_cover": {
+        "label": "Медицинская страховка",
+        "desc": "Подтверждение действующего медицинского покрытия/страхования на требуемый период."
+      },
+      "medical_report": {
+        "label": "Медицинское заключение",
+        "desc": "Медицинское заключение, заполненное зарегистрированным врачом."
+      },
+      "motivation_letter": {
+        "label": "Мотивационное письмо",
+        "desc": "Мотивационное письмо с изложением цели и оснований заявки."
+      },
+      "other_supporting_documents": {
+        "label": "Прочие подтверждающие документы",
+        "desc": "Любые дополнительные подтверждающие документы, запрошенные для вашей заявки."
+      },
+      "passport": {
+        "label": "Паспорт",
+        "desc": "Действующий паспорт, удостоверяющий личность и гражданство владельца, с достаточным сроком действия и свободными страницами."
+      },
+      "passport_photo": {
+        "label": "Фотография на паспорт",
+        "desc": "Недавняя фотография паспортного размера, соответствующая требуемым параметрам."
+      },
+      "police_clearance_certificate": {
+        "label": "Справка о несудимости",
+        "desc": "Справка(и) о несудимости из соответствующих стран (при необходимости)."
+      },
+      "program_confirmation": {
+        "label": "Подтверждение программы",
+        "desc": "Письмо-подтверждение от учебного заведения/программы (если применимо)."
+      },
+      "proof_investment": {
+        "label": "Подтверждение инвестиций",
+        "desc": "Документация, подтверждающая квалифицирующую инвестицию (при необходимости)."
+      },
+      "proof_of_funds": {
+        "label": "Подтверждение средств",
+        "desc": "Банковские выписки или финансовые документы, показывающие достаточность средств."
+      },
+      "qualification_certificates": {
+        "label": "Дипломы и сертификаты",
+        "desc": "Сертификаты или выписки, подтверждающие квалификацию (при необходимости)."
+      },
+      "radiological_report": {
+        "label": "Радиологическое заключение",
+        "desc": "Радиологическое заключение (например, рентген грудной клетки) в соответствии с требованиями."
+      },
+      "repatriation_guarantee": {
+        "label": "Гарантия репатриации",
+        "desc": "Гарантия или обязательство по репатриации (при необходимости)."
+      },
+      "return_ticket": {
+        "label": "Обратный билет",
+        "desc": "Подтверждение бронирования обратного или транзитного билета (при необходимости)."
+      },
+      "saica_letter": {
+        "label": "Письмо SAICA",
+        "desc": "Письмо SAICA, подтверждающее членство/статус (при необходимости)."
+      },
+      "saqa_evaluation": {
+        "label": "Оценка SAQA",
+        "desc": "Отчёт об оценке SAQA для иностранных квалификаций (при необходимости)."
+      },
+      "shareholder_certificates": {
+        "label": "Сертификаты акционера",
+        "desc": "Сертификаты акционера или документация реестра акций (если применимо)."
+      },
+      "staff_undertaking": {
+        "label": "Обязательство по персоналу",
+        "desc": "Обязательство, связанное с обязательствами по персоналу (при необходимости)."
+      },
+      "tax_clearance": {
+        "label": "Налоговая справка",
+        "desc": "Справка или подтверждение об отсутствии налоговой задолженности (при необходимости)."
+      },
+      "travel_itinerary": {
+        "label": "Маршрут поездки",
+        "desc": "Маршрут поездки с данными о рейсах и проживании (при необходимости)."
+      },
+      "waiver_letter": {
+        "label": "Письмо об отмене требования",
+        "desc": "Запрос/подтверждение отмены требования (если применимо)."
+      },
+      "yellow_fever_certificate": {
+        "label": "Сертификат о вакцинации от жёлтой лихорадки",
+        "desc": "Сертификат о вакцинации от жёлтой лихорадки (при необходимости)."
+      }
+    }
+  }
+}

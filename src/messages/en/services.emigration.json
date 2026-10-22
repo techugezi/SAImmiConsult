@@ -1,0 +1,52 @@
+{
+  "ServicesEmigration": {
+    "header": {
+      "title": "Emigration",
+      "subtitle": "Emigration & working abroad",
+      "description": "Support for South Africans and residents who want to move abroad, work internationally or apply for study programmes overseas.",
+      "primaryCta": "Speak to a consultant",
+      "secondaryCta": "View FAQ"
+    },
+
+    "fromSa": {
+      "title": "Emigrating from South Africa",
+      "body": "We assist individuals and families who are planning to change their main country of residence and start a new chapter abroad.",
+      "points": {
+        "0": "Clarifying country-specific visa routes and options",
+        "1": "Guidance on documents, timing and expectations",
+        "2": "Practical advice on planning your relocation"
+      }
+    },
+
+    "workStudy": {
+      "title": "Work & study visas",
+      "body": "We help you understand which work or study pathways match your profile and long-term plans.",
+      "points": {
+        "0": "Initial assessment of your chances and options",
+        "1": "Guidance on choosing suitable programmes or employers",
+        "2": "Support with preparing documentation for applications"
+      }
+    },
+
+    "touristTraining": {
+      "title": "Tourist & training visas",
+      "body": "Guidance for clients applying for short-term tourist or training visas to the USA, Canada, Europe and the UK.",
+      "points": {
+        "0": "Tourist visa preparation and basic document check",
+        "1": "Short-term course and training visas",
+        "2": "Support with appointments and embassy / consulate requirements"
+      }
+    },
+
+    "greece": {
+      "title": "Greece: visa-free access & opportunities",
+      "body": "Greece offers convenient access to the EU, with visa-free travel for Greek citizens and practical benefits for those who hold or plan to obtain Greek documents.",
+      "pills": {
+        "0": "Up to 90 days visa-free travel in the EU",
+        "1": "Remote passport services in many cases",
+        "2": "Flexible international banking options",
+        "3": "Recognition of international driving licences"
+      }
+    }
+  }
+}

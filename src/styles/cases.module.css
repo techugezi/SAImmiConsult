@@ -1,0 +1,75 @@
+/*
+DOC NAME: cases.module.css
+LOCATION: /src/styles/cases.module.css
+SCOPE: Page-level layout + interaction only for the Cases list page (hero, stats grid, list container, empty state).
+STATUS: LOCKED
+APPLIES TO:
+- /src/app/[locale]/(admin)/admin/cases/page.tsx
+- Any other cases listing page that imports /src/styles/cases.module.css
+NOTES:
+- Module CSS must remain layout/spacing/interaction only (no typography, no colors, no visual identity).
+- Hero typography roles must come from globals.css (.hero-title/.hero-subtitle/.hero-desc).
+- Panel and row visuals are owned by Panel + CaseRow primitives (do not duplicate here).
+CONTENT:
+*/
+
+/* ==========================================================================
+	CASES LIST — layout + interaction only
+	========================================================================== */
+
+/* ==========================================================================
+	HERO
+	========================================================================== */
+
+.heroShell {
+	display: flex;
+	justify-content: center;
+	padding: var(--space-page);
+	padding-top: calc(var(--nav-height, 84px) + var(--space-7));
+	padding-bottom: var(--space-6);
+}
+
+.heroSquare {
+	width: min(92vw, var(--content-max-width));
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: var(--space-2);
+}
+
+/* ==========================================================================
+	STATS
+	========================================================================== */
+
+.statsGrid {
+	display: grid;
+	gap: var(--space-4);
+	grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+}
+
+/* ==========================================================================
+	PANEL CONTENT
+	========================================================================== */
+
+.emptyState {
+	padding: var(--space-5);
+	text-align: center;
+}
+
+/* ==========================================================================
+	LIST
+	========================================================================== */
+
+.list {
+	display: flex;
+	flex-direction: column;
+}
+
+
+.actionsRow {
+	display: flex;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+	gap: var(--space-3);
+}

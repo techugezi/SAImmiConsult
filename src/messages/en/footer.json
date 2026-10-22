@@ -1,0 +1,79 @@
+{
+  "Footer": {
+    "status": {
+      "cityZa": "Johannesburg",
+      "cityRu": "Moscow"
+    },
+	"aria": {
+		"footerNav": "Footer navigation"
+	},
+	"links": {
+		"about": "About",
+		"services": "Services",
+		"contact": "Contact",
+		"login": "Login",
+		"news": "News",
+		"faq": "FAQ",
+		"subServices": {
+		"immigration": "Immigration",
+		"emigration": "Emigration",
+		"visaTypes": "Visa types",
+		"additionalServices": "Additional services"
+		}
+	},
+    "social": {
+      "instagram": "Instagram",
+      "instagramAria": "Open Instagram",
+      "facebook": "Facebook",
+      "facebookAria": "Open Facebook",
+      "vk": "VK",
+      "vkAria": "Open VK",
+      "telegram": "Telegram",
+      "telegramAria": "Open Telegram"
+    },
+
+    "quick": {
+      "email": "Email",
+      "phoneZa": "South Africa",
+      "phoneRu": "Russia"
+    },
+
+    "brand": {
+      "line1": "Immigration made",
+      "em1": "human",
+      "line2": "with guidance that is",
+      "em2": "clear"
+    },
+
+    "columns": {
+      "firm": {
+        "title": "Firm",
+        "about": "About",
+        "services": "Services",
+        "news": "News",
+        "faq": "FAQ",
+        "contact": "Contact"
+      },
+      "connect": {
+        "title": "Connect",
+        "emailLabel": "Email",
+        "phoneZaLabel": "South Africa",
+        "phoneRuLabel": "Russia"
+      }
+    },
+
+    "cta": {
+      "label": "Contact us"
+    },
+
+    "legal": {
+      "copyright": "© {year} SA Immi Consult",
+      "privacy": "Privacy policy",
+      "locationTag": "South Africa · Russia"
+    },
+
+    "backToTop": {
+      "text": "Back to top"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "ClientStatusStepWizard": {
+    "eyebrow": "Шаг {current} из {total}",
+    "stepLabel": "Шаг {number}: {label}",
+    "stepsNavSuffix": "шаги",
+    "completedMark": "Завершено",
+    "terminal": {
+      "closed": "Закрыто",
+      "finished": "Завершено",
+      "cancelled": "Отменено"
+    },
+    "clientSteps": {
+      "documents": "Документы",
+      "visaJourney": "Визовый процесс",
+      "outcome": "Ваш результат"
+    }
+  }
+}

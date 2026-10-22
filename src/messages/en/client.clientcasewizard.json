@@ -1,0 +1,68 @@
+{
+  "ClientCaseIntakeWizard": {
+    "eyebrow": "New case",
+    "title": "Tell us what you need",
+    "subtitle": "Answer a few quick questions so we can open your case and guide you to the next step.",
+    "a11y": {
+      "progressLabel": "Case intake progress"
+    },
+	"navigation": {
+		"cases": "Back to cases"
+	},
+	"messages": {
+		"createdRedirecting": "Case created successfully. Redirecting..."
+	},
+    "steps": {
+      "1": "Destination",
+      "2": "Purpose",
+      "3": "Review"
+    },
+    "step1": {
+      "question": "Which country is your visa application for?",
+      "placeholder": "Select a destination"
+    },
+    "step2": {
+      "question": "What is the purpose for visiting the country?",
+      "placeholder": "Select a purpose",
+      "alert_other": "For destinations other than South Africa, we currently specialise in Work Visas only.",
+      "confirm_other": "Continue with work visa",
+      "options": {
+        "visitors": "Visitor’s Visa (Tourism / Family Visit)",
+        "study": "Study Visa",
+        "business": "Business Visa",
+        "medical_treatment": "Medical Treatment Visa",
+        "general_work": "General Work Visa",
+        "critical_skills": "Critical Skills Visa",
+        "intra_company": "Intra-Company Transfer Visa",
+        "relatives": "Relative’s Visa",
+        "retired": "Retirement Visa",
+        "corporate": "Corporate Permit",
+        "exchange": "Exchange Programme",
+        "entertainment": "Entertainment / Sport Visa",
+        "transit": "Transit Visa"
+      }
+    },
+    "step3": {
+      "destination": "Destination",
+      "visaType": "Visa type",
+      "timeframe": {
+        "label": "Approximately, when do you expect to visit or move to this country? (optional)",
+        "placeholder": "e.g. within 6-12 months"
+      },
+      "notes": {
+        "label": "Want to add any additional information? (optional)",
+        "placeholder": "Provide any context that will help us understand your situation faster during the consultation."
+      },
+      "cta": "Submit intake",
+      "disclaimer": "Submitting this intake opens your case and helps us prepare the next steps towards creating a visa application."
+    },
+    "actions": {
+      "back": "Back",
+      "next": "Continue",
+      "submitting": "Submitting..."
+    },
+    "errors": {
+      "submitFailed": "We couldn’t submit your intake. Please try again."
+    }
+  }
+}

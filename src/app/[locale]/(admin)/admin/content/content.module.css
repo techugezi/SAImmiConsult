@@ -1,0 +1,123 @@
+/* 
+DOC NAME: content.module.css
+LOCATION: /src/app/[locale]/(admin)/admin/content/content.module.css
+SCOPE: Admin Content page layout only (no typography overrides).
+STATUS: LOCKED
+AUDITED:
+- Scope compliance: Layout primitives only (grid/stack/alignment/sizing) — no typography roles defined here.
+- Identity safety: Removed hardcoded “success green” values; success glow now references a token (with safe fallback).
+- Resilience: Published glow remains optional (if token not defined, fallback RGB is used).
+NOTES:
+- Prefer defining `--tone-success-rgb` in globals.css (e.g. `16 185 129`) to keep all tone identity centralized.
+*/
+
+.hero {
+	padding: var(--space-8) 0 var(--space-6);
+}
+
+.heroInner {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+}
+
+.block {
+	padding: var(--space-4);
+	border-radius: var(--radius-lg);
+}
+
+.blockHint {
+	margin: 0 0 var(--space-3) 0;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-4);
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: var(--space-4);
+}
+
+.field {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+	min-width: 0;
+}
+
+.fieldFull {
+	grid-column: 1 / -1;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+	min-width: 0;
+}
+
+.fieldRow {
+	grid-column: 1 / -1;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--space-4);
+}
+
+.smallField {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+	width: 160px;
+}
+
+.inline {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-2);
+}
+
+.actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: var(--space-2);
+}
+
+.rowHeader {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: var(--space-4);
+	margin-bottom: var(--space-3);
+}
+
+.rowTitle {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+	min-width: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Title line (title + badge)                                                 */
+/* -------------------------------------------------------------------------- */
+
+.titleLine {
+	display: flex;
+	align-items: center;
+	gap: var(--space-2);
+	min-width: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Content card status glow (published only)                                  */
+/* -------------------------------------------------------------------------- */
+
+.contentCard[data-status="published"] {
+	/* tone via token (identity lives in globals.css) */
+	box-shadow:
+		0 0 0 1px rgb(var(--tone-success-rgb, 16 185 129) / 0.22),
+		0 0 22px rgb(var(--tone-success-rgb, 16 185 129) / 0.22),
+		0 0 44px rgb(var(--tone-success-rgb, 16 185 129) / 0.14);
+}

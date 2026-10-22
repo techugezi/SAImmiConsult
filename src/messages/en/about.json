@@ -1,0 +1,114 @@
+{
+  "About": {
+    "yearsShort": "Years",
+    "imageAlt": "About SA Immi Consult",
+    "ctaExploreServices": "Explore services",
+    "ctaTalkToConsultant": "Talk to a consultant",
+	
+    "title": "About SA Immi Consult",
+    "subtitle": "Helping you make South Africa feel like home",
+    "description": "SA Immi Consult is an immigration and education agency that supports individuals, families and businesses who want to study, live, invest or retire in South Africa.",
+
+    "whoWeAre": {
+      "title": "Who we are",
+      "body1": "South African Immigration consultants help people from around the world explore life, study and business opportunities in South Africa. We combine on-the-ground experience in Johannesburg with a deep understanding of the local immigration landscape.",
+      "body2": "We know that moving to a new country can feel overwhelming – from choosing the right visa route to understanding which skills and professions are in demand. Our mission is to simplify this journey through a clear three-step process and ongoing, human support."
+    },
+
+    "whySouthAfrica": {
+      "title": "Why South Africa?",
+      "intro": "South Africa offers a powerful mix of education, lifestyle and business potential.",
+      "education": "Internationally recognised education at a more accessible cost than many destinations such as Europe, Canada, the USA, Australia or the UK.",
+      "visaFree": "For many nationalities, short-term visits are straightforward, with visa-free entries or flexible visitor options that make the first exploration trip easier.",
+      "business": "Investor-friendly policies and trade relationships with more than 200 countries create opportunities for entrepreneurs and business owners.",
+      "bricks": "South Africa is part of BRICS, and historic ties with countries like Russia mean Russian-speaking clients are often met with warmth and interest.",
+      "lifestyle": "Mild climate, diverse nature, vibrant cities like Cape Town and Johannesburg, and a high quality of life with space, greenery and friendly communities."
+    },
+
+    "steps": {
+      "title": "A simple three-step process",
+      "intro": "We structure your case into three clear stages so you always know where you are in the journey.",
+      "eligibility": {
+        "title": "1. Eligibility assessment",
+        "body": "You receive a personalised assessment from authorised immigration consultants, so you understand which programmes and visa routes may be open to you."
+      },
+      "preparation": {
+        "title": "2. Application preparation",
+        "body": "We help you gather and prepare your supporting documentation properly, reducing delays and common mistakes that can lead to refusals."
+      },
+      "submission": {
+        "title": "3. Submission and follow-up",
+        "body": "Your application is submitted correctly to the South African authorities, with guidance on next steps and support while you wait for a decision."
+      }
+    },
+
+    "advantages": {
+      "title": "Why clients choose us",
+      "localTeam": "We are based in Johannesburg and have lived in South Africa for many years.",
+      "languages": "We work fluently in both Russian and English.",
+      "experience": "Our consultants have more than 15 years of experience in immigration and education support.",
+      "loyalty": "We offer a loyalty programme for returning clients and referrals.",
+      "translation": "We provide certified translation and notarisation of documents in South Africa.",
+      "tailoredPath": "We work with you to find an immigration path that fits your goals, not a one-size-fits-all solution."
+    },
+
+    "services": {
+      "title": "What we help with",
+      "intro": "Our services cover the full journey: from first questions and study plans to permanent relocation and long-term life in South Africa.",
+
+      "immigration": {
+        "title": "Immigration to South Africa",
+        "body": "For those planning to live, work, retire or join family in South Africa.",
+        "items": {
+          "0": "Consultations on visas, permits and residency options.",
+          "1": "Preparation of document packages for temporary and permanent residence.",
+          "2": "Support with complex or unusual cases."
+        }
+      },
+
+      "education": {
+        "title": "Education in South Africa",
+        "body": "For students and parents looking for study opportunities.",
+        "items": {
+          "0": "Consultations on schools, language courses and universities.",
+          "1": "Selection of study programmes that fit your goals and budget.",
+          "2": "Support with applications and student visa processes."
+        }
+      },
+
+      "realEstate": {
+        "title": "Real estate support",
+        "body": "For clients exploring housing or investment property.",
+        "items": {
+          "0": "Selection of properties for rent or purchase.",
+          "1": "Coordination with trusted partners on the ground.",
+          "2": "Legal support on property transactions through partner firms."
+        }
+      },
+
+      "internationalVisas": {
+        "title": "Other visas and opportunities",
+        "body": "For clients legally based in South Africa who want to explore additional directions.",
+        "items": {
+          "0": "Support with tourist and study visas to destinations such as the USA, Canada, Europe and the UK via partner agencies.",
+          "1": "Guidance on gathering and preparing documentation for these applications.",
+          "2": "Ongoing information support throughout the process."
+        }
+      }
+    },
+	"location": {
+		"title": "Where to find us",
+		"subtitle": "Visit us by appointment in Rivonia, Sandton.",
+		"placeName": "Regus - Johannesburg, Rivonia Village",
+		"placeHint": "Rivonia Village, Sandton",
+		"line1": "2nd Floor, Rivonia Village",
+		"line2": "Cnr Mutual Road and Rivonia Boulevard",
+		"line3": "Rivonia Village",
+		"line4": "Sandton",
+		"postcode": "2191 | South Africa",
+		"openInMaps": "Open in Maps",
+		"contactCta": "Contact us",
+		"note": "If you’re unsure where to go, contact us and we’ll guide you."
+	}
+  }
+}

@@ -1,0 +1,235 @@
+/* ==========================================================================
+   Scoped hero typography overrides
+   ONLY applies inside PageWithStickyHero
+   ========================================================================== */
+
+.heroShellWithImage :global(.hero-title) {
+	font-size: var(--text-xl);
+	font-weight: var(--weight-bold);
+	letter-spacing: -0.01em;
+	line-height: 1.1;
+	color: var(--hero-title-color);
+}
+
+.heroShellWithImage :global(.hero-subtitle) {
+	font-family: var(--font-serif);
+	font-style: italic;
+	font-weight: 300;
+	font-size: var(--text-4xl);
+	line-height: 1.45;
+	color: var(--hero-subtitle-color);
+}
+
+.heroShellWithImage :global(.hero-desc) {
+	font-size: var(--text-md);
+	font-weight: var(--weight-regular);
+	line-height: 1.55;
+	max-width: 65ch;
+	color: var(--hero-desc-color);
+}
+
+.heroShellWithImage :global(.hero-desc--onImage) {
+	font-style: normal;
+	text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+	color: var(--hero-desc-onImage-color);
+}
+
+.heroShellWithImage :global(.fx-heroScrim) {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.heroShellWithImage :global(.hero-desc),
+.heroShellWithImage :global(.hero-desc--onImage) {
+	margin: 0;
+	margin-inline: auto;
+}
+
+/* ==========================================================================
+   Shared scope for hero + main
+   ========================================================================== */
+
+.pageScope {
+	/* Defaults (overridable via style prop) */
+	--page-bg: var(--eggshell);
+
+	--hero-height: clamp(420px, 70svh, 820px);
+
+	--hero-anchor-x: 50%;
+	--hero-anchor-y: 50%;
+
+	--hero-x: 0px;
+	--hero-y: 0px;
+
+	--hero-x-mobile: var(--hero-x);
+	--hero-y-mobile: var(--hero-y);
+
+	--hero-overlay-top: 0.62;
+	--hero-overlay-mid: 0.38;
+	--hero-overlay-bot: 0.22;
+
+	--hero-overlay-blur: 12px;
+	--hero-overlay-sat: 1.15;
+
+	--hero-title-color: var(--eggshell);
+	--hero-subtitle-color: var(--savanna-gold);
+	--hero-desc-color: var(--ink-muted);
+	--hero-desc-onImage-color: var(--eggshell);
+
+	position: relative;
+
+	/* Paint the full page surface so fixed bg never bleeds through */
+	background: var(--page-bg);
+	min-height: 0;
+	
+	/* Ensure it can fill available height when app shell provides it */
+	flex: 1 1 auto;
+}
+
+/* ==========================================================================
+   Fixed background layer (now OUTSIDE header)
+   ========================================================================== */
+
+.fixedHeroBg {
+	position: fixed;
+	inset: 0;
+	
+	width: 100%;
+	
+	/* fallback first */
+	height: 100vh;
+	
+	/* stable viewport height (prevents mobile address-bar expansion jumps) */
+	height: 100svh;
+	
+	/* do NOT use 100dvh here */
+	
+	z-index: 0;
+	pointer-events: none;
+	
+	background-image: var(--sticky-hero-image);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position:
+		calc(var(--hero-anchor-x) + var(--hero-x))
+		calc(var(--hero-anchor-y) + var(--hero-y));
+	
+	transform: translate3d(0, 0, 0);
+	backface-visibility: hidden;
+}
+
+@media (max-width: 900px) {
+	.fixedHeroBg {
+		background-position:
+			calc(var(--hero-anchor-x) + var(--hero-x-mobile))
+			calc(var(--hero-anchor-y) + var(--hero-y-mobile));
+	}
+}
+
+/* ==========================================================================
+   Hero shell + overlays
+   ========================================================================== */
+
+.heroShellWithImage {
+	position: relative;
+	z-index: 1; /* Above fixed bg */
+	min-height: var(--hero-height);
+}
+
+/* Gradient + blur/sat overlay */
+.heroShellWithImage::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 1;
+
+	background: linear-gradient(
+		to bottom,
+		rgba(6, 5, 8, var(--hero-overlay-top)) 0%,
+		rgba(10, 8, 12, var(--hero-overlay-mid)) 45%,
+		rgba(10, 8, 12, var(--hero-overlay-bot)) 100%
+	);
+
+	backdrop-filter: blur(var(--hero-overlay-blur)) saturate(var(--hero-overlay-sat));
+	-webkit-backdrop-filter: blur(var(--hero-overlay-blur)) saturate(var(--hero-overlay-sat));
+}
+
+/* Optional extra overlay hook */
+.heroOverlay {
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	pointer-events: none;
+}
+
+/* Hero text above overlays */
+.heroInnerOnImage {
+	position: relative;
+	z-index: 3;
+}
+
+/* ==========================================================================
+   Main content stage
+   ========================================================================== */
+
+.mainStage {
+	position: relative;
+	z-index: 10; /* Above header + fixed bg */
+	width: 100%;
+	background: var(--page-bg);
+	padding-block: var(--space-6);
+}
+
+.mainOverlap {
+	position: relative;
+	z-index: 1;
+	margin-top: -72px;
+}
+
+.mainAbove {
+	position: relative;
+	z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.fixedHeroBg {
+		transform: none;
+	}
+}
+
+/* ==========================================================================
+   FIX: Hero starts below fixed navbar and stays vertically centered
+   Scope: PageWithStickyHero only
+   ========================================================================== */
+
+/* 1) Push the hero down so it starts after the navbar */
+.heroShellWithImage {
+	padding-top: var(--nav-height, 84px);
+	box-sizing: border-box;
+}
+
+/* 2) Make the hero-shell content center within the remaining height
+      (hero height minus navbar height) */
+.pageScope :global(.hero-shell) {
+	/* remove the global hero-shell “tall padding” behavior for this variant */
+	padding-top: 0;
+	padding-bottom: 0;
+
+	/* center the inner content vertically */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	/* keep your hero size contract, but subtract navbar overlay */
+	min-height: calc(var(--hero-height) - var(--nav-height, 84px));
+}
+
+/* (Optional but recommended) Ensure hero-inner doesn’t add any top bias */
+.pageScope :global(.hero-inner) {
+	margin-top: 0;
+	margin-bottom: 0;
+}

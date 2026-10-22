@@ -1,0 +1,57 @@
+/*
+DOC NAME: PortalSubNav.module.css
+LOCATION: /src/components/PortalSubNav.module.css
+SCOPE: Layout + interaction only for PortalSubNav. No tokens/identity overrides.
+STATUS: UNLOCKED
+*/
+
+.bar {
+	position: sticky;
+	top: var(--nav-height, 84px);
+	z-index: 40;
+}
+
+.inner {
+	margin: 0 auto;
+	max-width: min(92vw, 1280px);
+
+	display: flex;
+	align-items: center;
+	gap: var(--space-3);
+
+	min-height: 44px;
+	padding: 0 var(--space-4);
+
+	overflow-x: auto;
+	overscroll-behavior: contain;
+}
+
+.label {
+	flex: 0 0 auto;
+	white-space: nowrap;
+}
+
+.pills {
+	display: flex;
+	align-items: center;
+	gap: var(--space-2);
+	flex: 0 0 auto;
+}
+
+.pill {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+.pillActive {
+	/* hook only */
+}
+
+@media (max-width: 640px) {
+	.label {
+		display: none;
+	}
+}

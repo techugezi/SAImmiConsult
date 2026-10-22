@@ -1,0 +1,73 @@
+{
+  "Footer": {
+    "status": {
+      "cityZa": "Йоханнесбург",
+      "cityRu": "Москва"
+    },
+    "aria": {
+      "footerNav": "Навигация в подвале сайта"
+    },
+    "links": {
+      "about": "О нас",
+      "services": "Услуги",
+      "contact": "Контакты",
+      "login": "Вход",
+      "news": "Новости",
+      "faq": "Вопросы и ответы",
+      "subServices": {
+        "immigration": "Иммиграция",
+        "emigration": "Эмиграция",
+        "visaTypes": "Типы виз",
+        "additionalServices": "Дополнительные услуги"
+      }
+    },
+    "social": {
+      "instagram": "Instagram",
+      "instagramAria": "Открыть Instagram",
+      "facebook": "Facebook",
+      "facebookAria": "Открыть Facebook",
+      "vk": "ВКонтакте",
+      "vkAria": "Открыть ВКонтакте",
+      "telegram": "Telegram",
+      "telegramAria": "Открыть Telegram"
+    },
+    "quick": {
+      "email": "Электронная почта",
+      "phoneZa": "Южная Африка",
+      "phoneRu": "Россия"
+    },
+    "brand": {
+      "line1": "Иммиграция — это",
+      "em1": "по-человечески",
+      "line2": "с сопровождением, которое",
+      "em2": "понятно"
+    },
+    "columns": {
+      "firm": {
+        "title": "Компания",
+        "about": "О нас",
+        "services": "Услуги",
+        "news": "Новости",
+        "faq": "Вопросы и ответы",
+        "contact": "Контакты"
+      },
+      "connect": {
+        "title": "Связаться с нами",
+        "emailLabel": "Электронная почта",
+        "phoneZaLabel": "Южная Африка",
+        "phoneRuLabel": "Россия"
+      }
+    },
+    "cta": {
+      "label": "Связаться с нами"
+    },
+    "legal": {
+      "copyright": "© {year} SA Immi Consult",
+      "privacy": "Политика конфиденциальности",
+      "locationTag": "Южная Африка · Россия"
+    },
+    "backToTop": {
+      "text": "Наверх"
+    }
+  }
+}

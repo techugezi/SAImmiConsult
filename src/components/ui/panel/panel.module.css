@@ -1,0 +1,66 @@
+/*
+DOC NAME: panel.module.css
+LOCATION: /src/components/ui/panel/panel.module.css
+SCOPE: Panel primitive — layout/structure only (typography roles live in globals.css)
+STATUS: LOCKED
+APPLIES TO: /src/components/ui/panel/Panel.tsx and any page/component using <Panel>
+NOTES:
+- Module CSS must not contain typography/color rules for title/subtitle.
+- Panel surface visuals consume global tokens: --panel-bg/--panel-border/--panel-radius/--panel-padding/--panel-header-bg.
+CONTENT:
+*/
+
+/* ==========================================================================
+	Panel — layout + visuals via TOKENS only (primitive)
+	========================================================================== */
+
+.panel {
+	background: var(--panel-bg);
+	border: 1px solid var(--panel-border);
+	border-radius: var(--panel-radius);
+	overflow: hidden;
+
+	box-shadow: var(--shadow-md);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+}
+
+/* ==========================================================================
+	Header layout
+	========================================================================== */
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: var(--space-4);
+	flex-wrap: wrap;
+
+	padding: var(--panel-padding);
+
+	border-bottom: 1px solid var(--panel-border);
+	background: var(--panel-header-bg);
+}
+
+.headerText {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+	min-width: 240px;
+}
+
+.actions {
+	display: flex;
+	align-items: center;
+	gap: var(--space-3);
+	flex-wrap: wrap;
+}
+
+/* ==========================================================================
+	Body
+	========================================================================== */
+
+.body {
+	padding: var(--panel-padding);
+}
+

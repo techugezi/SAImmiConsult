@@ -1,0 +1,396 @@
+/* src/app/[locale]/(client)/client/dashboard/dashboard.module.css */
+
+/* ==========================================================================
+   CLIENT DASHBOARD — Home-aligned "Flat Square" System
+   - No hardcoded layouts: clamp + container queries
+   - Flat / square feel, consistent rhythm
+   ========================================================================== */
+
+.pageContainer {
+  width: 100%;
+  background: var(--eggshell);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+/* =========================
+   HERO SHELL
+   ========================= */
+
+.heroShell {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  --shellPad: var(--section-shell, clamp(1rem, 2.4vw, 1.75rem));
+  padding: var(--shellPad);
+
+  padding-top: calc(var(--nav-height, 84px) + clamp(2.75rem, 6vw, 6rem));
+  padding-bottom: clamp(1.75rem, 3.5vw, 3.25rem);
+}
+
+.heroSquare {
+  width: min(92vw, var(--content-max-width));
+  margin: 0 auto;
+
+  container-type: inline-size;
+  container-name: dashHero;
+
+  padding: clamp(1.5rem, 4.2cqw, 3.25rem);
+
+  /* flat */
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(0.3rem, 0.9cqw, 0.6rem);
+}
+
+/* Typography: same system you locked in for subpages */
+/* Your established title system */
+.titleThin {
+  font-family: serif;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--protea-pink);
+  margin: 0;
+  font-size: clamp(2.2rem, 4.6cqw, 4.2rem);
+  line-height: 1.12;
+}
+
+.titleBold {
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.04em;
+  margin: 0;
+  font-size: clamp(1.4rem, 2.8cqw, 2.25rem);
+  line-height: 1.05;
+  opacity: 0.9;
+  text-transform: none;
+}
+
+.subSubtitle {
+  margin: 0;
+  margin-top: clamp(0.85rem, 1.6cqw, 1.2rem);
+  font-size: clamp(1rem, 1.45cqw, 1.15rem);
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 75ch;
+}
+
+/* =========================
+   MAIN SHELL
+   ========================= */
+
+.mainShell {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  --shellPad: var(--section-shell, clamp(1rem, 2.4vw, 1.75rem));
+  padding: var(--shellPad);
+
+  padding-top: 0;
+  padding-bottom: clamp(2.75rem, 6vw, 6.5rem);
+}
+
+.mainSquare {
+  width: min(92vw, var(--content-max-width));
+  margin: 0 auto;
+
+  container-type: inline-size;
+  container-name: dashMain;
+
+  padding: clamp(1.5rem, 4.2cqw, 3.75rem);
+
+  /* still flat overall */
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* =========================
+   CARDS GRID
+   ========================= */
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1rem, 2.4cqw, 1.75rem);
+  align-items: stretch;
+}
+
+/* 2 columns when the square is wide enough (container query, not viewport) */
+@container dashMain (min-width: 860px) {
+  .cardsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* odd count → last card spans the full row (keeps the "square" rhythm) */
+  .cardsGrid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
+/* =========================
+   CARD (aesthetic glass-light)
+   ========================= */
+
+.card {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 2rem;
+
+  padding: clamp(1.25rem, 2.6cqw, 2rem);
+
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(229, 115, 115, 0.28);
+  box-shadow: 0 24px 54px rgba(15, 23, 42, 0.07);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(0.75rem, 1.6cqw, 1rem);
+  flex-wrap: wrap;
+  margin-bottom: clamp(0.75rem, 1.6cqw, 1rem);
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: clamp(1.05rem, 1.4cqw, 1.25rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+}
+
+.cardBody {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: clamp(0.98rem, 1.2cqw, 1.05rem);
+  line-height: 1.75;
+}
+
+.detail {
+  color: var(--text-muted);
+  opacity: 0.9;
+  font-weight: 700;
+}
+
+/* Hint row under a clickable card */
+.cardHint {
+  margin: clamp(0.9rem, 1.8cqw, 1.25rem) 0 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.55rem;
+
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: clamp(0.78rem, 1cqw, 0.9rem);
+
+  color: rgba(15, 23, 42, 0.58);
+}
+
+.cardHintArrow {
+  display: inline-block;
+  color: var(--protea-pink);
+  transform: translateX(0);
+  transition: transform 0.25s ease;
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+
+/* Subtle affordance when the whole card is clickable */
+.card:hover .cardHint {
+  color: rgba(15, 23, 42, 0.72);
+}
+
+.card:hover .cardHintArrow {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cardHintArrow {
+    transition: none !important;
+  }
+}
+
+
+/* =========================
+   STATUS BADGES
+   (keeps your existing badgeClass mapping)
+   ========================= */
+
+.badge {
+  font-size: 0.78rem;
+  font-weight: 900;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(255, 255, 255, 0.65);
+}
+
+/* Use your existing names but make them brand-aligned */
+.pending {
+  background: rgba(186, 153, 102, 0.18);
+  color: #7a5b2a;
+  border-color: rgba(186, 153, 102, 0.25);
+}
+
+.inReview {
+  background: rgba(13, 148, 136, 0.14);
+  color: #0b6b62;
+  border-color: rgba(13, 148, 136, 0.22);
+}
+
+.approved {
+  background: rgba(34, 197, 94, 0.14);
+  color: #0f6b34;
+  border-color: rgba(34, 197, 94, 0.22);
+}
+
+.actionRequired {
+  background: rgba(229, 115, 115, 0.16);
+  color: #8c2d2d;
+  border-color: rgba(229, 115, 115, 0.24);
+}
+
+.noData {
+  background: rgba(15, 23, 42, 0.06);
+  color: rgba(15, 23, 42, 0.65);
+  border-color: rgba(15, 23, 42, 0.10);
+}
+
+/* =========================
+   NEXT STEPS LIST
+   ========================= */
+
+.stepsList {
+  list-style: none;
+  padding: 0;
+  margin: clamp(0.75rem, 1.4cqw, 1rem) 0 0;
+  display: grid;
+  gap: clamp(0.65rem, 1.2cqw, 0.9rem);
+}
+
+.step,
+.stepWarning {
+  position: relative;
+  padding-left: 1.6rem;
+  line-height: 1.65;
+  font-size: clamp(0.98rem, 1.15cqw, 1.02rem);
+}
+
+.step {
+  color: var(--text-muted);
+  font-weight: 650;
+}
+
+.step::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--savanna-gold);
+  font-weight: 900;
+}
+
+.stepWarning {
+  color: rgba(140, 45, 45, 0.95);
+  font-weight: 800;
+}
+
+.stepWarning::before {
+  content: "⚠";
+  color: rgba(229, 115, 115, 0.9);
+}
+
+/* =========================
+	QUICK ACTIONS
+	========================= */
+
+.actionsGrid {
+	margin-top: var(--space-4);
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-3);
+}
+
+@container dashMain (min-width: 520px) {
+	.actionsGrid {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+.actionButton {
+	width: 100%;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .actionButton {
+    transition: none !important;
+  }
+
+  .card:hover,
+  .actionButton:hover {
+    transform: none !important;
+  }
+}
+
+
+/* =========================
+   JOURNEY ADDITIONS
+   ========================= */
+
+.lockRow {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(0.75rem, 1.6cqw, 1rem);
+}
+
+.lockIcon {
+  flex: none;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+
+  background: rgba(186, 153, 102, 0.18);
+  color: #7a5b2a;
+  border: 1px solid rgba(186, 153, 102, 0.25);
+}
+
+.lockBody {
+  margin: 0.5rem 0 0;
+}

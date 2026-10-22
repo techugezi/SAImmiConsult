@@ -1,0 +1,117 @@
+/*
+DOC NAME: NewsTicker.module.css
+LOCATION: /src/components/ui/NewsTicker/NewsTicker.module.css
+SCOPE: NewsTicker layout + interaction only (no typography/colors/identity).
+STATUS: UNLOCKED (lock after verified)
+*/
+
+.wrapper {
+	position: relative;
+	overflow: hidden;
+
+	/* full-bleed */
+	width: 100vw;
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+
+	/* allow vertical scroll, but let us handle horizontal swipe */
+	touch-action: pan-y;
+
+	/* swipe affordance */
+	cursor: grab;
+}
+
+.wrapperDragging {
+	cursor: grabbing;
+}
+
+.track {
+	display: flex;
+	width: max-content;
+	align-items: center;
+
+	will-change: transform;
+	backface-visibility: hidden;
+	transform: translate3d(0, 0, 0);
+
+	/* CSS animation remains as fallback; JS disables it at runtime */
+	animation: ticker-slide var(--ticker-duration, 40s) linear infinite;
+}
+
+/* Keep your original intent: pause ticker when ANYTHING inside is hovered or focused.
+   (JS also pauses; this remains harmless as a fallback.) */
+.wrapper:hover .track,
+.wrapper:focus-within .track {
+	animation-play-state: paused !important;
+}
+
+.set {
+	display: flex;
+	width: max-content;
+	align-items: center;
+
+	gap: var(--ticker-gap, clamp(1rem, 2cqw, 2.5rem));
+	padding-right: var(--ticker-gap, clamp(1rem, 2cqw, 2.5rem));
+}
+
+.item {
+	display: inline-flex;
+	align-items: center;
+	white-space: nowrap;
+
+	gap: clamp(0.85rem, 1.8cqw, 2rem);
+	padding: 0 clamp(1.25rem, 2.4cqw, 3rem);
+}
+
+.itemLink {
+	display: inline-flex;
+	align-items: center;
+	gap: clamp(0.85rem, 1.8cqw, 2rem);
+	text-decoration: none;
+
+	/* grow on hover without layout shift */
+	transform: translateZ(0);
+	transition: transform 0.18s ease;
+}
+
+.itemLink:hover,
+.itemLink:focus-visible {
+	text-decoration: none;
+	transform: translateY(-2px);
+}
+
+.overlayLeft,
+.overlayRight {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: clamp(80px, 10vw, 150px);
+	z-index: 2;
+	pointer-events: none;
+}
+
+.overlayLeft {
+	left: 0;
+}
+
+.overlayRight {
+	right: 0;
+}
+
+@keyframes ticker-slide {
+	from {
+		transform: translate3d(0, 0, 0);
+	}
+	to {
+		transform: translate3d(calc(-1 * var(--ticker-distance, 0px)), 0, 0);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.track {
+		animation: none !important;
+		transform: none !important;
+	}
+}

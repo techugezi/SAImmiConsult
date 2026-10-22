@@ -1,0 +1,159 @@
+/*
+DOC NAME: applications.module.css
+LOCATION: /src/styles/applications.module.css
+SCOPE: Page layout + interaction ONLY (NO typography/colors/identity).
+STATUS: UNLOCKED (lock after verified)
+NOTES:
+- Typography/identity must come from globals.css roles (.hero-*, .panel-*, .text-*, .badge, .button, .stat-card).
+- Use global primitives: .container, .stack, .cluster, .surface-soft.
+*/
+
+.hero {
+	padding-top: calc(var(--nav-height, 84px) + var(--space-7));
+	padding-bottom: var(--space-6);
+}
+
+.heroInner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: var(--space-2);
+	padding-block: var(--space-6);
+}
+
+.main {
+	padding-bottom: var(--space-7);
+}
+
+.sectionStack {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-4);
+}
+
+.statsGrid {
+	display: grid;
+	gap: var(--space-3);
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 1000px) {
+	.statsGrid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 600px) {
+	.statsGrid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.filterBar {
+	padding: var(--space-4);
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-3);
+	align-items: flex-end;
+	justify-content: space-between;
+}
+
+.filterLeft {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+	min-width: min(460px, 100%);
+}
+
+.listPanel {
+	overflow: hidden;
+}
+
+.listHeader {
+	padding: var(--space-4);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+	border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+}
+
+.rowLink {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: var(--space-4);
+
+	padding: var(--space-4);
+
+	text-decoration: none;
+
+	transition:
+		transform 120ms ease,
+		box-shadow 120ms ease;
+}
+
+.rowLink:hover {
+	transform: translateY(-1px);
+}
+
+.rowLink:focus-visible {
+	outline: none;
+}
+
+.rowMain {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+	min-width: 0;
+}
+
+.rowSide {
+	display: flex;
+	align-items: center;
+	gap: var(--space-3);
+	flex-shrink: 0;
+}
+
+.rowMetaLine {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-2);
+	min-width: 0;
+}
+
+.truncate {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.emptyState {
+	padding: var(--space-5);
+}
+
+.arrow {
+	display: inline-block;
+	transform: translateX(0);
+	transition: transform 120ms ease;
+}
+
+.rowLink:hover .arrow {
+	transform: translateX(2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.arrow {
+		transition: none;
+	}
+	.rowLink:hover .arrow {
+		transform: none;
+	}
+}

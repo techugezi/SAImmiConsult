@@ -1,0 +1,87 @@
+{
+  "Navbar": {
+    "home": "Главная",
+    "about": "О нас",
+    "services": "Услуги",
+    "news": "Новости",
+    "faq": "Вопросы",
+    "contact": "Контакты",
+    "login": "Войти в личный кабинет",
+
+    "sections": {
+      "publicSite": "Публичный сайт",
+      "profile": "Профиль"
+    },
+
+    "aria": {
+      "toggleMenu": "Открыть меню",
+      "mobileMenuTitle": "Мобильное меню навигации",
+      "backToMenu": "Назад к основному меню",
+      "back": "Назад",
+      "brand": "SA Immi Consult",
+      "profileMenu": "Меню профиля"
+    },
+
+    "profile": {
+      "admin": {
+        "dashboard": "Мой портал",
+        "cases": "Кейси клиентов",
+        "applications": "Заявления клиентов",
+        "documents": "Документы",
+        "clients": "Профили клиентов",
+        "content": "Контент: новости и вопросы",
+        "account": "Мой аккаунт"
+      },
+      "client": {
+        "dashboard": "Мой портал",
+        "myAccount": "Мой аккаунт",
+        "myCases": "Мои кейсы",
+        "startNewCase": "Начать новое дело",
+        "myApplications": "Мои заявления"
+      }
+    },
+
+    "hrefs": {
+      "public": {
+        "home": "/",
+        "about": "/about",
+        "services": "/services",
+        "news": "/news",
+        "faq": "/faq",
+        "contact": "/contact"
+      },
+
+      "servicesMenu": {
+        "immigration": "/services/immigration",
+        "emigration": "/services/emigration",
+        "visaTypes": "/services/visa-types",
+        "additionalSupport": "/services/additional-support"
+      },
+
+      "profile": {
+        "admin": {
+          "dashboard": "/admin",
+          "applications": "/admin/applications",
+          "documents": "/admin/documents",
+          "clientProfiles": "/admin/clientprofiles"
+        },
+        "client": {
+          "dashboard": "/client",
+          "profile": "/client/profile",
+          "applications": "/client/applications"
+        }
+      }
+    },
+
+    "servicesMenu": {
+      "immigration": "Иммиграция в Южную Африку",
+      "immigrationDesc": "Поддержка с визами в ЮАР и долгосрочным переездом.",
+      "emigration": "Эмиграция и работа за рубежом",
+      "emigrationDesc": "Сопровождение при переезде из Южной Африки для работы или учёбы.",
+      "visaTypes": "Типы виз",
+      "visaTypesDesc": "Обзор рабочих, учебных, бизнес-, семейных и гостевых виз.",
+      "additionalSupport": "Дополнительные услуги",
+      "additionalSupportDesc": "Помощь с образованием, жильём, банковскими вопросами и адаптацией."
+    }
+  }
+}

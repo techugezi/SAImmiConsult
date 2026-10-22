@@ -1,0 +1,2365 @@
+/* src/app/[locale]/home.module.css */
+
+/* ==========================================================================
+   Z-INDEX LAYERING SYSTEM (for fixed hero image)
+   ========================================================================== */
+
+/*
+  Layer 0: Fixed hero image (stays in background)
+  Layer 1: Hero text content (dissolves)
+  Layer 10+: All scrolling sections (overlap the hero)
+*/
+
+.container {
+  position: relative;
+  /* This is the main container - no overflow or transform! */
+}
+
+/* Ensure ALL sections have higher z-index than hero */
+.newsBannerSection,
+.servicesFullScreenSection,
+.whyModernSection,
+.aboutStorySection,
+.socialProofSection,
+.finaleSection {
+  position: relative;
+  z-index: 10;
+}
+
+.socialProofGridSingle {
+	grid-template-columns: 1fr;
+}
+
+/* Optional: Add progressive z-index if sections need to stack properly */
+.newsBannerSection { z-index: 11; }
+.servicesFullScreenSection { z-index: 12; }
+.whyModernSection { z-index: 13; }
+.aboutStorySection { z-index: 14; }
+.socialProofSection { z-index: 15; }
+.finaleSection { z-index: 16; }
+
+/* ==========================================================================
+   HOME CTA PRIMITIVE (LOCKED TO HOME)
+   Reuse in any Home section header CTA.
+   ========================================================================== */
+
+.homeMagneticCta {
+	display: inline-flex;
+	align-items: center;
+	gap: clamp(1rem, 2cqw, 1.5rem);
+	text-decoration: none;
+	color: var(--text-main);
+	justify-self: end;
+}
+
+.homeCtaCircle {
+	width: clamp(48px, 6cqw, 56px);
+	height: clamp(48px, 6cqw, 56px);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.homeCtaLabel {
+	font-weight: 700;
+	text-transform: none;
+	letter-spacing: 0.08em;
+	font-size: clamp(0.78rem, 1.1cqw, 0.9rem);
+}
+
+/* Default hover behavior (same as News) */
+.homeMagneticCta:hover .homeCtaCircle {
+	background: var(--text-main);
+	color: white;
+	transform: rotate(45deg);
+}
+
+/* Variant: gold arrow on hover */
+.homeMagneticCtaGoldArrow:hover .homeCtaCircle svg {
+	color: var(--savanna-gold);
+	stroke: currentColor;
+}
+
+/* Smaller variant (used in Social Proof / FAQ CTA) */
+.homeMagneticCtaSm .homeCtaCircle {
+	width: clamp(40px, 5.2cqw, 48px);
+	height: clamp(40px, 5.2cqw, 48px);
+}
+
+.homeMagneticCtaSm .homeCtaLabel {
+	font-size: clamp(0.72rem, 1cqw, 0.82rem);
+	letter-spacing: 0.07em;
+}
+
+/* Optional: slightly smaller icon inside the circle */
+.homeMagneticCtaSm .homeCtaCircle svg {
+	width: 18px;
+	height: 18px;
+}
+
+/* ==========================================================================
+   HERO LOGO
+   ========================================================================== */
+
+.heroLogoWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: clamp(0.5rem, 2vh, 1.5rem);
+  pointer-events: none;
+}
+
+.heroLogo {
+  /* stable “viewport height” on mobile (prevents address-bar shrink weirdness) */
+  --hero-vh: 100svh;
+
+  /* Available hero height below nav */
+  --hero-safe-h: calc(
+    var(--hero-vh) - var(--nav-h, 0px) - env(safe-area-inset-top) - env(safe-area-inset-bottom)
+  );
+
+  /* BIG by default, but nav-aware */
+  height: clamp(150px, calc(var(--hero-safe-h) * 0.34), 320px);
+
+  width: auto;
+  max-width: min(560px, 78vw);
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 10px 30px rgba(0, 0, 0, 0.35))
+    drop-shadow(0 2px 10px rgba(0, 0, 0, 0.25));
+  opacity: 0.98;
+}
+
+/* ==========================================================================
+   HERO (STATIC IMAGE + EDITORIAL TYPE, NO CARD)
+   ========================================================================== */
+
+.stickyHeroSection {
+	position: relative;
+
+	/* IMPORTANT: use stable viewport units on mobile to avoid address-bar "dvh" jumps */
+	min-height: 100svh;
+
+	overflow: clip;
+	isolation: isolate;
+}
+
+/* Fixed background image */
+.stickyHeroImage {
+	position: fixed;
+	inset: 0;
+	height: 100svh;
+	overflow: hidden;
+	transform: translateZ(0); /* promote */
+}
+
+.heroImg {
+  object-fit: cover !important;
+  object-position: center 30%;
+}
+
+/* Base overlay for contrast (editorial) */
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  /* Warm sunset tint + strong contrast ramp */
+  background:
+    radial-gradient(
+      900px 520px at 50% 18%,
+      rgba(255, 176, 120, 0.16),
+      rgba(255, 176, 120, 0.06) 42%,
+      transparent 70%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(6, 5, 8, 0.62) 0%,
+      rgba(10, 8, 12, 0.34) 40%,
+      rgba(10, 8, 12, 0.14) 100%
+    );
+}
+
+/* Cursor spotlight to enhance readability (still no card) */
+.heroSpotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.75;
+
+  background:
+    radial-gradient(
+      900px 520px at var(--spot-x, 50%) var(--spot-y, 40%),
+      rgba(255, 255, 255, 0.16),
+      rgba(255, 255, 255, 0.06) 40%,
+      transparent 65%
+    );
+
+  mix-blend-mode: soft-light;
+}
+
+/* Text layer */
+.heroTextContent {
+	position: sticky;
+	top: var(--nav-h, 0px);
+	z-index: 1;
+
+	/* IMPORTANT: stable height to prevent scroll "jerk" on mobile */
+	height: 100svh;
+
+	display: grid;
+	place-items: center;
+	text-align: center;
+
+	padding: clamp(1rem, 4vw, 2rem);
+}
+
+/* Inner frame becomes a container query boundary */
+.heroTextInner {
+  width: min(96vw, 1180px);
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: clamp(1.1rem, 2.8vw, 1.8rem);
+  padding-inline: clamp(0.5rem, 2.4vw, 1.25rem);
+
+  container-type: inline-size;
+  container-name: heroText;
+}
+
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  overflow: visible;      /* blur/filter animations sometimes combine with overflow rules */
+  padding-inline: 12px;
+  margin-inline: -12px;
+}
+
+.heroMainTitle {
+  color: white;
+
+  /* JS sets --heroTitleFit (px). Fallback uses vmin (height-aware). */
+  font-size: var(--heroTitleFit, clamp(1.9rem, 5.6vmin, 5.75rem));
+
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  width: 100%;
+
+  margin: 0 0 clamp(1.0rem, 2.2vmin, 1.45rem);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  
+  overflow: visible;      /* make sure glyphs/long lines never get clipped */
+  max-width: 100%;
+}
+
+
+/* --------------------------------------------------------------------------
+   HERO TITLE: keep each line single-line, but LET <h1> control the size (JS fit)
+   -------------------------------------------------------------------------- */
+
+/* IMPORTANT: your JSX uses heroCopyWrap, but CSS had heroCopy.
+   Make heroCopyWrap the real container so we can safely clip on mobile. */
+.heroCopyWrap {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	width: 100%;
+
+	/* This is the key: prevent mobile sideways bleed without touching desktop */
+	max-width: 100%;
+	overflow-x: clip;
+
+	/* keep your blur/filter behavior safe */
+	overflow-y: visible;
+
+	padding-inline: 12px;
+	margin-inline: -12px;
+}
+
+/* If you still use .heroCopy anywhere, keep it consistent */
+.heroCopy {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	width: 100%;
+	max-width: 100%;
+	overflow-x: clip;
+	overflow-y: visible;
+	padding-inline: 12px;
+	margin-inline: -12px;
+}
+
+.heroMainTitle {
+	color: white;
+
+	/* JS sets --heroTitleFit (px). This must be the ONE source of truth. */
+	font-size: var(--heroTitleFit, clamp(1.9rem, 5.6vmin, 5.75rem));
+
+	font-weight: 800;
+	line-height: 1.08;
+	letter-spacing: -0.02em;
+
+	width: 100%;
+	max-width: 100%;
+
+	margin: 0 0 clamp(1.0rem, 2.2vmin, 1.45rem);
+	text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+
+	/* prevent horizontal escape on tiny screens */
+	overflow-x: clip;
+}
+
+/* Force single-line rows, but DO NOT let globals.css hardcode the px sizing */
+.heroMainTitle :global(.hero-title1),
+.heroMainTitle :global(.hero-title2) {
+	display: block;
+	white-space: nowrap;
+	overflow: visible !important;
+}
+
+/* Home hero: line2 slightly larger than line1, relative to the fitted base size */
+.heroMainTitle :global(.hero-title1) {
+	font-size: 1em;
+}
+
+.heroMainTitle :global(.hero-title2) {
+	font-size: 1.18em; /* tweak: 1.06–1.18 */
+	line-height: 1.02; /* optional: keeps italics tight */
+}
+
+.heroTextContent {
+	overflow-x: clip;
+}
+
+/* The actual fix:
+   - keep the global font-family/weight/style from globals.css
+   - override ONLY font-size to be relative to <h1> so --heroTitleFit works
+*/
+.heroMainTitle :global(.hero-title1) {
+	font-size: 0.82em; /* smaller first line */
+	line-height: 1.08;
+}
+
+.heroMainTitle :global(.hero-title2) {
+	font-size: 1em; /* accent line uses the base */
+	line-height: 1.08;
+}
+
+
+
+/* CTAs */
+.heroCtaGroup {
+  display: flex;
+  gap: clamp(0.75rem, 1.4cqw, 1rem);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: clamp(0.4rem, 0.8cqw, 0.7rem);
+}
+
+/* Scroll Indicator */
+.heroScrollIndicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .heroSpotlight {
+    display: none;
+  }
+}
+
+.heroPrimaryCta {
+  background: var(--protea-pink);
+  color: white;
+
+  padding: 0.95rem 2.25rem;
+  border-radius: 999px;
+
+  font-weight: 700;
+  font-size: 0.98rem;
+
+  box-shadow: 0 14px 36px rgba(229, 115, 115, 0.34);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroPrimaryCta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 48px rgba(229, 115, 115, 0.44);
+}
+
+.heroSecondaryCta {
+  background: rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.96);
+
+  padding: 0.95rem 2.25rem;
+  border-radius: 999px;
+
+  font-weight: 700;
+  font-size: 0.98rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  transition: transform 0.35s ease, background 0.35s ease, border-color 0.35s ease;
+  text-decoration: none;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroSecondaryCta:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.20);
+  border-color: rgba(255, 255, 255, 0.40);
+}
+
+
+/* Corner brackets (editorial + glass detail) */
+.heroBrackets {
+  position: absolute;
+  inset: clamp(-1.25rem, -1.6cqw, -1.5rem);
+  pointer-events: none;
+  opacity: 0.9;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.25));
+}
+
+.heroBrackets span {
+  position: absolute;
+  width: clamp(18px, 2.2cqw, 26px);
+  height: clamp(18px, 2.2cqw, 26px);
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 10px;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.bracketTL { top: 0; left: 0; border-right: none; border-bottom: none; border-radius: 14px 0 0 0; }
+.bracketTR { top: 0; right: 0; border-left: none; border-bottom: none; border-radius: 0 14px 0 0; }
+.bracketBL { bottom: 0; left: 0; border-right: none; border-top: none; border-radius: 0 0 0 14px; }
+.bracketBR { bottom: 0; right: 0; border-left: none; border-top: none; border-radius: 0 0 14px 0; }
+
+/* Eyebrow */
+.heroEyebrowText {
+  color: var(--savanna-gold);
+  font-size: clamp(0.75rem, 1.05vmin, 0.95rem);
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin: 0 0 clamp(0.9rem, 2vw, 1.2rem);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.38);
+}
+
+/* Subtitle */
+.heroSubtitleText {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: clamp(1rem, 1.25vmin, 1.25rem);
+  line-height: 1.7;
+  max-width: 54ch;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+  font-family: var(--font-serif);
+  	font-size: var(--text-lg);
+	line-height: 1.1;
+}
+
+/* ==========================================================================
+   SHARED STYLES
+   ========================================================================== */
+   
+/* Primary CTA base (shared) */
+.primaryCta,
+.aboutPrimaryCta,
+.newsButton {
+  background-color: var(--protea-pink);
+  color: white;
+    padding:
+    clamp(0.95rem, 2.8cqw, 1.25rem)
+    clamp(1.6rem, 5cqw, 2.5rem);
+  border-radius: 100px;
+  font-weight: 600;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 20px rgba(229, 115, 115, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.primaryCta:hover,
+.aboutPrimaryCta:hover,
+.newsButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(229, 115, 115, 0.4);
+}
+
+/* Secondary (WhatsApp) CTA */
+.secondaryCta {
+    padding:
+    clamp(0.9rem, 2.6cqw, 1.15rem)
+    clamp(1.4rem, 4.4cqw, 2.1rem);
+  color: var(--slate-grey);
+  font-weight: 600;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.secondaryCta:hover {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--text-main);
+  border-color: rgba(148, 163, 184, 0.9);
+}
+
+/* Scroll indicator */
+.scrollIndicator {
+  position: absolute;
+  bottom: 0.75rem; 
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  color: var(--savanna-gold);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.scrollUnderline {
+  width: 130px;
+  height: 4px;
+  background: var(--savanna-gold);
+  border-radius: 999px
+}
+
+/*
+.scrollLine {
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(to bottom, var(--savanna-gold), transparent);
+}*/
+
+/* Hero Stats Row */
+.heroStats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: clamp(0.9rem, 2.6cqw, 1.75rem);
+  margin-top: clamp(1.5rem, 3.8cqw, 3rem);
+  padding-top: clamp(1rem, 2.8cqw, 2rem);
+
+  border-top: 1px solid rgba(71, 85, 105, 0.08);
+  width: 100%;
+  max-width: 640px;
+}
+
+.heroStat {
+  text-align: center;
+}
+
+.heroStatValue {
+  font-size: clamp(1.15rem, 2.6cqw, 1.6rem);
+  font-weight: 700;
+  color: var(--protea-pink);
+  display: block;
+  font-family: 'Inter', sans-serif;
+}
+
+.heroStatLabel {
+  font-size: clamp(0.65rem, 1.25cqw, 0.75rem);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: clamp(0.25rem, 0.9cqw, 0.4rem);
+}
+
+/* Tall screens: make the card less “wide”*/
+@media (max-aspect-ratio: 4/5) {
+  .heroGlassCard {
+    aspect-ratio: 1 / 1.18;
+    width: min(92vw, 760px, calc(var(--heroAvailH) * 1));
+  }
+
+  .heroActions {
+    flex-direction: column;
+  }
+}
+
+/* ==========================================================================
+   SHARED TYPOGRAPHY FOR EYEBROWS & SECTION TITLES
+   ========================================================================== */
+   
+
+/* Typography Overhaul */
+.storyTitle {
+  margin: 2rem 0;
+  line-height: 0.9;
+}
+
+.titleThin {
+  font-family: serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: var(--section-title-size);
+  color: var(--protea-pink);
+  letter-spacing: -0.09em;
+}
+
+.titleBold {
+  font-weight: 800;
+  font-size: var(--section-eyebrow-size);
+  color: var(--text-main);
+  letter-spacing: -0.04em;
+  text-transform: none; /* never force uppercase */
+}
+
+.servicesSubtitle,
+.whyModernSubtitle,
+.newsBannerSubtitle {
+  font-size: var(--section-subtitle-size);
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+  max-width: 60ch;
+}
+
+
+.whyEyebrow,
+.finalCtaEyebrow {
+	/*
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-size: var(--section-eyebrow-size);
+  line-height: 1.2;
+  display: block;
+  margin-bottom: 1.25rem;
+  */
+
+  font-family: serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: var(--protea-pink);
+}
+
+
+
+
+/* ==========================================================================
+   SERVICES SECTION
+   ========================================================================== */
+
+.servicesFullScreenSection {
+  width: 100%;
+
+  /* Full-screen section feel (same as hero philosophy) */
+  min-height: 100svh;
+  /*min-height: 100dvh;*/
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--eggshell);
+  overflow: hidden;
+
+  /* Outer “shell” spacing (uniform system — we’ll reuse for other sections) */
+  --sectionShell: clamp(1rem, 2.4vw, 1.75rem);
+  padding: var(--sectionShell);
+}
+
+.servicesContentSquare {
+  min-width: min(92vw, var(--content-max-width));
+  margin: 0 auto;
+
+  /* keep as the layout frame */
+  container-type: inline-size;
+
+  /* keep consistent internal breathing */
+  
+
+  /* keep full-screen feel */
+  min-height: calc(100svh - (2 * var(--sectionShell)));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(1.75rem, 3cqw, 3rem);
+
+  /* make it minimal/flat (NOT a visible square/card) */
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: clamp(0.75rem, 1.2cqw, 1.25rem);
+}
+
+.servicesHeader {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	grid-template-rows: auto auto;
+	align-items: end;
+	gap: clamp(1rem, 2.2cqw, 2rem);
+
+	margin-bottom: clamp(1.25rem, 2.5cqw, 2rem);
+}
+
+.servicesHeaderText {
+	grid-column: 1; /* titles span full width */
+}
+
+.servicesHeaderCta {
+	grid-column: 2;      /* CTA pinned right */
+	justify-self: end;
+	align-self: end;
+}
+
+.servicesHeaderText {
+  display: flex;
+  flex-direction: column;
+
+  /* close harmony gap */
+  gap: clamp(0.1rem, 0.4cqw, 0.2rem);
+}
+
+/* THE BENTO GRID */
+.servicesBentoGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.serviceCard {
+  background: white;
+  border-radius: var(--card-radius);
+  padding: 2.5rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.serviceCard:hover .serviceCardCta {
+	color: var(--savanna-gold);
+}
+
+.serviceIcon {
+  color: var(--savanna-gold);
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.8;
+}
+
+/* Kept the MORE RECENT card typography (deduped) */
+.serviceCardTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.serviceCardBody {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+/* Combined layout behavior from earlier + hover behavior from later */
+.serviceCardCta {
+  margin-top: auto;
+  padding-top: 2rem;
+  color: var(--protea-pink);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.serviceCardCta:hover {
+  color: var(--savanna-gold);
+}
+
+.ctaArrow {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.serviceCard:hover .ctaArrow {
+  transform: translateX(8px);
+}
+
+.servicesViewAllButton {
+  padding: 0.9rem 2rem;
+  color: var(--slate-grey);
+  font-weight: 600;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: 1px solid var(--slate-grey);
+  cursor: pointer;
+  background: transparent;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.servicesViewAllButton:hover {
+  background: rgba(255, 183, 77, 0.1);
+  color: var(--savanna-gold);
+  border-color: var(--savanna-gold);
+}
+
+/* kill margin stacking so spacing is controlled ONLY by gap */
+.servicesHeaderText .titleBold,
+.servicesHeaderText .titleThin {
+  margin: 0;
+}
+
+/* Eyebrow: smaller + subtler (size only, style stays from .titleBold) */
+.servicesHeaderText .titleBold {
+  font-size: clamp(2rem, 4cqw, 4rem); /* Eyebrow */
+  line-height: 0.95;
+  opacity: 0.8;
+
+  /* explicitly ensure we never force uppercase here */
+  text-transform: none;
+}
+
+/* Title: larger (size only, style stays from .titleThin) */
+.servicesHeaderText .titleThin {
+  font-size: clamp(3rem, 5.8cqw, 5rem); /* Title */
+  line-height: 1.05;
+}
+
+.serviceCard {
+	position: relative;
+}
+
+.serviceCardOverlayLink {
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	border-radius: inherit;
+}
+
+.serviceCardContent,
+.serviceCardCta {
+	position: relative;
+	z-index: 3;
+	pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Container queries (NOT viewport media queries)
+   This is the “one truth” responsive behavior for Services.
+   -------------------------------------------------------------------------- */
+
+/* When the square gets narrower: 4 → 2 columns */
+@container (max-width: 1100px) {
+  .servicesBentoGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* When the square gets narrow: header stacks + 1 column */
+@container (max-width: 720px) {
+	.servicesHeader {
+		grid-template-columns: 1fr;
+		align-items: start;
+	}
+
+	.servicesHeaderText {
+		grid-column: 1;
+	}
+
+	.servicesHeaderCta {
+		grid-column: 1;
+		justify-self: start;
+	}
+
+  .servicesBentoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .servicesViewAllButton {
+    justify-self: start;
+  }
+}
+
+/* ==========================================================================
+   WHY SOUTH AFRICA SECTION - MODERN EDITORIAL LAYOUT
+   ========================================================================== */
+
+.whyFloatingSection {
+  width: 100%;
+  background-color: var(--eggshell);
+  padding: var(--section-gap-desktop) 0;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.whyFloatingVisual {
+  position: relative;
+  height: 650px;
+  width: 100%;
+}
+
+.softImageFrame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 6rem 2rem 6rem 2rem;
+  overflow: visible; /* Allow card to overhang */
+}
+
+.whyModernSection {
+  width: 100%;
+  min-height: 100svh;
+
+  background-color: var(--eggshell);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  /* shared shell spacing for this section */
+  --sectionShell: clamp(1rem, 2.4vw, 1.75rem);
+  padding: var(--sectionShell);
+}
+
+.whyModernHeader {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: end;
+  gap: clamp(1.25rem, 2.8cqw, 3rem);
+  flex: 0 0 auto;
+}
+
+.whyModernHeaderText {
+  display: flex;
+  flex-direction: column;
+
+  /* close harmony */
+  gap: clamp(0.1rem, 0.4cqw, 0.2rem);
+}
+
+/* Prevent stacked margins from headings */
+.whyModernHeaderText .titleBold,
+.whyModernHeaderText .titleThin {
+  margin: 0;
+}
+
+/* Your chosen sizing (scoped to Why section) */
+.whyModernHeaderText .titleThin {
+  font-size: clamp(3rem, 5.8cqw, 5rem); /* Title */
+  line-height: 1.05;
+}
+
+.whyModernHeaderText .titleBold {
+  font-size: clamp(2rem, 4cqw, 4rem); /* Eyebrow */
+  line-height: 1.15;
+  opacity: 0.85; /* subtle, optional */
+}
+
+.whyModernTitle {
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--text-main);
+}
+
+.whyModernSubtitle {
+  margin: 0;
+  font-size: clamp(1rem, 1.55cqw, 1.15rem);
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 52ch;
+}
+
+.marqueeWrapper {
+	/*
+  flex: 1;
+  display: flex;
+  align-items: center;
+  overflow: hidden;*/
+
+  /* Bleed to screen edges */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  /* Fade edges */
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
+
+  overflow: hidden; /* keep it clipped to wrapper */
+}
+
+.marqueeWrapperDragging {
+  cursor: grabbing;
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+
+  /* JS sets these */
+  --marquee-distance: 0px;
+  --marquee-duration: 60s;
+
+  animation: marqueeScroll var(--marquee-duration) linear infinite;
+}
+
+/* pause on hover anywhere in the marquee area */
+.marqueeWrapper:hover .marqueeTrack {
+  animation-play-state: paused;
+}
+
+/* Each set holds one full copy of the images */
+.marqueeSet {
+  display: flex;
+  width: max-content;
+
+  /* One truth gap + vertical padding */
+  --marquee-gap: clamp(1rem, 2cqw, 2.5rem);
+  --marquee-py: clamp(1rem, 2cqw, 2.5rem);
+
+  gap: var(--marquee-gap);
+  padding: var(--marquee-py) 0;
+
+  /* IMPORTANT: add trailing gap so the seam matches internal spacing */
+  padding-right: var(--marquee-gap);
+}
+
+@keyframes marqueeScroll {
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(calc(-1 * var(--marquee-distance)), 0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none;
+    transform: none;
+  }
+}
+
+.marqueeItem {
+  position: relative;
+  flex: 0 0 auto;
+
+  width:  clamp(360px, 40cqw, 520px); /* was 26cqw / 450px */
+  height: clamp(240px, 31cqw, 380px); /* was 18cqw / 320px */
+  aspect-ratio: 16 / 11;
+
+  border-radius: 1.5rem;
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+
+  transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.marqueeItem:hover {
+  transform: scale(1.04) translateY(-5px);
+  z-index: 10;
+}
+
+.marqueeImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition: filter 0.6s ease;
+}
+
+.marqueeItem:hover .marqueeImg {
+  filter: grayscale(0);
+}
+
+/* Reasons Grid */
+.modernReasonCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.whyModernSquare {
+  width: min(92vw, var(--content-max-width));
+  margin: 0 auto;
+
+  /* this is what makes cqw + container queries work */
+  container-type: inline-size;
+
+
+
+  /* full-screen feel */
+  min-height: calc(100svh - (2 * var(--sectionShell)));
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(1.75rem, 3cqw, 3rem);
+
+  /* flat look */
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+
+/* Bottom Reasons Grid */
+.whyReasonsGrid {
+  max-width: var(--content-max-width);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.5rem, 2.8cqw, 3.5rem);
+}
+
+.modernReasonCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.reasonNumber {
+  font-family: serif;
+  font-style: italic;
+  font-size: 2rem;
+  color: var(--savanna-gold);
+  margin-bottom: 0rem;
+  display: block;
+}
+
+.reasonTitle {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.reasonText {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Container queries (NOT viewport media queries) */
+@container (max-width: 1000px) {
+  .whyModernHeader {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .whyReasonsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@container (max-width: 640px) {
+  .socialProofSection {
+    align-items: flex-start;
+  }
+
+  .whyReasonsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   ABOUT BRIEF - MODERN EDITORIAL LAYOUT (ONE TRUTH)
+   ========================================================================== */
+
+.aboutStorySection {
+  width: 100%;
+  min-height: 100svh;
+
+  background: var(--eggshell);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  --sectionShell: clamp(1rem, 2.4vw, 1.75rem);
+  padding: var(--sectionShell);
+}
+
+/* Flat frame like Services/Why (NOT a card) */
+.aboutStorySquare {
+  width: min(92vw, var(--content-max-width));
+  margin: 0 auto;
+
+  container-type: inline-size;
+  container-name: about;
+
+  min-height: calc(100svh - (2 * var(--sectionShell)));
+
+  display: flex;
+  align-items: center;
+}
+
+.aboutStoryContainer {
+  width: 100%;
+  margin: 0;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 8cqw, 10vw);
+  align-items: center;
+}
+
+/* Container queries (NOT viewport media queries) */
+@container about (max-width: 920px) {
+  .aboutStoryContainer {
+    grid-template-columns: 1fr;
+    gap: clamp(2.25rem, 5cqw, 4rem);
+  }
+
+  .aboutStoryVisual {
+    order: -1; /* visual on top */
+  }
+}
+
+/* Eyebrow + Title harmony (scoped, your chosen sizing) */
+.aboutStoryHeaderText {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.1rem, 0.4cqw, 0.2rem);
+}
+
+.aboutStoryHeaderText .titleBold,
+.aboutStoryHeaderText .titleThin {
+  margin: 0;
+}
+
+.aboutStoryHeaderText .titleThin {
+  font-size: clamp(3rem, 5.8cqw, 5rem); /* Title */
+  line-height: 1.05;
+}
+
+.aboutStoryHeaderText .titleBold {
+  font-size: clamp(2rem, 4cqw, 4rem); /* Eyebrow */
+  line-height: 1.15;
+  opacity: 0.85;
+}
+
+.aboutHeaderCta {
+	justify-self: start;
+	
+	margin-top: clamp(1rem, 2cqw, 1.5rem);
+}
+
+.aboutCtaRow {
+	margin-top: clamp(1rem, 2cqw, 1.5rem);
+}
+
+/* Body canvas */
+.storyBodyCanvas {
+  max-width: 52ch;
+  position: relative;
+  padding-left: clamp(1.25rem, 2.2cqw, 2rem);
+  border-left: 1px solid var(--savanna-gold);
+  margin-top: clamp(1.25rem, 2.2cqw, 2rem);
+}
+
+.storyLead {
+  font-size: clamp(1.05rem, 1.8cqw, 1.4rem);
+  font-weight: 600;
+  color: var(--protea-pink);
+  margin: 0 0 clamp(0.9rem, 1.8cqw, 1.5rem);
+}
+
+.storyDetail {
+  font-size: clamp(0.98rem, 1.5cqw, 1.1rem);
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Highlight pills */
+.storyHighlightStrip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.65rem, 1.4cqw, 1rem);
+  margin-top: clamp(1.75rem, 3cqw, 3rem);
+}
+
+.storyGlassPill {
+  padding: clamp(0.6rem, 1.1cqw, 0.75rem) clamp(1rem, 2.2cqw, 1.5rem);
+  background: white;
+  border-radius: 0px;
+  font-size: clamp(0.78rem, 1.15cqw, 0.9rem);
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1.2cqw, 0.75rem);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+	width: 100%;
+	height: 100%;
+	max-width: 550px;     /* tweak: 900–1100px */
+	height: 65px;     /* tweak: 900–1100px */
+	margin: 0 auto;       /* center inside finaleContentSquare */
+}
+
+.pillDot {
+  width: 6px;
+  height: 6px;
+  background: var(--savanna-gold);
+  border-radius: 50%;
+}
+
+/* The Cinematic Visual */
+.aboutStoryVisual {
+  position: relative;
+  height: clamp(420px, 60cqw, 80vh);
+}
+
+.visualParallaxFrame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: clamp(2.5rem, 10cqw, 10vw) 0 clamp(2.5rem, 10cqw, 10vw) 0;
+  overflow: hidden;
+  box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.15);
+}
+
+.visualParallaxImg {
+  object-fit: cover;
+  transform: scale(1.1);
+}
+
+/* The Spinning Experience Signature */
+.experienceSignature {
+  position: absolute;
+  top: clamp(-28px, -2.5cqw, -40px);
+  right: clamp(-28px, -2.5cqw, -40px);
+
+  width: clamp(140px, 16cqw, 180px);
+  height: clamp(140px, 16cqw, 180px);
+
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.spinningWrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: rotateClockwise 20s linear infinite;
+}
+
+.spinningTextSVG {
+  width: 90%;
+  height: 90%;
+}
+
+/* Default (desktop / tablet) */
+.spinningTextSVG {
+  --circle-r: 40;
+}
+
+/* Mobile: increase circumference */
+@media (max-width: 480px) {
+  .spinningTextSVG {
+    --circle-r: 46;
+  }
+}
+
+.sigValue {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-size: clamp(2.2rem, 4.2cqw, 3rem);
+  font-weight: 900;
+  color: var(--text-main);
+  line-height: 0.8;
+  z-index: 2;
+}
+
+.sigValue span {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--savanna-gold);
+  margin-top: 4px;
+}
+
+@keyframes rotateClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinningWrapper {
+    animation: none;
+  }
+}
+
+/* Magnetic CTA */
+.storyMagneticCta {
+  margin-top: clamp(1.75rem, 3cqw, 4rem);
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2cqw, 1.5rem);
+  text-decoration: none;
+}
+
+.ctaCircle {
+  width: clamp(52px, 6cqw, 64px);
+  height: clamp(52px, 6cqw, 64px);
+  background: var(--text-main);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.ctaLabel {
+  font-weight: 800;
+  text-transform: none;
+  letter-spacing: 0.08em;
+  color: var(--text-main);
+}
+
+.storyMagneticCta:hover .ctaCircle {
+  transform: scale(1.1) translateX(10px);
+  background: var(--protea-pink);
+}
+
+
+/* ==========================================================================
+   NEWS BANNER - EDITORIAL TICKER (ONE TRUTH)
+   ========================================================================== */
+
+.newsBannerSection {
+  width: 100%;
+  min-height: 100svh;
+
+  background-color: var(--eggshell);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  --sectionShell: clamp(1rem, 2.4vw, 1.75rem);
+  padding: var(--sectionShell);
+}
+
+/* Flat frame (NOT a card) */
+.newsBannerSquare {
+  width: min(92vw, var(--content-max-width));
+  margin: 0 auto;
+
+  container-type: inline-size;
+  container-name: news;
+
+  min-height: calc(100svh - (2 * var(--sectionShell)));
+
+  display: flex;
+  align-items: center;
+}
+
+.newsBannerLayout {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.25rem, 2.4cqw, 2rem);
+}
+
+/* Header */
+.newsBannerHeader {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: clamp(1rem, 2.2cqw, 2rem);
+}
+
+.newsBannerHeaderText {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.1rem, 0.4cqw, 0.2rem);
+}
+
+.newsBannerHeaderText .titleBold,
+.newsBannerHeaderText .titleThin {
+  margin: 0;
+}
+
+/* Your chosen sizing (scoped) */
+.newsBannerHeaderText .titleThin {
+  font-size: clamp(3rem, 5.8cqw, 5rem); /* Title */
+  line-height: 1.05;
+}
+
+.newsBannerHeaderText .titleBold {
+  font-size: clamp(2rem, 4cqw, 4rem); /* Eyebrow */
+  line-height: 1.15;
+  opacity: 0.85;
+}
+
+.titleItalic {
+  font-family: serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--savanna-gold);
+}
+
+/* CTA (scoped – avoid colliding with About CTA classes) */
+.newsBannerMagneticCta {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(1rem, 2cqw, 1.5rem);
+  text-decoration: none;
+  color: var(--text-main);
+  justify-self: end;
+}
+
+.newsCtaCircle {
+  width: clamp(48px, 6cqw, 56px);
+  height: clamp(48px, 6cqw, 56px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.newsCtaLabel {
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0.08em;
+  font-size: clamp(0.78rem, 1.1cqw, 0.9rem);
+}
+
+.newsBannerMagneticCta:hover .newsCtaCircle {
+  background: var(--text-main);
+  color: white; /* label stays consistent if it ever inherits */
+  transform: rotate(45deg);
+}
+
+/* Arrow only: savanna-gold on hover */
+.newsBannerMagneticCta:hover .newsCtaCircle svg {
+  color: var(--savanna-gold);
+  stroke: currentColor;
+}
+
+
+
+
+/* ==========================================================================
+   TICKER — measured distance + full-bleed wrapper
+   ========================================================================== */
+
+.editorialTickerWrapper {
+  position: relative;
+
+  /* full-bleed */
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  background: white;
+  padding: clamp(1.4rem, 2.8cqw, 2.5rem) 0;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+  overflow: hidden;
+}
+
+.editorialTickerTrack {
+  display: flex;
+  width: max-content;
+  align-items: center;
+
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+
+  --ticker-distance: 0px;
+  --ticker-duration: 40s;
+
+  animation: editorialTickerScroll var(--ticker-duration) linear infinite;
+}
+
+.editorialTickerWrapper:hover .editorialTickerTrack {
+  animation-play-state: paused;
+}
+
+.editorialTickerSet {
+  display: flex;
+  width: max-content;
+  align-items: center;
+
+  --ticker-gap: clamp(1rem, 2cqw, 2.5rem);
+
+  /* internal spacing */
+  gap: var(--ticker-gap);
+
+  /* trailing gap so seam matches */
+  padding-right: var(--ticker-gap);
+}
+
+@keyframes editorialTickerScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(calc(-1 * var(--ticker-distance)), 0, 0);
+  }
+}
+
+.editorialTickerItem {
+  display: inline-flex;
+  align-items: center;
+
+  gap: clamp(0.85rem, 1.8cqw, 2rem);
+  padding: 0 clamp(1.25rem, 2.4cqw, 3rem);
+
+  white-space: nowrap;
+}
+
+.tickerCategory {
+  font-size: clamp(0.68rem, 1cqw, 0.75rem);
+  font-weight: 800;
+  text-transform: none;
+  color: var(--protea-pink);
+  background: var(--protea-pink-light);
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+}
+
+.tickerHeadline {
+  font-size: clamp(1.05rem, 1.8cqw, 1.25rem);
+  font-weight: 600;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+
+.tickerDivider {
+  color: var(--savanna-gold);
+  font-size: clamp(1.15rem, 2cqw, 1.5rem);
+  font-weight: 300;
+}
+
+.newsBannerSubtitle {
+  font-size: clamp(1rem, 1.6cqw, 1.1rem);
+  color: var(--text-muted);
+  max-width: 60ch;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Overlays */
+.tickerOverlayLeft,
+.tickerOverlayRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(80px, 10vw, 150px);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.tickerOverlayLeft {
+  left: 0;
+  background: linear-gradient(to right, white, transparent);
+}
+
+.tickerOverlayRight {
+  right: 0;
+  background: linear-gradient(to left, white, transparent);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .editorialTickerTrack {
+    animation: none;
+    transform: none;
+  }
+}
+
+/* Container queries (NOT viewport media queries) */
+@container news (max-width: 820px) {
+  .newsBannerHeader {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .newsBannerMagneticCta {
+    justify-self: start;
+  }
+}
+
+/* ==========================================================================
+   SOCIAL PROOF - FAQ & TESTIMONIALS
+   ========================================================================== */
+
+
+.socialProofSection {
+  width: 100%;
+
+  /* ✅ still “full screen”, but prevents huge empty tails on tall displays */
+  min-height: clamp(820px, 100dvh, 1120px);
+
+  display: flex;
+  justify-content: center;
+
+  background: var(--eggshell);
+
+  overflow-x: hidden;
+  overflow-y: visible;
+
+  padding: var(--section-shell);
+
+  /* ✅ default: center on spacious viewports so the section doesn't look like a tall empty column */
+  align-items: center;
+}
+
+.socialProofSquare {
+  width: min(92vw, var(--content-max-width));
+  margin: 0 auto;
+
+  container-type: inline-size;
+  container-name: social;
+
+  background: white;
+  border-radius: clamp(1.5rem, 4cqw, 40px);
+
+  /* critical: remove this so the square can grow naturally */
+  min-height: 0;
+  
+  	/* add real breathing room so text never hits edges */
+	padding: clamp(2rem, 4cqw, 4.5rem);
+
+	/* prevent any inner content from visually escaping corners */
+	overflow: hidden;
+}
+
+.socialProofGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(2rem, 6cqw, 6rem);
+  align-items: start;
+}
+
+/* When the available height is tight, reduce internal density */
+@media (max-height: 820px) {
+  .socialProofSection {
+    align-items: flex-start;
+  }
+
+  .socialProofSquare {
+    padding: clamp(1.5rem, 3vw, 3rem);
+  }
+
+  .socialProofGrid {
+    gap: clamp(1.5rem, 4vw, 4rem);
+  }
+
+  .socialProofHeaderText {
+    margin-bottom: clamp(1rem, 2vw, 2rem);
+  }
+
+  .testimonialStack {
+    gap: clamp(1.75rem, 3vw, 3rem);
+  }
+
+  .ledgerFaqItem {
+    padding: clamp(1rem, 2vw, 1.4rem) 0;
+  }
+
+  .quoteText {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+  }
+}
+
+
+/* Header harmony (shared by FAQ + Testimonials) */
+.socialProofHeaderText {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.1rem, 0.4cqw, 0.2rem);
+  margin-bottom: clamp(1.5rem, 3cqw, 4rem);
+}
+
+.socialProofHeaderText .titleBold,
+.socialProofHeaderText .titleThin {
+  margin: 0;
+}
+
+.socialProofHeaderText .titleThin {
+  font-size: clamp(3rem, 5.8cqw, 5rem); /* Title */
+  line-height: 1.05;
+}
+
+.socialProofHeaderText .titleBold {
+  font-size: clamp(2rem, 4cqw, 4rem); /* Eyebrow */
+  line-height: 1.15;
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   FAQ Ledger
+   ========================================================================== */
+
+.ledgerList {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 clamp(1.75rem, 3cqw, 3rem);
+}
+
+.ledgerFaqItem {
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding: clamp(1.25rem, 2.2cqw, 2rem) 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ledgerFaqItem:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.ledgerFaqHeader {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2cqw, 2rem);
+}
+
+.ledgerIndex {
+  font-family: serif;
+  font-style: italic;
+  font-size: clamp(1rem, 1.6cqw, 1.2rem);
+  color: var(--savanna-gold);
+  min-width: 30px;
+}
+
+.ledgerQuestion {
+  font-size: clamp(1.05rem, 2cqw, 1.25rem);
+  font-weight: 700;
+  color: var(--text-main);
+  flex: 1;
+  transition: color 0.3s ease;
+  margin: 0;
+}
+
+.ledgerPlus {
+  font-size: clamp(1.25rem, 2.2cqw, 1.5rem);
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.ledgerFaqItem:hover .ledgerQuestion {
+  color: var(--protea-pink);
+}
+
+.ledgerAnswerWrapper {
+  overflow: hidden; /* keep the height animation clean */
+}
+
+.ledgerAnswer {
+  padding: clamp(1rem, 1.8cqw, 1.5rem) 0 0 clamp(3rem, 6cqw, 5rem);
+  color: var(--text-muted);
+  line-height: 1.8;
+  font-size: clamp(0.98rem, 1.6cqw, 1.05rem);
+  max-width: 90%;
+  margin: 0;
+}
+
+/* FAQ CTA */
+.proofDiscoveryLink {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(0.75rem, 1.6cqw, 1rem);
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 700;
+  font-size: clamp(0.78rem, 1.1cqw, 0.85rem);
+  text-transform: none;
+  letter-spacing: 0.08em;
+}
+
+.discoveryIconSmall {
+  width: clamp(28px, 4cqw, 32px);
+  height: clamp(28px, 4cqw, 32px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.proofDiscoveryLink:hover .discoveryIconSmall {
+  background: var(--text-main);
+  color: white;
+  transform: rotate(45deg);
+}
+
+/* ==========================================================================
+   Testimonials
+   ========================================================================== */
+
+.testimonialStack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 4cqw, 5rem);
+}
+
+.editorialQuote {
+  position: relative;
+  margin: 0;
+}
+
+.quoteMark {
+  font-family: serif;
+  font-size: clamp(3.5rem, 6cqw, 5rem);
+  line-height: 1;
+  color: var(--savanna-gold);
+  opacity: 0.2;
+  position: absolute;
+  top: clamp(-1.2rem, -1.8cqw, -1.5rem);
+  left: clamp(-1.2rem, -2.2cqw, -2rem);
+}
+
+.quoteText {
+  font-size: clamp(1.0rem, 2.1cqw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--text-main);
+  font-style: italic;
+  margin: 0 0 clamp(1.25rem, 2.2cqw, 2rem);
+  position: relative;
+  z-index: 1;
+}
+
+.quoteAuthor {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2cqw, 1.5rem);
+}
+
+.authorLine {
+  width: clamp(28px, 4cqw, 40px);
+  height: 1px;
+  background: var(--protea-pink);
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.authorName {
+  font-weight: 800;
+  text-transform: none;
+  font-size: clamp(0.75rem, 1.1cqw, 0.8rem);
+  letter-spacing: 0.08em;
+}
+
+.authorCountry {
+  font-size: clamp(0.72rem, 1cqw, 0.75rem);
+  color: var(--text-muted);
+}
+
+/* Container queries (NOT viewport media queries) */
+@container social (max-width: 980px) {
+  .socialProofGrid {
+    grid-template-columns: 1fr;
+    gap: clamp(2.25rem, 5cqw, 4rem);
+  }
+}
+
+/* ==========================================================================
+   FINAL CTA — ONE TRUTH (container-query + cqw scaling, no viewport media)
+   ========================================================================== */
+
+.finaleSection {
+  position: relative;
+  width: 100%;
+  background: var(--eggshell);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  /* one-truth shell padding */
+  --finaleShell: clamp(1rem, 2.4vw, 1.75rem);
+  padding: var(--finaleShell);
+
+  /* feels “full screen” without hard forcing layout rules */
+  min-height: 100svh;
+
+}
+
+/* Background */
+.finaleBgWrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+}
+
+.finaleImg {
+  object-fit: cover;
+  filter: saturate(0.9) brightness(1.1);
+}
+
+.finaleOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(248, 245, 240, 0.18) 0%,
+    rgba(250, 249, 246, 0.92) 100%
+  );
+}
+
+/* Watermark */
+.finaleWatermark {
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  transform: translateX(-50%);
+  z-index: 2;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+
+  font-size: clamp(4.5rem, 14vw, 14rem);
+  font-weight: 900;
+  color: var(--savanna-gold);
+  opacity: 0.12;
+  letter-spacing: 0.05em;
+}
+
+/* Content “square” (flat, not a card) */
+.finaleContentSquare {
+  position: relative;
+  z-index: 3;
+
+  width: min(92vw, var(--content-max-width));
+  margin: 0 auto;
+
+  /* container query boundary */
+  container-type: inline-size;
+
+  /* consistent inner pad */
+  padding: clamp(1.25rem, 3.2cqw, 2.5rem);
+}
+
+/* Glass portal card */
+.finalePortal {
+	border-radius: var(--card-radius);
+	padding: clamp(1.5rem, 4.5cqw, 3.5rem);
+
+	/* slightly more visible vessel */
+	background: rgba(255, 255, 255, 0.78);
+	border: 1px solid rgba(0, 0, 0, 0.06);
+	box-shadow:
+		0 40px 90px rgba(186, 153, 102, 0.16),
+		0 12px 30px rgba(0, 0, 0, 0.06);
+
+	backdrop-filter: blur(0.06px);
+	-webkit-backdrop-filter: blur(0.066px);
+
+	display: flex;
+	flex-direction: column;
+	gap: clamp(1.25rem, 3.2cqw, 2.5rem);
+	
+	width: 100%;
+	max-width: 980px;     /* tweak: 900–1100px */
+	margin: 0 auto;       /* center inside finaleContentSquare */
+}
+
+/* Eyebrow + Title harmony (tight, eyebrow smaller) */
+.finaleHeaderText {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.18rem, 0.55cqw, 0.35rem);
+}
+
+/* prevent stacked margins */
+.finaleHeaderText .titleBold,
+.finaleHeaderText .titleThin {
+  margin: 0;
+}
+
+/* your chosen sizing (scoped, does NOT change font-family/weight rules) */
+.finaleHeaderText .titleThin {
+  font-size: clamp(3rem, 5.8cqw, 5rem); /* Title */
+  line-height: 1.05;
+}
+
+.finaleHeaderText .titleBold {
+  font-size: clamp(2rem, 4cqw, 4rem); /* Eyebrow */
+  line-height: 1.15;
+  opacity: 0.88;
+}
+
+/* Grid */
+.finaleGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 3.2cqw, 2.75rem);
+  align-items: end;
+}
+
+.finaleInfoSide {
+  max-width: 60ch;
+}
+
+.finaleLead {
+  margin: 0;
+  color: var(--text-main);
+  opacity: 0.82;
+  font-size: clamp(1.05rem, 1.7cqw, 1.25rem);
+  line-height: 1.8;
+}
+
+.finaleActionSide {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.9rem, 1.8cqw, 1.25rem);
+  align-items: flex-start;
+}
+
+/* Primary CTA */
+.grandCta {
+  background: var(--text-main);
+  padding:
+    clamp(0.75rem, 1.4cqw, 0.9rem)
+    clamp(0.75rem, 1.4cqw, 0.9rem)
+    clamp(0.75rem, 1.4cqw, 0.9rem)
+    clamp(1.75rem, 3.2cqw, 2.5rem);
+
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1rem, 2.6cqw, 2rem);
+
+  text-decoration: none;
+  transition: transform 0.35s ease, background 0.35s ease;
+  width: fit-content;
+}
+
+.grandCtaText {
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: clamp(0.95rem, 1.35cqw, 1.1rem);
+}
+
+.grandCtaCircle {
+  width: clamp(46px, 6cqw, 54px);
+  height: clamp(46px, 6cqw, 54px);
+  background: #fff;
+  color: var(--text-main);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grandCta:hover {
+  background: var(--savanna-gold);
+  transform: translateY(-4px);
+}
+
+.finaleGhostLink {
+  color: var(--text-main);
+  font-weight: 700;
+  opacity: 0.55;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: clamp(0.78rem, 1.05cqw, 0.9rem);
+  transition: opacity 0.25s ease;
+}
+
+.finaleGhostLink:hover {
+  opacity: 1;
+}
+
+/* Container query collapse (no viewport media queries) */
+@container (max-width: 860px) {
+  .finaleGrid {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .finaleActionSide {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .grandCta {
+    width: 100%;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .grandCta {
+    transition: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .heroCopy {
+    overflow: hidden; /* clip title bleed */
+  }
+}
+
+@media (max-width: 900px) {
+  .heroTextContent {
+    padding: clamp(1rem, 4vw, 2rem); /* keep full-bleed */
+  }
+
+  .heroTextInner {
+    width: min(92vw, 42rem); /* constrain the INNER box */
+  }
+  
+  .heroMainTitle :global(.hero-title1) {
+  font-size: 1.1em;
+}
+
+.heroMainTitle :global(.hero-title2) {
+  font-size: 2.3em;
+}
+}
+
+@media (max-width: 900px) {
+  .heroGridParent {
+    grid-template-columns: 1fr; /* collapse to one column */
+    justify-items: center;
+  }
+}
+
+
+/* -------------------------------------------------------
+   Mobile-only section breathing room (NO rift)
+   Adds internal padding instead of external margins.
+   Excludes News (it has its own padding rules).
+-------------------------------------------------------- */
+@media (max-width: 768px) {
+  .container {
+    --homeSectionPadY: 28px; /* tweak */
+  }
+
+  /* Give all Home sections internal vertical padding */
+  .container > section:not(.stickyHeroSection):not(.newsBannerSection) {
+    padding-block: var(--space-6);
+  }
+
+  /* Ensure we don't accidentally keep the old "gap" approach */
+  .container > section:not(.stickyHeroSection):not(.newsBannerSection) {
+    margin-top: 0;
+  }
+}
+

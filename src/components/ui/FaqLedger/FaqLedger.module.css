@@ -1,0 +1,74 @@
+/*
+DOC NAME: FaqLedger.module.css
+LOCATION: /src/components/ui/FaqLedger/FaqLedger.module.css
+SCOPE: Home-style “ledger” interaction + spacing for FAQ items (component-scoped).
+STATUS: UNLOCKED (lock after verified)
+*/
+
+.ledgerList {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+}
+
+.ledgerFaqItem {
+	border-top: 1px solid rgba(0, 0, 0, 0.06);
+	padding: clamp(1.25rem, 2.2cqw, 2rem) 0;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.ledgerFaqItem:last-child {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.ledgerFaqHeader {
+	display: flex;
+	align-items: center;
+	gap: clamp(1rem, 2cqw, 2rem);
+}
+
+.ledgerIndex {
+	font-family: var(--font-serif);
+	font-style: italic;
+	font-size: clamp(1rem, 1.6cqw, 1.2rem);
+	color: var(--savanna-gold);
+	min-width: 30px;
+}
+
+.ledgerQuestion {
+	font-size: clamp(1.05rem, 2cqw, 1.25rem);
+	font-weight: 700;
+	color: var(--text-main);
+	flex: 1;
+	margin: 0;
+}
+
+.ledgerPlus {
+	font-size: clamp(1.25rem, 2.2cqw, 1.5rem);
+	color: var(--text-muted);
+	font-weight: 300;
+}
+
+.ledgerFaqItem:hover .ledgerQuestion {
+	color: var(--protea-pink);
+}
+
+.ledgerAnswerWrapper {
+	overflow: hidden;
+}
+
+.ledgerAnswer {
+	padding: clamp(1rem, 1.8cqw, 1.5rem) 0 0 clamp(3rem, 6cqw, 5rem);
+	color: var(--text-muted);
+	line-height: 1.8;
+	font-size: clamp(0.98rem, 1.6cqw, 1.05rem);
+	max-width: 90%;
+	margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ledgerFaqItem {
+		transition: none !important;
+	}
+}

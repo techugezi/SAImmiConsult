@@ -1,0 +1,89 @@
+/*
+DOC NAME: RowItem.module.css
+LOCATION: /src/components/ui/RowItem.module.css
+SCOPE: Shared row layout + interaction ONLY. No typography roles. No colors/identity beyond existing neutral hover + divider.
+STATUS: LOCKED
+AUDITED:
+- Layout: Enforces row container + main/side slots; preserves ellipsis safety via min-width: 0.
+- Interaction: Uses hover/focus-visible lift + neutral highlight overlay (pseudo-element, non-interactive).
+- Divider: Always-on inset divider via ::after; no global token changes.
+- Scope compliance: No typography roles, no badge/button styling, no identity expansion beyond existing neutrals.
+NOTES:
+- No logic changes were required.
+- No translation keys were changed.
+*/
+
+
+.row {
+	position: relative;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: var(--space-4);
+
+	border-radius: var(--radius-lg);
+	background: transparent;
+
+	min-height: clamp(64px, 6cqw, 80px);
+	padding: var(--space-4);
+	padding-block: var(--space-3);
+
+	text-decoration: none;
+	transition: transform 120ms ease;
+}
+
+/* Rounded hover highlight */
+.row::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	background: rgba(15, 23, 42, 0.035);
+	opacity: 0;
+	transition: opacity 120ms ease;
+	pointer-events: none;
+}
+
+.row:hover,
+.row:focus-visible {
+	transform: translateY(-2px);
+}
+
+.row:hover::before,
+.row:focus-visible::before {
+	opacity: 1;
+}
+
+.row:focus-visible {
+	outline: none;
+}
+
+/* Layout slots */
+.main {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+	min-width: 0; /* critical for ellipsis */
+}
+
+.side {
+	display: flex;
+	align-items: center;
+	gap: var(--space-3);
+	min-width: 0; /* allow badge truncation */
+	flex-shrink: 0;
+}
+
+/* Inset divider (ALWAYS ON) */
+.row::after {
+	content: "";
+	position: absolute;
+	left: var(--space-4);
+	right: var(--space-4);
+	bottom: 0;
+
+	height: 1px;
+	background-color: rgba(15, 23, 42, 0.12);
+	pointer-events: none;
+}

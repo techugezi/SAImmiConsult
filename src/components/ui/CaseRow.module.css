@@ -1,0 +1,89 @@
+/*
+DOC NAME: CaseRow.module.css
+LOCATION: /src/components/ui/CaseRow.module.css
+SCOPE: CaseRow — layout & interaction ONLY
+STATUS: LOCKED
+*/
+
+.row {
+	width: 100%;
+}
+
+/* ---------------- TEXT ---------------- */
+
+.name,
+.dates,
+.meta {
+	margin: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* ---------------- BADGE (truncate safely) ---------------- */
+
+.badge {
+	display: inline-flex;
+	align-items: center;
+	min-width: 0;
+	max-width: clamp(9rem, 20cqw, 16rem);
+}
+
+.badgeText {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* ---------------- CTA ---------------- */
+
+.cta {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-1);
+	line-height: 1;
+	white-space: nowrap;
+	flex-shrink: 0;
+}
+
+.arrow {
+	display: inline-block;
+	transform: translateX(0);
+	transition: transform 120ms ease;
+}
+
+.row:hover .arrow {
+	transform: translateX(2px);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Mobile: badge above content + remove CTA (tap row to open)                 */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 700px) {
+	.row {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	/* side becomes "top bar" */
+	.row > :global(div) {
+		width: 100%;
+	}
+
+	/* The RowItem side div is second child; push it above main visually */
+	.row > :global(div):last-child {
+		order: -1;
+		justify-content: flex-start;
+		align-items: flex-start;
+	}
+
+	.cta {
+		display: none;
+	}
+
+	.badge {
+		max-width: min(100%, 22rem);
+	}
+}

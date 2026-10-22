@@ -1,0 +1,115 @@
+/* src/components/LogoutButton.module.css */
+
+/* Same “pill” geometry as nav pills */
+.logoutButton {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.6rem;
+
+  /* match nav pill sizing */
+  padding: 0.95rem 1.05rem;
+  border-radius: 999px;
+
+  /* match pill surface */
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(15, 23, 42, 0.10);
+
+  /* text */
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(15, 23, 42, 0.82);
+
+  cursor: pointer;
+  text-align: left;
+
+  /* premium motion */
+  transition:
+    transform 160ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+/* Icon follows text color */
+.icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: 0 0 auto;
+  opacity: 0.9;
+}
+
+/* Keep label aligned / truncation-safe */
+.logoutText {
+  flex: 1 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Hover: subtle “danger” affordance (doesn’t scream) */
+.logoutButton:hover {
+  background: color-mix(in srgb, rgba(255, 255, 255, 0.55) 65%, rgba(239, 68, 68, 0.10));
+  border-color: color-mix(in srgb, rgba(239, 68, 68, 0.55) 70%, rgba(15, 23, 42, 0.10));
+  color: rgba(185, 28, 28, 0.92); /* red-ish but readable */
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.10);
+  transform: translateY(-1px);
+}
+
+/* Active press */
+.logoutButton:active {
+  transform: translateY(0);
+}
+
+/* Keyboard focus: strong ring in protea pink (matches your system) */
+.logoutButton:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 4px rgba(229, 115, 115, 0.16),
+    0 14px 34px rgba(15, 23, 42, 0.10);
+  border-color: rgba(229, 115, 115, 0.45);
+}
+
+/* If you render it inside tighter desktop dropdowns */
+@media (min-width: 971px) {
+  .logoutButton {
+    padding: 0.75rem 0.9rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* --- Spinner + disabled state ------------------------------------------------ */
+
+.buttonInner {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-2);
+}
+
+.spinner {
+	width: 1em;
+	height: 1em;
+	border-radius: 999px;
+	border: 2px solid currentColor;
+	border-top-color: transparent;
+	animation: logoutSpin 0.85s linear infinite;
+}
+
+@keyframes logoutSpin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.logoutButton:disabled {
+	opacity: 0.65;
+	cursor: not-allowed;
+}
+
+.logoutButton:disabled .icon,
+.logoutButton:disabled .logoutText {
+	opacity: 0.85;
+}

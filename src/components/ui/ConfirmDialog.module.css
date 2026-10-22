@@ -1,0 +1,97 @@
+/*
+DOC NAME: ConfirmDialog.module.css
+LOCATION: /src/components/ui/ConfirmDialog.module.css
+SCOPE: Confirm dialog overlay + layout ONLY (NO typography/colors/identity).
+STATUS: UNLOCKED (lock after verified)
+*/
+
+.overlay {
+	position: fixed;
+	inset: 0;
+	z-index: var(--z-modal, 60);
+
+	/* Center the panel */
+	display: grid;
+	place-items: center;
+
+	/* Give breathing room on small screens */
+	padding: var(--space-6) var(--space-4);
+}
+
+.backdrop {
+	position: absolute;
+	inset: 0;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+
+	/* Functional scrim only (not brand identity) */
+	background: rgba(0, 0, 0, 0.45);
+}
+
+.panel {
+	/* Panel surface background comes from .surface-soft */
+	width: min(40rem, 92vw);
+	border: 0;
+
+	padding: var(--space-4);
+
+	/* Keep it usable on short viewports */
+	max-height: calc(100vh - (var(--space-6) * 2));
+	overflow: auto;
+}
+
+.header {
+	display: grid;
+	gap: var(--space-1);
+	margin-bottom: var(--space-2);
+}
+
+.title {
+	margin: 0;
+}
+
+.body {
+	margin: 0;
+}
+
+.actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: var(--space-3);
+	flex-wrap: wrap;
+
+	margin-top: var(--space-4);
+}
+
+/* Layout helpers only (NO visuals) */
+.primaryButton,
+.secondaryButton {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-1);
+	white-space: nowrap;
+}
+
+.arrow {
+	display: inline-block;
+	transform: translateX(0);
+	transition: transform 120ms ease;
+}
+
+.primaryButton:hover .arrow,
+.primaryButton:focus-visible .arrow {
+	transform: translateX(2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.arrow {
+		transition: none;
+	}
+
+	.primaryButton:hover .arrow,
+	.primaryButton:focus-visible .arrow {
+		transform: none;
+	}
+}
+

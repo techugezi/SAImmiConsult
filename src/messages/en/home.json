@@ -1,0 +1,168 @@
+{
+"Home": {
+    "hero": {
+      "scrollIndicator": "Scroll for more",
+      "eyebrow": "South African immigration consultants",
+      "title": {
+                "line1": "Expertly guided",
+				"line2": "Peacefully Settled."
+				},
+      "subtitle": "Personalised and stress-free guidance for immigration to South Africa, emigration to Russia, and visas for the USA, Canada, Europe, and the UK.",
+      "primaryCta": "Get a free consultation",
+      "secondaryCta": "WhatsApp us",
+      "reassurance": "No obligations, just honest advice from consultants who have lived in South Africa for more than 15 years.",
+      "kpi": {
+		"circlePath": "ESTABLISHED • TAILORED • DEPENDABLE • ",
+        "yearsInSA": {
+          "value": "15+",
+          "label": "Years"
+        },
+        "languages": {
+          "value": "RU / EN",
+          "label": "Russian and English support"
+        },
+        "globalClients": {
+          "value": "Global",
+          "label": "Clients from Russia, CIS, USA and beyond"
+        }
+      },
+      "card": {
+        "title": "You do not have to figure it out alone",
+        "body": "We help you choose the right visa route, prepare your documents, and guide you from first questions to final approval.",
+        "tagline": "Immigration, education and visa support with a human touch."
+      },
+      "tag": "End-to-end support: from first idea to landing in South Africa",
+	  "imageAlt": "SA Immi Consult hero image"
+    },
+    "services": {
+      "title": "Our services",
+      "subtitle": "How we can help you",
+      "description": "Whether you are planning to move to South Africa, leave South Africa, or travel and study abroad, we guide you through each step with clarity and care.",
+      "viewAll": "View all services",
+
+      "immigration": {
+        "title": "Immigration to South Africa",
+        "body": "End-to-end support for temporary and permanent residence in South Africa: eligibility assessment, visa strategy, document preparation and submission.",
+        "cta": "Explore SA immigration"
+      },
+      "emigration": {
+        "title": "Emigration and relocation",
+        "body": "Support for South Africans and residents who are moving abroad or changing their primary country of residence.",
+        "cta": "Explore emigration options"
+      },
+      "visaTypes": {
+        "title": "Visa types & who can apply",
+        "body": "Work, study, business, family, tourist and retirement visas for South Africa, plus tourist and training visas for the USA, Canada, Europe and the UK.",
+        "cta": "View visa types"
+      },
+      "additionalSupport": {
+        "title": "Additional support services",
+        "body": "Remote document handling, translation, banking and lifestyle support to help you settle and feel at home faster.",
+        "cta": "See additional services"
+      }
+    },
+
+    "whySa": {
+      "title": "Why South Africa",
+      "subtitle": "Why people choose South Africa",
+      "description": "South Africa offers a unique mix of lifestyle, education, business opportunities and warm climate that attracts families, professionals and investors.",
+      "highlightTitle": "A new chapter with more space and possibility",
+      "highlightBody": "Quality education, lower tuition and living costs compared to many Western countries, and vibrant cities like Cape Town and Johannesburg make South Africa an attractive long-term choice.",
+
+      "reasons": {
+        "lifestyle": {
+          "title": "Lifestyle & climate",
+          "body": "Mild climate, ocean and mountain views, fresh food, and family-friendly neighbourhoods with space, gardens and outdoor living."
+        },
+        "education": {
+          "title": "Recognised education",
+          "body": "South African schools and universities are recognised internationally, with more affordable fees than many EU, US or UK institutions."
+        },
+        "opportunity": {
+          "title": "Business & investment",
+          "body": "A gateway to the African continent, member of BRICS, and an environment where entrepreneurs and investors can find new opportunities."
+        },
+        "costOfLiving": {
+          "title": "Cost of living",
+          "body": "In many cases, everyday expenses, services and housing can be more affordable than in Europe or North America, while maintaining a comfortable lifestyle."
+        }
+      }
+    },
+
+    "aboutBrief": {
+      "title": "About us",
+      "subtitle": "Who we are",
+      "description": "We are a South African-based immigration and education consultancy helping Russian-speaking and international clients move, study and build a new life in South Africa.",
+      "body": "Our team has lived in South Africa for many years and understands both the local system and the questions you have before you decide to move. We work with trusted immigration professionals and educational partners to give you clear guidance, realistic timelines and support at each stage of your journey.",
+      "highlights": {
+        "0": "Based in Johannesburg with more than 15 years’ local experience.",
+        "1": "Native Russian-speaking and English-speaking support throughout the process.",
+        "2": "Step-by-step approach: from initial assessment to adaptation after arrival."
+      },
+      "cta": "Learn more about us",
+	  "badgeText": "Years experience"
+    },
+
+    "news": {
+      "title": "News & updates",
+      "subtitle": "Immigration and visa news",
+      "description": "Short, practical updates on South African immigration rules, visa processing times and related international visa news.",
+      "cta": "Read all news",
+      "items": {
+        "0": "Recent changes to South African visa processing times.",
+        "1": "Clarifications on student visas and study permits in South Africa.",
+        "2": "Updates on tourist and training visas for the USA, Canada, Europe and the UK.",
+		"3": "Home affairs to update visa requirements for all BRICS countries."
+      },
+	  "category": "Visa news"
+    },
+
+    "faq": {
+      "title": "FAQ",
+      "subtitle": "Frequently asked questions",
+      "description": "Here are some of the questions we hear most often from clients who are just starting to look at South Africa or international visas.",
+      "cta": "View all questions",
+      "items": {
+        "0": {
+          "question": "Where do I start if I want to move to South Africa?",
+          "answer": "Usually we start with a short consultation and basic eligibility check. We look at your goals, profession, family situation and timelines, and then suggest realistic visa options."
+        },
+        "1": {
+          "question": "Do I have to speak English perfectly to apply?",
+          "answer": "Fluent English is not always required for every visa type, but it will help with work and daily life. During consultation we can explain which programmes have language requirements."
+        },
+        "2": {
+          "question": "Can you help if I already live in South Africa?",
+          "answer": "Yes. We support clients who are already in South Africa and need to extend, change or correct their visa status, as well as those who are only planning to move."
+        }
+      }
+    },
+
+    "testimonials": {
+      "title": "Client stories",
+      "subtitle": "What our clients say",
+      "description": "Real stories from families, professionals and students who trusted us with their move and visa process.",
+      "items": {
+        "0": {
+          "name": "TV Vision project team",
+          "country": "Russia / South Africa",
+          "quote": "Our filming schedule in South Africa was almost at risk, but thanks to the team’s knowledge of local visa rules we could continue our project without interruption."
+        },
+        "1": {
+          "name": "The Ten family",
+          "country": "Kazakhstan → South Africa",
+          "quote": "We spent months doubting our decision, but the visa process itself was surprisingly fast and clear. We are now settled in South Africa as a family and finally feel at home."
+        }
+      }
+    },
+
+    "finalCta": {
+      "title": "Ready for the next step?",
+      "subtitle": "Let’s talk about your move or visa plan",
+      "body": "Tell us a bit about your situation and we will come back with clear next steps: whether South Africa, Russia, the USA, Canada, Europe or the UK is your focus right now.",
+      "primaryCta": "Talk to a consultant",
+      "secondaryCta": "Browse FAQ",
+	  "watermark": "WELCOME"
+    }
+  }
+}

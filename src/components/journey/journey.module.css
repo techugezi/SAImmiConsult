@@ -1,0 +1,229 @@
+/* src/components/journey/journey.module.css
+   Matches the dashboard "glass-light" language: protea-pink accent, pill markers,
+   clamp + container queries (no viewport breakpoints). Shell/hover come from the
+   dashboard's .card class passed in as className. */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(0.75rem, 1.6cqw, 1rem);
+  flex-wrap: wrap;
+  margin-bottom: clamp(1rem, 2cqw, 1.5rem);
+}
+
+.journey {
+  container-type: inline-size;
+  container-name: journey;
+  display: grid;
+  gap: clamp(1.25rem, 2.6cqw, 1.75rem);
+}
+
+/* ---------- Stepper ---------- */
+
+.steps {
+  --marker: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.step {
+  --line: rgba(15, 23, 42, 0.12);
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+/* connector from previous marker's centre to this marker's centre */
+.step + .step::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--marker) / 2 - 1px);
+  right: 50%;
+  width: 100%;
+  height: 2px;
+  background: var(--line);
+}
+
+.done,
+.current {
+  --line: var(--protea-pink);
+}
+
+.stopped {
+  --line: rgba(140, 45, 45, 0.9);
+}
+
+.marker {
+  position: relative;
+  z-index: 1;
+  width: var(--marker);
+  height: var(--marker);
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+
+  font-size: 0.85rem;
+  font-weight: 900;
+  color: var(--text-muted);
+  background: #fff;
+  border: 2px solid rgba(15, 23, 42, 0.14);
+}
+
+.done .marker {
+  background: var(--protea-pink);
+  border-color: var(--protea-pink);
+  color: #fff;
+}
+
+.current .marker {
+  border-color: var(--protea-pink);
+  color: var(--protea-pink);
+  box-shadow: 0 0 0 5px rgba(229, 115, 115, 0.16);
+}
+
+.stopped .marker {
+  background: rgba(140, 45, 45, 0.9);
+  border-color: rgba(140, 45, 45, 0.9);
+  color: #fff;
+  box-shadow: none;
+}
+
+/* Narrow: only the current label shows */
+.label {
+  display: none;
+  padding: 0 0.15rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-muted);
+}
+
+.current .label,
+.stopped .label {
+  display: block;
+  color: var(--text-main);
+  font-weight: 900;
+}
+
+@container journey (min-width: 560px) {
+  .label {
+    display: block;
+    font-size: 0.9rem;
+  }
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- What's happening now ---------- */
+
+.now {
+  display: grid;
+  gap: 0.5rem;
+  padding-top: clamp(1rem, 2.2cqw, 1.5rem);
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.stepLine {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.turn {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.turn::before {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.28);
+}
+
+.turnYou::before {
+  background: var(--protea-pink);
+}
+
+.nowTitle {
+  margin: 0.25rem 0 0;
+  font-size: clamp(1.2rem, 2.6cqw, 1.6rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  gap: 0.5rem;
+  color: var(--text-main);
+}
+
+.nowBody {
+  margin: 0;
+  max-width: 65ch;
+  font-size: clamp(0.98rem, 1.5cqw, 1.05rem);
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+.actions {
+  margin-top: 0.75rem;
+}
+
+/* Same affordance as the old status-card hint row */
+.details {
+  justify-self: start;
+  margin-top: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+
+  text-decoration: none;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: clamp(0.78rem, 1.1cqw, 0.9rem);
+  color: rgba(15, 23, 42, 0.58);
+}
+
+.details:hover {
+  color: rgba(15, 23, 42, 0.72);
+}
+
+.detailsArrow {
+  color: var(--protea-pink);
+  transition: transform 0.25s ease;
+}
+
+.details:hover .detailsArrow {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .detailsArrow {
+    transition: none !important;
+  }
+}

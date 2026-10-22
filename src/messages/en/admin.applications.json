@@ -1,0 +1,185 @@
+{
+  "AdminApplications": {
+    "title": "Visa applications",
+    "subtitle": "Manage active applications",
+    "description": "Manage active applications, documents, and progress.",
+    "hero": {
+      "eyebrow": "Applications",
+      "title": "Visa applications",
+      "desc": "Manage active applications, documents, and progress."
+    },
+    "breadcrumbs": {
+      "applications": "Back to Applications"
+    },
+    "header": {
+      "title": "Application overview",
+      "client": "Client",
+      "case": "Case",
+      "application": "Application",
+      "createdAt": "Created",
+      "updatedAt": "Updated",
+      "noLinkedCase": "No case linked.",
+      "actions": {
+        "openProfile": "Open client profile",
+        "openCase": "Open case"
+      },
+      "clickToContact": {
+        "label": "Contact client",
+        "methods": {
+          "email": "Open in Email",
+          "whatsapp": "Open in WhatsApp",
+          "telegram": "Open in Telegram"
+        }
+      }
+    },
+    "actions": {
+      "closeApplication": "Close Application"
+    },
+    "closeApplication": {
+      "confirmBody": "This action will close the application and disable further progress. Set the status to Finished if the application is complete."
+    },
+    "stats": {
+      "aria": "Application statistics",
+      "total": {
+        "label": "Total applications",
+        "help": "All applications currently in the system.",
+        "helpText": "All applications currently in the system."
+      },
+      "waiting": {
+        "label": "Waiting for documents",
+        "helpText": "Applications waiting for required documents from clients."
+      },
+      "waiting_documents": {
+        "label": "Waiting for documents",
+        "help": "Applications waiting for required documents from clients."
+      },
+      "review": {
+        "label": "Under review",
+        "helpText": "Documents submitted and currently under review."
+      },
+      "documents_under_review": {
+        "label": "Under review",
+        "help": "Documents submitted and currently under review."
+      },
+      "actionNeeded": {
+        "label": "Action needed",
+        "helpText": "Applications requiring consultant action or clarification."
+      },
+      "visa_issue_action_needed": {
+        "label": "Action needed",
+        "help": "Applications requiring consultant action or clarification."
+      },
+      "completed": {
+        "label": "Approved",
+        "helpText": "Applications with approved documents."
+      },
+      "documents_approved": {
+        "label": "Approved",
+        "help": "Applications with approved documents."
+      }
+    },
+    "filters": {
+      "aria": "Application filters",
+      "title": "Filter applications",
+      "subtitle": "Narrow down applications by status.",
+      "status": {
+        "label": "Status",
+        "all": "All"
+      }
+    },
+    "list": {
+      "aria": "Application list",
+      "title": "Applications",
+      "subtitle": "Review and manage applications below.",
+      "empty": "No applications."
+    },
+    "cards": {
+      "applicationStatusLabel": "Visa application status",
+      "documentsStatusLabel": "Documents status"
+    },
+    "journey": {
+      "title": "Visa journey and department updates",
+      "subtitle": "Record the current department stage and add concise notes the client can understand. Once finished, consult with the client on next steps.",
+      "confirmSave": "Are you sure you want to update the application journey?",
+      "status": {
+        "placeholder": "Please select status"
+      },
+      "fieldLabel": "Application status",
+      "noteLabel": "Client-visible visa journey notes",
+      "cta": "Update application",
+      "guardrailsTitle": "Help & Guidance",
+      "statusUnlock": {
+        "default": "Update the status if department approves visa or requires further action and explain in the note. All documents must first be approved to continue.",
+        "visa_journey_started": "Update to visa journey started once the visa process has been handed over to the relevant departments.",
+        "visa_issue_action_needed": "Update to visa issue action needed when the visa process requires additional information or actions before it can continue.",
+        "visa_approved": "Update to visa approved once the visa outcome has been confirmed and recorded.",
+        "finished": "Update to finished once all steps are complete and the application can be formally closed.",
+        "cancelled": "Update to cancelled only when the application has been stopped and will not continue."
+      },
+      "hints": {
+        "statusUnlock": "Only advance the status when the relevant documents have been approved and the department has confirmed the next stage.",
+        "notePlaceholder": "Explain the latest department update, what it means for the client, and any next steps. Keep private internal notes out of this field.",
+        "hintNote": "Visa application journey notes are permitted even during "
+      }
+    },
+    "documents": {
+      "title": "Review the documents submitted by the client",
+      "subtitle": "Check the latest upload for each required document. Approve it or request a replacement with a clear client-facing note.",
+      "empty": "No documents uploaded yet.",
+      "confirmSave": "Are you sure you want to update the document status?",
+      "noteLabel": "Note visible to the client",
+      "bulkStatus": {
+        "placeholder": "Please select document status"
+      },
+      "bulk": {
+        "statusPlaceholder": "Please select status",
+        "hintStatus": "You can bulk update by selecting multiple documents. If you need a specific note for one document, only select that single document before saving (otherwise the note will be applied to all selected documents). If you select “Needs resubmission”, you must add a note explaining why and how to resubmit.",
+        "guardrailsTitle": "Help & Guidance",
+        "hint": {
+          "default": "After reviewing a document, select it and either approve it or request a resubmission with a note. You can also update the status of multiple documents at once by selecting all relevant documents and performing a bulk action.",
+          "approved": "Approve the selected document as acceptable.",
+          "resubmit": "Request a replacement and provide a clear note explaining the issue with the document, along with specific instructions on what the client needs to upload instead.",
+          "notePlaceholder": "Add any notes regarding the document. If client requires to resubmit, add a note explaining why and how."
+        }
+      },
+      "columns": {
+        "status": "Document status",
+        "fileName": "File name",
+        "uploadedAt": "Uploaded at",
+        "fileVersion": "Version"
+      },
+      "noneUploaded": "No file uploaded yet. You can only update once the client submits a file.",
+      "statusUpdatedAt": "Status updated: {value}",
+      "confirmOverwriteStatus": "Some selected documents already have a status. This will overwrite them. Continue?",
+      "actions": {
+        "viewInDrive": "View in Drive"
+      }
+    },
+    "timeline": {
+      "title": "Timeline",
+      "subtitle": "Chronological history of this application.",
+      "appEvent": "Application event: {type}",
+      "documentUploaded": "Document uploaded"
+    },
+    "wizard": {
+      "title": "Visa application workflow",
+      "steps": {
+        "waiting": "Await client documents",
+        "review": "Review client documents",
+        "journey": "Update visa journey",
+        "outcome": "Record visa outcome",
+        "finished": "Complete final handover"
+      },
+      "documentsWaitingTitle": "Await client documents",
+      "documentsWaitingSubtitle": "Monitor the required documents and follow up with the client if anything is outstanding.",
+      "documentsWaitingHelp": "Action: check upload progress. Do not advance the visa journey until every required document has been reviewed and approved.",
+      "documentsReviewSubtitle": "Review each latest document version. Approve acceptable documents or mark items for resubmission with a clear explanation.",
+      "documentsReviewHelp": "Action: approve or request resubmission for each selected document. A resubmission requires a client-facing note explaining what to fix.",
+      "journeyHelp": "Action: update the status only when the department journey has genuinely reached the selected stage. Add a concise client-visible note when useful.",
+      "issueAction": "Department action is needed. Record a clear client-facing note explaining the situation and coordinate any additional information or documents directly with the client outside this app.",
+      "outcome": "Record the confirmed visa decision from the department. Use the approved status only when approval is confirmed.",
+      "outcomeDeclined": "The existing status model does not include a dedicated “visa declined” value. Do not use “cancelled” to record a refusal unless that is your agreed business rule; the status model should be extended before recording refusals distinctly.",
+      "finished": "Final handover: mark the application as finished only after the visa or official outcome notice has been handed over to the client and the exchange is complete."
+    }
+  }
+}

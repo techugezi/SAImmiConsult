@@ -1,0 +1,628 @@
+{
+  "GlobalForm": {
+    "labels": {
+      "en": "EN",
+      "ru": "RU",
+      "switchToRu": "RU",
+      "switchToEn": "EN"
+    },
+    "actions": {
+      "logout": "Logout",
+      "openInDrive": "Open Google Drive"
+    },
+    "consultation_channel": {
+      "channelCta": "Open on {value}",
+      "channels": {
+        "zoom": "Zoom",
+        "google_meet": "Google Meet",
+        "phone": "Phone",
+        "whatsapp": "WhatsApp",
+        "telegram": "Telegram",
+        "email": "Email"
+      }
+    },
+    "Common": {
+      "dates": {
+        "na": "—"
+      },
+      "na": "—",
+      "toast": {
+        "regionLabel": "Notifications"
+      },
+      "actions": {
+        "close": "Close",
+        "saving": "Saving…",
+        "open": "Open"
+      },
+      "symbols": {
+        "arrowRight": "→",
+        "arrowLeft": "←",
+        "chevronDown": "▼",
+        "chevronUp": "▲",
+        "dot": "•"
+      },
+      "required": "Required"
+    },
+    "Enums": {
+      "yesNo": {
+        "yes": "Yes",
+        "no": "No",
+        "unspecified": "Prefer not to say"
+      },
+      "englishLevel": {
+        "basic": "Basic",
+        "intermediate": "Intermediate",
+        "fluent": "Fluent"
+      },
+      "maritalStatus": {
+        "single": "Single",
+        "married": "Married",
+        "divorced": "Divorced",
+        "widowed": "Widowed",
+        "other": "Other"
+      },
+      "preferredContactMethod": {
+        "none": "No preference",
+        "email": "Email",
+        "whatsapp": "WhatsApp",
+        "telegram": "Telegram"
+      }
+    },
+    "header": {
+      "client": "Client",
+      "case": "Case",
+      "application": "Application",
+      "unknownClient": "Unknown client",
+      "createdAt": "Created at",
+      "updatedAt": "Updated at",
+      "visaApplicationStatus": "Visa application status",
+      "documentsStatus": "Document status",
+      "phoneValue": "Phone: {value}",
+      "phoneNA": "Phone: —",
+      "whatsappValue": "WhatsApp: {value}",
+      "whatsappNA": "WhatsApp: —",
+      "clickToContact": {
+        "label": "Click to contact",
+        "methods": {
+          "email": "Email",
+          "whatsapp": "WhatsApp",
+          "telegram": "Telegram"
+        }
+      },
+      "actions": {
+        "backToCases": "Back to cases",
+        "backToApplications": "Back to applications",
+        "backToDashboard": "Back to My Portal",
+        "backToAccount": "Back to account",
+        "backToNews": "Back to news",
+        "backToLogin": "Back to login",
+        "backToProfiles": "Back to profiles",
+        "createNewAccount": "Create new account",
+        "openProfile": "Open client profile",
+        "openApplication": "Open application",
+        "openCase": "Open case",
+        "changePassword": "Change password"
+      }
+    },
+    "CaseRow": {
+      "created": "Created",
+      "updated": "Updated",
+      "caseId": "Case ID"
+    },
+    "Statuses": {
+      "filter": "Filter by status:",
+      "cases": {
+        "draft_intake": "Draft intake",
+        "intake_submitted": "New case",
+        "consultation_requested": "Consultation requested",
+        "consultation_booked": "Consultation booked",
+        "consultation_completed": "Consultation completed",
+        "plan_created": "Plan updated successfully",
+        "requirements_added": "Requirements added",
+        "application_activated": "Application active",
+        "finished": "Visa application finished",
+        "closed": "Closed"
+      },
+      "applications": {
+        "all": "All",
+        "waiting_documents": "Waiting for client documents",
+        "documents_under_review": "Documents being reviewed",
+        "documents_not_approved": "Documents not approved by consultant",
+        "documents_approved": "Documents approved by consultant",
+        "visa_journey_started": "Visa journey started with department",
+        "visa_issue_action_needed": "Visa issue action needed from department",
+        "visa_approved": "Visa approved by department",
+        "finished": "Visa application finished",
+        "cancelled": "Visa application cancelled"
+      },
+      "documents": {
+        "pending": "Pending consultant review",
+        "reviewing": "Consultant reviewing",
+        "approved": "Documents approved",
+        "rejected": "Rejected",
+        "resubmit": "Client needs to resubmit document",
+        "uploaded": "Uploaded",
+        "missing": "Missing"
+      },
+      "casesDescriptions": {
+        "draft_intake_desc": "Your case is started but not submitted yet.",
+        "intake_submitted_desc": "Case intake submitted. Next: schedule a consultation.",
+        "consultation_requested_desc": "Consultation requested. Awaiting booking details.",
+        "consultation_booked_desc": "Consultation booked. Please attend at the scheduled time.",
+        "consultation_completed_desc": "Consultation completed. Next: we prepare the visa journey plan.",
+        "plan_created_desc": "Your plan has been created. Review the plan.",
+        "requirements_added_desc": "Requirements have been added. Next: awaiting consultant to activate application.",
+        "application_activated_desc": "Your application is active. Continue in the application workspace.",
+        "finished_desc": "The visa application journey is finished.",
+        "closed_desc": "This case is closed."
+      },
+      "applicationsDescriptions": {
+        "not_started_desc": "Your application has not started yet.",
+        "waiting_documents_desc": "Your application is now active! Next: upload the required documents.",
+        "documents_under_review_desc": "Your documents are being reviewed.",
+        "documents_not_approved_desc": "Action required: re-upload documents where requested.",
+        "documents_approved_desc": "Documents approved. Your visa journey will continue.",
+        "visa_journey_started_desc": "Your visa journey has started with the department.",
+        "visa_issue_action_needed_desc": "Action needed from the department during the visa process.",
+        "visa_approved_desc": "Your visa has been approved by the department.",
+        "finished_desc": "Your visa application has finished.",
+        "cancelled_desc": "Your visa application was cancelled."
+      }
+    },
+    "ApplicationRow": {
+      "created": "Created",
+      "updated": "Updated",
+      "applicationId": "Application ID",
+      "docsSummary": "{uploaded}/{required} uploaded · {approved} approved"
+    },
+    "Buttons": {
+      "open": "Open",
+      "save": "Save",
+      "update": "Update",
+      "activate": "Activate",
+      "saving": "Saving..."
+    },
+    "Tags": {
+      "activated": "Activated",
+      "notActivated": "Not activated"
+    },
+    "Sections": {
+      "caseDetails": "1. Case Details:",
+      "profileDetails": "2. Client Profile:"
+    },
+    "Export": {
+      "Actions": {
+        "downloadFactsheet": "Download factsheet",
+        "exporting": "Exporting…",
+        "exportFormat": "Export format",
+        "pdf": "PDF",
+        "docx": "Word"
+      },
+      "Case": {
+        "id": "Case ID",
+        "userId": "User ID",
+        "status": "Status",
+        "createdAt": "Created at",
+        "updatedAt": "Updated at"
+      },
+      "Intake": {
+        "destination": "Destination",
+        "visaType": "Visa type",
+        "timeframe": "Timeframe",
+        "extraNotes": "Additional notes"
+      },
+      "Consultation": {
+        "channel": "Consultation channel",
+        "requestedAt": "Requested at",
+        "scheduledFor": "Scheduled for",
+        "link": "Consultation link"
+      },
+      "Plan": {
+        "finalApplicationType": "Final application type",
+        "planNotes": "Plan notes",
+        "consultantNote": "Consultant note"
+      },
+      "Profile": {
+        "userId": "User ID",
+        "firstName": "First name",
+        "middleName": "Middle name",
+        "lastName": "Last name",
+        "dateOfBirth": "Date of birth",
+        "citizenshipCountry": "Citizenship country",
+        "cityCountry": "City / Country",
+        "maritalStatus": "Marital status",
+        "phoneCountryCode": "Phone country code",
+        "phoneNumber": "Phone number",
+        "whatsappCountryCode": "WhatsApp country code",
+        "whatsappNumber": "WhatsApp number",
+        "preferredContactMethod": "Preferred contact method",
+        "preferredContactTime": "Preferred contact time",
+        "familyComposition": "Family composition",
+        "incomeOver2000": "Income over 2000",
+        "incomeSource": "Income source",
+        "beenToSa": "Been to South Africa",
+        "firstEntrySa": "First entry to South Africa",
+        "currentLocation": "Current location",
+        "currentVisaStatus": "Current visa status",
+        "visaRefusals": "Visa refusals",
+        "visaRefusalsDetails": "Visa refusal details",
+        "passportExpiry": "Passport expiry",
+        "visitPurpose": "Visit purpose",
+        "immigrationGoal": "Immigration goal",
+        "englishLevel": "English level",
+        "needLanguageSchool": "Needs language school"
+      }
+    },
+    "Confirm": {
+      "title": "Confirm",
+      "activeCaseEdit": "This case is already linked to an application. Changing it may impact the live application. Do you want to continue?",
+      "cancel": "Cancel",
+      "continue": "Continue"
+    },
+    "preview": {
+      "case": {
+        "default": "We are preparing your visa journey.",
+        "intakeSubmitted": "Case intake submitted. Next: schedule a consultation.",
+        "consultationRequested": "Consultation requested. Awaiting booking details.",
+        "consultationBooked": "Consultation booked. Please attend at the scheduled time.",
+        "consultationCompleted": "Consultation completed. Next: we prepare your plan.",
+        "planProposed": "Plan proposed. Next: accept the plan.",
+        "planAccepted": "Plan accepted. Next: application activation.",
+        "planCreated": "Plan created. Next: required documents.",
+        "finished": "The visa application journey is finished.",
+        "closed": "This case is closed."
+      },
+      "app": {
+        "default": "Your application is in progress.",
+        "waitingDocuments": "Next: upload the required documents.",
+        "underReview": "We are reviewing your documents.",
+        "notApproved": "Action required: re-upload documents where requested.",
+        "approved": "Documents approved. Your visa journey will continue.",
+        "finished": "The application for this case is completed."
+      }
+    },
+    "destinations": {
+      "na": "—",
+      "south_africa": "South Africa",
+      "russia": "Russia",
+      "usa": "United States",
+      "uk": "United Kingdom",
+      "europe": "Europe",
+      "europe_schengen": "Europe (Schengen)",
+      "greece": "Europe (Schengen) for Greek passport holders",
+      "canada": "Canada"
+    },
+    "visaTypes": {
+      "unknown": "Unknown",
+      "temporary_residence": "Temporary residence",
+      "permanent_residence": "Permanent residence",
+      "permanent_residency": "Permanent residency",
+      "permanent_resident": "Permanent resident",
+      "work_visa": "Work visa",
+      "general_work": "General work visa",
+      "general_work_visa": "General work visa",
+      "critical_skills": "Critical skills visa",
+      "critical_skills_visa": "Critical skills visa",
+      "intra_company_transfer": "Intra-company transfer visa",
+      "intra_company_transfer_visa": "Intra-company transfer visa",
+      "business": "Business visa",
+      "business_visa": "Business visa",
+      "study": "Study visa",
+      "study_visa": "Study visa",
+      "visitor": "Visitor visa",
+      "visitor_visa": "Visitor visa",
+      "tourism_visa": "Tourism visa",
+      "relative": "Relative visa",
+      "relatives": "Relative visa",
+      "relative_visa": "Relative visa",
+      "retired": "Retired person visa",
+      "retired_person_visa": "Retired person visa",
+      "medical_treatment": "Medical treatment visa",
+      "transit": "Transit visa",
+      "treaty": "Treaty visa",
+      "crew": "Crew visa",
+      "exchange": "Exchange visa",
+      "training_visa": "Training visa",
+      "asylum_seeker_permit": "Asylum seeker permit",
+      "other_entry_permit": "Other entry permit",
+      "eu_visa_free_90_days": "EU visa-free (90 days)",
+      "corporate": "Corporate visa"
+    },
+    "Toast": {
+      "titles": {
+        "success": "Success",
+        "error": "Something went wrong",
+        "warning": "Heads up",
+        "info": "Info"
+      },
+      "saved": {
+        "default": "Saved.",
+        "consultation": "Consultation updated.",
+        "plan": "Plan updated.",
+        "requirements": "Requirements updated.",
+        "activation": "Application activated.",
+        "intake": "Intake updated.",
+        "profile": "Profile updated.",
+        "documents": "Documents updated.",
+        "status": "Status updated.",
+        "timeline": "Timeline updated.",
+        "unknown": "Saved."
+      },
+      "errors": {
+        "unknown": "An unexpected error occurred. Please try again.",
+        "consultation_booking_requires_channel_and_date": "Please select a consultation channel and date to book the consultation.",
+        "case_closed": "This case is closed and cannot be updated.",
+        "invalid_payload": "Invalid request. Please refresh and try again.",
+        "permission_denied": "You do not have permission to perform this action.",
+        "not_found": "We could not find what you were looking for.",
+        "validation": "Please check the highlighted fields and try again.",
+        "activation_preconditions_not_met": "Activation preconditions not met."
+      },
+      "warnings": {
+        "unknown": "Please review and try again.",
+        "already_activated": "This case is already linked to an application.",
+        "requirements_empty": "Please select at least one requirement.",
+        "plan_missing_final_type": "Please select a final application type before continuing."
+      },
+      "info": {
+        "unknown": "Updated.",
+        "export_started": "Preparing your export…",
+        "export_ready": "Your export is ready.",
+        "no_changes": "No changes to save."
+      },
+      "codes": {
+        "default": "default",
+        "unknown": "unknown",
+        "consultation": "consultation",
+        "plan": "plan",
+        "requirements": "requirements",
+        "activation": "activation",
+        "intake": "intake",
+        "profile": "profile",
+        "documents": "documents",
+        "status": "status",
+        "timeline": "timeline",
+        "consultation_booking_requires_channel_and_date": "consultation_booking_requires_channel_and_date",
+        "case_closed": "case_closed",
+        "invalid_payload": "invalid_payload",
+        "permission_denied": "permission_denied",
+        "not_found": "not_found",
+        "validation": "validation",
+        "already_activated": "already_activated",
+        "requirements_empty": "requirements_empty",
+        "plan_missing_final_type": "plan_missing_final_type",
+        "export_started": "export_started",
+        "export_ready": "export_ready",
+        "no_changes": "no_changes"
+      },
+      "status": {
+        "unknown": "Status updated."
+      }
+    },
+    "Timeline": {
+      "ariaLabel": "Timeline",
+      "title": "Timeline",
+      "subtitle": "Chronological record of key events.",
+      "empty": "No timeline events.",
+      "case": {
+        "created": {
+          "title": "Case created"
+        },
+        "statusChanged": {
+          "title": "Case status updated",
+          "desc": "The case status was updated."
+        },
+        "intakeSaved": {
+          "title": "Intake saved"
+        },
+        "intakeSubmitted": {
+          "title": "Intake submitted"
+        },
+        "consultationRequested": {
+          "title": "Consultation requested"
+        },
+        "consultationScheduled": {
+          "title": "Consultation scheduled"
+        },
+        "consultationChannelSet": {
+          "title": "Consultation channel set"
+        },
+        "consultationLinkSet": {
+          "title": "Consultation link set"
+        },
+        "planNotesUpdated": {
+          "title": "Plan updated"
+        },
+        "consultantNoteUpdated": {
+          "title": "Consultant note updated"
+        },
+        "activated": {
+          "title": "Case activated",
+          "desc": "The case was activated."
+        }
+      },
+      "application": {
+        "created": {
+          "title": "Application created"
+        },
+        "caseLinked": {
+          "title": "Application linked"
+        },
+        "statusChanged": {
+          "title": "Application status updated",
+          "desc": "The application status was updated."
+        },
+        "cancelled": {
+          "title": "Application cancelled"
+        },
+        "finished": {
+          "title": "Application finished"
+        },
+        "documentUploaded": {
+          "title": "Document uploaded"
+        },
+        "documentVersionUploaded": {
+          "title": "Document version uploaded"
+        },
+        "documentStatusChanged": {
+          "title": "Document status updated"
+        },
+        "documentsBulkUpdated": {
+          "title": "Documents updated"
+        },
+        "consultantNoteUpdated": {
+          "title": "Consultant note updated"
+        },
+        "driveProvisioned": {
+          "title": "Drive folders provisioned"
+        }
+      }
+    },
+    "DocumentTypes": {
+      "application_form": {
+        "label": "Application form",
+        "desc": "Completed application form for your visa application."
+      },
+      "bbbee_certificate": {
+        "label": "B-BBEE certificate",
+        "desc": "B-BBEE certificate for the relevant entity (if required)."
+      },
+      "birth_certificate": {
+        "label": "Birth certificate",
+        "desc": "Certified copy of your birth certificate (if required)."
+      },
+      "business_plan": {
+        "label": "Business plan",
+        "desc": "Business plan outlining the proposed business activities and projections."
+      },
+      "capital_proof": {
+        "label": "Proof of capital",
+        "desc": "Evidence of available capital or investment funds (if required)."
+      },
+      "company_registration": {
+        "label": "Company registration",
+        "desc": "Company registration documents (e.g., CIPC certificates) if applicable."
+      },
+      "curriculum_vitae": {
+        "label": "Curriculum vitae (CV)",
+        "desc": "Updated CV outlining qualifications and work history."
+      },
+      "dti_recommendation": {
+        "label": "DTI recommendation",
+        "desc": "Recommendation letter from the Department of Trade, Industry and Competition (if required)."
+      },
+      "employer_undertaking": {
+        "label": "Employer undertaking",
+        "desc": "Signed undertaking letter from employer (if required)."
+      },
+      "employment_contract": {
+        "label": "Employment contract",
+        "desc": "Signed employment contract (if applicable)."
+      },
+      "experience_letters": {
+        "label": "Experience letters",
+        "desc": "Letters confirming relevant work experience (if required)."
+      },
+      "fee_receipt": {
+        "label": "Fee receipt",
+        "desc": "Proof of payment / receipt for required fees."
+      },
+      "labour_certificate": {
+        "label": "Labour certificate",
+        "desc": "Department of Labour certificate (if required)."
+      },
+      "marriage_certificate": {
+        "label": "Marriage certificate",
+        "desc": "Certified copy of marriage certificate (if applicable)."
+      },
+      "medical_cover": {
+        "label": "Medical cover",
+        "desc": "Proof of valid medical cover/insurance for the required period."
+      },
+      "medical_report": {
+        "label": "Medical report",
+        "desc": "Medical report completed by a registered medical practitioner."
+      },
+      "motivation_letter": {
+        "label": "Motivation letter",
+        "desc": "Motivation letter explaining purpose and background for the application."
+      },
+      "other_supporting_documents": {
+        "label": "Other supporting documents",
+        "desc": "Any additional supporting documents requested for your application."
+      },
+      "passport": {
+        "label": "Passport",
+        "desc": "A valid passport showing the holder’s identity and nationality, with sufficient validity and blank pages."
+      },
+      "passport_photo": {
+        "label": "Passport photo",
+        "desc": "Recent passport-sized photograph meeting required specifications."
+      },
+      "police_clearance_certificate": {
+        "label": "Police clearance certificate",
+        "desc": "Police clearance certificate(s) from relevant countries (if required)."
+      },
+      "program_confirmation": {
+        "label": "Programme confirmation",
+        "desc": "Confirmation letter from an institution/programme (if applicable)."
+      },
+      "proof_investment": {
+        "label": "Proof of investment",
+        "desc": "Documentation confirming the qualifying investment (if required)."
+      },
+      "proof_of_funds": {
+        "label": "Proof of funds",
+        "desc": "Bank statements or financial evidence showing sufficient funds."
+      },
+      "qualification_certificates": {
+        "label": "Qualification certificates",
+        "desc": "Certificates or transcripts proving qualifications (if required)."
+      },
+      "radiological_report": {
+        "label": "Radiological report",
+        "desc": "Radiological report (e.g., chest X-ray) as required by regulations."
+      },
+      "repatriation_guarantee": {
+        "label": "Repatriation guarantee",
+        "desc": "Guarantee or undertaking for repatriation (if required)."
+      },
+      "return_ticket": {
+        "label": "Return ticket",
+        "desc": "Proof of return/onward travel booking (if required)."
+      },
+      "saica_letter": {
+        "label": "SAICA letter",
+        "desc": "SAICA letter confirming membership/standing (if required)."
+      },
+      "saqa_evaluation": {
+        "label": "SAQA evaluation",
+        "desc": "SAQA evaluation report for foreign qualifications (if required)."
+      },
+      "shareholder_certificates": {
+        "label": "Shareholder certificates",
+        "desc": "Shareholder certificates or share register documentation (if applicable)."
+      },
+      "staff_undertaking": {
+        "label": "Staff undertaking",
+        "desc": "Undertaking letter related to staffing commitments (if required)."
+      },
+      "tax_clearance": {
+        "label": "Tax clearance",
+        "desc": "Tax clearance certificate or confirmation (if required)."
+      },
+      "travel_itinerary": {
+        "label": "Travel itinerary",
+        "desc": "Travel itinerary including flights/accommodation details (if required)."
+      },
+      "waiver_letter": {
+        "label": "Waiver letter",
+        "desc": "Waiver request/approval letter (if applicable)."
+      },
+      "yellow_fever_certificate": {
+        "label": "Yellow fever certificate",
+        "desc": "Yellow fever vaccination certificate (if required)."
+      }
+    }
+  }
+}

@@ -1,0 +1,97 @@
+/*
+DOC NAME: SearchField.module.css
+LOCATION: /src/components/ui/SearchField/SearchField.module.css
+SCOPE: SearchField layout/interaction ONLY (no typography/colors/identity).
+STATUS: UNLOCKED (lock after approved)
+*/
+
+.searchForm {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-2);
+}
+
+.searchField {
+	position: relative;
+	display: block;
+}
+
+.searchInput {
+	width: min(52cqw, 360px);
+	min-width: 240px;
+
+	padding-right: calc(32px + var(--space-2));
+}
+
+.searchButton {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	white-space: nowrap;
+}
+
+.searchIcon {
+	width: 18px;
+	height: 18px;
+	display: block;
+}
+
+.clearIconButton {
+	position: absolute;
+	right: var(--space-2);
+	top: 50%;
+	transform: translateY(-50%);
+
+	width: 32px;
+	height: 32px;
+	aspect-ratio: 1 / 1;
+
+	min-width: 32px;
+	min-height: 32px;
+	padding: 0 !important;
+	line-height: 1;
+
+	box-sizing: border-box;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	border-radius: 999px;
+
+	transition: none !important;
+}
+
+.clearIconButton:hover,
+.clearIconButton:active,
+.clearIconButton:focus,
+.clearIconButton:focus-visible {
+	transform: translateY(-50%);
+}
+
+.clearIconButton,
+.clearIconButton:hover,
+.clearIconButton:active,
+.clearIconButton:focus,
+.clearIconButton:focus-visible {
+	transition: none !important;
+	transform: translateY(-50%) !important;
+}
+
+.clearIcon {
+	width: 18px;
+	height: 18px;
+	display: block;
+}
+
+.srOnly {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	clip: rect(0, 0, 0, 0) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
+}

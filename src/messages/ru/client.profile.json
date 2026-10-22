@@ -1,0 +1,293 @@
+{
+  "ClientProfile": {
+    "title": "Ваш профиль",
+    "subtitle": "Управляйте личной информацией.",
+    "heading": "Добро пожаловать, {name}",
+
+    "eyebrowProfile": "Давайте начнём ваш путь",
+    "headingProfile": "Заполнить профиль",
+    "subheadingProfile": "Пожалуйста, сначала заполните данные профиля — так мы сможем точнее оценить ваш кейс.",
+
+    "fallback": {
+      "name": "Уважаемый клиент",
+      "unknown": "Не указано"
+    },
+
+    "yourDetails": "Ваши данные",
+
+    "activeApplication": {
+      "title": "У вас есть активное заявление",
+      "destination": "Направление",
+      "type": "Тип визы",
+      "continue": "Продолжить заявление →"
+    },
+
+    "noApplication": {
+      "title": "Готовы начать?",
+      "subtitle": "Ответьте на несколько коротких вопросов — и мы подготовим для вас персональное визовое заявление.",
+      "startApplication": "Начать новое заявление"
+    },
+
+    "cta": {
+      "title": "Готовы двигаться дальше?",
+      "description": "Создайте новое визовое заявление на основе обновлённых данных.",
+      "button": "Начать новое заявление"
+    },
+
+    "actions": {
+      "edit": "Редактировать профиль",
+      "cancel": "Отмена",
+      "save": "Сохранить изменения",
+      "saving": "Сохранение..."
+    },
+
+    "sectionsLegacy": {
+      "personal": "Личная информация",
+      "contact": "Контакты и местоположение",
+      "immigration": "Иммиграционные цели"
+    },
+
+    "sections": {
+      "personal": {
+        "title": "Личные данные",
+        "subtitle": "Как в вашем действующем паспорте."
+      },
+      "residence": {
+        "title": "Контакты и место проживания"
+      },
+      "familyFinances": {
+        "title": "Семья и финансы"
+      },
+      "travelHistory": {
+        "title": "История поездок и виз"
+      },
+      "passportPlans": {
+        "title": "Паспорт и планы в Южной Африке"
+      },
+      "language": {
+        "title": "Английский и языковая учёба"
+      }
+    },
+
+    "fieldsLegacy": {
+      "first_name": "Имя",
+      "middle_name": "Второе имя",
+      "last_name": "Фамилия",
+      "date_of_birth": "Дата рождения",
+      "citizenship_country": "Гражданство",
+      "city_country": "Текущий город и страна",
+      "phone": "Номер телефона",
+      "preferred_contact_method": "Предпочтительный способ связи",
+      "immigration_goal": "Цель иммиграции",
+      "english_level": "Уровень английского"
+    },
+
+    "fields": {
+      "firstName": {
+        "label": "Имя",
+        "placeholder": "Введите ваше имя"
+      },
+      "middleName": {
+        "label": "Второе имя",
+        "placeholder": "Введите второе имя (необязательно)"
+      },
+      "lastName": {
+        "label": "Фамилия",
+        "placeholder": "Введите вашу фамилию"
+      },
+      "dateOfBirth": {
+        "label": "Дата рождения",
+        "placeholder": "Выберите дату рождения"
+      },
+
+      "citizenship": {
+        "label": "Гражданство",
+        "placeholder": "Страна гражданства"
+      },
+
+      "maritalStatus": {
+        "label": "Семейное положение",
+        "placeholder": "Выберите статус",
+        "options": {
+          "single": "Не женат / не замужем",
+          "married": "В браке",
+          "divorced": "В разводе",
+          "widowed": "Вдовец / вдова",
+          "other": "Другое"
+        }
+      },
+
+      "cityCountry": {
+        "label": "Страна и город проживания",
+        "placeholder": "например: Москва, Россия / Кейптаун, Южная Африка"
+      },
+
+      "phoneCountryCode": {
+        "label": "Код страны (телефон)",
+        "placeholder": "+1, +27, +7 и т. д."
+      },
+      "phoneNumber": {
+        "label": "Номер телефона",
+        "placeholder": "Локальный номер"
+      },
+
+      "whatsappCountryCode": {
+        "label": "Код страны (WhatsApp)",
+        "placeholder": "+1, +27, +7 и т. д."
+      },
+      "whatsappNumber": {
+        "label": "Номер WhatsApp",
+        "placeholder": "Локальный номер WhatsApp"
+      },
+
+      "preferredContactMethod": {
+        "label": "Предпочтительный способ связи",
+        "placeholder": "Выберите способ",
+        "options": {
+          "email": "Email",
+          "whatsapp": "WhatsApp",
+          "telegram": "Telegram"
+        }
+      },
+
+      "contactEmail": {
+        "label": "Email",
+        "placeholder": "Введите ваш адрес email"
+      },
+
+      "telegramUsername": {
+        "label": "Имя пользователя Telegram",
+        "placeholder": "@username"
+      },
+
+      "familyComposition": {
+        "label": "Члены семьи и возраст",
+        "placeholder": "Супруг(а), дети, иждивенцы и их возраст."
+      },
+
+      "income2000plus": {
+        "label": "Ежемесячный доход от 2 000 €",
+        "placeholder": "Выберите вариант",
+        "options": {
+          "yes": "Да",
+          "no": "Нет",
+          "unspecified": "Предпочитаю не отвечать"
+        }
+      },
+
+      "incomeSource": {
+        "label": "Основной источник дохода",
+        "placeholder": "Работа, собственный бизнес, пенсия, аренда, дивиденды и т. д.",
+        "hint": "Можно указать несколько источников — мы уточним детали при обсуждении кейса."
+      },
+
+      "beenToSa": {
+        "label": "Вы уже были в Южной Африке?",
+        "placeholder": "Выберите вариант",
+        "options": {
+          "yes": "Да",
+          "no": "Нет",
+          "unspecified": "Не уверен(а) / предпочитаю не отвечать"
+        }
+      },
+
+      "firstEntrySa": {
+        "label": "Если да, месяц и год первого въезда в Южную Африку",
+        "placeholder": "например: 03/2019"
+      },
+
+      "currentLocation": {
+        "label": "Где вы сейчас находитесь?",
+        "placeholder": "Страна и город на момент заполнения формы"
+      },
+
+      "currentVisa": {
+        "label": "Если вы уже в Южной Африке, по какой визе вы находитесь?",
+        "placeholder": "Тип визы, срок действия и дата начала."
+      },
+
+      "visaRefusals": {
+        "label": "Были ли ранее отказы по визе в Южную Африку?",
+        "placeholder": "Выберите вариант",
+        "options": {
+          "yes": "Да",
+          "no": "Нет",
+          "unspecified": "Не уверен(а) / предпочитаю не отвечать"
+        }
+      },
+
+      "passportExpiry": {
+        "label": "Дата окончания срока действия паспорта"
+      },
+
+      "visitPurpose": {
+        "label": "Цель пребывания в Южной Африке",
+        "placeholder": "Что вы планируете делать в Южной Африке (работа, учёба, бизнес, пенсия и т. д.)?"
+      },
+
+      "englishLevel": {
+        "label": "Уровень английского",
+        "placeholder": "Выберите уровень",
+        "options": {
+          "basic": "Базовый",
+          "intermediate": "Средний",
+          "fluent": "Свободно"
+        }
+      },
+
+      "needLanguageSchool": {
+        "label": "Нужна помощь с выбором языковой школы?",
+        "placeholder": "Выберите вариант",
+        "options": {
+          "yes": "Да",
+          "no": "Нет",
+          "unspecified": "Пока не уверен(а)"
+        }
+      }
+    },
+
+    "options": {
+      "phone": "Телефонный звонок",
+      "work": "Работа",
+      "study": "Учёба",
+      "family": "Воссоединение семьи",
+      "retirement": "Пенсия",
+      "investment": "Инвестиции",
+      "english": {
+        "basic": "Базовый",
+        "intermediate": "Средний",
+        "fluent": "Свободно"
+      }
+    },
+
+    "placeholders": {
+      "select": "— Выберите —"
+    },
+
+    "actionsForm": {
+      "save": "Сохранить профиль",
+      "saving": "Сохранение…",
+      "loading": "Загрузка…"
+    },
+
+    "footer": {
+      "backToDashboard": "Сделаю позже",
+      "dashboardLink": "Перейти в кабинет"
+    },
+
+    "messages": {
+      "noProfile": "Пожалуйста, заполните профиль, чтобы продолжить.",
+      "profileError": "Не удалось загрузить ваш профиль.",
+
+      "notAuthenticated": "Пожалуйста, войдите, чтобы продолжить.",
+      "saveFailed": "Профиль не удалось сохранить. Пожалуйста, попробуйте ещё раз.",
+      "saveSuccess": "Профиль сохранён.",
+
+      "saved": "Профиль успешно сохранён!"
+    },
+
+    "errors": {
+      "saveFailed": "Не удалось сохранить профиль. Пожалуйста, попробуйте ещё раз."
+    }
+  }
+}

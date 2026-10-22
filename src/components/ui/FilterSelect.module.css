@@ -1,0 +1,20 @@
+/* 
+DOC NAME: FilterSelect.module.css
+LOCATION: /src/components/ui/FilterSelect.module.css
+SCOPE: FilterSelect layout-only styling (controls spacing via CSS var)
+STATUS: LOCKED
+APPLIES TO: /src/components/ui/FilterSelect.tsx (form wrapper)
+NOTES:
+- Contract OK: layout-only, no typography/colors.
+- Sets --stack-gap for the global .stack primitive.
+CONTENT:
+*/
+
+/* ==========================================================================
+	FilterSelect — layout + interaction only
+	========================================================================== */
+
+.form {
+	/* keep using the global .stack primitive */
+	--stack-gap: var(--space-1);
+}

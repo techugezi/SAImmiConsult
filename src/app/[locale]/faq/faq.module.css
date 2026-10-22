@@ -1,0 +1,295 @@
+/* src/app/[locale]/faq/faq.module.css */
+
+/*
+DOC NAME: faq.module.css
+LOCATION: /src/app/[locale]/faq/faq.module.css
+SCOPE: FAQ layout/interaction only (NO typography/colors/identity).
+STATUS: UNLOCKED (lock after verified)
+NOTES:
+- Uses global hero roles (.hero-title/.hero-subtitle/.hero-desc)
+- Uses global buttons (.button variants)
+- Uses global surface primitive (.surface-soft) for card visuals
+*/
+
+/* -------------------------------------------------------------------------- */
+/* PANEL HEADER LAYOUT: text left, search/actions pinned right                 */
+/* -------------------------------------------------------------------------- */
+
+.faqPanel :global(.panelHeader) {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	align-items: start;
+	gap: var(--space-3);
+}
+
+.faqPanel :global(.panelHeaderText) {
+	min-width: 0; /* allow title/subtitle to wrap */
+}
+
+.faqPanel :global(.panelActions) {
+	justify-self: end;
+	align-self: start;
+	display: flex;
+	justify-content: flex-end;
+	min-width: 0;
+}
+
+/* keep the SearchField as a stable, right-anchored block */
+.panelActionsShell {
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-start;
+	min-width: 0;
+}
+
+/* prevent overly-narrow squeeze; allow it to wrap below on small screens */
+.faqPanel :global(.panelActions) > * {
+	flex: 0 0 auto;
+}
+
+/* Narrow: stack actions under header text and stretch */
+@media (max-width: 720px) {
+	.faqPanel :global(.panelHeader) {
+		grid-template-columns: 1fr;
+	}
+
+	.faqPanel :global(.panelActions) {
+		justify-self: stretch;
+	}
+
+	.panelActionsShell {
+		justify-content: stretch;
+	}
+
+	.panelActionsShell > * {
+		width: 100%;
+	}
+}
+
+/* -------------------------------------------------------------------------- */
+/* HERO CTA ROW                                                               */
+/* -------------------------------------------------------------------------- */
+
+.heroActions {
+	margin-top: var(--space-4);
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: var(--space-3);
+	width: 100%;
+}
+
+/* Stack actions on narrow widths */
+@media (max-width: 640px) {
+	.heroActions {
+		justify-content: stretch;
+	}
+
+	.heroActions :global(.button) {
+		width: 100%;
+	}
+}
+
+/* -------------------------------------------------------------------------- */
+/* FAQ LEDGER (Home-style)                                                    */
+/* -------------------------------------------------------------------------- */
+
+.ledgerList {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+}
+
+/* single item row */
+.ledgerFaqItem {
+	border-top: 1px solid rgba(0, 0, 0, 0.06);
+	padding: clamp(1.25rem, 2.2cqw, 2rem) 0;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.ledgerFaqItem:last-child {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.ledgerFaqHeader {
+	display: flex;
+	align-items: center;
+	gap: clamp(1rem, 2cqw, 2rem);
+}
+
+.ledgerIndex {
+	font-family: var(--font-serif);
+	font-style: italic;
+	font-size: clamp(1rem, 1.6cqw, 1.2rem);
+	color: var(--savanna-gold);
+	min-width: 30px;
+}
+
+.ledgerQuestion {
+	font-size: clamp(1.05rem, 2cqw, 1.25rem);
+	font-weight: 700;
+	color: var(--text-main);
+	flex: 1;
+	margin: 0;
+}
+
+.ledgerPlus {
+	font-size: clamp(1.25rem, 2.2cqw, 1.5rem);
+	color: var(--text-muted);
+	font-weight: 300;
+}
+
+.ledgerFaqItem:hover .ledgerQuestion {
+	color: var(--protea-pink);
+}
+
+.ledgerAnswerWrapper {
+	overflow: hidden;
+}
+
+.ledgerAnswer {
+	padding: clamp(1rem, 1.8cqw, 1.5rem) 0 0 clamp(3rem, 6cqw, 5rem);
+	color: var(--text-muted);
+	line-height: 1.8;
+	font-size: clamp(0.98rem, 1.6cqw, 1.05rem);
+	max-width: 90%;
+	margin: 0;
+}
+
+/* Reduced motion parity */
+@media (prefers-reduced-motion: reduce) {
+	.ledgerFaqItem {
+		transition: none !important;
+	}
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* FAQ LIST                                                                   */
+/* -------------------------------------------------------------------------- */
+
+.faqList {
+	display: grid;
+	gap: var(--space-3);
+}
+
+/* Each item uses global .surface-soft for visuals; we add interaction polish only */
+.faqItem {
+	overflow: hidden; /* keeps inner divider + focus ring clean within radius */
+}
+
+/* remove native marker */
+.faqItem summary {
+	list-style: none;
+}
+.faqItem summary::-webkit-details-marker {
+	display: none;
+}
+
+.faqQuestion {
+	cursor: pointer;
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	align-items: start;
+	gap: var(--space-3);
+	padding: var(--space-4);
+	user-select: none;
+	min-width: 0;
+}
+
+.qMark {
+	width: 34px;
+	height: 34px;
+	border-radius: 999px;
+
+	display: grid;
+	place-items: center;
+
+	flex: 0 0 auto;
+
+	/* badge-friendly */
+	padding: 0; /* avoid badge padding messing up sizing */
+	line-height: 1;
+	font-weight: 900;
+}
+
+
+.questionText {
+	min-width: 0;
+}
+
+/* Chevron rotation (interaction only) */
+.chevron {
+	display: grid;
+	place-items: center;
+	transition: transform 160ms ease;
+}
+
+.chevron svg {
+	width: 22px;
+	height: 22px;
+	display: block;
+}
+
+.faqAnswer {
+	padding: 0 var(--space-4) var(--space-4);
+	min-width: 0;
+}
+
+.answerDivider {
+	height: 1px;
+	width: 100%;
+	margin: 0 0 var(--space-3);
+	background: rgba(15, 23, 42, 0.08);
+}
+
+/* Rotate chevron when open */
+.faqItem[open] .chevron {
+	transform: rotate(180deg);
+}
+
+/* Subtle “lift” affordance on hover/focus (no new identity tokens) */
+.faqItem {
+	transition: transform 180ms ease;
+}
+
+.faqItem:hover {
+	transform: translateY(-1px);
+}
+
+/* Keyboard focus */
+.faqItem:focus-within {
+	outline: 3px solid rgba(229, 115, 115, 0.28);
+	outline-offset: 4px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Misc                                                                       */
+/* -------------------------------------------------------------------------- */
+
+.ctaActions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-3);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.chevron,
+	.faqItem {
+		transition: none !important;
+	}
+
+	.faqItem:hover {
+		transform: none !important;
+	}
+}
+
+.emptyState {
+	text-align: center;
+}
+
+.emptyActions {
+	margin-top: var(--space-6);
+}

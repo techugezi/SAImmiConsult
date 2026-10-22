@@ -1,0 +1,81 @@
+/*
+DOC NAME: DocumentRequirementRow.module.css
+LOCATION: /src/components/ui/DocumentRequirementRow.module.css
+SCOPE: DocumentRequirementRow primitive — layout & interaction ONLY.
+STATUS: LOCKED (lock after approved)
+*/
+
+/* ==========================================================================
+	DocumentRequirementRow — layout & interaction ONLY
+	========================================================================== */
+
+.row {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: var(--space-4);
+	padding: var(--space-4) 0;
+}
+
+.main {
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+}
+
+.titleLine {
+	display: flex;
+	align-items: center;
+	gap: var(--space-2);
+	flex-wrap: wrap;
+	min-width: 0;
+}
+
+.badges {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-2);
+	flex-wrap: wrap;
+}
+
+.badges {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-2);
+	flex-wrap: wrap;
+}
+
+.side {
+	flex: 0 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: var(--space-2);
+}
+
+.actionSlot {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end; /* keep action button pinned right */
+	justify-content: flex-start;
+}
+
+.actionSlot > * {
+	flex: 0 0 auto;
+}
+
+@media (max-width: 760px) {
+	.row {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.side {
+		align-items: flex-start;
+	}
+
+	.actionSlot {
+		align-items: flex-start;
+	}
+}

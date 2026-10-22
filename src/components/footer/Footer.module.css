@@ -1,0 +1,357 @@
+/*
+DOC NAME: Footer.module.css
+LOCATION: /src/components/footer/Footer.module.css
+SCOPE: Footer layout/interaction only. Screenshot-like structure with a mid divider.
+STATUS: UNLOCKED (lock after verified)
+*/
+
+.footer {
+	background: var(--eggwhite);
+	color: var(--text-main);
+	padding: clamp(2.25rem, 4.8vw, 3.75rem) 0 clamp(1.25rem, 2.5vw, 1.75rem);
+	position: relative;
+	overflow: hidden;
+	position: relative;
+	z-index: 50;          /* ensure footer sits above any page bg layers */
+	isolation: isolate;   /* creates a new stacking context (critical) */
+	background-color: var(--eggwhite);
+}
+
+.footer::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: white;
+	z-index: -1;          /* keeps it behind footer content, but inside footer stack */
+}
+
+.container {
+	width: min(92vw, var(--content-max-width));
+	margin: 0 auto;
+}
+
+/* ========================================================================== */
+/* TOP (logo + stacked link rows)                                             */
+/* ========================================================================== */
+
+.topLayout {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	align-items: start;
+	gap: clamp(1.25rem, 4vw, 3.5rem);
+}
+
+.brandBlock {
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+
+.logo {
+	width: clamp(80px, 10vw, 120px);
+	height: auto;
+	max-width: 100%;
+	object-fit: contain;
+}
+
+.linkStack {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 3fr));
+	align-items: start;
+	justify-items: start;
+	column-gap: clamp(1.25rem, 4vw, 4rem);
+	padding-top: clamp(0.2rem, 0.6vw, 0.4rem);
+
+	/* key: ensure it spans the whole right side so spacing feels “even” */
+	width: 100%;
+}
+
+.linkCol {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(0.75rem, 1.6vw, 1.15rem);
+	min-width: 0;
+}
+
+.linkRow {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: clamp(1.25rem, 3.2vw, 2.4rem);
+}
+
+.footerLink {
+	text-decoration: none;
+	color: rgba(15, 23, 42, 0.86);
+	font-weight: 800;
+	font-size: 0.72rem;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	transition: color 0.2s ease, transform 0.2s ease;
+	
+	/* prevent long labels like “ADDITIONAL SERVICES” from pushing out of bounds */
+	white-space: normal;
+	overflow-wrap: anywhere;
+	word-break: break-word;
+	line-height: 1.15;
+	max-width: 100%;
+}
+
+.footerLink:hover {
+	color: var(--protea-pink);
+	transform: translateY(-1px);
+}
+
+.footerLink:focus-visible {
+	outline: 2px solid rgba(0, 0, 0, 0.15);
+	outline-offset: 3px;
+	border-radius: 6px;
+}
+
+/* ========================================================================== */
+/* MIDDLE DIVIDER                                                             */
+/* ========================================================================== */
+
+.midDivider {
+	margin: clamp(1.75rem, 3.6vw, 2.4rem) 0;
+	height: 1px;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.08);
+}
+
+/* ========================================================================== */
+/* BOTTOM (clocks -> socials -> footer note)                                  */
+/* ========================================================================== */
+
+.bottomCenter {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: clamp(0.9rem, 2vw, 1.2rem);
+	text-align: center;
+}
+
+.clocks {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	align-items: center;
+	justify-items: center;
+	gap: 0;
+}
+
+.clockItem {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.clockDivider {
+	justify-self: center;
+	align-self: center;
+}
+
+.cityLabel {
+	font-size: 0.62rem;
+	font-weight: 800;
+	letter-spacing: 0.22em;
+	text-transform: uppercase;
+	color: var(--savanna-gold);
+}
+
+.digitalTime {
+	font-size: clamp(1.05rem, 2.1vw, 1.35rem);
+	font-weight: 300;
+	letter-spacing: -0.02em;
+	font-variant-numeric: tabular-nums;
+	color: var(--text-main);
+}
+
+/* Socials under clocks */
+.socialRow {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.65rem;
+	flex-wrap: wrap;
+}
+
+.socialIconLink {
+	width: clamp(34px, 4.6vw, 40px);
+	height: clamp(34px, 4.6vw, 40px);
+	border-radius: 999px;
+
+	display: grid;
+	place-items: center;
+
+	background: transparent;
+	border: 1px solid rgba(0, 0, 0, 0.12);
+
+	color: rgba(15, 23, 42, 0.72);
+
+	transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.socialIconLink:hover {
+	color: var(--savanna-gold);
+	border-color: var(--savanna-gold);
+	transform: translateY(-1px);
+}
+
+.socialIconLink:focus-visible {
+	outline: 2px solid rgba(0, 0, 0, 0.15);
+	outline-offset: 3px;
+}
+
+/* Footer note under socials (like screenshot) */
+.footerNote {
+	margin-top: clamp(0.15rem, 0.6vw, 0.35rem);
+	font-size: 0.72rem;
+	font-weight: 700;
+	color: rgba(15, 23, 42, 0.62);
+}
+
+.copyright {
+	letter-spacing: 0.01em;
+}
+
+/* ========================================================================== */
+/* Responsive                                                                  */
+/* ========================================================================== */
+
+@media (max-width: 560px) {
+	.backToTop {
+		display: none !important;
+	}
+	
+	/* center the logo */
+	.brandBlock {
+		justify-content: center;
+		margin-bottom: var(--space-3);
+	}
+
+	/* make top area a single centered stack */
+	.topLayout {
+		grid-template-columns: 1fr;
+		justify-items: center;
+		gap: 0.6rem;
+	}
+
+	/* 3 equal columns so the middle (news/faq) is EXACTLY centered */
+	.linkStack {
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		justify-items: center;
+		align-items: start;
+		column-gap: clamp(0.75rem, 3vw, 1.25rem);
+		row-gap: 1rem;
+		padding-top: 0;
+	}
+
+	/* each column stacks its links */
+	.linkCol {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1.5rem; /* smaller gaps */
+		min-width: 0;
+	}
+
+	/* ensure long labels can wrap within the column */
+	.footerLink {
+		font-size: 0.7rem;
+		text-align: center;
+		max-width: 100%;
+	}
+}
+
+
+/* ========================================================================== */
+/* Back to top (kept)                                                         */
+/* ========================================================================== */
+
+.backToTop {
+	position: fixed;
+	right: clamp(1rem, 2.4vw, 1.5rem);
+	bottom: clamp(1rem, 2.4vw, 1.5rem);
+	z-index: 60;
+
+	border: none;
+	background: transparent;
+	padding: 0;
+	cursor: pointer;
+
+	color: var(--text-main);
+
+	opacity: 0;
+	transform: translateY(10px);
+	pointer-events: none;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.45rem;
+
+	transition: opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+		transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.backToTopVisible {
+	opacity: 1;
+	transform: translateY(0);
+	pointer-events: auto;
+}
+
+.backToTopCircle {
+	width: clamp(46px, 6cqw, 54px);
+	height: clamp(46px, 6cqw, 54px);
+
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 999px;
+
+	display: grid;
+	place-items: center;
+
+	background: rgba(255, 255, 255, 0.55);
+
+	box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+
+	transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.backToTopIcon {
+	transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+	transform: rotate(0deg);
+}
+
+.backToTopText {
+	font-size: 0.62rem;
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: 0.24em;
+	color: rgba(15, 23, 42, 0.55);
+	user-select: none;
+}
+
+.backToTop:hover .backToTopCircle {
+	border-color: var(--savanna-gold);
+	color: var(--savanna-gold);
+	transform: translateY(-1px);
+}
+
+.backToTop:hover .backToTopIcon {
+	transform: rotate(-45deg);
+}
+
+.backToTop:hover .backToTopText {
+	color: var(--savanna-gold);
+}
+
+.backToTop:focus-visible .backToTopCircle {
+	outline: 2px solid rgba(0, 0, 0, 0.15);
+	outline-offset: 3px;
+}

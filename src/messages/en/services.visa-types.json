@@ -1,0 +1,63 @@
+{
+  "ServicesVisaTypes": {
+    "header": {
+      "title": "Visa categories",
+      "subtitle": "Types of visas",
+      "description": "An overview of the main South African visa categories and what is typically required for each.",
+      "primaryCta": "Speak to a consultant",
+      "secondaryCta": "View FAQ"
+    },
+
+    "work": {
+      "title": "Work visas",
+      "body": "Suitable for professionals, skilled workers and applicants with confirmed job offers or in-demand skills.",
+      "who": "Who can apply",
+      "whoBody": "Candidates with a job offer in South Africa, recognised qualifications or skills in demand according to local regulations.",
+      "requirements": "Main requirements",
+      "requirementList": {
+        "0": "Valid job offer or employer sponsorship",
+        "1": "Proof of qualifications or professional registration (where applicable)",
+        "2": "Police clearance certificates and medical reports"
+      }
+    },
+
+    "study": {
+      "title": "Study visas",
+      "body": "For school pupils, university students and those attending recognised training programmes.",
+      "who": "Who can apply",
+      "whoBody": "Anyone who has been accepted by a registered South African school, college, university or training institution.",
+      "requirements": "Main requirements",
+      "requirementList": {
+        "0": "Letter of acceptance from an approved institution",
+        "1": "Proof of sufficient financial means",
+        "2": "Valid medical cover and required health documentation"
+      }
+    },
+
+    "business": {
+      "title": "Business, investor & financial independence visas",
+      "body": "Ideal for investors, entrepreneurs and individuals with significant financial resources who want to build a long-term presence in South Africa.",
+      "who": "Who can apply",
+      "whoBody": "Applicants planning to invest in, start or join a business in South Africa, or those who can demonstrate financial independence.",
+      "requirements": "Main requirements",
+      "requirementList": {
+        "0": "Business or investment plan that meets local criteria",
+        "1": "Evidence of available capital or financial resources",
+        "2": "Compliance with sector-specific rules and regulations"
+      }
+    },
+
+    "family": {
+      "title": "Family, retirement & long-term visitor visas",
+      "body": "For family reunification, retirement in South Africa or longer-term stays for non-working visitors.",
+      "who": "Who can apply",
+      "whoBody": "Spouses, partners, dependants, retirees and long-term visitors with a clear purpose for staying in South Africa.",
+      "requirements": "Main requirements",
+      "requirementList": {
+        "0": "Proof of relationship, retirement funds or purpose of stay",
+        "1": "Medical reports and police clearances (where required)",
+        "2": "Financial evidence to support yourself during your stay"
+      }
+    }
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "Global": {
+    "labels": {
+      "na": "N/A",
+      "unknown": "Unknown"
+    },
+    "loading": "Please wait…",
+    "dates": {
+      "na": "N/A"
+    },
+
+    "destinations": {
+      "na": "—",
+      "south_africa": "South Africa",
+      "russia": "Russia",
+      "usa": "United States",
+      "uk": "United Kingdom",
+      "europe": "Europe",
+	  "eu-schengen": "Europe (Schengen)"
+    },
+
+    "visa_types": {
+      "work": "Work visa",
+      "study": "Study visa",
+      "business": "Business visa",
+      "visitor": "Visitor visa",
+      "relative": "Relative visa",
+      "retired": "Retired person visa",
+      "other": "Other"
+    },
+
+    "statuses": {
+      "not_started": "Not started",
+      "not_started_desc": "No application has been started yet.",
+
+      "waiting_documents": "Awaiting documents",
+      "waiting_documents_desc": "Waiting for required documents to be uploaded.",
+
+      "documents_under_review": "Documents under review",
+      "documents_under_review_desc": "Your documents are currently being reviewed.",
+
+      "documents_not_approved": "Action needed",
+      "documents_not_approved_desc": "Some documents were rejected or need resubmission.",
+
+      "documents_approved": "Documents approved",
+      "documents_approved_desc": "All documents are approved and processing can continue.",
+
+      "visa_journey_started": "Visa journey started",
+      "visa_journey_started_desc": "Your visa application has moved to the next stage.",
+
+      "visa_issue_action_needed": "Visa action needed",
+      "visa_issue_action_needed_desc": "We need additional information or action to proceed.",
+
+      "visa_approved": "Visa approved",
+      "visa_approved_desc": "Your visa has been approved.",
+
+      "finished": "Finished",
+      "finished_desc": "This application has been completed.",
+
+      "cancelled": "Cancelled",
+      "cancelled_desc": "This application has been cancelled."
+    },
+
+    "actions": {
+      "view": "View",
+      "open": "Open",
+      "close": "Close",
+      "cancel": "Cancel",
+      "continue": "Continue",
+      "save": "Save",
+      "saving": "Saving…",
+      "search": "Search",
+      "back": "Back",
+      "openInDrive": "Open in Google Drive",
+      "updateStatus": "Update status"
+    },
+
+    "DocumentTypes": {
+      "passport": {
+        "label": "Passport",
+        "desc": "A valid passport showing the holder’s identity and nationality, with sufficient validity and blank pages."
+      },
+      "passport_photo": {
+        "label": "Passport Photo",
+        "desc": "A recent passport-sized photograph meeting official photo specifications."
+      },
+      "application_form": {
+        "label": "Application Form",
+        "desc": "The completed and signed visa application form required by the issuing authority."
+      },
+      "proof_of_funds": {
+        "label": "Proof Of Funds",
+        "desc": "Evidence showing sufficient financial means to support the stay, such as bank statements."
+      },
+      "travel_itinerary": {
+        "label": "Travel Itinerary",
+        "desc": "Details of planned travel, including flight bookings and accommodation arrangements."
+      },
+      "return_ticket": {
+        "label": "Return Ticket",
+        "desc": "Proof of onward or return travel demonstrating intent to leave the country after the visit."
+      },
+      "fee_receipt": {
+        "label": "Fee Receipt",
+        "desc": "Proof of payment for the visa application or related processing fees."
+      },
+      "medical_cover": {
+        "label": "Medical Cover",
+        "desc": "Evidence of medical insurance or health cover valid for the duration of the stay."
+      },
+      "police_clearance_certificate": {
+        "label": "Police Clearance Certificate",
+        "desc": "An official certificate confirming the applicant’s criminal record status."
+      },
+      "birth_certificate": {
+        "label": "Birth Certificate",
+        "desc": "An official record confirming the applicant’s birth details and parentage."
+      },
+      "marriage_certificate": {
+        "label": "Marriage Certificate",
+        "desc": "An official document proving a legally recognized marriage."
+      },
+      "employment_contract": {
+        "label": "Employment Contract",
+        "desc": "A signed agreement outlining employment terms with an employer in the destination country."
+      },
+      "employer_undertaking": {
+        "label": "Employer Undertaking",
+        "desc": "A formal letter from the employer confirming employment responsibilities and conditions."
+      },
+      "labour_certificate": {
+        "label": "Labour Certificate",
+        "desc": "An official authorization confirming compliance with labor or employment regulations."
+      },
+      "curriculum_vitae": {
+        "label": "Curriculum Vitae",
+        "desc": "A detailed summary of the applicant’s education, skills, and work experience."
+      },
+      "experience_letters": {
+        "label": "Experience Letters",
+        "desc": "Letters from previous employers confirming the applicant’s work history and roles."
+      },
+      "qualification_certificates": {
+        "label": "Qualification Certificates",
+        "desc": "Certificates or diplomas proving educational or professional qualifications."
+      },
+      "saqa_evaluation": {
+        "label": "Saqa Evaluation",
+        "desc": "An evaluation confirming the equivalence of foreign qualifications to local standards."
+      },
+      "saica_letter": {
+        "label": "Saica Letter",
+        "desc": "A professional letter confirming recognition or membership with the relevant accounting body."
+      },
+      "business_plan": {
+        "label": "Business Plan",
+        "desc": "A detailed plan outlining the proposed business activities, objectives, and financial projections."
+      },
+      "proof_investment": {
+        "label": "Proof Investment",
+        "desc": "Evidence showing that the required investment funds have been committed or transferred."
+      },
+      "capital_proof": {
+        "label": "Capital Proof",
+        "desc": "Documentation confirming access to sufficient capital for business or investment purposes."
+      },
+      "company_registration": {
+        "label": "Company Registration",
+        "desc": "Official documents confirming the legal registration of a company."
+      },
+      "shareholder_certificates": {
+        "label": "Shareholder Certificates",
+        "desc": "Documents proving ownership or shareholding in a registered company."
+      },
+      "tax_clearance": {
+        "label": "Tax Clearance",
+        "desc": "An official certificate confirming that tax obligations are up to date."
+      },
+      "bbbee_certificate": {
+        "label": "Bbbee Certificate",
+        "desc": "Certification confirming compliance with Broad-Based Black Economic Empowerment requirements."
+      },
+      "staff_undertaking": {
+        "label": "Staff Undertaking",
+        "desc": "A declaration confirming commitments related to staff employment or training."
+      },
+      "radiological_report": {
+        "label": "Radiological Report",
+        "desc": "A medical imaging report, often required to screen for specific health conditions."
+      },
+      "yellow_fever_certificate": {
+        "label": "Yellow Fever Certificate",
+        "desc": "Proof of yellow fever vaccination when required for travel from certain regions."
+      },
+      "repatriation_guarantee": {
+        "label": "Repatriation Guarantee",
+        "desc": "A guarantee covering the cost of returning the applicant to their home country if required."
+      },
+      "program_confirmation": {
+        "label": "Program Confirmation",
+        "desc": "Official confirmation of enrollment in an approved study, exchange, or training program."
+      },
+      "dti_recommendation": {
+        "label": "Dti Recommendation",
+        "desc": "A recommendation letter from the relevant trade or industry authority supporting the application."
+      },
+      "waiver_letter": {
+        "label": "Waiver Letter",
+        "desc": "A formal request or approval to waive specific visa requirements."
+      },
+      "medical_report": {
+        "label": "Medical Report",
+        "desc": "A general medical assessment confirming the applicant’s health status."
+      },
+      "motivation_letter": {
+        "label": "Motivation Letter",
+        "desc": "A personal letter explaining the purpose of travel and reasons for applying."
+      },
+      "other_supporting_documents": {
+        "label": "Other Supporting Documents",
+        "desc": "Any additional documents required to support or clarify the visa application."
+      }
+    }
+  }
+}

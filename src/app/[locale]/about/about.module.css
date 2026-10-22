@@ -1,0 +1,473 @@
+/*
+DOC NAME: about.module.css
+LOCATION: /src/app/[locale]/about/about.module.css
+SCOPE: About page layout + interaction only. Typography comes from globals.css.
+STATUS: UNLOCKED (lock after verified)
+NOTES:
+- Do NOT define hero typography here. Use global hero roles.
+- Keep only layout, spacing, and visual treatments.
+- Card system now matches the client dashboard / journey tracker:
+  2rem radius, glass-light surface, protea-pink hover + markers, one shared easing.
+- Colour roles: PINK = interactive / markers / icon tiles. GOLD = editorial rules + signature badge.
+*/
+
+.page {
+	/* Shared card tokens (same values as the dashboard cards) */
+	--card-radius: 2rem;
+	--card-bg: rgba(255, 255, 255, 0.75);
+	--card-border: 1px solid rgba(15, 23, 42, 0.08);
+	--card-shadow: 0 18px 40px rgba(15, 23, 42, 0.05);
+	--card-shadow-hover: 0 24px 54px rgba(15, 23, 42, 0.07);
+	--card-border-hover: rgba(229, 115, 115, 0.28);
+	--ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+	width: 100%;
+	background: var(--eggshell);
+	color: var(--text-main);
+	overflow-x: hidden;
+}
+
+/* ---------- Shared section shell ---------- */
+.section {
+	width: 100%;
+	background: var(--eggshell);
+	display: flex;
+	justify-content: center;
+	padding-block: var(--space-page);
+	padding-inline: 0; /* width: min(92vw, …) below handles the sides */
+}
+
+/* One named container for every section (square + squareTight were identical) */
+.square,
+.squareTight {
+	width: min(92vw, var(--content-max-width));
+	margin: 0 auto;
+	container-type: inline-size;
+	container-name: about;
+}
+
+.sectionHeader {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(0.4rem, 1cqw, 0.75rem);
+}
+
+/* ==========================================================================
+   SHARED GLASS CARD
+   ========================================================================== */
+
+.featureCard,
+.processStep,
+.serviceCard,
+.locationCard,
+.locationNote {
+	background: var(--card-bg);
+	border: var(--card-border);
+	border-radius: var(--card-radius);
+	padding: clamp(1.25rem, 2.6cqw, 2rem);
+	box-shadow: var(--card-shadow);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+
+	transition:
+		transform 0.35s var(--ease),
+		box-shadow 0.35s var(--ease),
+		border-color 0.35s var(--ease);
+}
+
+.featureCard,
+.processStep,
+.serviceCard {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+
+/* Hover lift only on the grid cards (location cards are not "pickable") */
+.featureCard:hover,
+.processStep:hover,
+.serviceCard:hover {
+	transform: translateY(-4px);
+	border-color: var(--card-border-hover);
+	box-shadow: var(--card-shadow-hover);
+}
+
+/* Softer panel for the side note */
+.locationNote {
+	background: rgba(255, 255, 255, 0.55);
+	box-shadow: none;
+}
+
+/* ==========================================================================
+   STORY GRID
+   ========================================================================== */
+
+.storyGrid {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1.15fr 0.85fr;
+	gap: clamp(3rem, 8cqw, 7rem);
+	align-items: center;
+}
+
+@container about (max-width: 920px) {
+	.storyGrid {
+		grid-template-columns: 1fr;
+		gap: 3rem;
+	}
+
+	.storyVisual {
+		order: -1;
+	}
+}
+
+/* Editorial rule stays gold */
+.storyBodyCanvas {
+	max-width: 60ch;
+	position: relative;
+	padding-left: clamp(1.5rem, 2.5cqw, 2.5rem);
+	border-left: 2px solid var(--savanna-gold);
+	margin-top: clamp(1.25rem, 2.8cqw, 2.5rem);
+}
+
+.bodyLead {
+	margin: 0;
+	font-size: clamp(1.05rem, 1.8cqw, 1.35rem);
+	font-weight: 650;
+	color: var(--text-main);
+	line-height: 1.6;
+}
+
+/* Advantage chips: rounded glass chips with a pink dot (was: full-width flat 65px bars) */
+.highlightStrip {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 0.75rem;
+	margin-top: clamp(1.75rem, 4cqw, 3rem);
+}
+
+@container about (min-width: 640px) {
+	.highlightStrip {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+.glassPill {
+	min-height: 3.5rem;
+	padding: 0.75rem clamp(1rem, 2cqw, 1.25rem);
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+
+	background: var(--card-bg);
+	border: var(--card-border);
+	border-radius: 1.25rem;
+	font-size: clamp(0.85rem, 1.2cqw, 0.95rem);
+	font-weight: 700;
+	line-height: 1.35;
+}
+
+.pillDot {
+	flex: none;
+	width: 0.55rem;
+	height: 0.55rem;
+	border-radius: 50%;
+	background: var(--protea-pink);
+}
+
+/* ---------- Visual frame (leaf-shape signature kept) ---------- */
+.storyVisual {
+	position: relative;
+	width: 100%;
+	height: clamp(450px, 55cqw, 700px);
+}
+
+.visualFrame {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	border-radius: clamp(3rem, 12cqw, 12vw) 0 clamp(3rem, 12cqw, 12vw) 0;
+	overflow: hidden;
+	box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.15);
+}
+
+.visualImg {
+	object-fit: cover;
+	transform: scale(1.02);
+}
+
+.visualOverlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.05));
+}
+
+/* ---------- Spinning signature badge (gold = brand signature) ---------- */
+.experienceSignature {
+	position: absolute;
+	top: -20px;
+	right: -20px;
+	width: clamp(150px, 18cqw, 190px);
+	height: clamp(150px, 18cqw, 190px);
+	background: rgba(255, 255, 255, 0.95);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+	z-index: 10;
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+}
+
+.spinningWrapper {
+	position: absolute;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	animation: rotateClockwise 25s linear infinite;
+}
+
+.spinningTextSVG {
+	width: 90%;
+	height: 90%;
+}
+
+.circleText {
+	font-size: clamp(7px, 0.8cqw, 11px);
+	font-weight: 700;
+	fill: var(--savanna-gold);
+}
+
+.sigValue {
+	text-align: center;
+	font-weight: 900;
+	color: var(--text-main);
+	font-size: clamp(2.2rem, 4cqw, 2.8rem);
+	line-height: 0.9;
+}
+
+.sigValue span {
+	display: block;
+	font-size: 0.8rem;
+	color: var(--savanna-gold);
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	margin-top: 4px;
+}
+
+@keyframes rotateClockwise {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* ==========================================================================
+   FEATURE / PROCESS / SERVICES GRIDS
+   ========================================================================== */
+
+.featureIntro {
+	margin-bottom: clamp(0.75rem, 1.5cqw, 1.25rem);
+}
+
+.featureGrid,
+.processGrid,
+.servicesGrid {
+	display: grid;
+	gap: clamp(1rem, 2.4cqw, 1.75rem);
+	margin-top: clamp(1.5rem, 3cqw, 3rem);
+}
+
+.featureGrid {
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.processGrid {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.servicesGrid {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@container about (max-width: 1200px) {
+	.featureGrid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+@container about (max-width: 980px) {
+	.processGrid,
+	.servicesGrid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@container about (max-width: 820px) {
+	.featureGrid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@container about (max-width: 520px) {
+	.featureGrid {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* ---------- Icon tile + step marker (same language as the journey tracker) ---------- */
+.featureIcon,
+.stepNumber,
+.locationIcon {
+	flex: none;
+	width: clamp(46px, 6cqw, 54px);
+	height: clamp(46px, 6cqw, 54px);
+	border-radius: 999px;
+	display: grid;
+	place-items: center;
+}
+
+.featureIcon,
+.stepNumber {
+	margin-bottom: clamp(1rem, 2cqw, 1.5rem);
+}
+
+.featureIcon svg,
+.locationIcon svg {
+	width: 55%;
+	height: 55%;
+	display: block;
+}
+
+/* Pink tint = primary accent (was gold on features, pink on location: now one rule) */
+.featureIcon,
+.locationIcon {
+	background: rgba(229, 115, 115, 0.12);
+	color: var(--protea-pink);
+}
+
+/* Process numbers = journey "current" marker: white, pink ring, soft halo */
+.stepNumber {
+	background: #fff;
+	color: var(--protea-pink);
+	border: 2px solid var(--protea-pink);
+	box-shadow: 0 0 0 5px rgba(229, 115, 115, 0.16);
+	font-weight: 900;
+}
+
+.featureText {
+	margin: 0;
+	color: var(--text-main);
+	opacity: 0.82;
+	line-height: 1.6;
+	font-size: clamp(0.95rem, 1.35cqw, 1.05rem);
+}
+
+.serviceList {
+	margin: auto 0 0;
+	padding-left: 1.2rem;
+	display: grid;
+	gap: clamp(0.45rem, 1cqw, 0.6rem);
+}
+
+/* Bullet marker picks up the accent */
+.serviceList li::marker {
+	color: var(--protea-pink);
+}
+
+.bottomCtaRow {
+	margin-top: clamp(1.5rem, 3cqw, 2.5rem);
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: clamp(0.75rem, 1.6cqw, 1rem);
+}
+
+/* ==========================================================================
+   LOCATION
+   ========================================================================== */
+
+.locationGrid {
+	display: grid;
+	grid-template-columns: 1.25fr 0.75fr;
+	gap: clamp(1rem, 2.4cqw, 1.75rem);
+	margin-top: clamp(1.25rem, 2.8cqw, 2.25rem);
+	align-items: start;
+}
+
+@container about (max-width: 920px) {
+	.locationGrid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.locationCard {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(1rem, 2.2cqw, 1.25rem);
+}
+
+.locationTop {
+	display: flex;
+	align-items: flex-start;
+	gap: clamp(0.85rem, 1.6cqw, 1.1rem);
+}
+
+.locationMeta {
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+	min-width: 0;
+}
+
+.locationName {
+	margin: 0;
+	font-weight: 900;
+	letter-spacing: -0.01em;
+}
+
+/* Editorial rule stays gold */
+.addressBlock {
+	margin: 0;
+	font-style: normal;
+	display: grid;
+	gap: 0.25rem;
+	padding-left: clamp(1.1rem, 1.8cqw, 1.35rem);
+	border-left: 2px solid var(--savanna-gold);
+}
+
+.addressLine {
+	margin: 0;
+}
+
+.locationActions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: clamp(0.75rem, 1.6cqw, 1rem);
+	align-items: center;
+}
+
+/* ==========================================================================
+   Reduced Motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+	.spinningWrapper {
+		animation: none;
+	}
+
+	.featureCard,
+	.processStep,
+	.serviceCard {
+		transition: none !important;
+	}
+
+	.featureCard:hover,
+	.processStep:hover,
+	.serviceCard:hover {
+		transform: none !important;
+	}
+}

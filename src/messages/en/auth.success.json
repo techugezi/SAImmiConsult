@@ -1,0 +1,7 @@
+{
+  "AuthSuccess": {
+	"welcome": "Welcome back!",
+	"redirectingClient": "Taking you to your portal…",
+	"redirectingAdmin": "Opening your admin dashboard…"
+  }
+}

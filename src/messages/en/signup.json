@@ -1,0 +1,225 @@
+{
+  "Signup": {
+    "heading": "Lets begin your journey",
+    "subheading": "Set up your profile",
+    "description": "Create your profile, then tell us a bit more about yourself and your immigration plans.",
+
+    "eyebrowProfile": "Lets begin My Journey",
+    "headingProfile": "Complete My Profile",
+    "subheadingProfile": "Please complete your profile details first so we can assess your case accurately.",
+
+    "sections": {
+      "credentials": {
+        "title": "First, create your login",
+        "subtitle": "Use these details to sign in later. You can complete your profile after."
+      },
+      "personal": {
+        "title": "Personal details",
+        "subtitle": "As in your current passport."
+      },
+      "residence": {
+        "title": "Contact and place of residence"
+      },
+      "familyFinances": {
+        "title": "Family and finances"
+      },
+      "travelHistory": {
+        "title": "Travel and visa history"
+      },
+      "passportPlans": {
+        "title": "Passport and plans in South Africa"
+      },
+      "language": {
+        "title": "English and language study"
+      }
+    },
+
+    "fields": {
+      "firstName": {
+        "label": "First Name",
+        "placeholder": "Enter your first name"
+      },
+      "middleName": {
+        "label": "Middle Name",
+        "placeholder": "Enter your middle name (optional)"
+      },
+      "lastName": {
+        "label": "Last Name",
+        "placeholder": "Enter your last name"
+      },
+      "dateOfBirth": {
+        "label": "Date of Birth",
+        "placeholder": "Select your date of birth"
+      },
+
+      "citizenship": {
+        "label": "Citizenship",
+        "placeholder": "Country of citizenship"
+      },
+
+      "maritalStatus": {
+        "label": "Marital status",
+        "placeholder": "Select status",
+        "options": {
+          "single": "Single",
+          "married": "Married",
+          "divorced": "Divorced",
+          "widowed": "Widowed",
+          "other": "Other"
+        }
+      },
+
+      "cityCountry": {
+        "label": "Country and city of residence",
+        "placeholder": "e.g. Moscow, Russia / Cape Town, South Africa"
+      },
+
+      "phoneCountryCode": {
+        "label": "Phone Country Code",
+        "placeholder": "+1, +27, +7, etc."
+      },
+      "phoneNumber": {
+        "label": "Phone Number",
+        "placeholder": "Local phone number"
+      },
+
+      "whatsappCountryCode": {
+        "label": "WhatsApp Country Code",
+        "placeholder": "+1, +27, +7, etc."
+      },
+      "whatsappNumber": {
+        "label": "WhatsApp Number",
+        "placeholder": "Local WhatsApp number"
+      },
+
+      "email": {
+        "label": "Email address",
+        "placeholder": "name@example.com"
+      },
+
+      "password": {
+        "label": "Password",
+        "placeholder": "Create a password"
+      },
+      "confirmPassword": {
+        "label": "Confirm password",
+        "placeholder": "Repeat your password"
+      },
+
+      "familyComposition": {
+        "label": "Family members and ages",
+        "placeholder": "Spouse, children, dependants and their ages."
+      },
+
+      "income2000plus": {
+        "label": "Monthly income from 2 000 €",
+        "placeholder": "Select an option",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "incomeSource": {
+        "label": "Main source of income",
+        "placeholder": "Employment, own business, pension, rental income, dividends, etc.",
+        "hint": "You can choose more than one source when we discuss your case in detail."
+      },
+
+      "beenToSa": {
+        "label": "Have you been to South Africa before?",
+        "placeholder": "Select an option",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+
+      "firstEntrySa": {
+        "label": "If yes, month and year of first entry to South Africa",
+        "placeholder": "e.g. 03/2019"
+      },
+
+      "currentLocation": {
+        "label": "Where are you currently located?",
+        "placeholder": "Country and city at the time of filling in this form"
+      },
+
+      "currentVisa": {
+        "label": "If you are already in South Africa, which visa do you hold?",
+        "placeholder": "Type of visa, validity period and start date."
+      },
+
+      "visaRefusals": {
+        "label": "Any previous visa refusals for South Africa?",
+        "placeholder": "Select an option",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+
+      "passportExpiry": {
+        "label": "Passport expiry date"
+      },
+
+      "visitPurpose": {
+        "label": "Purpose of your stay in South Africa",
+        "placeholder": "What do you plan to do in South Africa (work, study, business, retirement, etc.)?"
+      },
+
+      "englishLevel": {
+        "label": "English level",
+        "placeholder": "Select level",
+        "options": {
+          "basic": "Basic",
+          "intermediate": "Intermediate",
+          "fluent": "Fluent"
+        }
+      },
+
+      "needLanguageSchool": {
+        "label": "Do you need help selecting a language school?",
+        "placeholder": "Select an option",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+
+    "actions": {
+      "submit": "Submit profile",
+      "submitting": "Submitting...",
+      "saveAndContinue": "Save and continue",
+      "saving": "Saving...",
+	  "showPassword": "Show Password",
+	  "hidePassword":" Hide Password",
+	  "backToLoginAfterConfirm": "Back to login",
+	  "resendConfirm": "Resend confirmation email",
+	  "resending": "Resending…"
+    },
+
+    "footer": {
+      "haveAccount": "Already have an account?",
+      "loginLink": "Log in",
+      "skipForNow": "Skip for now"
+    },
+
+    "messages": {
+      "missingEmailOrPassword": "Please enter your email and password",
+      "passwordMismatch": "Passwords do not match",
+      "signupFailed": "We could not create your account. Please try again",
+      "profileFailed": "Your profile could not be saved. Please contact support",
+      "signupSuccess": "Sign-up successful! Signing you in.",
+      "userAlreadyRegistered": "This email is already registered, please log in instead",
+      "titleError": "Email already in use",
+      "mustBeLoggedInToContinue": "Please sign in to continue",
+      "profileSaved": "Your profile has been saved",
+	  "signupConfirmSuccess": "We’ve sent a confirmation email to {email}. Please check your inbox to confirm your signup.",
+	  "codeExpired": "This confirmation link has expired. Please request a new one.",
+      "callbackFailed": "We couldn’t verify that link. Please try again.",
+	  "resendConfirmSent": "Confirmation email sent. Please check your inbox.",
+	  "resendConfirmFailed": "We couldn’t resend the email. Please try again shortly."
+    }
+  }
+}

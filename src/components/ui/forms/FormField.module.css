@@ -1,0 +1,17 @@
+/*
+DOC NAME: FormField.module.css
+LOCATION: /src/components/ui/forms/FormField.module.css
+SCOPE: FormField primitive layout only.
+STATUS: UNLOCKED (lock after approved)
+*/
+
+.field {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+	min-width: 0;
+}
+
+.full {
+	grid-column: 1 / -1;
+}

@@ -1,0 +1,366 @@
+/* src/app/[locale]/news/news.module.css */
+
+/* ==========================================================================
+   NEWS — aligns with established “flat square + smooth scaling” language
+   - NewsTicker untouched (component-owned)
+   - News items typography now uses global roles (globals.css)
+   - Module CSS stays layout/interaction only
+   ========================================================================== */
+
+.pageContainer {
+  width: 100%;
+  background: var(--eggshell);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+/* =========================
+   HERO (legacy blocks kept, but hero markup uses global classes)
+   ========================= */
+
+.subHeroSquare {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  --shellPad: var(--section-shell, clamp(1rem, 2.4vw, 1.75rem));
+  padding: var(--shellPad);
+
+  padding-top: calc(var(--nav-height, 84px) + clamp(2.75rem, 6vw, 6rem));
+  padding-bottom: clamp(1.75rem, 3.4vw, 3rem);
+}
+
+.subHeroSquare .subHeroSquare {
+  width: min(92vw, var(--content-max-width));
+  margin: 0 auto;
+
+  container-type: inline-size;
+  container-name: newsHero;
+
+  padding: clamp(1.75rem, 4.8cqw, 4.25rem);
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  gap: clamp(0.3rem, 0.9cqw, 0.6rem);
+}
+
+/* =========================
+   TICKER (home-style measured loop)
+   ========================= */
+
+.editorialTickerWrapper {
+  position: relative;
+
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  background: white;
+  padding: clamp(1.2rem, 2.6cqw, 2.25rem) 0;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+  overflow: hidden;
+}
+
+.editorialTickerTrack {
+  display: flex;
+  width: max-content;
+  align-items: center;
+
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+
+  --ticker-distance: 0px;
+  --ticker-duration: 40s;
+
+  animation: editorialTickerScroll var(--ticker-duration) linear infinite;
+}
+
+.editorialTickerWrapper:hover .editorialTickerTrack {
+  animation-play-state: paused;
+}
+
+.editorialTickerSet {
+  display: flex;
+  width: max-content;
+  align-items: center;
+
+  --ticker-gap: clamp(1rem, 2cqw, 2.5rem);
+  gap: var(--ticker-gap);
+  padding-right: var(--ticker-gap);
+}
+
+@keyframes editorialTickerScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(calc(-1 * var(--ticker-distance)), 0, 0);
+  }
+}
+
+.editorialTickerItem {
+  display: inline-flex;
+  align-items: center;
+
+  gap: clamp(0.85rem, 1.8cqw, 2rem);
+  padding: 0 clamp(1.25rem, 2.4cqw, 3rem);
+
+  white-space: nowrap;
+}
+
+.tickerCategory {
+  font-size: clamp(0.68rem, 1cqw, 0.75rem);
+  font-weight: 800;
+  text-transform: none;
+  color: var(--protea-pink);
+  background: var(--protea-pink-light);
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+}
+
+.tickerHeadline {
+  font-size: clamp(1.05rem, 1.8cqw, 1.25rem);
+  font-weight: 600;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+
+.tickerDivider {
+  color: var(--savanna-gold);
+  font-size: clamp(1.15rem, 2cqw, 1.5rem);
+  font-weight: 300;
+}
+
+.tickerOverlayLeft,
+.tickerOverlayRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(80px, 10vw, 150px);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.tickerOverlayLeft {
+  left: 0;
+  background: linear-gradient(to right, white, transparent);
+}
+
+.tickerOverlayRight {
+  right: 0;
+  background: linear-gradient(to left, white, transparent);
+}
+
+/* =========================
+   NEWS LIST (not grid)
+   ========================= */
+
+.newsSection {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+
+	/* STANDARD: vertical rhythm only */
+	padding-block: clamp(var(--space-6));
+	padding-inline: 0;
+}
+
+.newsSquare {
+  width: min(92vw, var(--content-max-width));
+  margin: 0 auto;
+
+  container-type: inline-size;
+  container-name: newsList;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.newsList {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2.4cqw, 1.75rem);
+}
+
+.newsItem {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 2rem;
+  padding: clamp(1.25rem, 2.8cqw, 2.2rem);
+
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  /* keep base smooth, but DO NOT animate transform here */
+  transition:
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+  display: block;
+  text-decoration: none;
+  color: inherit;
+
+  position: relative;
+}
+
+a.newsItem {
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+a.newsItem:hover {
+  transform: translateY(-3px);
+  border-color: rgba(229, 115, 115, 0.35);
+  box-shadow: 0 24px 54px rgba(15, 23, 42, 0.07);
+}
+
+.newsMetaRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Typography moved to global roles; keep only spacing here */
+.newsItemMeta {
+  margin: 0;
+}
+
+/* Typography moved to global roles; keep only spacing here */
+.newsItemTitle {
+  margin: clamp(0.6rem, 1.3cqw, 0.9rem) 0 0;
+}
+
+/* Typography moved to global roles; keep only spacing/measure here */
+.newsItemSummary {
+  margin: clamp(0.75rem, 1.6cqw, 1.1rem) 0 0;
+  max-width: 80ch;
+}
+
+/* News article page: allow full-width body paragraphs inside the article card */
+article.newsItem .newsItemSummary {
+  max-width: none;
+  width: 100%;
+}
+
+/* Typography moved to global roles; keep interaction + underline affordance */
+.newsReadMore {
+  margin-top: clamp(0.9rem, 1.8cqw, 1.25rem);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  border-bottom: 2px solid rgba(15, 23, 42, 0.12);
+  padding-bottom: 0.25rem;
+
+  transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.readMoreArrow {
+  display: inline-block;
+  transform: translateX(0);
+  transition: transform 0.25s ease;
+}
+
+/* Card hover should drive the “Read more” affordance (not just text hover) */
+.newsItem:hover .newsReadMore,
+.newsItem:focus-within .newsReadMore {
+  color: var(--protea-pink);
+  border-bottom-color: rgba(229, 115, 115, 0.35);
+}
+
+.newsItem:hover .readMoreArrow,
+.newsItem:focus-within .readMoreArrow {
+  transform: translateX(6px);
+}
+
+/* Optional: keep direct hover working too (nice on touchpads) */
+.newsReadMore:hover {
+  color: var(--protea-pink);
+  border-bottom-color: rgba(229, 115, 115, 0.35);
+}
+
+.newsReadMore:hover .readMoreArrow {
+  transform: translateX(6px);
+}
+
+.newsItemTap {
+  display: none;
+}
+
+@media (pointer: coarse) {
+  .newsItemTap {
+    display: block;
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    z-index: 1;
+  }
+
+  .newsReadMore {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .editorialTickerTrack {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  a.newsItem,
+  .pagePrimaryButton,
+  .pageSecondaryButton,
+  .newsReadMore,
+  .readMoreArrow {
+    transition: none !important;
+  }
+
+  a.newsItem:hover,
+  .pagePrimaryButton:hover,
+  .pageSecondaryButton:hover {
+    transform: none !important;
+  }
+}
+
+
+/* =========================
+   REDUCED MOTION
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .editorialTickerTrack {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .newsItem,
+  .newsReadMore,
+  .readMoreArrow {
+    transition: none !important;
+  }
+
+  .newsItem:hover {
+    transform: none !important;
+  }
+}

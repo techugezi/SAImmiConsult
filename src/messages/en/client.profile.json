@@ -1,0 +1,293 @@
+{
+  "ClientProfile": {
+    "title": "Your Profile",
+    "subtitle": "Manage your personal information.",
+    "heading": "Welcome, {name}",
+
+    "eyebrowProfile": "Lets start Your Journey",
+    "headingProfile": "Complete My Profile",
+    "subheadingProfile": "Please complete your profile details first so we can assess your case accurately.",
+
+    "fallback": {
+      "name": "Valued Client",
+      "unknown": "Not specified"
+    },
+
+    "yourDetails": "Your Details",
+
+    "activeApplication": {
+      "title": "You have an active application",
+      "destination": "Destination",
+      "type": "Visa type",
+      "continue": "Continue Application →"
+    },
+
+    "noApplication": {
+      "title": "Ready to begin your journey?",
+      "subtitle": "Answer a few quick questions and we’ll create a personalized visa application for you.",
+      "startApplication": "Start New Application"
+    },
+
+    "cta": {
+      "title": "Ready to move forward?",
+      "description": "Start a new visa application with your updated details.",
+      "button": "Start New Application"
+    },
+
+    "actions": {
+      "edit": "Edit Profile",
+      "cancel": "Cancel",
+      "save": "Save Changes",
+      "saving": "Saving..."
+    },
+
+    "sectionsLegacy": {
+      "personal": "Personal Information",
+      "contact": "Contact & Location",
+      "immigration": "Immigration Goals"
+    },
+
+    "sections": {
+      "personal": {
+        "title": "Personal details",
+        "subtitle": "As in your current passport."
+      },
+      "residence": {
+        "title": "Contact and place of residence"
+      },
+      "familyFinances": {
+        "title": "Family and finances"
+      },
+      "travelHistory": {
+        "title": "Travel and visa history"
+      },
+      "passportPlans": {
+        "title": "Passport and plans in South Africa"
+      },
+      "language": {
+        "title": "English and language study"
+      }
+    },
+
+    "fieldsLegacy": {
+      "first_name": "First Name",
+      "middle_name": "Middle Name",
+      "last_name": "Last Name",
+      "date_of_birth": "Date of Birth",
+      "citizenship_country": "Citizenship",
+      "city_country": "Current City & Country",
+      "phone": "Phone Number",
+      "preferred_contact_method": "Preferred Contact",
+      "immigration_goal": "Immigration Goal",
+      "english_level": "English Level"
+    },
+
+    "fields": {
+      "firstName": {
+        "label": "First Name",
+        "placeholder": "Enter your first name"
+      },
+      "middleName": {
+        "label": "Middle Name",
+        "placeholder": "Enter your middle name (optional)"
+      },
+      "lastName": {
+        "label": "Last Name",
+        "placeholder": "Enter your last name"
+      },
+      "dateOfBirth": {
+        "label": "Date of Birth",
+        "placeholder": "Select your date of birth"
+      },
+
+      "citizenship": {
+        "label": "Citizenship",
+        "placeholder": "Country of citizenship"
+      },
+
+      "maritalStatus": {
+        "label": "Marital status",
+        "placeholder": "Select status",
+        "options": {
+          "single": "Single",
+          "married": "Married",
+          "divorced": "Divorced",
+          "widowed": "Widowed",
+          "other": "Other"
+        }
+      },
+
+      "cityCountry": {
+        "label": "Country and city of residence",
+        "placeholder": "e.g. Moscow, Russia / Cape Town, South Africa"
+      },
+
+      "phoneCountryCode": {
+        "label": "Phone Country Code",
+        "placeholder": "+1, +27, +7, etc."
+      },
+      "phoneNumber": {
+        "label": "Phone Number",
+        "placeholder": "Local phone number"
+      },
+
+      "whatsappCountryCode": {
+        "label": "WhatsApp Country Code",
+        "placeholder": "+1, +27, +7, etc."
+      },
+      "whatsappNumber": {
+        "label": "WhatsApp Number",
+        "placeholder": "Local WhatsApp number"
+      },
+
+      "preferredContactMethod": {
+        "label": "Preferred contact method",
+        "placeholder": "Select a method",
+        "options": {
+          "email": "Email",
+          "whatsapp": "WhatsApp",
+          "telegram": "Telegram"
+        }
+      },
+
+      "contactEmail": {
+        "label": "Email",
+        "placeholder": "Enter your email address"
+      },
+
+      "telegramUsername": {
+        "label": "Telegram username",
+        "placeholder": "@username"
+      },
+
+      "familyComposition": {
+        "label": "Family members and ages",
+        "placeholder": "Spouse, children, dependants and their ages."
+      },
+
+      "income2000plus": {
+        "label": "Monthly income from 2 000 €",
+        "placeholder": "Select an option",
+        "options": {
+          "yes": "Yes",
+          "no": "No",
+          "unspecified": "Prefer not to say"
+        }
+      },
+
+      "incomeSource": {
+        "label": "Main source of income",
+        "placeholder": "Employment, own business, pension, rental income, dividends, etc.",
+        "hint": "You can choose more than one source when we discuss your case in detail."
+      },
+
+      "beenToSa": {
+        "label": "Have you been to South Africa before?",
+        "placeholder": "Select an option",
+        "options": {
+          "yes": "Yes",
+          "no": "No",
+          "unspecified": "Not sure / Prefer not to say"
+        }
+      },
+
+      "firstEntrySa": {
+        "label": "If yes, month and year of first entry to South Africa",
+        "placeholder": "e.g. 03/2019"
+      },
+
+      "currentLocation": {
+        "label": "Where are you currently located?",
+        "placeholder": "Country and city at the time of filling in this form"
+      },
+
+      "currentVisa": {
+        "label": "If you are already in South Africa, which visa do you hold?",
+        "placeholder": "Type of visa, validity period and start date."
+      },
+
+      "visaRefusals": {
+        "label": "Any previous visa refusals for South Africa?",
+        "placeholder": "Select an option",
+        "options": {
+          "yes": "Yes",
+          "no": "No",
+          "unspecified": "Not sure / Prefer not to say"
+        }
+      },
+
+      "passportExpiry": {
+        "label": "Passport expiry date"
+      },
+
+      "visitPurpose": {
+        "label": "Purpose of your stay in South Africa",
+        "placeholder": "What do you plan to do in South Africa (work, study, business, retirement, etc.)?"
+      },
+
+      "englishLevel": {
+        "label": "English level",
+        "placeholder": "Select level",
+        "options": {
+          "basic": "Basic",
+          "intermediate": "Intermediate",
+          "fluent": "Fluent"
+        }
+      },
+
+      "needLanguageSchool": {
+        "label": "Do you need help selecting a language school?",
+        "placeholder": "Select an option",
+        "options": {
+          "yes": "Yes",
+          "no": "No",
+          "unspecified": "Not sure yet"
+        }
+      }
+    },
+
+    "options": {
+      "phone": "Phone Call",
+      "work": "Work",
+      "study": "Study",
+      "family": "Family Reunification",
+      "retirement": "Retirement",
+      "investment": "Investment",
+      "english": {
+        "basic": "Basic",
+        "intermediate": "Intermediate",
+        "fluent": "Fluent"
+      }
+    },
+
+    "placeholders": {
+      "select": "— Select —"
+    },
+
+    "actionsForm": {
+      "save": "Save profile",
+      "saving": "Saving…",
+      "loading": "Loading…"
+    },
+
+    "footer": {
+      "backToDashboard": "Do it later",
+      "dashboardLink": "Go to dashboard"
+    },
+
+    "messages": {
+      "noProfile": "Please complete your profile registration to continue.",
+      "profileError": "We encountered an issue loading your profile.",
+
+      "notAuthenticated": "Please sign in to continue.",
+      "saveFailed": "Your profile could not be saved. Please try again.",
+      "saveSuccess": "Your profile has been saved.",
+
+      "saved": "Profile saved successfully!"
+    },
+
+    "errors": {
+      "saveFailed": "Failed to save profile. Please try again."
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "ClientStatusStepWizard": {
+    "eyebrow": "Step {current} of {total}",
+    "stepLabel": "Step {number}: {label}",
+    "stepsNavSuffix": "steps",
+    "completedMark": "Completed",
+    "terminal": {
+      "closed": "Closed",
+      "finished": "Finished",
+      "cancelled": "Cancelled"
+    },
+    "clientSteps": {
+      "documents": "Documents",
+      "visaJourney": "Visa journey",
+      "outcome": "Your outcome"
+    }
+  }
+}

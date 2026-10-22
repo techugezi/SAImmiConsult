@@ -1,0 +1,110 @@
+{
+  "ClientCases": {
+    "hero": {
+      "title": "Ваше визовое дело",
+      "subtitle": "Следите за ходом дела и узнавайте, что будет дальше."
+    },
+    "header": {
+      "title": "Прогресс по вашему делу",
+      "client": "Клиент",
+      "case": "Дело",
+      "application": "Ваша визовая заявка",
+      "noApplicationYet": "Ваша визовая заявка ещё не активирована консультантом.",
+      "activationHint": "Как только консультант активирует визовую заявку, вы сможете открыть её здесь и отслеживать визовый процесс.",
+      "docsSummary": "{uploaded}/{required} загружено · {approved} одобрено",
+      "actions": {
+        "openApplication": "Открыть заявку"
+      },
+      "clickToContactLabel": "Связаться с консультантом",
+      "applicationBadgeLabels": {
+        "applicationStatus": "Статус",
+        "documentStatus": "Статус документов"
+      }
+    },
+    "Buttons": {
+      "createNewCase": "Создать новое дело"
+    },
+    "filters": {
+      "all": "Все",
+      "statusLabel": "Статус"
+    },
+    "list": {
+      "title": "Ваши дела",
+      "subtitle": "Фильтруйте и открывайте свои дела ниже.",
+      "empty": "Дела не найдены."
+    },
+    "Confirm": {
+      "newCaseTitle": "Начать новое дело?",
+      "newCaseActiveBody": "У вас уже есть активное дело. Создание нового дела может привести к дублированию заявки. Продолжить?"
+    },
+    "intake": {
+      "title": "Просмотрите сводку по вашему делу",
+      "subtitle": "Ознакомьтесь с информацией, которую вы нам предоставили. Вы можете перейти к шагу 2.",
+      "keyFacts": "Информация, предоставленная вами",
+      "draftRecommendation": "Черновик рекомендации",
+      "fields": {
+        "destination": "Направление",
+        "visaType": "Тип визы",
+        "timeframe": "Сроки",
+        "extraNotes": "Примечания"
+      },
+      "draft": {
+        "fields": {
+          "confidence": "Уверенность",
+          "suggestedType": "Предлагаемый маршрут",
+          "rationale": "Обоснование",
+          "generatedAt": "Сформировано"
+        }
+      }
+    },
+    "consultation": {
+      "title": "Подготовка к консультации",
+      "subtitle": "Ознакомьтесь с деталями консультации и примечаниями консультанта.",
+      "sections": {
+        "scheduleTitle": "Расписание",
+        "notesHelp": "Примечания от вашего консультанта."
+      },
+      "fields": {
+        "channel": "Канал",
+        "scheduledFor": "Назначено на",
+        "link": "Ссылка на встречу"
+      },
+      "channels": {
+        "zoom": "Zoom",
+        "googleMeet": "Google Meet",
+        "google_meet": "Google Meet",
+        "phone": "Телефон",
+        "whatsapp": "WhatsApp",
+        "telegram": "Telegram",
+        "email": "Email"
+      },
+      "currentValue": "Текущее: {value}",
+      "clickToContact": {
+        "action": "Открыть в {method}",
+        "methods": {
+          "whatsapp": "WhatsApp",
+          "telegram": "Telegram"
+        }
+      }
+    },
+    "plan": {
+      "fields": {
+        "consultantNote": "Примечания от консультанта"
+      }
+    },
+    "activation": {
+      "subtitle": "Ваш консультант собирает информацию, чтобы тщательно подготовить ваш визовый процесс.",
+      "title": "Ваш визовый процесс скоро начнётся",
+      "activeApplicationBody": "Ваш визовый процесс начат. Пожалуйста, откройте заявку и загрузите документы, указанные там. Консультант проверит их и сообщит, если потребуется что-то ещё."
+    },
+    "preview": {
+      "subtitle": "Ваши следующие шаги, кратко.",
+      "nextStepTitle": "Ваш следующий шаг"
+    },
+    "timeline": {
+      "title": "Хронология",
+      "subtitle": "Журнал активности по вашему делу.",
+      "appEvent": "Событие заявки: {type}"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "News": {
+    "title": "News & updates",
+    "subtitle": "Immigration and visa news",
+    "description": "Updates on South African immigration rules, processing times and global visa changes.",
+	"eyebrow": "Visa news",
+    "cta": "Read all news",
+	"readMore": "Read further",
+	"backToList": "Back to list",
+    "items": {
+      "0": {
+        "title": "South African visa processing times change",
+        "summary": "Recent updates from the Department of Home Affairs indicate varying timelines for work, study and family visas. We explain what this means for new applicants.",
+        "date": "2025-01-15"
+      },
+      "1": {
+        "title": "Clarification on South African student visas",
+        "summary": "Universities have published new guidance on study permit documentation and timelines for international students arriving for 2025 semesters.",
+        "date": "2025-01-12"
+      },
+      "2": {
+        "title": "Updates on tourist and training visas abroad",
+        "summary": "New information on tourist and short-term training visas for the USA, Canada, Europe and the UK, including appointment availability and documentation tips.",
+        "date": "2025-01-05"
+      }
+    }
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "ClientForm": {
+    "eyebrowProfile": "Lets start Your Journey",
+    "headingProfile": "My Profile",
+    "subheadingProfile": "My personal information",
+    "detailsProfile": "Please complete the form fully so we can tailor the best solution for you.",
+    "sections": {
+      "personal": {
+        "title": "Personal details",
+        "subtitle": "As in your current passport."
+      },
+      "residence": {
+        "title": "Contact and place of residence"
+      },
+      "familyFinances": {
+        "title": "Family and finances"
+      },
+      "travelHistory": {
+        "title": "Travel and visa history"
+      },
+      "passportPlans": {
+        "title": "Passport and plans in South Africa"
+      },
+      "language": {
+        "title": "English and language study"
+      }
+    },
+    "fields": {
+      "firstName": {
+        "label": "First Name",
+        "placeholder": "Enter your first name"
+      },
+      "middleName": {
+        "label": "Middle Name",
+        "placeholder": "Enter your middle name (optional)"
+      },
+      "lastName": {
+        "label": "Last Name",
+        "placeholder": "Enter your last name"
+      },
+      "dateOfBirth": {
+        "label": "Date of Birth",
+        "placeholder": "Select your date of birth"
+      },
+      "citizenship": {
+        "label": "Citizenship",
+        "placeholder": "Country of citizenship"
+      },
+      "maritalStatus": {
+        "label": "Marital status",
+        "placeholder": "Select status",
+        "options": {
+          "single": "Single",
+          "married": "Married",
+          "divorced": "Divorced",
+          "widowed": "Widowed",
+          "other": "Other"
+        }
+      },
+      "cityCountry": {
+        "label": "Country and city of residence",
+        "placeholder": "e.g. Moscow, Russia / Cape Town, South Africa"
+      },
+      "phoneCountryCode": {
+        "label": "Phone Country Code",
+        "placeholder": "+1, +27, +7, etc."
+      },
+      "phoneNumber": {
+        "label": "Phone Number",
+        "placeholder": "Local phone number"
+      },
+      "whatsappCountryCode": {
+        "label": "WhatsApp Country Code",
+        "placeholder": "+1, +27, +7, etc."
+      },
+      "whatsappCountry": {
+        "label": "WhatsApp country",
+        "placeholder": "Select country"
+      },
+      "whatsappNumber": {
+        "label": "WhatsApp Number",
+        "placeholder": "Local WhatsApp number",
+        "hint": "Enter digits only (we will format it internationally)."
+      },
+      "whatsappE164": {
+        "preview": "Saved format: {e164}"
+      },
+      "preferredContactMethod": {
+        "label": "Preferred contact method",
+        "placeholder": "Select a method",
+        "options": {
+          "none": "No preference",
+          "email": "Email",
+          "whatsapp": "WhatsApp",
+          "telegram": "Telegram"
+        }
+      },
+      "contactEmail": {
+        "label": "Contact email",
+        "placeholder": "name@example.com",
+        "hint": "Enter your primary email that we can contact you on",
+        "useLoginEmail": {
+          "label": "Use my login email",
+          "caption": "Use {email}",
+          "noEmail": "No login email available."
+        }
+      },
+      "telegramUsername": {
+        "label": "Telegram username",
+        "placeholder": "username",
+        "hint": "No spaces. You can paste @username — we’ll clean it."
+      },
+      "familyComposition": {
+        "label": "Family members and ages",
+        "placeholder": "List your spouse, children, dependants and their ages. N/A if not applicable."
+      },
+      "income2000plus": {
+        "label": "Monthly income above 2 000 €?",
+        "placeholder": "Select an option",
+        "options": {
+          "yes": "Yes",
+          "no": "No",
+          "unspecified": "Prefer not to say"
+        }
+      },
+      "incomeSource": {
+        "label": "Main source of income",
+        "placeholder": "Employment, own business, pension, rental income, dividends, etc.",
+        "hint": "You can choose more than one source when we discuss your case in detail."
+      },
+      "beenToSa": {
+        "label": "Have you been to South Africa before?",
+        "placeholder": "Select an option",
+        "options": {
+          "yes": "Yes",
+          "no": "No",
+          "unspecified": "Not sure / Prefer not to say"
+        }
+      },
+      "firstEntrySa": {
+        "label": "If yes, month and year of first entry to South Africa",
+        "placeholder": "e.g. 03/2019"
+      },
+      "currentLocation": {
+        "label": "Where are you currently located?",
+        "placeholder": "Country and city at the time of filling in this form"
+      },
+      "currentVisa": {
+        "label": "If you are already in South Africa, which visa do you hold?",
+        "placeholder": "Type of visa, validity period and start date."
+      },
+      "visaRefusals": {
+        "label": "Any previous visa refusals for South Africa?",
+        "placeholder": "Select an option",
+        "options": {
+          "yes": "Yes",
+          "no": "No",
+          "unspecified": "Not sure / Prefer not to say"
+        }
+      },
+      "passportExpiry": {
+        "label": "Passport expiry date"
+      },
+      "visitPurpose": {
+        "label": "Purpose of your stay in South Africa",
+        "placeholder": "What do you plan to do in South Africa (work, study, business, retirement, etc.)?"
+      },
+      "englishLevel": {
+        "label": "English level",
+        "placeholder": "Select level",
+        "options": {
+          "basic": "Basic",
+          "intermediate": "Intermediate",
+          "fluent": "Fluent"
+        }
+      },
+      "needLanguageSchool": {
+        "label": "Do you need help selecting a language school?",
+        "placeholder": "Select an option",
+        "options": {
+          "yes": "Yes",
+          "no": "No",
+          "unspecified": "Not sure yet"
+        }
+      }
+    },
+    "actions": {
+      "save": "Save profile",
+      "saving": "Saving…",
+      "loading": "Loading…"
+    },
+    "footer": {
+      "goToDashboardPrefix": "Done for now?",
+      "goToDashboardLink": "Back to My Portal"
+    },
+    "messages": {
+      "notAuthenticated": "Please sign in to continue.",
+      "saveFailed": "Your profile could not be saved. Please try again.",
+      "saveSuccess": "Your profile has been saved.",
+      "invalidContactEmail": "Please enter a valid email address.",
+      "invalidTelegramUsername": "Telegram username must be 5–32 characters (letters, numbers, underscore).",
+      "invalidWhatsAppNumber": "Please enter a valid WhatsApp number for the selected country.",
+      "preferredContactMissing": "Please provide the required details for your preferred contact method.",
+      "contactEmailInvalid": "Please enter a valid email address.",
+      "telegramInvalid": "Please enter a valid Telegram username.",
+      "whatsappInvalid": "Please enter a valid WhatsApp number.",
+      "progressUnavailable": "Could not load saved wizard progress. Please make sure the client intake progress migration has been applied, then reload.",
+      "progressSaveFailed": "Your answers may have been saved, but wizard progress could not be saved. Please try again before continuing."
+    },
+    "wizard": {
+      "eyebrow": "Client intake",
+      "readinessTitle": "Ready to complete your profile?",
+      "readinessDescription": "You can save your progress as you go and return later. If available, keep your passport and any current or previous South African visa details nearby.",
+      "readinessPassport": "Have your passport details handy, including its expiry date.",
+      "readinessVisa": "If applicable, have details of your current or previous South African visa and any visa refusals.",
+      "readyButton": "Yes, I’m ready",
+      "notNowButton": "Not right now",
+      "stepLabel": "Step {current} of {total}",
+      "progressLabel": "Profile completion progress",
+      "continueButton": "Save and continue",
+      "backButton": "Back",
+      "finishButton": "Save and finish",
+      "stepSaved": "This step has been saved. You can continue.",
+      "completed": "Your profile intake is complete. Your answers have been saved."
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "AdminContent": {
+    "hero": {
+      "title": "Site content",
+      "subtitle": "News and FAQ content",
+	  "description": "Maintain public News and FAQ content shown on Home and their respective pages."
+    },
+    "common": {
+      "delete": "Delete",
+	  "deleting": "Deleting...",
+      "draft": "Draft",
+      "published": "Published",
+      "hidden": "Hidden"
+    },
+    "news": {
+      "title": "News",
+      "subtitle": "Create and manage news articles for /news and the Home banner.",
+      "createHint": "Create a new news item. Use Markdown for the body content.",
+      "empty": "No news items yet.",
+      "fields": {
+        "title": "Title",
+        "slug": "Slug",
+        "summary": "Summary",
+        "body": "Body (Markdown)",
+        "titleEn": "Title (EN)",
+        "titleRu": "Title (RU)",
+        "summaryEn": "Summary (EN)",
+        "summaryRu": "Summary (RU)",
+        "bodyEn": "Body (Markdown, EN)",
+        "bodyRu": "Body (Markdown, RU)",
+        "publishNow": "Publish now",
+        "published": "Published",
+        "pinned": "Pinned"
+      },
+      "actions": {
+        "create": "Create news",
+		"creating": "Creating..."
+      },
+      "hints": {
+        "title": "Short headline shown on the website. Keep it clear and under ~160 characters.",
+        "slug": "The URL-friendly name (used in links). Ensure it is unique or leave blank to auto-generate from the title. Example: \"visa-updates-2026\".",
+        "summary": "1–2 sentence preview shown in the news list and banners. Keep it concise.",
+        "body": "Full article content. You can paste plain text, or use Markdown for headings, lists, links, etc.",
+        "publishNow": "If enabled, this item becomes visible on the public site immediately. Leave unchecked to save as a draft.",
+        "pinned": "Pinned items appear first in the list (and can be used for featured placement). Use sparingly."
+      },
+      "meta": {
+        "slug": "Slug",
+        "status": "Status",
+        "pinned": "Pinned"
+      },
+      "confirmDelete": "This will permanently delete this news item. Are you sure you want to continue?"
+    },
+    "faq": {
+      "title": "FAQ",
+      "subtitle": "Create and manage FAQs for /faq and the first three items on Home.",
+      "createHint": "Create a new FAQ item. Use Markdown for the answer content.",
+      "empty": "No FAQs yet.",
+      "reorderHint": "Drag and drop to reorder FAQ items, then save the order.",
+      "fields": {
+        "question": "Question",
+        "answer": "Answer (Markdown)",
+        "questionEn": "Question (EN)",
+        "questionRu": "Question (RU)",
+        "answerEn": "Answer (Markdown, EN)",
+        "answerRu": "Answer (Markdown, RU)",
+        "sortOrder": "Sort order",
+        "published": "Published"
+      },
+      "actions": {
+        "create": "Create FAQ",
+        "saveOrder": "Save order",
+		"creating": "Creating..."
+      },
+      "hints": {
+        "question": "Write the question exactly as clients would ask it. Keep it short and specific.",
+        "answer": "Write the answer in plain language. You can use Markdown for lists, bold text, and links.",
+        "sortOrder": "Controls the display order (lower numbers appear first). We recommend gaps like 100, 200, 300 so you can insert later.",
+        "published": "If enabled, this FAQ is visible on the public site. Turn off to hide it without deleting."
+      },
+	  "errors": {
+		  "publishRequiresBothLocales": {
+			  "title": "Error",
+			  "body": "Publishing requires both locales to be populated"
+		  }
+	  },
+      "meta": {
+        "order": "Order"
+      },
+      "confirmDelete": "This will permanently delete this FAQ item. Are you sure you want to continue?"
+    }
+  }
+}

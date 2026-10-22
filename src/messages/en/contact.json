@@ -1,0 +1,90 @@
+{
+  "Contact": {
+    "heading": "Contact",
+    "subheading": "If your question isn't covered in our FAQ or you need more information, please use this form for short general queries.",
+
+    "eyebrow": "Contact",
+    "title": "How can we help?",
+    "subtitle": "If your question isn't covered in our FAQ or you need more information, please use this form for short general queries.",
+
+    "quickChat": {
+      "ariaLabel": "Quick contact",
+      "title": "Message us directly",
+      "body": "For the fastest response, contact us via WhatsApp or Telegram.",
+      "quickerResponse": "This method usually gets a quicker response.",
+      "note": "We reply during South African business hours (GMT+2) and handle urgent requests as quickly as possible.",
+      "actions": {
+        "whatsapp": "WhatsApp us",
+        "telegram": "Telegram us"
+      },
+      "prefill": ""
+    },
+
+    "fallback": {
+      "title": "Or send an enquiry",
+      "body": "If you'd rather email us, use the form below and we’ll get back to you as soon as possible."
+    },
+
+    "labels": {
+      "optional": "Optional"
+    },
+
+    "fields": {
+      "fullName": {
+        "label": "Name and surname",
+        "placeholder": "Enter your full name"
+      },
+      "email": {
+        "label": "Email address",
+        "placeholder": "name@example.com"
+      },
+      "phone": {
+        "label": "Telephone number",
+        "placeholder": "+27 82 123 4567",
+        "hint": "Include your international dialing code."
+      },
+      "location": {
+        "label": "Town and country",
+        "placeholder": "e.g. Cape Town, South Africa",
+        "hint": "Helps us route your enquiry to the right consultant."
+      },
+      "enquiryType": {
+        "label": "Reason for your enquiry",
+        "placeholder": "Select an option",
+        "options": {
+          "general": "General enquiry",
+          "southAfricaVisasImmigration": "South Africa: visas & immigration",
+          "travelTrainingUsCaUkEu": "USA/Canada/UK/Europe: travel and training visas",
+          "russiaWorkVisa": "Russia: work visa",
+          "greekPassportSchengen90": "Greek passport: EU/Schengen 90-day visa-free travel"
+        }
+      },
+      "preferredContact": {
+        "label": "How should we contact you?",
+        "options": {
+          "email": "Email",
+          "whatsapp": "WhatsApp",
+          "telegram": "Telegram"
+        }
+      },
+      "preferredTime": {
+        "label": "If by phone, when would you prefer us to call?",
+        "options": {
+          "morning": "09:00 – 13:00",
+          "afternoon": "13:00 – 17:00"
+        }
+      },
+      "message": {
+        "label": "Your message",
+        "placeholder": "Share a brief summary of your situation or question."
+      },
+      "consent": {
+        "label": "I agree that SA Immi Consult may store and process my details to respond to this enquiry."
+      }
+    },
+
+    "actions": {
+      "submit": "Send enquiry"
+    }
+  }
+}

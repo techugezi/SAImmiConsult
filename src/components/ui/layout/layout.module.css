@@ -1,0 +1,41 @@
+/*
+DOC NAME: layout.module.css
+LOCATION: /src/components/ui/layout/layout.module.css
+SCOPE: Global layout primitives (PageShell/MainColumn) — layout only.
+STATUS: UNLOCKED
+APPLIES TO: /src/components/ui/layout/PageShell.tsx, /src/components/ui/layout/MainColumn.tsx and all pages using them
+NOTES:
+- Layout only: no typography/color decisions (those live in globals.css tokens/roles).
+- Page height should be controlled by the APP SHELL (root layout), not per-page, so footer doesn't "float away" on short pages.
+*/
+
+.page {
+	/* CHANGED: do NOT force 100dvh here (footer is outside PageShell) */
+	min-height: 0;
+	display: flex;
+	flex-direction: column;
+
+	/* keep the base canvas painted */
+	background: var(--eggshell);
+
+	/* CHANGED: fill whatever the app shell gives us */
+	flex: 1 1 auto;
+}
+
+.shell {
+	width: 100%;
+
+	/* Keep vertical rhythm but no horizontal padding here */
+	padding-top: var(--space-page);
+	padding-bottom: 0;
+	padding-inline: 0;
+
+	/* CHANGED: allow shell to grow/shrink inside page */
+	flex: 1 1 auto;
+	min-height: 0;
+}
+
+.column {
+	width: min(92vw, var(--content-max-width));
+	margin-inline: auto;
+}

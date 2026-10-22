@@ -1,0 +1,21 @@
+{
+  "AdminStatusStepWizard": {
+    "eyebrow": "Шаг {current} из {total}",
+    "stepLabel": "Шаг {number}: {label}",
+    "stepsNavSuffix": "шаги",
+    "completedMark": "Завершено",
+    "terminal": {
+      "closed": "Закрыто",
+      "finished": "Завершено",
+      "cancelled": "Отменено"
+    },
+    "adminSteps": {
+      "documents": {
+        "awaiting": "Ожидание документов от клиента",
+        "review": "Проверка и утверждение документов клиента"
+      },
+      "visaJourney": "Обновить процесс визы",
+      "outcome": "Зафиксировать результат по визе"
+    }
+  }
+}

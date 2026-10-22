@@ -1,0 +1,58 @@
+/*
+DOC NAME: ActionSplitDropdown.module.css
+LOCATION: /src/components/ui/actions/ActionSplitDropdown.module.css
+SCOPE: Layout-only styling for ActionSplitDropdown (single trigger + portal menu).
+STATUS: UNLOCKED (lock after approved)
+*/
+
+.wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: var(--space-3);
+  min-width: 220px;
+}
+
+.label {
+  min-width: 0;
+}
+
+/* Pure-CSS chevron */
+.chevron {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  margin-top: -2px;
+  flex: 0 0 auto;
+}
+
+/* PORTALED MENU: fixed + positioned via inline style */
+.menu {
+  position: fixed;
+  z-index: 1000;
+
+  display: grid;
+  gap: var(--space-2);
+
+  padding: var(--space-3);
+  border-radius: var(--radius-lg);
+  min-width: 240px;
+
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--shadow-md);
+}
+
+.item {
+  width: 100%;
+  justify-content: center;
+}

@@ -1,0 +1,14 @@
+/*
+DOC NAME: ConfirmSubmitButton.module.css
+LOCATION: /src/components/ui/ConfirmSubmitButton.module.css
+SCOPE: ConfirmSubmitButton wrapper layout ONLY (no button visuals).
+STATUS: UNLOCKED (lock after verified)
+*/
+
+.wrap {
+	display: inline-flex;
+}
+
+/* IMPORTANT: do NOT style the trigger; global .button variants own visuals */
+.trigger {
+}

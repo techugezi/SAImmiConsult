@@ -1,0 +1,66 @@
+/* src/app/[locale]/contact/contact.module.css */
+
+/*
+DOC NAME: contact.module.css
+LOCATION: /src/app/[locale]/contact/contact.module.css
+SCOPE: Contact page layout/interaction only (NO typography/colors/identity tokens defined here).
+STATUS: UNLOCKED (lock after verified)
+NOTES:
+- Uses global hero roles.
+- Uses global surface primitive (.surface-soft) for card visuals.
+- Uses global buttons.
+*/
+
+.card {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-3);
+	padding: clamp(1.25rem, 3.2cqw, 2.25rem);
+	border-radius: var(--radius-xl);
+
+	/* overflow hardening */
+	min-width: 0;
+}
+
+.quickBody {
+	margin: 0;
+	max-width: 80ch;
+
+	/* overflow hardening */
+	overflow-wrap: anywhere;
+}
+
+.fastHint {
+	margin: 0;
+	max-width: 80ch;
+
+	/* subtle spacing separation (layout only) */
+	margin-top: calc(var(--space-2) * -1);
+}
+
+.actionsGrid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: var(--space-3);
+	margin-top: var(--space-2);
+}
+
+.actionButton {
+	width: 100%;
+	justify-content: center;
+}
+
+.metaNote {
+	margin: 0;
+	margin-top: var(--space-2);
+
+	/* overflow hardening */
+	overflow-wrap: anywhere;
+}
+
+@media (max-width: 720px) {
+	.actionsGrid {
+		grid-template-columns: 1fr;
+	}
+}

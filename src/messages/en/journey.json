@@ -1,0 +1,213 @@
+{
+  "Journey": {
+    "aria": {
+      "tracker": "Application progress",
+      "done": "(completed)",
+      "current": "(current step)",
+      "upcoming": "(upcoming)"
+    },
+    "stages": {
+      "1": "Get started",
+      "2": "Consultation",
+      "3": "Your visa plan",
+      "4": "Curating documents",
+      "5": "Your visa journey"
+    },
+    "stepOf": "Step {current} of {total}: {stage}",
+    "badge": {
+      "yourTurn": "Your turn",
+      "waitingConsultant": "Waiting on your consultant",
+      "needsAction": "Needs your action",
+      "waitingClient": "Waiting on the client",
+      "completed": "Completed",
+      "stopped": "Ended"
+    },
+    "lockedApplication": {
+      "title": "Your application opens after your consultation",
+      "body": "Your consultant will set up your plan and document checklist first. We’ll notify you as soon as it’s ready to use."
+    },
+    "client": {
+      "draft_intake": {
+        "title": "Finish your intake",
+        "body": "Answer the intake questions and submit them for your consultant to review. Your progress is saved.",
+        "cta": "Continue intake"
+      },
+      "intake_submitted": {
+        "title": "Intake received",
+        "body": "Your consultant is reviewing your intake and will contact you to arrange a consultation. Nothing is needed from you."
+      },
+      "consultation_requested": {
+        "title": "Consultation requested",
+        "body": "Your consultant will contact you to agree a time. Nothing is needed from you."
+      },
+      "consultation_booked": {
+        "title": "Consultation booked",
+        "body": "Your consultation is arranged. Bring any questions you have about your case."
+      },
+      "consultation_completed": {
+        "title": "Consultation completed",
+        "body": "Your consultant is preparing your plan. We’ll update you here."
+      },
+      "plan_created": {
+        "title": "Your plan is being finalised",
+        "body": "Next, your consultant will list the documents you need. Your application opens after that."
+      },
+      "requirements_added": {
+        "title": "Almost ready",
+        "body": "Your document checklist has been set. Your consultant will activate your application shortly."
+      },
+      "closed": {
+        "title": "Case closed",
+        "body": "After your consultation, your consultant did not proceed with an application. Contact them if you have questions."
+      },
+      "not_started": {
+        "title": "Application not open yet",
+        "body": "Your application opens after your consultation and plan."
+      },
+      "application_activated": {
+        "title": "Your application is open",
+        "body": "Your document checklist is ready. Upload the requested documents to continue.",
+        "cta": "Upload documents"
+      },
+      "waiting_documents": {
+        "title": "Upload your documents",
+        "body": "Upload every document on your checklist. Your consultant reviews them once they’re in.",
+        "cta": "Upload documents"
+      },
+      "documents_under_review": {
+        "title": "Documents under review",
+        "body": "Your consultant is checking your files. We’ll notify you of the result."
+      },
+      "documents_not_approved": {
+        "title": "Some documents need fixing",
+        "body": "Open your application to read your consultant’s notes and upload replacements.",
+        "cta": "Fix documents"
+      },
+      "documents_approved": {
+        "title": "Documents approved",
+        "body": "Your consultant is preparing to submit your application."
+      },
+      "visa_journey_started": {
+        "title": "Application submitted",
+        "body": "Your consultant has submitted your application to Home Affairs. Processing takes time. We’ll update you here."
+      },
+      "visa_issue_action_needed": {
+        "title": "Home Affairs needs more information",
+        "body": "Your consultant will contact you about what is required."
+      },
+      "finished": {
+        "title": "Your visa application was successful",
+        "body": "Congratulations. Your consultant will share any final steps."
+      },
+      "cancelled": {
+        "title": "Application ended",
+        "body": "Your visa application was unsuccessful. Your consultant will talk through your options."
+      },
+      "profile_incomplete": {
+        "title": "Complete your profile",
+        "body": "Add your contact details and background so your consultant can help you. Your progress is saved.",
+        "cta": "Complete profile"
+      },
+      "no_case": {
+        "title": "Create your case",
+        "body": "Your profile is complete. Create your case so a consultant can review it and arrange your consultation.",
+        "cta": "Create your case"
+      }
+    },
+    "admin": {
+      "draft_intake": {
+        "title": "Waiting for the client",
+        "body": "The client is still completing their profile. Nothing to do yet."
+      },
+      "intake_submitted": {
+        "title": "Review the intake",
+        "body": "Read the client’s answers, then contact them to arrange a consultation."
+      },
+      "consultation_requested": {
+        "title": "Arrange the consultation",
+        "body": "Agree a time with the client, then mark the consultation as booked."
+      },
+      "consultation_booked": {
+        "title": "Hold the consultation",
+        "body": "After the meeting, mark the consultation as completed."
+      },
+      "consultation_completed": {
+        "title": "Decide: create a plan or close",
+        "body": "Create a plan to proceed, or close the case if it can’t go ahead."
+      },
+      "plan_created": {
+        "title": "Add the document checklist",
+        "body": "Select the documents this client must provide."
+      },
+      "requirements_added": {
+        "title": "Activate the application",
+        "body": "Activating creates the Drive folder and notifies the client."
+      },
+      "closed": {
+        "title": "Case closed",
+        "body": "This case was not taken forward after the consultation."
+      },
+      "not_started": {
+        "title": "Application not activated",
+        "body": "The application stays in this placeholder state until the case is activated."
+      },
+      "application_activated": {
+        "title": "Application activated",
+        "body": "The client can now upload documents."
+      },
+      "waiting_documents": {
+        "title": "Waiting for documents",
+        "body": "The client is uploading the requested files."
+      },
+      "documents_under_review": {
+        "title": "Review the documents",
+        "body": "Approve the documents, or reject them with a note for the client."
+      },
+      "documents_not_approved": {
+        "title": "Waiting for corrected files",
+        "body": "The client has been notified. Review again once they re-upload."
+      },
+      "documents_approved": {
+        "title": "Start the visa journey",
+        "body": "All documents are approved. Submit to Home Affairs, then mark the journey as started."
+      },
+      "visa_journey_started": {
+        "title": "Track the application",
+        "body": "Flag an issue if Home Affairs needs more, or record the outcome."
+      },
+      "visa_issue_action_needed": {
+        "title": "Resolve the Home Affairs request",
+        "body": "Collect what is missing, then resume the journey or record the outcome."
+      },
+      "finished": {
+        "title": "Visa application successful",
+        "body": "Nothing further to do."
+      },
+      "cancelled": {
+        "title": "Application ended",
+        "body": "The visa application was unsuccessful."
+      },
+      "actions": {
+        "consultation_booked": "Mark consultation booked",
+        "consultation_completed": "Mark consultation completed",
+        "plan_created": "Create plan",
+        "closed": "Close case",
+        "requirements_added": "Save requirements",
+        "application_activated": "Activate application",
+        "documents_under_review": "Move to review",
+        "documents_approved": "Approve documents",
+        "documents_not_approved": "Request corrections",
+        "visa_journey_started": "Mark visa journey started",
+        "visa_issue_action_needed": "Flag Home Affairs issue",
+        "finished": "Mark finished",
+        "cancelled": "Mark cancelled"
+      },
+      "confirm": {
+        "closed": "Close this case? The client will see that no application will proceed.",
+        "application_activated": "This will create (or reuse) the client’s Drive profile folder, open a new application folder, and notify the client. Continue?",
+        "cancelled": "Mark this application as unsuccessful? The client will be notified."
+      }
+    },
+    "title": "Your journey"
+  }
+}

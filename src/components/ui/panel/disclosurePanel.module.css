@@ -1,0 +1,110 @@
+/*
+DOC NAME: disclosurePanel.module.css
+LOCATION: /src/components/ui/panel/disclosurePanel.module.css
+SCOPE: DisclosurePanel primitive — layout + visuals via TOKENS only.
+STATUS: NEW (LOCK ONCE ADDED)
+NOTES:
+- No typography rules for title/subtitle (globals.css owns them).
+- Consumes --panel-bg/--panel-border/--panel-radius/--panel-padding/--panel-header-bg.
+*/
+
+/* ==========================================================================
+   DisclosurePanel — details/summary version of Panel
+   ========================================================================== */
+
+.panel {
+	background: var(--panel-bg);
+	border: 1px solid var(--panel-border);
+	border-radius: var(--panel-radius);
+	overflow: hidden;
+
+	box-shadow: var(--shadow-md);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+}
+
+.summary {
+	list-style: none;
+	cursor: pointer;
+	user-select: none;
+
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: var(--space-4);
+	flex-wrap: wrap;
+
+	padding: var(--panel-padding);
+	border-bottom: 1px solid var(--panel-border);
+	background: var(--panel-header-bg);
+}
+
+.summary::-webkit-details-marker {
+	display: none;
+}
+
+.headerText {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+	min-width: 240px;
+}
+
+.headerRight {
+	display: flex;
+	align-items: center;
+	gap: var(--space-3);
+	margin-left: auto;
+	flex-wrap: wrap;
+}
+
+.actions {
+	display: flex;
+	align-items: center;
+	gap: var(--space-3);
+	flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   Chevron — circular button-style glyph (visual only)
+   ========================================================================== */
+
+.chevron {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 28px;          /* was 32px */
+	height: 28px;         /* was 32px */
+	border-radius: 999px;
+
+	border: 1px solid var(--panel-border);
+	background: rgba(255, 255, 255, 0.6);
+
+	transform: rotate(0deg);
+	transition:
+		transform 140ms ease,
+		background-color 120ms ease,
+		box-shadow 120ms ease;
+
+	box-shadow: 0 0 0 rgba(0, 0, 0, 0.08); /* neutral baseline */
+	
+	color: var(--protea-pink);
+}
+
+.summary:hover .chevron {
+	background: rgba(255, 255, 255, 0.85);
+	box-shadow: 0 0 6px rgba(0, 0, 0, 0.14); /* uniform, non-directional */
+}
+
+.panel[open] > .summary .chevron {
+	transform: rotate(180deg);
+}
+
+.body {
+	padding: var(--panel-padding);
+}
+
+.disabled {
+	opacity: 0.65;
+}

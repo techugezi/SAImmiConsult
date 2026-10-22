@@ -1,0 +1,79 @@
+{
+  "ClientDocuments": {
+    "title": "Your Documents",
+    "subtitle": "Upload and manage all required documents securely",
+    "upload": {
+      "title": "Upload New Document",
+      "button": "Choose File & Upload",
+      "uploading": "Uploading…",
+      "success": "Document uploaded successfully!",
+      "error": "Upload failed. Please try again.",
+      "cancel": "Cancel",
+	  "replace": "Replace",
+      "confirm": "Upload Document",
+      "fileSelected": "Selected: {fileName}",
+      "fileTooLarge": "File is too large. Maximum size is 10 MB.",
+      "invalidFile": "Please select a valid file format",
+      "formats": "Accepted formats",
+      "errors": {
+        "size": "File is too large (max 10MB)",
+        "format": "Invalid file format",
+        "folder": "Application folder not ready. Please try again later.",
+        "generic": "Upload failed. Please try again."
+      }
+    },
+    "list": {
+      "empty": "No documents uploaded yet",
+      "emptyMessage": "Get started by uploading your passport, photos, or any other required documents.",
+      "formats": "Accepted formats",
+      "uploadedOn": "Uploaded on",
+      "view": "View",
+      "download": "Download",
+      "delete": "Delete",
+      "replace": "Replace",
+      "requiredBadge": "Required",
+      "feedbackLabel": "Admin Feedback",
+      "maxSize": "Max {size}MB",
+      "missingStatus": "Not Uploaded"
+    },
+    "statuses": {
+      "missing": "Not Uploaded",
+      "pending": "Under Review",
+      "approved": "Approved",
+      "needs_resubmission": "Action Required",
+      "rejected": "Rejected"
+    },
+    "tooltips": {
+      "missing": "This document is required but not yet uploaded",
+      "pending": "Our team is reviewing your document",
+      "approved": "Document has been accepted",
+      "needs_resubmission": "Please upload a clearer or corrected version",
+      "rejected": "Document was rejected. See feedback below."
+    },
+    "requirements": {
+      "passport": "Passport (photo page + one clean page for visa)",
+      "passport_photo": "Passport-sized Photo",
+      "application_form": "Completed Application Form",
+      "fee_receipt": "Proof of Payment",
+      "yellow_fever_certificate": "Yellow Fever Certificate (if applicable)",
+      "return_ticket": "Return Flight Ticket",
+      "proof_of_funds": "Proof of Sufficient Funds",
+      "travel_itinerary": "Travel Itinerary / Accommodation Booking",
+      "police_clearance_certificate": "Police Clearance Certificate",
+      "medical_report": "Medical Report",
+      "radiological_report": "Radiological Report",
+      "saqa_evaluation": "SAQA Evaluation Certificate",
+      "qualification_certificates": "Educational Qualifications & Certificates",
+      "motivation_letter": "Motivation Letter",
+      "employment_contract": "Signed Employment Contract",
+      "employer_undertaking": "Employer Undertaking Letter",
+      "medical_cover": "Medical Aid / Health Insurance",
+      "program_confirmation": "Program Acceptance Letter",
+      "staff_undertaking": "Staff Undertaking",
+      "labour_certificate": "Department of Labour Certificate",
+      "proof_investment": "Proof of Investment (minimum R5 million)",
+      "dti_recommendation": "DTI Recommendation Letter",
+      "birth_certificate": "Birth Certificate"
+    }
+  }
+}

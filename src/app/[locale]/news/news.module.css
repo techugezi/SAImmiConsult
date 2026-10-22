@@ -248,6 +248,7 @@ a.newsItem:hover {
 /* Typography moved to global roles; keep only spacing here */
 .newsItemTitle {
   margin: clamp(0.6rem, 1.3cqw, 0.9rem) 0 0;
+  font-weight: var(--weight-bold);
 }
 
 /* Typography moved to global roles; keep only spacing/measure here */

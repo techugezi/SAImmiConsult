@@ -475,13 +475,15 @@ async function closeApplicationOverride(formData: FormData) {
 
   if (currentStatus === APPLICATION_STATUS.CANCELLED) {
     redirect(
-      `/${locale}${siteConfig.adminApplicationsPath}/${applicationId}#application-wizard`,
+      `/${locale}${siteConfig.adminApplicationsPath}/${applicationId}` +
+        `?open=journey&stage=outcome#application-wizard`,
     );
   }
 
   if (currentStatus === APPLICATION_STATUS.FINISHED) {
     redirect(
-      `/${locale}${siteConfig.adminApplicationsPath}/${applicationId}#application-wizard`,
+      `/${locale}${siteConfig.adminApplicationsPath}/${applicationId}` +
+        `?open=journey&stage=outcome#application-wizard`,
     );
   }
 
@@ -575,7 +577,8 @@ async function updateJourneyPanel(formData: FormData) {
 
   if (isTerminal && wantsChangeStatus) {
     redirect(
-      `/${locale}${siteConfig.adminApplicationsPath}/${applicationId}?stage=${encodeURIComponent(requestedStage || "outcome")}#application-wizard`,
+      `/${locale}${siteConfig.adminApplicationsPath}/${applicationId}` +
+        `?open=journey&stage=${encodeURIComponent(requestedStage || "outcome")}#application-wizard`,
     );
   }
 
@@ -596,7 +599,8 @@ async function updateJourneyPanel(formData: FormData) {
 
   if (Object.keys(payload).length === 1) {
     redirect(
-      `/${locale}${siteConfig.adminApplicationsPath}/${applicationId}?stage=${encodeURIComponent(requestedStage || "")}#application-wizard`,
+      `/${locale}${siteConfig.adminApplicationsPath}/${applicationId}` +
+        `?open=journey&stage=${encodeURIComponent(requestedStage || "")}#application-wizard`,
     );
   }
 
@@ -613,8 +617,23 @@ async function updateJourneyPanel(formData: FormData) {
     throw new Error("Failed to update application.");
   }
 
+  // Send the admin to the step the *new* status belongs to, so the wizard does
+  // not visually snap back to the step they just left until a manual refresh.
+  const nextStageFromStatus = getApplicationAdminWizardStepKey(nextStatus);
+  const nextStageParam =
+    nextStageFromStatus === "outcome"
+      ? "outcome"
+      : nextStageFromStatus === "visa_journey"
+        ? // If the admin explicitly submitted from outcome (e.g. closing the
+          // file), keep them on outcome; otherwise land on journey.
+          requestedStage === "outcome"
+          ? "outcome"
+          : "visa_journey"
+        : "documents";
+
   redirect(
-    `/${locale}${siteConfig.adminApplicationsPath}/${applicationId}#application-wizard`,
+    `/${locale}${siteConfig.adminApplicationsPath}/${applicationId}` +
+      `?open=journey&stage=${encodeURIComponent(nextStageParam)}#application-wizard`,
   );
 }
 
@@ -647,7 +666,8 @@ async function bulkUpdateDocumentStatuses(formData: FormData) {
   const target = typeof targetRaw === "string" ? targetRaw.trim() : "";
   if (!isValidClientDocumentStatus(target)) {
     redirect(
-      `/${locale}${siteConfig.adminApplicationsPath}/${applicationId}?open=${open}#application-wizard`,
+      `/${locale}${siteConfig.adminApplicationsPath}/${applicationId}` +
+        `?open=documents&stage=documents#application-wizard`,
     );
   }
 
@@ -655,13 +675,15 @@ async function bulkUpdateDocumentStatuses(formData: FormData) {
 
   if (selected.length === 0) {
     redirect(
-      `/${locale}${siteConfig.adminApplicationsPath}/${applicationId}?open=${open}#application-wizard`,
+      `/${locale}${siteConfig.adminApplicationsPath}/${applicationId}` +
+        `?open=documents&stage=documents#application-wizard`,
     );
   }
 
   if (target === "resubmit" && note.length === 0) {
     redirect(
-      `/${locale}${siteConfig.adminApplicationsPath}/${applicationId}?open=${open}#application-wizard`,
+      `/${locale}${siteConfig.adminApplicationsPath}/${applicationId}` +
+        `?open=documents&stage=documents&saved=documents#application-wizard`,
     );
   }
 
@@ -794,6 +816,7 @@ export default async function AdminApplicationDetailPage({
     month: "short",
     day: "numeric",
   });
+
   const fmtWithTime = new Intl.DateTimeFormat(uiLocale, {
     year: "numeric",
     month: "short",
@@ -1061,27 +1084,51 @@ export default async function AdminApplicationDetailPage({
     docsProgress.requiredCount > 0 &&
     docsProgress.uploadedCount === 0;
 
-  const statusDrivenPanel: PanelKey = isDocumentStage ? "documents" : "journey";
-  const effectiveOpenPanel: PanelKey =
-    open === "timeline"
-      ? "timeline"
-      : isDocumentStage
-        ? "documents"
-        : open === "documents" || open === "journey"
-          ? open
-          : statusDrivenPanel;
   const requestedStageRaw = (searchParams ? await searchParams : {})?.stage;
   const requestedStage =
-    typeof requestedStageRaw === "string" ? requestedStageRaw : "";
-  const allowedAdminStages = ["documents", "visa_journey", "outcome"];
-
-  // Step routing is DB-truth, period. Only jump back to "documents" if the
-  // application_status itself says we're in the documents phase.
-  const activeAdminStage = isDocumentStage
-    ? "documents"
-    : allowedAdminStages.includes(requestedStage)
-      ? requestedStage
-      : getApplicationAdminWizardStepKey(appMeta.id);
+    typeof requestedStageRaw === "string" ? requestedStageRaw.trim() : "";
+  
+  const stageFromStatus = getApplicationAdminWizardStepKey(appMeta.id);
+  
+  // ── Wizard stage policy ────────────────────────────────────────────────
+  // - Backward navigation to completed steps: always allowed.
+  // - Current step: taken from DB status.
+  // - Forward navigation to steps whose status hasn't been reached: blocked.
+  //
+  // Completion is inferred from the status: if stageFromStatus is
+  // "visa_journey", then "documents" is complete; if "outcome", then both
+  // "documents" and "visa_journey" are complete.
+  
+  const STAGE_ORDER = ["documents", "visa_journey", "outcome"] as const;
+  type StageKey = (typeof STAGE_ORDER)[number];
+  
+  function stageRank(stage: string): number {
+    const idx = (STAGE_ORDER as readonly string[]).indexOf(stage);
+    return idx === -1 ? 0 : idx;
+  }
+  
+  const currentRank = stageRank(stageFromStatus);
+  
+  // A requested stage is reachable if:
+  // - it matches a known stage, AND
+  // - its rank <= the current rank (i.e., it's completed or current)
+  function isStageReachable(requested: string): requested is StageKey {
+    if (!(STAGE_ORDER as readonly string[]).includes(requested)) return false;
+    return stageRank(requested) <= currentRank;
+  }
+  
+  const activeAdminStage: StageKey = isStageReachable(requestedStage)
+    ? (requestedStage as StageKey)
+    : (stageFromStatus as StageKey);
+  
+  // `effectiveOpenPanel` follows the stage the admin is on. `documents`
+  // maps to the documents panel; `visa_journey` and `outcome` both live
+  // under the journey panel; and `open=timeline` overrides regardless.
+  const panelForStage: PanelKey =
+    activeAdminStage === "documents" ? "documents" : "journey";
+  
+  const effectiveOpenPanel: PanelKey =
+    open === "timeline" ? "timeline" : panelForStage;
 
   const adminCompletedSteps = getApplicationAdminCompletedStepKeys(appMeta.id);
   const statusLockedOnVisaJourneyStep =
@@ -1668,23 +1715,23 @@ export default async function AdminApplicationDetailPage({
                                 : "";
                           const checkboxId = `doc-${app.id}-${r.document_type_id}`;
                           return (
-                               <div
-                                key={r.document_type_id}
-                                className={[
-                                  "surface-soft",
-                                  styles.checkRow,
-                                  rowStateClass,
-                                ]
-                                  .filter(Boolean)
-                                  .join(" ")}
-                                data-doc-state={
-                                  status === "resubmit" || status === "rejected"
-                                    ? "needs-attention"
-                                    : status === "approved"
-                                      ? "approved"
-                                      : "neutral"
-                                }
-                              >
+                            <div
+                              key={r.document_type_id}
+                              className={[
+                                "surface-soft",
+                                styles.checkRow,
+                                rowStateClass,
+                              ]
+                                .filter(Boolean)
+                                .join(" ")}
+                              data-doc-state={
+                                status === "resubmit" || status === "rejected"
+                                  ? "needs-attention"
+                                  : status === "approved"
+                                    ? "approved"
+                                    : "neutral"
+                              }
+                            >
                               <label
                                 htmlFor={checkboxId}
                                 className={styles.checkRowOverlay}

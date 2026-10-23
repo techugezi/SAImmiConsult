@@ -60,7 +60,6 @@ export default function DocumentRequirementRowStateful({
 		uploadedDoc?.status && uploadedDoc.status !== "missing",
 	);
 
-	// Reviewer flagged this file — client must act. Wins over upload state.
 	const needsAttention =
 		uploadedDoc?.status === "resubmit" ||
 		uploadedDoc?.status === "rejected";

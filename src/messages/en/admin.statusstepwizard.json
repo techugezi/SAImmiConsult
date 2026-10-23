@@ -14,8 +14,8 @@
         "awaiting": "Awaiting client documents",
         "review": "Review and validate client documents"
       },
-      "visaJourney": "Update Visa Journey",
-      "outcome": "Record Visa outcome"
+      "visaJourney": "Start visa journey with department",
+      "outcome": "Record visa outcome"
     }
   }
 }

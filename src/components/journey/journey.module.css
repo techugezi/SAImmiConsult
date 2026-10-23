@@ -55,7 +55,7 @@
 
 .done,
 .current {
-  --line: var(--protea-pink);
+  --line: var(--success, #4caf50);
 }
 
 .stopped {
@@ -79,8 +79,8 @@
 }
 
 .done .marker {
-  background: var(--protea-pink);
-  border-color: var(--protea-pink);
+  background: var(--success, #4caf50);
+  border-color: var(--success, #4caf50);
   color: #fff;
 }
 

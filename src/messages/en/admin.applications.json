@@ -166,7 +166,7 @@
       "steps": {
         "waiting": "Await client documents",
         "review": "Review client documents",
-        "journey": "Update visa journey",
+        "journey": "Start visa journey",
         "outcome": "Record visa outcome",
         "finished": "Complete final handover"
       },

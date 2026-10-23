@@ -11,29 +11,63 @@ import styles from "./DocumentRequirementRow.module.css";
 
 export type DocumentRequirementUploadState = "idle" | "selected" | "uploaded";
 
-type RequiredProps =
-	| {
-			required: true;
-			requiredLabel: string;
-	  }
-	| {
-			required?: false;
-			requiredLabel?: string;
-	  };
-
 type Props = {
 	title: string;
 	description: string;
+
+	/**
+	 * Status badge (ex: "Approved", "Missing", "Resubmit")
+	 */
 	statusLabel: string;
+
+	/**
+	 * Global badge tone class (ex: "badge-success" | "badge-caution" | "badge-neutral")
+	 * Matches IdentityCards badge usage.
+	 */
 	statusTone?: string;
+
+	/**
+	 * Optional note line under description
+	 */
 	note?: string | null;
+
 	uploadedOnLabel: string;
 	uploadedOnValue: string;
+
 	action?: React.ReactNode;
+
+	/**
+	 * Visual state of the row, driven by the client wrapper.
+	 * - "idle": no file picked, nothing uploaded
+	 * - "selected": a file is picked but upload has not succeeded yet
+	 * - "uploaded": upload succeeded (or document already persisted as uploaded)
+	 */
 	uploadState?: DocumentRequirementUploadState;
+
+	/**
+	 * When true, renders the green check circle next to the title.
+	 */
 	showUploadedCheck?: boolean;
+
+	/**
+	 * When true, the row is tinted protea pink to signal "needs attention"
+	 * (e.g. reviewer flagged it for resubmission). This override wins over
+	 * `uploadState` for the row tint — the check circle is still suppressed
+	 * because the review cycle isn't complete.
+	 */
 	needsAttention?: boolean;
-} & RequiredProps;
+
+	/**
+	 * When true, renders the "Required" badge. The corresponding
+	 * `requiredLabel` is only used when this is true.
+	 */
+	required?: boolean;
+
+	/**
+	 * Label for the "Required" badge. Safe to pass regardless of `required`.
+	 */
+	requiredLabel?: string;
+};
 
 export default function DocumentRequirementRow({
 	title,
@@ -94,7 +128,7 @@ export default function DocumentRequirementRow({
 					) : null}
 
 					<div className={styles.badges}>
-						{required ? (
+						{required && requiredLabel ? (
 							<span className="badge badge-neutral">
 								<span>{requiredLabel}</span>
 							</span>

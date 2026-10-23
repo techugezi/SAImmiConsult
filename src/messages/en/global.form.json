@@ -126,7 +126,7 @@
       "applications": {
         "all": "All",
         "waiting_documents": "Waiting for client documents",
-        "documents_under_review": "Documents being reviewed",
+        "documents_under_review": "Documents to be reviewed",
         "documents_not_approved": "Documents not approved by consultant",
         "documents_approved": "Documents approved by consultant",
         "visa_journey_started": "Visa journey started with department",

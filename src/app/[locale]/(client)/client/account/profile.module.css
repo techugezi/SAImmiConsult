@@ -71,8 +71,6 @@ SCOPE: Client account/intake layout only. Mirrors the New Case wizard layout pri
 /* Readiness state */
 .readiness {
   width: 100%;
-  max-width: 760px;
-  margin-inline: auto;
 }
 
 .readinessList {

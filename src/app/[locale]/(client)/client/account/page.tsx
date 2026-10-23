@@ -186,6 +186,21 @@ function isValidTelegramUsernameFormat(v: string) {
 	return /^[A-Za-z0-9_]{5,32}$/.test(v.trim());
 }
 
+/**
+ * Returns true when the passport expiry date is less than 6 months away.
+ * Empty / unparseable dates return false (not a "too soon" error).
+ */
+function isPassportExpiringSoon(value: string) {
+	if (!value) return false;
+	const expiry = new Date(value);
+	if (Number.isNaN(expiry.getTime())) return false;
+
+	const sixMonthsFromNow = new Date();
+	sixMonthsFromNow.setMonth(sixMonthsFromNow.getMonth() + 6);
+
+	return expiry < sixMonthsFromNow;
+}
+
 function buildWhatsAppE164(countryIso2: string, rawNumber: string) {
 	const iso = countryIso2.toUpperCase() as CountryCode;
 	const number = rawNumber.trim();
@@ -550,6 +565,16 @@ export default function ClientProfileIntakePage() {
 				const contactEmail = normalizeTrim(values.contactEmail);
 				const telegramUsername = normalizeTrim(values.telegramUsername);
 				const whatsappE164 = buildWhatsAppE164(values.whatsappCountry, values.whatsappNumber);
+				// Store the localized country NAME, not the ISO code.
+				// Falls back to the raw value when it's legacy free-text (not in the ISO list).
+				const citizenshipRaw = values.citizenship.trim();
+				const citizenshipName = (() => {
+					if (!citizenshipRaw) return "";
+					const code = citizenshipRaw.toUpperCase();
+					const isIso = (ISO_3166_ALPHA2_ALL as readonly string[]).includes(code);
+					if (!isIso) return citizenshipRaw; // legacy free-text, keep as-is
+					return regionNames.of(code) ?? citizenshipRaw;
+				})();
 
 				// Light UI checks (DB is final gate)
 				if (preferred === "email") {
@@ -576,6 +601,12 @@ export default function ClientProfileIntakePage() {
 					}
 				}
 
+				if (isPassportExpiringSoon(values.passportExpiry)) {
+					setError(t("messages.passportExpiringSoon"));
+					setSubmitting(false);
+					return;
+				}				
+
 				const payload = {
 					user_id: userId,
 
@@ -586,7 +617,7 @@ export default function ClientProfileIntakePage() {
 					date_of_birth: values.dateOfBirth || null,
 
 					// Store ISO2 where possible; legacy free-text still supported.
-					citizenship_country: values.citizenship.trim() || null,
+					citizenship_country: citizenshipName || null,
 					city_country: values.cityCountry.trim() || null,
 					marital_status: values.maritalStatus || null,
 
@@ -630,7 +661,7 @@ export default function ClientProfileIntakePage() {
 					middleName: values.middleName.trim(),
 					lastName: values.lastName.trim(),
 
-					citizenship: values.citizenship.trim().toUpperCase(),
+					citizenship: values.citizenship.trim(),
 					cityCountry: values.cityCountry.trim(),
 
 					contactEmail,
@@ -689,9 +720,11 @@ export default function ClientProfileIntakePage() {
 				if (completing) {
 					setIsCompleted(true);
 					setSuccess(t("wizard.completed"));
+					router.push(`/${locale}${siteConfig.clientDashboardPath}`);
+					router.refresh();
+					return;
 				} else {
 					setCurrentStep(nextStep);
-					setSuccess(t("wizard.stepSaved"));
 				}
 			} catch (err) {
 				console.error("[ClientProfileIntake] Unexpected error:", err);
@@ -784,10 +817,9 @@ export default function ClientProfileIntakePage() {
 					<div className={hasStarted && !isCompleted ? `surface-soft ${styles.card}` : undefined}>
 					{!hasStarted ? (
 						<section className={`surface-soft ${styles.section} ${styles.readiness}`}>
-							<p className="eyebrow">{t("wizard.eyebrow")}</p>
 							<h2 className="panel-title">{t("wizard.readinessTitle")}</h2>
-							<p className="text-sm text-muted">{t("wizard.readinessDescription")}</p>
-							<ul className={styles.readinessList}>
+							<p className="text-m text-muted">{t("wizard.readinessDescription")}</p>
+							<ul className="text">
 								<li>{t("wizard.readinessPassport")}</li>
 								<li>{t("wizard.readinessVisa")}</li>
 							</ul>
@@ -1022,11 +1054,20 @@ export default function ClientProfileIntakePage() {
 									</div>
 
 									<div className="stack" style={{ gap: "var(--space-1)" }}>
-										<label className="form-label" htmlFor="useLoginEmail">
+										<span className="form-label">
 											{t("fields.contactEmail.useLoginEmail.label")}
-										</label>
+										</span>
 
-										<div className={styles.checkRow}>
+										<label
+											htmlFor="useLoginEmail"
+											className={styles.checkRow}
+											style={{
+												cursor:
+													disableAll || loginEmail.length === 0
+														? "not-allowed"
+														: "pointer",
+											}}
+										>
 											<input
 												id="useLoginEmail"
 												name="useLoginEmail"
@@ -1034,13 +1075,14 @@ export default function ClientProfileIntakePage() {
 												checked={values.useLoginEmail}
 												onChange={onToggleUseLoginEmail}
 												disabled={disableAll || loginEmail.length === 0}
+												required={showEmail}
 											/>
 											<span className="text-sm text-muted">
 												{loginEmail
 													? t("fields.contactEmail.useLoginEmail.caption", { email: loginEmail })
 													: t("fields.contactEmail.useLoginEmail.noEmail")}
 											</span>
-										</div>
+										</label>
 									</div>
 								</div>
 							) : null}
@@ -1137,6 +1179,7 @@ export default function ClientProfileIntakePage() {
 									value={values.familyComposition}
 									onChange={onChange}
 									disabled={disableAll}
+									required
 								/>
 							</div>
 
@@ -1151,6 +1194,7 @@ export default function ClientProfileIntakePage() {
 									value={values.income2000plus}
 									onChange={onChange}
 									disabled={disableAll}
+									required
 								>
 									<option value="">{t("fields.income2000plus.placeholder")}</option>
 									{YES_NO_UNSPECIFIED_OPTIONS.map((o) => (
@@ -1174,6 +1218,7 @@ export default function ClientProfileIntakePage() {
 									value={values.incomeSource}
 									onChange={onChange}
 									disabled={disableAll}
+									required
 								/>
 								<p className="text-sm text-muted" style={{ margin: 0 }}>
 									{t("fields.incomeSource.hint")}
@@ -1200,9 +1245,10 @@ export default function ClientProfileIntakePage() {
 									value={values.beenToSa}
 									onChange={onChange}
 									disabled={disableAll}
+									required
 								>
 									<option value="">{t("fields.beenToSa.placeholder")}</option>
-									{YES_NO_UNSPECIFIED_OPTIONS.map((o) => (
+									{YES_NO_UNSPECIFIED_OPTIONS.filter((o) => o.value !== "unspecified").map((o) => (
 										<option key={o.value} value={o.value}>
 											{t(`fields.beenToSa.options.${o.value}`)}
 										</option>
@@ -1239,6 +1285,7 @@ export default function ClientProfileIntakePage() {
 									value={values.currentLocation}
 									onChange={onChange}
 									disabled={disableAll}
+									required
 								/>
 							</div>
 
@@ -1268,11 +1315,12 @@ export default function ClientProfileIntakePage() {
 									value={values.visaRefusals}
 									onChange={onChange}
 									disabled={disableAll}
+									required
 								>
 									<option value="">{t("fields.visaRefusals.placeholder")}</option>
-									{YES_NO_UNSPECIFIED_OPTIONS.map((o) => (
+									{YES_NO_UNSPECIFIED_OPTIONS.filter((o) => o.value !== "unspecified").map((o) => (
 										<option key={o.value} value={o.value}>
-											{t(`fields.visaRefusals.options.${o.value}`)}
+											{t(`fields.beenToSa.options.${o.value}`)}
 										</option>
 									))}
 								</select>
@@ -1299,6 +1347,7 @@ export default function ClientProfileIntakePage() {
 									value={values.passportExpiry}
 									onChange={onChange}
 									disabled={disableAll}
+									required
 								/>
 							</div>
 
@@ -1314,6 +1363,7 @@ export default function ClientProfileIntakePage() {
 									value={values.visitPurpose}
 									onChange={onChange}
 									disabled={disableAll}
+									required
 								/>
 							</div>
 						</div>
@@ -1337,6 +1387,7 @@ export default function ClientProfileIntakePage() {
 									value={values.englishLevel}
 									onChange={onChange}
 									disabled={disableAll}
+									required
 								>
 									<option value="">{t("fields.englishLevel.placeholder")}</option>
 									{ENGLISH_LEVEL_OPTIONS.map((o) => (
@@ -1358,6 +1409,7 @@ export default function ClientProfileIntakePage() {
 									value={values.needLanguageSchool}
 									onChange={onChange}
 									disabled={disableAll}
+									required
 								>
 									<option value="">{t("fields.needLanguageSchool.placeholder")}</option>
 									{YES_NO_UNSPECIFIED_OPTIONS.map((o) => (

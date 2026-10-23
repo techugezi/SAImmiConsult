@@ -203,7 +203,7 @@ export default function ClientCaseIntakeWizardPage() {
 		setErrorMsg(null);
 
 		try {
-			await createNewCase({
+			const createdCaseId = await createNewCase({
 				destination: formData.destination,
 				visaType: formData.visaType,
 				timeframe: formData.timeframe,
@@ -212,14 +212,22 @@ export default function ClientCaseIntakeWizardPage() {
 
 			setDidCreate(true);
 
-			// Locale-aware (Link/router from i18n layer). Keep path under /[locale]/...
-			const target = {
-				pathname: siteConfig.clientCasesPath,
-				query: { created: "1" },
-			} as const;
-			
+			if (!createdCaseId) {
+				redirectTimerRef.current = window.setTimeout(() => {
+					router.replace({
+						pathname: "/client/dashboard",
+						query: { created: "1" },
+					});
+				}, 3000);
+				return;
+			}
+
 			redirectTimerRef.current = window.setTimeout(() => {
-				router.replace(target);
+				router.replace({
+					pathname: "/client/cases/[id]",
+					params: { id: createdCaseId },
+					query: { created: "1" },
+				});
 			}, 3000);
 		} catch (err) {
 			submittedRef.current = false;
@@ -317,13 +325,15 @@ export default function ClientCaseIntakeWizardPage() {
 									id="destination"
 									className="form-control"
 									value={formData.destination}
-									onChange={(e) =>
+									onChange={(e) => {
+										const next = e.target.value as Destination;
 										setFormData((prev) => ({
 											...prev,
-											destination: e.target.value as Destination,
+											destination: next,
 											visaType: "",
-										}))
-									}
+										}));
+										if (next) setStep(2);
+									}}
 									disabled={isBusy}
 								>
 									<option value="">{t("step1.placeholder")}</option>
@@ -364,12 +374,14 @@ export default function ClientCaseIntakeWizardPage() {
 									id="visaType"
 									className="form-control"
 									value={formData.visaType}
-									onChange={(e) =>
+									onChange={(e) => {
+										const next = e.target.value;
 										setFormData((prev) => ({
 											...prev,
-											visaType: e.target.value,
-										}))
-									}
+											visaType: next,
+										}));
+										if (next) setStep(3);
+									}}
 									disabled={isBusy}
 								>
 									<option value="">{t("step2.placeholder")}</option>

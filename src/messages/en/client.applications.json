@@ -2,7 +2,7 @@
   "ClientApplications": {
     "eyebrow": "My Applications",
     "title": "Manage your applications here",
-    "subtitle": "Create and track your visa applications here.",
+    "subtitle": "Track your visa applications here.",
     "navigation": {
       "returnToApps": "Return to applications",
       "openCase": "Open case"
@@ -140,7 +140,7 @@
         "outcome": "Visa decision"
       },
       "documentsTitle": "Upload required documents",
-      "documentsSubtitle": "Upload each item below. Your consultant will review them and let you know if anything needs attention.",
+      "documentsSubtitle": "Upload each item below. Your consultant will review them and let you know if anything needs attention. Once all documents are validated successfully, you can move onto step 2.",
       "documentsNextAction": "Please upload any documents still marked as outstanding. Once uploaded, they will be reviewed. If required to resubmit, please follow the consultants instructions as noted below the required file. Do not forget to click upload once a document has been selected.",
       "documentsUnderReview": "Your documents have been uploaded successfully and are now under review. You can check each document’s status below.",
       "documentsNeedsAttention": "One or more documents needs attention. Please read the note beside it and upload a replacement document. This step stays open until all required documents are approved.",

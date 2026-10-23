@@ -303,3 +303,27 @@ NOTES:
 	position: relative;
 	z-index: 3;
 }
+
+/* -------------------------------------------------------------------------- */
+/* Admin document requirement row — state tints                              */
+/* -------------------------------------------------------------------------- */
+
+/*
+  Applied alongside `.checkRow` inside the requirements.map(...) loop on the
+  admin application detail page. Mirrors the client-side tints so a consultant
+  switching between the two views sees the same visual contract:
+    - needs attention  → protea pink
+    - approved         → green
+*/
+
+.checkRowNeedsAttention {
+	background-color: rgba(229, 115, 115, 0.14) !important;
+	border-color: var(--protea-pink, #e57373);
+	box-shadow: 0 0 0 1px var(--protea-pink, #e57373) inset;
+}
+
+.checkRowApproved {
+	background-color: rgba(76, 175, 80, 0.14) !important;
+	border-color: var(--success, #4caf50);
+	box-shadow: 0 0 0 1px var(--success, #4caf50) inset;
+}

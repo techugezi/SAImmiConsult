@@ -1,3 +1,10 @@
+/*
+DOC NAME: StatusStepWizard.tsx
+LOCATION: /src/components/progression/StatusStepWizard.tsx
+SCOPE: StatusStepWizard — a single-task progress wizard for client and admin journeys. It shows only the current meaningful step, while the page renders the existing functional panel for that step below it. Individual database statuses are grouped into journey phases by the page.
+STATUS: UNLOCKED (lock after approved)
+*/
+
 import type { ReactNode } from "react";
 import AnchorFocus from "./AnchorFocus";
 import styles from "./StatusStepWizard.module.css";
@@ -129,14 +136,16 @@ export default function StatusStepWizard({
         className={styles.progressTrack}
         role="progressbar"
         aria-label={ariaLabel}
-        aria-valuemin={0}
-        aria-valuemax={100}
-        aria-valuenow={progress}
+        aria-valuemin={1}
+        aria-valuemax={steps.length}
+        aria-valuenow={activeIndex + 1}
       >
-        <span
-          className={styles.progressFill}
-          style={{ width: `${progress}%` }}
-        />
+        {steps.map((step, index) => (
+          <div
+            key={step.key}
+            className={`${styles.progressSegment} ${index <= activeIndex ? styles.progressSegmentFilled : ""}`.trim()}
+          />
+        ))}
       </div>
       {children ? <div className={styles.content}>{children}</div> : null}
     </section>

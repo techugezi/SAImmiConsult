@@ -48,9 +48,7 @@ import {
 
 import { PageShell } from "@/components/ui/layout/PageShell";
 import { MainColumn } from "@/components/ui/layout/MainColumn";
-import DocumentRequirementRow from "@/components/ui/DocumentRequirementRow";
-
-import DocumentUploadForm from "@/components/ui/DocumentUploadForm";
+import DocumentRequirementRowStateful from "@/components/ui/DocumentRequirementRowStateful";
 
 import {
   IdentityCards,
@@ -233,8 +231,24 @@ export default async function ApplicationDetailsPage({
   const fmtShort = new Intl.DateTimeFormat(locale, {
     year: "numeric",
     month: "short",
-    day: "numeric",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
   });
+
+  // Rewrites bracket-prefixed ISO timestamps inside a note (as written by
+  // the admin bulk action, e.g. "[2026-10-23T14:37:12.847Z]") into the
+  // current locale. Non-ISO bracket content like "[DHA]" is left alone.
+  function formatNoteTimestamps(raw: string): string {
+    return raw.replace(
+      /\[\s*(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z)\s*\]/g,
+      (match, iso: string) => {
+        const d = new Date(iso);
+        if (Number.isNaN(d.getTime())) return match;
+        return `[${fmtShort.format(d)}]`;
+      },
+    );
+  }
 
   const dateNa = tGlobal("Common.dates.na");
   const arrowLeft = tGlobal("Common.symbols.arrowLeft");
@@ -950,45 +964,42 @@ export default async function ApplicationDetailsPage({
                       const uploadedAtLabel = uploadedAt
                         ? fmtShort.format(uploadedAt)
                         : dateNa;
-                      const note =
+                      const rawNote =
                         best?.notes &&
                         (statusId === "resubmit" || statusId === "rejected")
-                          ? truncate(best.notes, 250)
+                          ? best.notes
                           : null;
+
+                      // Format timestamps BEFORE truncating so an ISO string is never cut in half.
+                      const note = rawNote ? truncate(formatNoteTimestamps(rawNote), 250) : null;
                       const isLocked =
                         statusId === "pending" || statusId === "approved";
                       const formatGroup =
                         docTypesById.get(docTypeId)?.format_group ?? null;
                       return (
-                        <DocumentRequirementRow
-                          key={docTypeId}
-                          title={tGlobal(`DocumentTypes.${docTypeId}.label`)}
-                          description={tGlobal(
-                            `DocumentTypes.${docTypeId}.desc`,
-                          )}
-                          required={req.required}
-                          requiredLabel={tDocs("list.requiredBadge")}
-                          statusLabel={statusLabel}
-                          statusTone={statusTone}
-                          note={note}
-                          uploadedOnLabel={tDocs("list.uploadedOn")}
-                          uploadedOnValue={uploadedAtLabel}
-                          action={
-                            <DocumentUploadForm
-                              applicationId={id}
-                              documentReq={{
-                                id: docTypeId,
-                                labelKey: docTypeId,
-                                required: req.required,
-                                formatGroup,
-                              }}
-                              uploadedDoc={best as any}
-                              clientName={clientName}
-                              isLocked={isLocked}
-                              applicationFolderId={applicationFolderIdForUpload}
-                            />
-                          }
-                        />
+						<DocumentRequirementRowStateful
+						  key={docTypeId}
+						  title={tGlobal(`DocumentTypes.${docTypeId}.label`)}
+						  description={tGlobal(`DocumentTypes.${docTypeId}.desc`)}
+						  required={req.required}
+						  requiredLabel={tDocs("list.requiredBadge")}
+						  statusLabel={statusLabel}
+						  statusTone={statusTone}
+						  note={note}
+						  uploadedOnLabel={tDocs("list.uploadedOn")}
+						  uploadedOnValue={uploadedAtLabel}
+						  applicationId={id}
+						  documentReq={{
+						    id: docTypeId,
+						    labelKey: docTypeId,
+						    required: req.required,
+						    formatGroup,
+						  }}
+						  uploadedDoc={best as any}
+						  clientName={clientName}
+						  isLocked={isLocked}
+						  applicationFolderId={applicationFolderIdForUpload}
+						/>
                       );
                     })}
                   </div>

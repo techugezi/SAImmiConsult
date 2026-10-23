@@ -1448,14 +1448,7 @@ async function activateApplication(formData: FormData) {
     throw new Error("Failed to link case to application.");
   }
 
-  redirect(
-    buildCaseDetailsUrl({
-      locale,
-      caseId,
-      params: { saved: "activation", status: "application_activated" },
-      openPanel: "activation",
-    }),
-  );
+  redirect(`/${locale}${siteConfig.adminApplicationDetailsPath(applicationId)}`);
 }
 
 // ─────────────────────────────────────────────

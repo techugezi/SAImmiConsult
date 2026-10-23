@@ -1,8 +1,9 @@
-/* StatusStepWizard.module.css
-   Aligned with the dashboard / journey "glass-light" system:
-   protea-pink accent, 2rem card radius, pill markers, clamp + container queries,
-   900-weight headings, uppercase tracked micro-labels.
-   Class names are unchanged, so the TSX needs no edits. */
+/*
+DOC NAME: StatusStepWizard.module.css
+LOCATION: /src/components/progression/StatusStepWizard.module.css
+SCOPE: StatusStepWizard — a module CSS file for the StatusStepWizard component. It defines the layout, spacing, and visual treatments for the wizard, including the header, progress track, step list, and hint sections.
+STATUS: UNLOCKED (lock after approved)
+*/
 
 /* =========================
    SHELL
@@ -100,23 +101,29 @@
 }
 
 /* =========================
-   PROGRESS
+   PROGRESS (segmented, matches intake wizard)
    ========================= */
 
 .progressTrack {
   width: 100%;
-  height: 0.5rem;
-  overflow: hidden;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.08);
+  display: flex;
+  gap: var(--space-2, 0.5rem);
+  background: none;
+  overflow: visible;
+  border-radius: 0;
+  height: auto;
 }
 
-.progressFill {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
+.progressSegment {
+  flex: 1;
+  height: 6px;
+  border-radius: var(--radius-pill, 999px);
+  background: color-mix(in srgb, var(--panel-border, rgba(15, 23, 42, 0.08)) 70%, transparent);
+  transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.progressSegmentFilled {
   background: var(--protea-pink);
-  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* =========================
@@ -137,9 +144,14 @@
   gap: 0.6rem;
 }
 
+/*
+  auto-fit + 1fr makes each step share the full row width equally,
+  whatever the step count (3, 5, or 1 for terminal cases).
+  No empty tracks are created, so N steps always span the full panel.
+*/
 @container wizard (min-width: 680px) {
   .stepList {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
   }
 }
 
@@ -259,7 +271,7 @@
    ========================= */
 
 @media (prefers-reduced-motion: reduce) {
-  .progressFill,
+  .progressSegment,
   .step {
     transition: none !important;
   }

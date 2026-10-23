@@ -54,12 +54,12 @@
         "help": "Applications waiting for required documents from clients."
       },
       "review": {
-        "label": "Under review",
-        "helpText": "Documents submitted and currently under review."
+        "label": "To be reviewed",
+        "helpText": "Documents submitted and to be reviewed."
       },
       "documents_under_review": {
-        "label": "Under review",
-        "help": "Documents submitted and currently under review."
+        "label": "To be reviewed",
+        "help": "Documents submitted and to be reviewed."
       },
       "actionNeeded": {
         "label": "Action needed",

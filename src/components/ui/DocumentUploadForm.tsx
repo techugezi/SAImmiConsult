@@ -7,7 +7,15 @@ STATUS: UNLOCKED (lock after approved)
 
 "use client";
 
-import { useCallback, useMemo, useRef, useState, useTransition, type ChangeEvent } from "react";
+import {
+	useCallback,
+	useEffect,
+	useMemo,
+	useRef,
+	useState,
+	useTransition,
+	type ChangeEvent,
+} from "react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 
@@ -50,6 +58,7 @@ type Props = {
 	isLocked?: boolean;
 	applicationFolderId: string;
 	onUploadSuccess?: () => void;
+	onFileSelectedChange?: (hasSelectedFile: boolean) => void;
 };
 
 function UploadIcon() {
@@ -80,6 +89,7 @@ export default function DocumentUploadForm({
 	clientName,
 	applicationFolderId,
 	onUploadSuccess,
+	onFileSelectedChange,
 	isLocked = false,
 }: Props) {
 	const t = useTranslations("ClientDocuments");
@@ -115,6 +125,13 @@ export default function DocumentUploadForm({
 		inputRef.current?.click();
 	}, [isDisabled]);
 
+	// Single source of truth: fire on every change of `file` (not just when
+	// it becomes truthy). This is what tells the parent row to flip
+	// pink/blue → idle on cancel and blue → green on success.
+	useEffect(() => {
+		onFileSelectedChange?.(Boolean(file));
+	}, [file, onFileSelectedChange]);
+
 	const handleFileChange = useCallback(
 		(event: ChangeEvent<HTMLInputElement>) => {
 			if (isDisabled) return;
@@ -129,7 +146,9 @@ export default function DocumentUploadForm({
 			}
 
 			if (selectedFile.size > MAX_FILE_SIZE_BYTES) {
-				setUploadError(t("upload.fileTooLarge", { size: MAX_FILE_SIZE_MB }));
+				setUploadError(
+					t("upload.fileTooLarge", { size: MAX_FILE_SIZE_MB }),
+				);
 				setFile(null);
 				clearFileInput();
 				return;
@@ -212,7 +231,9 @@ export default function DocumentUploadForm({
 
 			{file ? (
 				<div className={styles.pendingBox}>
-					<p className="text-sm text-muted">{t("upload.fileSelected", { fileName: file.name })}</p>
+					<p className="text-sm text-muted">
+						{t("upload.fileSelected", { fileName: file.name })}
+					</p>
 
 					<div className={styles.actionsRow}>
 						<button
@@ -230,7 +251,9 @@ export default function DocumentUploadForm({
 							onClick={handleUpload}
 							disabled={isDisabled}
 						>
-							{isPending ? t("upload.uploading") : t("upload.confirm")}
+							{isPending
+								? t("upload.uploading")
+								: t("upload.confirm")}
 						</button>
 					</div>
 				</div>
@@ -243,7 +266,11 @@ export default function DocumentUploadForm({
 					aria-disabled={isDisabled ? "true" : "false"}
 				>
 					<UploadIcon />
-					<span>{uploadedDoc ? t("upload.replace") : t("upload.button")}</span>
+					<span>
+						{uploadedDoc
+							? t("upload.replace")
+							: t("upload.button")}
+					</span>
 				</button>
 			)}
 
@@ -253,15 +280,20 @@ export default function DocumentUploadForm({
 
 			<div className={styles.helper}>
 				<p className="text-sm text-muted">
-					<span className="text-bold">{t("list.formats")}:</span> {acceptedExts.join(", ")}
+					<span className="text-bold">{t("list.formats")}:</span>{" "}
+					{acceptedExts.join(", ")}
 				</p>
 				<p className="text-sm text-muted">
-					<span className="text-bold">{t("list.maxSize", { size: MAX_FILE_SIZE_MB })}</span>
+					<span className="text-bold">
+						{t("list.maxSize", { size: MAX_FILE_SIZE_MB })}
+					</span>
 				</p>
 			</div>
 
 			{uploadSuccess && !uploadError ? (
-				<p className={`${styles.message} text-sm`}>{t("upload.success")}</p>
+				<p className={`${styles.message} text-sm`}>
+					{t("upload.success")}
+				</p>
 			) : null}
 		</div>
 	);

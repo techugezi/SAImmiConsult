@@ -10,7 +10,7 @@
       "1": "Get started",
       "2": "Consultation",
       "3": "Your visa plan",
-      "4": "Curating documents",
+      "4": "Documents",
       "5": "Your visa journey"
     },
     "stepOf": "Step {current} of {total}: {stage}",

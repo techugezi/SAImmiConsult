@@ -194,6 +194,7 @@
       "goToDashboardLink": "Back to My Portal"
     },
     "messages": {
+      "passportExpiringSoon": "Your passport expires within 6 months. Please renew it before continuing.",
       "notAuthenticated": "Please sign in to continue.",
       "saveFailed": "Your profile could not be saved. Please try again.",
       "saveSuccess": "Your profile has been saved.",

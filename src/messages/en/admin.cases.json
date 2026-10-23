@@ -131,7 +131,7 @@
       "guardrails": {
         "title": "Help & Guidance",
         "requestedTitle": "When to set the status to 'Consultation requested'",
-        "requestedBody": "This is to notify the client that you are requesting a consultation with them. You can proceed without a scheduled channel and date, but the client should be contacted in advance to book.",
+        "requestedBody": "This is to notify the client that you are requesting a consultation with them. You must add a note that specifies your request. You can proceed without a scheduled channel and date, but the client should be contacted in advance to book.",
         "bookedTitle": "When to set the status to 'Consultation booked'",
         "bookedItemChannel": "This is to notify that the consultation details have been finalised with the client with the date and channel set.",
         "bookedItemDatetime": "Consultation channel & date/time must be set, link is optional",
@@ -142,7 +142,7 @@
         "channel": "Channel",
         "scheduledFor": "Scheduled for",
         "link": "Meeting link (optional but recommended for clients visibility)",
-        "note": "Notes for client (optional)",
+        "note": "Notes for client",
         "transition": "Status transition"
       },
       "placeholders": {

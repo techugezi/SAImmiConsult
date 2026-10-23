@@ -575,7 +575,7 @@ async function updateJourneyPanel(formData: FormData) {
 
   if (isTerminal && wantsChangeStatus) {
     redirect(
-      `/${locale}${siteConfig.adminApplicationsPath}/${applicationId}#application-wizard`,
+      `/${locale}${siteConfig.adminApplicationsPath}/${applicationId}?stage=${encodeURIComponent(requestedStage || "outcome")}#application-wizard`,
     );
   }
 
@@ -596,7 +596,7 @@ async function updateJourneyPanel(formData: FormData) {
 
   if (Object.keys(payload).length === 1) {
     redirect(
-      `/${locale}${siteConfig.adminApplicationsPath}/${applicationId}#application-wizard`,
+      `/${locale}${siteConfig.adminApplicationsPath}/${applicationId}?stage=${encodeURIComponent(requestedStage || "")}#application-wizard`,
     );
   }
 
@@ -1656,12 +1656,35 @@ export default async function AdminApplicationDetailPage({
                           );
                           const checkboxDisabled =
                             !latest || !latest.drive_link || documentsLocked;
+                          // Row state tint — driven by the latest document's real status.
+                          // - "resubmit" / "rejected" → needs attention (protea pink)
+                          // - "approved"              → reviewed / green
+                          // - everything else         → neutral (default surface-soft)
+                          const rowStateClass =
+                            status === "resubmit" || status === "rejected"
+                              ? styles.checkRowNeedsAttention
+                              : status === "approved"
+                                ? styles.checkRowApproved
+                                : "";
                           const checkboxId = `doc-${app.id}-${r.document_type_id}`;
                           return (
-                            <div
-                              key={r.document_type_id}
-                              className={`surface-soft ${styles.checkRow}`}
-                            >
+                               <div
+                                key={r.document_type_id}
+                                className={[
+                                  "surface-soft",
+                                  styles.checkRow,
+                                  rowStateClass,
+                                ]
+                                  .filter(Boolean)
+                                  .join(" ")}
+                                data-doc-state={
+                                  status === "resubmit" || status === "rejected"
+                                    ? "needs-attention"
+                                    : status === "approved"
+                                      ? "approved"
+                                      : "neutral"
+                                }
+                              >
                               <label
                                 htmlFor={checkboxId}
                                 className={styles.checkRowOverlay}

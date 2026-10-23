@@ -52,6 +52,13 @@ SCOPE: Client account/intake layout only. Mirrors the New Case wizard layout pri
   gap: var(--space-4);
 }
 
+/* Completed profile view: stack the section cards with consistent vertical rhythm */
+.completedSections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);   /* --space-4 is tighter, --space-6 is airier */
+}
+
 .grid2 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

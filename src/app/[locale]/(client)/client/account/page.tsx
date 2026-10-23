@@ -274,6 +274,9 @@ export default function ClientProfileIntakePage() {
 	const [currentStep, setCurrentStep] = useState(0);
 	const [hasStarted, setHasStarted] = useState(false);
 	const [isCompleted, setIsCompleted] = useState(false);
+	// Flipped true once the initial load resolves (profile + progress).
+	// Prevents the wizard/readiness UI from flashing for already-completed users.
+	const [hasLoadedIntakeState, setHasLoadedIntakeState] = useState(false);
 
 	const { isLoading, isSubmitting, formError, formSuccess } = state;
 
@@ -505,6 +508,7 @@ export default function ClientProfileIntakePage() {
 				initialSnapshotRef.current = buildComparableSnapshot(EMPTY_VALUES);
 			} finally {
 				if (!cancelled) {
+					setHasLoadedIntakeState(true);
 					setLoading(false);
 				}
 			}
@@ -814,43 +818,51 @@ export default function ClientProfileIntakePage() {
 				</div>
 
 				<form className={`stack ${styles.form}`} onSubmit={handleSubmit}>
-					<div className={hasStarted && !isCompleted ? `surface-soft ${styles.card}` : undefined}>
-					{!hasStarted ? (
-						<section className={`surface-soft ${styles.section} ${styles.readiness}`}>
-							<h2 className="panel-title">{t("wizard.readinessTitle")}</h2>
-							<p className="text-m text-muted">{t("wizard.readinessDescription")}</p>
-							<ul className="text">
-								<li>{t("wizard.readinessPassport")}</li>
-								<li>{t("wizard.readinessVisa")}</li>
-							</ul>
-							{formError ? <div className="alert badge-caution" role="alert" aria-live="polite">{formError}</div> : null}
-							<div className={styles.actions}>
-								<button type="button" className="button button-primary" onClick={beginWizard} disabled={disableAll}>
-									{isSubmitting ? t("actions.saving") : t("wizard.readyButton")}
-								</button>
-								<Link href={siteConfig.clientDashboardPath} className="button button-ghost">
-									{t("wizard.notNowButton")}
-								</Link>
-							</div>
-						</section>
-					) : !isCompleted ? (
-						<>
-							<div className={styles.stepper} aria-label={t("wizard.progressLabel")}>
-								<div className={styles.stepperHead}>
-									<span className="form-label" aria-current="step">
-										{t("wizard.stepLabel", { current: currentStep + 1, total: 6 })}
-									</span>
-									<strong className="text-md text-strong">{t(CLIENT_PROFILE_SECTIONS[currentStep].titleKey)}</strong>
+					<div className={!hasLoadedIntakeState ? undefined : isCompleted ? styles.completedSections : `surface-soft ${styles.card}`}>					
+					{!hasLoadedIntakeState ? (
+					    <section className={`surface-soft ${styles.section}`} aria-busy="true">
+					        <p className="text-m text-muted">{t("actions.loading")}</p>
+					    </section>
+					) : (
+					    <>	
+						{!hasStarted ? (
+							<section className={`surface-soft ${styles.section} ${styles.readiness}`}>
+								<h2 className="panel-title">{t("wizard.readinessTitle")}</h2>
+								<p className="text-m text-muted">{t("wizard.readinessDescription")}</p>
+								<ul className="text">
+									<li>{t("wizard.readinessPassport")}</li>
+									<li>{t("wizard.readinessVisa")}</li>
+								</ul>
+								{formError ? <div className="alert badge-caution" role="alert" aria-live="polite">{formError}</div> : null}
+								<div className={styles.actions}>
+									<button type="button" className="button button-primary" onClick={beginWizard} disabled={disableAll}>
+										{isSubmitting ? t("actions.saving") : t("wizard.readyButton")}
+									</button>
+									<Link href={siteConfig.clientDashboardPath} className="button button-ghost">
+										{t("wizard.notNowButton")}
+									</Link>
 								</div>
-								<div className={`wizard-progress ${styles.stepperProgress}`} role="progressbar" aria-valuemin={1} aria-valuemax={6} aria-valuenow={currentStep + 1}>
-									{Array.from({ length: 6 }, (_, index) => (
-										<div key={index} className={`wizard-progressSegment ${currentStep >= index ? "isFilled" : ""}`} />
-									))}
+							</section>
+						) : !isCompleted ? (
+							<>
+								<div className={styles.stepper} aria-label={t("wizard.progressLabel")}>
+									<div className={styles.stepperHead}>
+										<span className="form-label" aria-current="step">
+											{t("wizard.stepLabel", { current: currentStep + 1, total: 6 })}
+										</span>
+										<strong className="text-md text-strong">{t(CLIENT_PROFILE_SECTIONS[currentStep].titleKey)}</strong>
+									</div>
+									<div className={`wizard-progress ${styles.stepperProgress}`} role="progressbar" aria-valuemin={1} aria-valuemax={6} aria-valuenow={currentStep + 1}>
+										{Array.from({ length: 6 }, (_, index) => (
+											<div key={index} className={`wizard-progressSegment ${currentStep >= index ? "isFilled" : ""}`} />
+										))}
+									</div>
 								</div>
-							</div>
-						</>
-					) : null}
-					{(isCompleted || (hasStarted && currentStep === 0)) && (
+							</>
+						) : null}
+					    </>
+					)}
+					{hasLoadedIntakeState && (isCompleted || (hasStarted && currentStep === 0)) && (
 					
 					<section className={`${isCompleted ? "surface-soft " : ""}${styles.section}`}>
 						<div className="stack" style={{ gap: "var(--space-2)" }}>
@@ -974,7 +986,7 @@ export default function ClientProfileIntakePage() {
 					</section>
 					)}
 
-					{(isCompleted || (hasStarted && currentStep === 1)) && (
+					{hasLoadedIntakeState && (isCompleted || (hasStarted && currentStep === 1)) && (
 					
 					<section className={`${isCompleted ? "surface-soft " : ""}${styles.section}`}>
 						<h2 className="panel-title">{t(CLIENT_PROFILE_SECTIONS[1].titleKey)}</h2>
@@ -1161,7 +1173,7 @@ export default function ClientProfileIntakePage() {
 					</section>
 					)}
 
-					{(isCompleted || (hasStarted && currentStep === 2)) && (
+					{hasLoadedIntakeState && (isCompleted || (hasStarted && currentStep === 2)) && (
 					
 					<section className={`${isCompleted ? "surface-soft " : ""}${styles.section}`}>
 						<h2 className="panel-title">{t(CLIENT_PROFILE_SECTIONS[2].titleKey)}</h2>
@@ -1228,7 +1240,7 @@ export default function ClientProfileIntakePage() {
 					</section>
 					)}
 
-					{(isCompleted || (hasStarted && currentStep === 3)) && (
+					{hasLoadedIntakeState && (isCompleted || (hasStarted && currentStep === 3)) && (
 					
 					<section className={`${isCompleted ? "surface-soft " : ""}${styles.section}`}>
 						<h2 className="panel-title">{t(CLIENT_PROFILE_SECTIONS[3].titleKey)}</h2>
@@ -1329,7 +1341,7 @@ export default function ClientProfileIntakePage() {
 					</section>
 					)}
 
-					{(isCompleted || (hasStarted && currentStep === 4)) && (
+					{hasLoadedIntakeState && (isCompleted || (hasStarted && currentStep === 4)) && (
 					
 					<section className={`${isCompleted ? "surface-soft " : ""}${styles.section}`}>
 						<h2 className="panel-title">{t(CLIENT_PROFILE_SECTIONS[4].titleKey)}</h2>
@@ -1370,7 +1382,7 @@ export default function ClientProfileIntakePage() {
 					</section>
 					)}
 
-					{(isCompleted || (hasStarted && currentStep === 5)) && (
+					{hasLoadedIntakeState && (isCompleted || (hasStarted && currentStep === 5)) && (
 					
 					<section className={`${isCompleted ? "surface-soft " : ""}${styles.section}`}>
 						<h2 className="panel-title">{t(CLIENT_PROFILE_SECTIONS[5].titleKey)}</h2>
@@ -1423,7 +1435,7 @@ export default function ClientProfileIntakePage() {
 					</section>
 					)}
 
-					{hasStarted ? (
+					{hasLoadedIntakeState && hasStarted ? (
 						<div className={styles.actions}>
 							{formSuccess ? <div className="alert badge-success" role="status" aria-live="polite">{formSuccess}</div> : null}
 							{formError ? <div className="alert badge-caution" role="alert" aria-live="polite">{formError}</div> : null}

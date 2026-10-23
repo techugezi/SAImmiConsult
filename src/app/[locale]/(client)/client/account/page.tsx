@@ -826,7 +826,7 @@ export default function ClientProfileIntakePage() {
 					) : (
 					    <>	
 						{!hasStarted ? (
-							<section className={`surface-soft ${styles.section} ${styles.readiness}`}>
+							<section className={`${styles.section} ${styles.readiness}`}>
 								<h2 className="panel-title">{t("wizard.readinessTitle")}</h2>
 								<p className="text-m text-muted">{t("wizard.readinessDescription")}</p>
 								<ul className="text">
